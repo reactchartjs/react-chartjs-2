@@ -2,7 +2,7 @@
   "name": "react-chartjs-2",
   "version": "1.0.0",
   "description": "react-chartjs-2",
-  "main": "lib/index.js",
+  "main": "lib/Chart.js",
   "author": "Goran Udosic",
   "homepage": "https://github.com/gor181/react-chartjs-2",
   "repository": {

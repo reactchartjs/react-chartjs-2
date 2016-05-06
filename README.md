@@ -1,0 +1,60 @@
+# react-chartjs-2
+
+React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)
+
+
+## Demo & Examples
+
+Live demo: [gor181.github.io/react-chartjs-2](http://gor181.github.io/react-chartjs-2/)
+
+To build the examples locally, run:
+
+```
+npm install
+npm start
+```
+
+Then open [`localhost:8000`](http://localhost:8000) in a browser.
+
+
+## Installation via NPM
+
+```
+npm install react-chartjs-2 chart.js uid --save
+```
+
+
+## Usage
+
+Check example/src/components/* for usage.
+
+```
+import {Doughnut} from 'react-chartjs-2';
+
+<Doughnut data={...} />
+```
+
+### Properties
+
+* data: PropTypes.object.isRequired,
+* height: PropTypes.number,
+* legend: PropTypes.object,
+* options: PropTypes.object,
+* redraw: PropTypes.bool,
+* width: PropTypes.number
+
+
+## Development (`src`, `lib` and the build process)
+
+**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
+
+To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
+
+## Thanks  
+
+Jed Watson for making react-component yo builder!
+
+## License
+
+MIT Licensed  
+Copyright (c) 2016 Goran Udosic && Headstart App.

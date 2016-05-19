@@ -1,8 +1,8 @@
 {
   "name": "react-chartjs-2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "react-chartjs-2",
-  "main": "lib/index.js",
+  "main": "lib/Chart.js",
   "author": "Goran Udosic",
   "homepage": "https://github.com/gor181/react-chartjs-2",
   "repository": {
@@ -13,9 +13,7 @@
     "url": "https://github.com/gor181/react-chartjs-2/issues"
   },
   "dependencies": {
-    "chart.js": "^2.1.0",
-    "classnames": "^2.1.2",
-    "uid": "0.0.2"
+    "chart.js": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",

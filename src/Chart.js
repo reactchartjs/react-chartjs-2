@@ -2,8 +2,6 @@ import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
 
-import uid from 'uid';
-
 const ChartComponent = React.createClass({
 
 	displayName: 'ChartComponent',
@@ -33,7 +31,6 @@ const ChartComponent = React.createClass({
 
 	componentWillMount() {
 		this.chart_instance = undefined;
-    this.chart_uid = uid(10);
 	},
 
 	componentDidMount() {
@@ -57,17 +54,13 @@ const ChartComponent = React.createClass({
 
 	renderChart() {
     const {data, options, legend, type} = this.props;
-    const node = ReactDOM.findDOMNode(this.refs[this.getRefKey()]);
+    const node = ReactDOM.findDOMNode(this);
 
     this.chart_instance = new Chart(node, {
       type,
       data,
       options
     });
-  },
-
-  getRefKey() {
-    return `chart-${this.chart_uid}`;
   },
 
   render() {
@@ -77,8 +70,6 @@ const ChartComponent = React.createClass({
       <canvas
 				height={height}
 				width={width}
-				ref={this.getRefKey()}
-				key={this.chart_uid}
 			/>
     );
   }

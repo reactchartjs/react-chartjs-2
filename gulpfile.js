@@ -15,11 +15,9 @@ var taskConfig = {
 	component: {
 		name: 'Chart',
 		dependencies: [
-			'classnames',
 			'react',
 			'react-dom',
-			'chart.js',
-			'uid'
+			'chart.js'
 		],
 		lib: 'lib'
 	},

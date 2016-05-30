@@ -7,6 +7,7 @@ import LineExample from './components/line';
 import BarExample from './components/bar';
 import RadarExample from './components/radar';
 import PolarExample from './components/polar';
+import MixedDataExample from './components/mix';
 
 class App extends React.Component {
 	render() {
@@ -24,6 +25,8 @@ class App extends React.Component {
 				<RadarExample />
 				<hr />
 				<PolarExample />
+				<hr />
+				<MixedDataExample />
 			</div>
 		);
 	}

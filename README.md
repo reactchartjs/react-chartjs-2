@@ -1,6 +1,7 @@
 # react-chartjs-2
 
-React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)
+React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)  
+Open for PR's and contributions!
 
 
 ## Demo & Examples
@@ -20,7 +21,7 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 ## Installation via NPM
 
 ```
-npm install react-chartjs-2 chart.js uid --save
+npm install react-chartjs-2 chart.js --save
 ```
 
 

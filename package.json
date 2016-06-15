@@ -25,7 +25,8 @@
     "react-dom": "^0.14.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "^0.14 || ^15.0.0-rc || ^15.0",
+    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
   },
   "browserify-shim": {
     "react": "global:React"

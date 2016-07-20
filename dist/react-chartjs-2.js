@@ -29,6 +29,10 @@ var _chartJs = require('chart.js');
 
 var _chartJs2 = _interopRequireDefault(_chartJs);
 
+var _utilsDeepEqual = require('./utils/deepEqual');
+
+var _utilsDeepEqual2 = _interopRequireDefault(_utilsDeepEqual);
+
 var ChartComponent = _react2['default'].createClass({
 
 	displayName: 'ChartComponent',
@@ -52,7 +56,7 @@ var ChartComponent = _react2['default'].createClass({
 			type: 'doughnut',
 			height: 200,
 			width: 200,
-			redraw: true
+			redraw: false
 		};
 	},
 
@@ -68,23 +72,55 @@ var ChartComponent = _react2['default'].createClass({
 		if (this.props.redraw) {
 			this.chart_instance.destroy();
 			this.renderChart();
+		} else {
+			this.updateChart();
 		}
 	},
 
-	shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
-		return this.props !== nextProps;
+	_objectWithoutProperties: function _objectWithoutProperties(obj, keys) {
+		var target = {};
+		for (var i in obj) {
+			if (keys.indexOf(i) >= 0) continue;
+			if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+			target[i] = obj[i];
+		}
+		return target;
+	},
+
+	shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
+		var compareNext = this._objectWithoutProperties(nextProps, ["id", "width", "height"]);
+		var compareNow = this._objectWithoutProperties(this.props, ["id", "width", "height"]);
+		return !(0, _utilsDeepEqual2['default'])(compareNext, compareNow, { strict: true });
 	},
 
 	componentWillUnmount: function componentWillUnmount() {
 		this.chart_instance.destroy();
 	},
 
-	renderChart: function renderChart() {
+	updateChart: function updateChart() {
+		var _this = this;
+
 		var _props = this.props;
 		var data = _props.data;
 		var options = _props.options;
-		var legend = _props.legend;
-		var type = _props.type;
+
+		this.chart_instance.options.scales.xAxes[0].ticks.min = options.scales.xAxes[0].ticks.min;
+		this.chart_instance.options.scales.xAxes[0].ticks.max = options.scales.xAxes[0].ticks.max;
+		this.chart_instance.options.scales.xAxes[0].fixedBarWidth = options.scales.xAxes[0].fixedBarWidth;
+
+		data.datasets.forEach(function (dataset, index) {
+			_this.chart_instance.data.datasets[index].backgroundColor = dataset.backgroundColor;
+		});
+
+		this.chart_instance.update();
+	},
+
+	renderChart: function renderChart() {
+		var _props2 = this.props;
+		var data = _props2.data;
+		var options = _props2.options;
+		var legend = _props2.legend;
+		var type = _props2.type;
 
 		var node = _reactDom2['default'].findDOMNode(this);
 
@@ -96,9 +132,9 @@ var ChartComponent = _react2['default'].createClass({
 	},
 
 	render: function render() {
-		var _props2 = this.props;
-		var height = _props2.height;
-		var width = _props2.width;
+		var _props3 = this.props;
+		var height = _props3.height;
+		var width = _props3.width;
 
 		return _react2['default'].createElement('canvas', {
 			height: height,
@@ -134,5 +170,59 @@ function Polar(props) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"chart.js":undefined,"react-dom":undefined}]},{},[1])(1)
+},{"./utils/deepEqual":2,"chart.js":undefined,"react-dom":undefined}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+var is = function is(x, y) {
+	// SameValue algorithm
+	if (x === y) {
+		// Steps 1-5, 7-10
+		// Steps 6.b-6.e: +0 != -0
+		return x !== 0 || 1 / x === 1 / y;
+	} else {
+		// Step 6.a: NaN == NaN
+		return x !== x && y !== y;
+	}
+};
+
+var deepEqual = function deepEqual(objA, objB) {
+	if (is(objA, objB)) {
+		return true;
+	}
+
+	if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+		return false;
+	}
+
+	var keysA = Object.keys(objA);
+
+	// Test for A's keys different from B.
+	for (var i = 0; i < keysA.length; i++) {
+		if (!hasOwnProperty.call(objB, keysA[i])) {
+			return false;
+		}
+	}
+
+	for (var propty in objA) {
+		if (objB.hasOwnProperty(propty)) {
+			if (!deepEqual(objA[propty], objB[propty])) {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	return true;
+};
+
+exports['default'] = deepEqual;
+module.exports = exports['default'];
+
+},{}]},{},[1])(1)
 });

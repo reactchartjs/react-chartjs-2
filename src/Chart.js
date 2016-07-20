@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
+import deepEqual from './utils/deepEqual';
 
 const ChartComponent = React.createClass({
 
@@ -22,10 +23,10 @@ const ChartComponent = React.createClass({
 				display: true,
 				position: 'bottom'
 			},
-		  type: 'doughnut',
+			type: 'doughnut',
 			height: 200,
 			width: 200,
-			redraw: true
+			redraw: false
 		};
 	},
 
@@ -34,69 +35,99 @@ const ChartComponent = React.createClass({
 	},
 
 	componentDidMount() {
-    this.renderChart();
-  },
-
-  componentDidUpdate() {
-		if (this.props.redraw) {
-			this.chart_instance.destroy();
-	    this.renderChart();
-		}
-  },
-
-	shouldComponentUpdate(nextProps) {
-		return this.props !== nextProps;
+		this.renderChart();
 	},
 
-  componentWillUnmount() {
-    this.chart_instance.destroy();
-  },
+	componentDidUpdate() {
+		if (this.props.redraw) {
+			this.chart_instance.destroy();
+			this.renderChart();
+		} else {
+			this.updateChart();
+		}
+	},
+
+	_objectWithoutProperties (obj, keys) {
+		var target = {};
+		for (var i in obj) {
+			if (keys.indexOf(i) >= 0) continue;
+			if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+			target[i] = obj[i];
+		}
+		return target;
+	},
+
+	shouldComponentUpdate(nextProps, nextState) {
+		const compareNext = this._objectWithoutProperties(nextProps, ["id", "width", "height"]);
+		const compareNow = this._objectWithoutProperties(this.props, ["id", "width", "height"]);
+		return !deepEqual(compareNext, compareNow, {strict: true});
+	},
+
+	componentWillUnmount() {
+		this.chart_instance.destroy();
+	},
+
+	updateChart() {
+		const {data, options} = this.props;
+		
+		if (!this.chart_instance) return;
+		
+		this.chart_instance.options.scales.xAxes[0].ticks.min = options.scales.xAxes[0].ticks.min;
+		this.chart_instance.options.scales.xAxes[0].ticks.max = options.scales.xAxes[0].ticks.max;
+		this.chart_instance.options.scales.xAxes[0].fixedBarWidth = options.scales.xAxes[0].fixedBarWidth;
+		
+		data.datasets.forEach((dataset, index) => {
+			this.chart_instance.data.datasets[index].backgroundColor = dataset.backgroundColor;
+		});
+		
+		this.chart_instance.update();
+	},
 
 	renderChart() {
-    const {data, options, legend, type} = this.props;
-    const node = ReactDOM.findDOMNode(this);
+		const {data, options, legend, type} = this.props;
+		const node = ReactDOM.findDOMNode(this);
 
-    this.chart_instance = new Chart(node, {
-      type,
-      data,
-      options
-    });
-  },
+		this.chart_instance = new Chart(node, {
+			type,
+			data,
+			options
+		});
+	},
 
-  render() {
+	render() {
 		const {height, width} = this.props;
 
-    return (
-      <canvas
+		return (
+			<canvas
 				height={height}
 				width={width}
 			/>
-    );
-  }
+		);
+	}
 });
 
 export default ChartComponent;
 
-export function Doughnut(props) {
+export function Doughnut (props) {
 	return <ChartComponent {...props} type='doughnut' />;
 }
 
-export function Pie(props) {
+export function Pie (props) {
 	return <ChartComponent {...props} type='pie' />;
 }
 
-export function Line(props) {
+export function Line (props) {
 	return <ChartComponent {...props} type='line' />;
 }
 
-export function Bar(props) {
+export function Bar (props) {
 	return <ChartComponent {...props} type='bar' />;
 }
 
-export function Radar(props) {
+export function Radar (props) {
 	return <ChartComponent {...props} type='radar' />;
 }
 
-export function Polar(props) {
+export function Polar (props) {
 	return <ChartComponent {...props} type='polarArea' />;
 }

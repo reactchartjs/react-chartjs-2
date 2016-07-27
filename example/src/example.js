@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import DoughnutExample from './components/doughnut';
+import DynamicDoughnutExample from './components/dynamic-doughnut';
 import PieExample from './components/pie';
 import LineExample from './components/line';
 import BarExample from './components/bar';
@@ -15,6 +16,8 @@ class App extends React.Component {
 			<div>
 				<hr />
 				<DoughnutExample />
+				<hr />
+				<DynamicDoughnutExample />
 				<hr />
 				<PieExample />
 				<hr />

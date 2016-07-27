@@ -58,8 +58,8 @@ const ChartComponent = React.createClass({
 	},
 
 	shouldComponentUpdate(nextProps, nextState) {
-		const compareNext = this._objectWithoutProperties(nextProps, ["id", "width", "height"]);
-		const compareNow = this._objectWithoutProperties(this.props, ["id", "width", "height"]);
+		const compareNext = this._objectWithoutProperties(nextProps, ['id', 'width', 'height']);
+		const compareNow = this._objectWithoutProperties(this.props, ['id', 'width', 'height']);
 		return !deepEqual(compareNext, compareNow, {strict: true});
 	},
 
@@ -69,17 +69,17 @@ const ChartComponent = React.createClass({
 
 	updateChart() {
 		const {data, options} = this.props;
-		
+
 		if (!this.chart_instance) return;
-		
-		this.chart_instance.options.scales.xAxes[0].ticks.min = options.scales.xAxes[0].ticks.min;
-		this.chart_instance.options.scales.xAxes[0].ticks.max = options.scales.xAxes[0].ticks.max;
-		this.chart_instance.options.scales.xAxes[0].fixedBarWidth = options.scales.xAxes[0].fixedBarWidth;
-		
+
+		if (options) {
+			Chart.helpers.configMerge(this.chart_instance.options, options);
+		}
+
 		data.datasets.forEach((dataset, index) => {
-			this.chart_instance.data.datasets[index].backgroundColor = dataset.backgroundColor;
+			this.chart_instance.data.datasets[index] = dataset;
 		});
-		
+
 		this.chart_instance.update();
 	},
 

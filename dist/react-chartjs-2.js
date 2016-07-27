@@ -88,8 +88,8 @@ var ChartComponent = _react2['default'].createClass({
 	},
 
 	shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
-		var compareNext = this._objectWithoutProperties(nextProps, ["id", "width", "height"]);
-		var compareNow = this._objectWithoutProperties(this.props, ["id", "width", "height"]);
+		var compareNext = this._objectWithoutProperties(nextProps, ['id', 'width', 'height']);
+		var compareNow = this._objectWithoutProperties(this.props, ['id', 'width', 'height']);
 		return !(0, _utilsDeepEqual2['default'])(compareNext, compareNow, { strict: true });
 	},
 
@@ -104,12 +104,14 @@ var ChartComponent = _react2['default'].createClass({
 		var data = _props.data;
 		var options = _props.options;
 
-		this.chart_instance.options.scales.xAxes[0].ticks.min = options.scales.xAxes[0].ticks.min;
-		this.chart_instance.options.scales.xAxes[0].ticks.max = options.scales.xAxes[0].ticks.max;
-		this.chart_instance.options.scales.xAxes[0].fixedBarWidth = options.scales.xAxes[0].fixedBarWidth;
+		if (!this.chart_instance) return;
+
+		if (options) {
+			_chartJs2['default'].helpers.configMerge(this.chart_instance.options, options);
+		}
 
 		data.datasets.forEach(function (dataset, index) {
-			_this.chart_instance.data.datasets[index].backgroundColor = dataset.backgroundColor;
+			_this.chart_instance.data.datasets[index] = dataset;
 		});
 
 		this.chart_instance.update();

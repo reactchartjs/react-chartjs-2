@@ -13,7 +13,7 @@ const ChartComponent = React.createClass({
 		legend: PropTypes.object,
 		options: PropTypes.object,
 		redraw: PropTypes.bool,
-		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'radar', 'polarArea']),
+		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea']),
 		width: PropTypes.number
 	},
 
@@ -122,6 +122,10 @@ export function Line (props) {
 
 export function Bar (props) {
 	return <ChartComponent {...props} type='bar' />;
+}
+
+export function HorizontalBar (props) {
+	return <ChartComponent {...props} type='horizontalBar' />;
 }
 
 export function Radar (props) {

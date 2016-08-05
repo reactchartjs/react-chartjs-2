@@ -12,6 +12,7 @@ exports.Doughnut = Doughnut;
 exports.Pie = Pie;
 exports.Line = Line;
 exports.Bar = Bar;
+exports.HorizontalBar = HorizontalBar;
 exports.Radar = Radar;
 exports.Polar = Polar;
 
@@ -43,7 +44,7 @@ var ChartComponent = _react2['default'].createClass({
 		legend: _react.PropTypes.object,
 		options: _react.PropTypes.object,
 		redraw: _react.PropTypes.bool,
-		type: _react.PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'radar', 'polarArea']),
+		type: _react.PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea']),
 		width: _react.PropTypes.number
 	},
 
@@ -161,6 +162,10 @@ function Line(props) {
 
 function Bar(props) {
 	return _react2['default'].createElement(ChartComponent, _extends({}, props, { type: 'bar' }));
+}
+
+function HorizontalBar(props) {
+	return _react2['default'].createElement(ChartComponent, _extends({}, props, { type: 'horizontalBar' }));
 }
 
 function Radar(props) {

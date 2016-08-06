@@ -74,12 +74,13 @@ const ChartComponent = React.createClass({
 		if (!this.chart_instance) return;
 
 		if (options) {
-			Chart.helpers.configMerge(this.chart_instance.options, options);
+			this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
 		}
 
-		data.datasets.forEach((dataset, index) => {
-			this.chart_instance.data.datasets[index] = dataset;
-		});
+		this.chart_instance.config.data = {
+			...this.chart_instance.config.data,
+			...data
+		};
 
 		this.chart_instance.update();
 	},

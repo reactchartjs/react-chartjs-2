@@ -45,6 +45,20 @@ import {Doughnut} from 'react-chartjs-2';
 * redraw: PropTypes.bool,
 * width: PropTypes.number
 
+### Chart instance  
+Chart instance can be accessed by placing a ref to the element as:
+
+```
+render() {
+	componentDidMount() {
+		console.log(this.refs.chart.chart_instance); // returns a Chart.js instance reference
+	}
+	return (
+		<Doughnut ref='chart' data={data} />
+	)
+}
+```
+
 ### Events
 
 #### onElementsClick (function)

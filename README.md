@@ -40,10 +40,23 @@ import {Doughnut} from 'react-chartjs-2';
 * data: PropTypes.object.isRequired,
 * height: PropTypes.number,
 * legend: PropTypes.object,
+* onElementsClick: PropTypes.func,
 * options: PropTypes.object,
 * redraw: PropTypes.bool,
 * width: PropTypes.number
 
+### Events
+
+#### onElementsClick (function)
+
+A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
+
+```
+{
+	onElementsClick: (elems) => {}
+	// `elems` is an array of chartElements
+}
+```
 
 ## Development (`src`, `lib` and the build process)
 

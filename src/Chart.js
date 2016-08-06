@@ -11,10 +11,11 @@ const ChartComponent = React.createClass({
 		data: PropTypes.object.isRequired,
 		height: PropTypes.number,
 		legend: PropTypes.object,
+		onElementsClick: PropTypes.func,
 		options: PropTypes.object,
 		redraw: PropTypes.bool,
-		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'radar', 'polarArea']),
-		width: PropTypes.number
+		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea']),
+		width: PropTypes.number,
 	},
 
 	getDefaultProps() {
@@ -26,7 +27,7 @@ const ChartComponent = React.createClass({
 			type: 'doughnut',
 			height: 200,
 			width: 200,
-			redraw: false
+			redraw: false,
 		};
 	},
 
@@ -94,13 +95,22 @@ const ChartComponent = React.createClass({
 		});
 	},
 
+	handleOnClick(evt) {
+		const elems = this.chart_instance.getElementsAtEvent(evt);
+		if (elems.length) {
+			const {onElementsClick} = this.props;
+			onElementsClick(elems);
+		}
+	},
+
 	render() {
-		const {height, width} = this.props;
+		const {height, width, onElementsClick} = this.props;
 
 		return (
 			<canvas
 				height={height}
 				width={width}
+				onClick={typeof onElementsClick === 'function' ? this.handleOnClick : null}
 			/>
 		);
 	}
@@ -122,6 +132,10 @@ export function Line (props) {
 
 export function Bar (props) {
 	return <ChartComponent {...props} type='bar' />;
+}
+
+export function HorizontalBar (props) {
+	return <ChartComponent {...props} type='horizontalBar' />;
 }
 
 export function Radar (props) {

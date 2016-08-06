@@ -56,8 +56,8 @@ var ChartComponent = _react2['default'].createClass({
 				position: 'bottom'
 			},
 			type: 'doughnut',
-			height: 200,
-			width: 200,
+			height: 150,
+			width: 300,
 			redraw: false
 		};
 	},

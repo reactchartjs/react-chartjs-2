@@ -1,6 +1,6 @@
 {
   "name": "react-chartjs-2",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "react-chartjs-2",
   "main": "lib/Chart.js",
   "author": "Goran Udosic",

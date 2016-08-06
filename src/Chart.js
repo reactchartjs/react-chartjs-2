@@ -119,30 +119,86 @@ const ChartComponent = React.createClass({
 
 export default ChartComponent;
 
-export function Doughnut (props) {
-	return <ChartComponent {...props} type='doughnut' />;
+export class Doughnut extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='doughnut'
+			/>
+		);
+	}
 }
 
-export function Pie (props) {
-	return <ChartComponent {...props} type='pie' />;
+export class Pie extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='pie'
+			/>
+		);
+	}
 }
 
-export function Line (props) {
-	return <ChartComponent {...props} type='line' />;
+export class Line extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='line'
+			/>
+		);
+	}
 }
 
-export function Bar (props) {
-	return <ChartComponent {...props} type='bar' />;
+export class Bar extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='bar'
+			/>
+		);
+	}
 }
 
-export function HorizontalBar (props) {
-	return <ChartComponent {...props} type='horizontalBar' />;
+export class HorizontalBar extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='horizontalBar'
+			/>
+		);
+	}
 }
 
-export function Radar (props) {
-	return <ChartComponent {...props} type='radar' />;
+export class Radar extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='radar'
+			/>
+		);
+	}
 }
 
-export function Polar (props) {
-	return <ChartComponent {...props} type='polarArea' />;
+export class Polar extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='polarArea'
+			/>
+		);
+	}
 }

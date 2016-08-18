@@ -59,8 +59,9 @@ const ChartComponent = React.createClass({
 	},
 
 	shouldComponentUpdate(nextProps, nextState) {
-		const compareNext = this._objectWithoutProperties(nextProps, ['id', 'width', 'height']);
-		const compareNow = this._objectWithoutProperties(this.props, ['id', 'width', 'height']);
+		const ignoredProperties = ['id', 'width', 'height', 'onElementsClick'];
+		const compareNext = this._objectWithoutProperties(nextProps, ignoredProperties);
+		const compareNow = this._objectWithoutProperties(this.props, ignoredProperties);
 		return !deepEqual(compareNext, compareNow, {strict: true});
 	},
 

@@ -17,9 +17,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
+    "babel-jest": "^14.1.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-1": "^6.13.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
     "gulp": "^3.9.0",
+    "jest": "^14.1.0",
     "react": "^0.14.0",
     "react-component-gulp-tasks": "^0.7.6",
     "react-dom": "^0.14.0"
@@ -38,8 +43,11 @@
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
-    "test": "echo \"no tests yet\" && exit 0",
+    "test": "jest",
     "watch": "gulp watch:lib"
+  },
+  "jest": {
+    "automock": false
   },
   "keywords": [
     "react",

@@ -1,3 +1,5 @@
+[![build status](https://travis-ci.org/gor181/react-chartjs-2.svg?branch=master)](https://travis-ci.org/gor181/react-chartjs-2)  
+
 # react-chartjs-2
 
 React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)  

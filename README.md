@@ -47,6 +47,20 @@ import {Doughnut} from 'react-chartjs-2';
 * redraw: PropTypes.bool,
 * width: PropTypes.number
 
+### Custom size
+In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:
+
+```
+<Bar
+	data={data}
+	width={100}
+	height={50}
+	options={{
+		maintainAspectRatio: false
+	}}
+/>
+```
+
 ### Chart instance  
 Chart instance can be accessed by placing a ref to the element as:
 

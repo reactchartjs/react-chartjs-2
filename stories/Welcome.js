@@ -1,4 +1,5 @@
 import React from 'react';
+import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 const styles = {
   main: {
@@ -30,25 +31,22 @@ const styles = {
   },
 };
 
-export default class Welcome extends React.Component {
-  showApp(e) {
-    e.preventDefault();
-    if(this.props.showApp) this.props.showApp();
-  }
+const Welcome = props => (
+  <div style={styles.main}>
+    <h1>React wrapper for Chart.js</h1>
+    <p>
+      Use the links on the left to see variations of usage, with different props.
+    </p>
+    <p>
+      See also&nbsp;
+      <a href="http://gor181.github.io/react-chartjs-2/">Examples</a>
+      <a href="https://github.com/gor181/react-chartjs-2">Code</a>
+    </p>
+  </div>
+);
 
-  render() {
-    return (
-      <div style={styles.main}>
-        <h1>React wrapper for Chart.js</h1>
-        <p>
-          Use the links on the left to see variations of usage, with different props.
-        </p>
-        <p>
-          See also&nbsp;
-          <a href="http://gor181.github.io/react-chartjs-2/">Examples</a>
-          <a href="https://github.com/gor181/react-chartjs-2">Code</a>
-        </p>
-      </div>
-    );
-  }
-}
+storiesOf('Welcome', module)
+  .add('to react-chartjs-2', () => (
+    <Welcome />
+  ));
+

@@ -17,52 +17,30 @@ describe('Chart re-rendering', () => {
     it('required when data is changed in an inner object/array of the data', () => {
         const originalData = {
             "data": {
-                "labels": [
-                    1
-                ],
                 "datasets": [
                     {
-                        "label": "a",
-                        "backgroundColor": "#36A2EB",
                         "data": [
                           122968
                         ]
                     },
                     {
-                        "label": "b",
-                        "backgroundColor": "#FF6384",
                         "data": [
                           14738
                         ]
                     }
                 ]
-            },
-            "type": "bar",
-            "legend": {
-                "display": true,
-                "position": "bottom"
             }
         }
         // The new data has only one data set instead of two
         const newData = {
             "data": {
-                "labels": [
-                    1
-                ],
                 "datasets": [
                     {
-                        "label": "a",
-                        "backgroundColor": "#36A2EB",
                         "data": [
                           122968
                         ]
                     }
                 ]
-            },
-            "type": "bar",
-            "legend": {
-                "display": true,
-                "position": "bottom"
             }
         }
         const chart = new ChartComponent(originalData);

@@ -1,4 +1,4 @@
-import ChartComponent from "../Chart";
+import ChartComponent from '../Chart';
 
 describe('Chart re-rendering', () => {
 
@@ -11,6 +11,40 @@ describe('Chart re-rendering', () => {
     it('required when chart legend changes', () => {
         const chart = new ChartComponent({type: 'bar', legend: {display: false}});
         const updateRequired = chart.shouldComponentUpdate({type: 'bar', legend: {display: true}});
+        expect(updateRequired).toBeTruthy();
+    });
+
+    it('required when data is changed in an inner object/array of the data', () => {
+        const originalData = {
+            'data': {
+                'datasets': [
+                    {
+                        'data': [
+                          122968
+                        ]
+                    },
+                    {
+                        'data': [
+                          14738
+                        ]
+                    }
+                ]
+            }
+        };
+        // The new data has only one data set instead of two
+        const newData = {
+            'data': {
+                'datasets': [
+                    {
+                        'data': [
+                          122968
+                        ]
+                    }
+                ]
+            }
+        };
+        const chart = new ChartComponent(originalData);
+        const updateRequired = chart.shouldComponentUpdate(newData);
         expect(updateRequired).toBeTruthy();
     });
 

@@ -22,10 +22,15 @@ const deepEqual = (objA, objB) => {
 	}
 
 	let keysA = Object.keys(objA);
+	let keysB = Object.keys(objB);
+	let allKeys = keysA.concat(keysB);
 
-	// Test for A's keys different from B.
-	for (let i = 0; i < keysA.length; i++) {
-		if (!hasOwnProperty.call(objB, keysA[i])) {
+	// Verify both objects have all the keys
+	for (let i = 0; i < allKeys.length; i++) {
+		if (!hasOwnProperty.call(objB, allKeys[i])) {
+			return false;
+		}
+		if (!hasOwnProperty.call(objA, allKeys[i])) {
 			return false;
 		}
 	}

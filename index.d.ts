@@ -1,16 +1,6 @@
 
 import * as React from 'React';
 
-enum ChartType {
-	doughnut = 'doughnut',
-	pie = 'pie',
-	line = 'line',
-	bar = 'bar',
-	horizontalBar = 'horizontalBar',
-	radar = 'radar',
-	polarArea = 'polarArea'
-}
-
 interface ChartComponentProps {
 	data :Object;
 	height? :number;
@@ -18,7 +8,7 @@ interface ChartComponentProps {
 	onElementsClick? :Function;
 	options? :Object;
 	redraw? :boolean;
-	type? :ChartType;
+	type? :String;
 	width? :number;
 }
 

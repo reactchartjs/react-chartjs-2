@@ -14,7 +14,7 @@ const ChartComponent = React.createClass({
 		onElementsClick: PropTypes.func,
 		options: PropTypes.object,
 		redraw: PropTypes.bool,
-		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea']),
+		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
 		width: PropTypes.number,
 	},
 
@@ -199,6 +199,18 @@ export class Polar extends React.Component {
 				{...this.props}
 				ref={ref => this.chart_instance = ref && ref.chart_instance}
 				type='polarArea'
+			/>
+		);
+	}
+}
+
+export class Bubble extends React.Component {
+	render() {
+		return (
+			<ChartComponent
+				{...this.props}
+				ref={ref => this.chart_instance = ref && ref.chart_instance}
+				type='bubble'
 			/>
 		);
 	}

@@ -29,7 +29,8 @@
     "jest": "^14.1.0",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-component-gulp-tasks": "git+https://github.com/gor181/react-component-gulp-tasks.git",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
+    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
+    "@kadira/storybook": "^2.5.2"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
@@ -46,7 +47,9 @@
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
     "test": "jest",
-    "watch": "gulp watch:lib"
+    "watch": "gulp watch:lib",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "automock": false

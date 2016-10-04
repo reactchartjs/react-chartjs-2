@@ -1,8 +1,8 @@
-[![build status](https://travis-ci.org/gor181/react-chartjs-2.svg?branch=master)](https://travis-ci.org/gor181/react-chartjs-2)  
+[![build status](https://travis-ci.org/gor181/react-chartjs-2.svg?branch=master)](https://travis-ci.org/gor181/react-chartjs-2)
 
 # react-chartjs-2
 
-React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)  
+React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)
 Open for PR's and contributions!
 
 
@@ -18,6 +18,22 @@ npm start
 ```
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
+
+## Demo & Examples via React Storybook
+
+We have to first tell NPM that it can find this module here (where you cloned).
+
+```
+npm link
+npm link react-chartjs-2
+```
+Then you can just start up storybook
+
+```
+npm run storybook
+```
+
+Then open [`localhost:6006`](http://localhost:6006) in a browser.
 
 
 ## Installation via NPM
@@ -61,7 +77,7 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 />
 ```
 
-### Chart instance  
+### Chart instance
 Chart instance can be accessed by placing a ref to the element as:
 
 ```
@@ -94,11 +110,11 @@ A function to be called when mouse clicked on chart elememts, will return all el
 
 To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
 
-## Thanks  
+## Thanks
 
 Jed Watson for making react-component yo builder!
 
 ## License
 
-MIT Licensed  
+MIT Licensed
 Copyright (c) 2016 Goran Udosic && Headstart App.

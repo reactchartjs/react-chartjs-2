@@ -215,3 +215,5 @@ export class Bubble extends React.Component {
 		);
 	}
 }
+
+export const defaults = Chart.defaults;

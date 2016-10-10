@@ -2,7 +2,7 @@
 
 # react-chartjs-2
 
-React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)  
+React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)  
 Open for PR's and contributions!
 
 
@@ -61,8 +61,8 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 />
 ```
 
-### Chart instance  
-Chart instance can be accessed by placing a ref to the element as:
+### Chart.js instance  
+Chart.js instance can be accessed by placing a ref to the element as:
 
 ```
 render() {
@@ -73,6 +73,34 @@ render() {
 		<Doughnut ref='chart' data={data} />
 	)
 }
+```
+
+### Chart.js Defaults
+Chart.js defaults can be set by importing the `defaults` object:
+
+```javascript
+import { defaults } from 'react-chartjs-2';
+
+// Disable animating charts by default.
+defaults.global.animation = false;
+```
+
+If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
+
+```javascript
+import { defaults } from 'react-chartjs-2';
+import merge from 'lodash.merge';
+// or
+// import { merge } from 'lodash';
+
+merge(defaults, {
+	global: {
+  		animation: false,
+		line: {
+			borderColor: '#F85F73',
+		},
+	},
+});
 ```
 
 ### Events

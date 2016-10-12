@@ -20,6 +20,10 @@ const deepEqual = (objA, objB) => {
 	if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
 		return false;
 	}
+	
+	if (Array.isArray(objA) && Array.isArray(objB)) {
+		if (objA.length !== objB.length) return false;
+	}
 
 	let keysA = Object.keys(objA);
 	let keysB = Object.keys(objB);

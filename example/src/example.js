@@ -9,6 +9,7 @@ import BarExample from './components/bar';
 import HorizontalBarExample from './components/horizontalBar';
 import RadarExample from './components/radar';
 import PolarExample from './components/polar';
+import BubbleExample from './components/bubble';
 import MixedDataExample from './components/mix';
 
 class App extends React.Component {
@@ -31,6 +32,8 @@ class App extends React.Component {
 				<RadarExample />
 				<hr />
 				<PolarExample />
+				<hr />
+				<BubbleExample />
 				<hr />
 				<MixedDataExample />
 			</div>

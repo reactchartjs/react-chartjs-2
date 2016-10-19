@@ -1,4 +1,4 @@
-import ChartComponent from '../Chart';
+import ChartComponent from '../index';
 
 describe('Chart re-rendering', () => {
 

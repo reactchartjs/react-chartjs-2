@@ -5,6 +5,9 @@
 React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)  
 Open for PR's and contributions!
 
+# UPDATE
+Actively looking for contributors as for the moment I do not have enough time to dedicate for maintining this lib.
+All contributors can add themselves to Contributors section at the bottom of README.
 
 ## Demo & Examples
 
@@ -129,4 +132,6 @@ Jed Watson for making react-component yo builder!
 ## License
 
 MIT Licensed  
-Copyright (c) 2016 Goran Udosic && Headstart App.
+Copyright (c) 2016 Goran Udosic
+
+## Contributors

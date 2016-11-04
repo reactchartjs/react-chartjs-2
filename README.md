@@ -12,7 +12,7 @@ Live demo: [gor181.github.io/react-chartjs-2](http://gor181.github.io/react-char
 
 To build the examples locally, run:
 
-```
+```bash
 npm install
 npm start
 ```
@@ -22,7 +22,7 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Installation via NPM
 
-```
+```bash
 npm install react-chartjs-2 chart.js --save
 ```
 
@@ -31,7 +31,7 @@ npm install react-chartjs-2 chart.js --save
 
 Check example/src/components/* for usage.
 
-```
+```js
 import {Doughnut} from 'react-chartjs-2';
 
 <Doughnut data={...} />
@@ -50,7 +50,7 @@ import {Doughnut} from 'react-chartjs-2';
 ### Custom size
 In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:
 
-```
+```js
 <Bar
 	data={data}
 	width={100}
@@ -64,7 +64,7 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 ### Chart.js instance  
 Chart.js instance can be accessed by placing a ref to the element as:
 
-```
+```js
 render() {
 	componentDidMount() {
 		console.log(this.refs.chart.chart_instance); // returns a Chart.js instance reference
@@ -87,7 +87,7 @@ defaults.global.animation = false;
 
 If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
 
-```javascript
+```js
 import { defaults } from 'react-chartjs-2';
 import merge from 'lodash.merge';
 // or
@@ -109,7 +109,7 @@ merge(defaults, {
 
 A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
 
-```
+```js
 {
 	onElementsClick: (elems) => {}
 	// `elems` is an array of chartElements

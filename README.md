@@ -6,7 +6,7 @@ React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
 Open for PR's and contributions!
 
 # UPDATE
-Actively looking for contributors as for the moment I do not have enough time to dedicate for maintining this lib.
+Actively looking for contributors as for the moment I do not have enough time to dedicate for maintaining this lib.
 All contributors can add themselves to Contributors section at the bottom of README.
 
 ## Demo & Examples

@@ -9,13 +9,16 @@ const ChartComponent = React.createClass({
 
 	propTypes: {
 		data: PropTypes.object.isRequired,
+    getDatasetAtEvent: PropTypes.func,
+    getElementAtEvent: PropTypes.func,
+    getElementsAtEvent: PropTypes.func,
 		height: PropTypes.number,
 		legend: PropTypes.object,
-		onElementsClick: PropTypes.func,
+    onElementsClick: PropTypes.func,
 		options: PropTypes.object,
 		redraw: PropTypes.bool,
 		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
-		width: PropTypes.number,
+		width: PropTypes.number
 	},
 
 	getDefaultProps() {
@@ -27,7 +30,7 @@ const ChartComponent = React.createClass({
 			type: 'doughnut',
 			height: 150,
 			width: 300,
-			redraw: false,
+			redraw: false
 		};
 	},
 
@@ -62,6 +65,7 @@ const ChartComponent = React.createClass({
 		const ignoredProperties = ['id', 'width', 'height', 'onElementsClick'];
 		const compareNext = this._objectWithoutProperties(nextProps, ignoredProperties);
 		const compareNow = this._objectWithoutProperties(this.props, ignoredProperties);
+
 		return !deepEqual(compareNext, compareNow, {strict: true});
 	},
 
@@ -97,12 +101,20 @@ const ChartComponent = React.createClass({
 		});
 	},
 
-	handleOnClick(evt) {
-		const elems = this.chart_instance.getElementsAtEvent(evt);
-		if (elems.length) {
-			const {onElementsClick} = this.props;
-			onElementsClick(elems);
-		}
+	handleOnClick(event) {
+    const instance = this.chart_instance;
+
+    const {
+      getDatasetAtEvent,
+      getElementAtEvent,
+      getElementsAtEvent,
+      onElementsClick
+    } = this.props;
+
+    getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event));
+		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event));
+		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event));
+    onElementsClick && onElementsClick(instance.getElementsAtEvent(event)); // Backward compatibility
 	},
 
 	render() {
@@ -112,7 +124,7 @@ const ChartComponent = React.createClass({
 			<canvas
 				height={height}
 				width={width}
-				onClick={typeof onElementsClick === 'function' ? this.handleOnClick : null}
+				onClick={this.handleOnClick}
 			/>
 		);
 	}

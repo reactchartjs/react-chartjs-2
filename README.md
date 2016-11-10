@@ -43,12 +43,15 @@ import {Doughnut} from 'react-chartjs-2';
 ### Properties
 
 * data: PropTypes.object.isRequired,
+* width: PropTypes.number,
 * height: PropTypes.number,
 * legend: PropTypes.object,
-* onElementsClick: PropTypes.func,
 * options: PropTypes.object,
 * redraw: PropTypes.bool,
-* width: PropTypes.number
+* getDatasetAtEvent: PropTypes.func,
+* getElementAtEvent: PropTypes.func,
+* getElementsAtEvent: PropTypes.func
+* onElementsClick: PropTypes.func, // alias for getElementsAtEvent (backward compatibility)
 
 ### Custom size
 In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:

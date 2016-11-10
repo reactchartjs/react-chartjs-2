@@ -111,14 +111,37 @@ merge(defaults, {
 
 ### Events
 
-#### onElementsClick (function)
+#### onElementsClick || getElementsAtEvent (function)
 
 A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
 
 ```js
 {
-	onElementsClick: (elems) => {}
+	onElementsClick: (elems) => {},
+	getElementsAtEvent: (elems) => {},
 	// `elems` is an array of chartElements
+}
+
+```
+#### getElementAtEvent (function)
+
+Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementatevente)
+
+```js
+{
+	getElementAtEvent: (elems) => {},
+  // => returns the first element at the event point.
+}
+```
+
+#### getDatasetAtEvent (function)
+
+Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getdatasetatevente)
+
+```js
+{
+	getDatasetAtEvent: (dataset) => {}
+	// `dataset` is an array of chartElements
 }
 ```
 

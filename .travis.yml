@@ -3,3 +3,6 @@ node_js:
   - "6"
   - "5"
   - "4"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++

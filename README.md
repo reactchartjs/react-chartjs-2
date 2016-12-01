@@ -109,6 +109,22 @@ merge(defaults, {
 });
 ```
 
+### Chart.js object
+
+You can access the internal Chart.js object to register plugins or extend charts like this:
+
+```JavaScript
+import { Chart } from 'react-chartjs-2';
+
+componentWillMount() {
+	Chart.pluginService.register({
+		afterDraw: function (chart, easing) {
+			// Plugin code.
+		}
+	});
+}
+```
+
 ### Events
 
 #### onElementsClick || getElementsAtEvent (function)

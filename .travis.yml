@@ -20,7 +20,7 @@ addons:
 matrix:
   include:
     - env: TEST_SUITE=node-canvas
-      script: "export CXX=g++-4.8 && npm i canvas && npm test"
+      script: "export CXX=g++-4.8 && npm i jsdom canvas && npm test"
       addons:
         hosts:
           - web-platform.test

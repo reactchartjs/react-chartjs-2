@@ -82,8 +82,8 @@ const ChartComponent = React.createClass({
 			this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
 		}
 
-		var currentData = this.chart_instance.config.data.datasets;
-		var nextData = data.datasets;
+		let currentData = this.chart_instance.config.data.datasets;
+		const nextData = data.datasets;
 
 		nextData.forEach(function (dataset, sid) {
 			if (currentData[sid] && currentData[sid].data) {

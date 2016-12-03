@@ -99,9 +99,9 @@ var ChartComponent = _react2.default.createClass({
 		this.chart_instance.destroy();
 	},
 	updateChart: function updateChart() {
-		var _props = this.props,
-		    data = _props.data,
-		    options = _props.options;
+		var _props = this.props;
+		var data = _props.data;
+		var options = _props.options;
 
 
 		if (!this.chart_instance) return;
@@ -115,11 +115,11 @@ var ChartComponent = _react2.default.createClass({
 		this.chart_instance.update();
 	},
 	renderChart: function renderChart() {
-		var _props2 = this.props,
-		    data = _props2.data,
-		    options = _props2.options,
-		    legend = _props2.legend,
-		    type = _props2.type;
+		var _props2 = this.props;
+		var data = _props2.data;
+		var options = _props2.options;
+		var legend = _props2.legend;
+		var type = _props2.type;
 
 		var node = _reactDom2.default.findDOMNode(this);
 
@@ -132,23 +132,23 @@ var ChartComponent = _react2.default.createClass({
 	handleOnClick: function handleOnClick(event) {
 		var instance = this.chart_instance;
 
-		var _props3 = this.props,
-		    getDatasetAtEvent = _props3.getDatasetAtEvent,
-		    getElementAtEvent = _props3.getElementAtEvent,
-		    getElementsAtEvent = _props3.getElementsAtEvent,
-		    onElementsClick = _props3.onElementsClick;
+		var _props3 = this.props;
+		var getDatasetAtEvent = _props3.getDatasetAtEvent;
+		var getElementAtEvent = _props3.getElementAtEvent;
+		var getElementsAtEvent = _props3.getElementsAtEvent;
+		var onElementsClick = _props3.onElementsClick;
 
 
-		getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event));
-		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event));
-		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event));
-		onElementsClick && onElementsClick(instance.getElementsAtEvent(event)); // Backward compatibility
+		getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event), event);
+		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
+		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
+		onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
 	},
 	render: function render() {
-		var _props4 = this.props,
-		    height = _props4.height,
-		    width = _props4.width,
-		    onElementsClick = _props4.onElementsClick;
+		var _props4 = this.props;
+		var height = _props4.height;
+		var width = _props4.width;
+		var onElementsClick = _props4.onElementsClick;
 
 
 		return _react2.default.createElement('canvas', {
@@ -380,7 +380,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 

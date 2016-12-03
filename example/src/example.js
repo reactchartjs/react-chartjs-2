@@ -11,6 +11,7 @@ import RadarExample from './components/radar';
 import PolarExample from './components/polar';
 import BubbleExample from './components/bubble';
 import MixedDataExample from './components/mix';
+import RandomizedDataLineExample from './components/randomizedLine';
 
 class App extends React.Component {
 	render() {
@@ -36,6 +37,8 @@ class App extends React.Component {
 				<BubbleExample />
 				<hr />
 				<MixedDataExample />
+				<hr />
+				<RandomizedDataLineExample />
 			</div>
 		);
 	}

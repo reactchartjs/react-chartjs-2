@@ -111,10 +111,10 @@ const ChartComponent = React.createClass({
       onElementsClick
     } = this.props;
 
-    getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event));
-		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event));
-		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event));
-    onElementsClick && onElementsClick(instance.getElementsAtEvent(event)); // Backward compatibility
+    getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event),event);
+		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event),event);
+		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event),event);
+    onElementsClick && onElementsClick(instance.getElementsAtEvent(event),event); // Backward compatibility
 	},
 
 	render() {

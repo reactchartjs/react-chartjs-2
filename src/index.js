@@ -82,6 +82,21 @@ const ChartComponent = React.createClass({
 			this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
 		}
 
+		let currentData = this.chart_instance.config.data.datasets;
+		const nextData = data.datasets;
+
+		nextData.forEach(function (dataset, sid) {
+			if (currentData[sid] && currentData[sid].data) {
+				currentData[sid].data.splice(nextData[sid].data.length);
+				dataset.data.forEach(function (point, pid) {
+					currentData[sid].data[pid] = nextData[sid].data[pid];
+				});
+			} else {
+				currentData[sid] = nextData[sid];
+			}
+		});
+		delete data.datasets;
+
 		this.chart_instance.config.data = {
 			...this.chart_instance.config.data,
 			...data

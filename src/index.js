@@ -161,33 +161,33 @@ class ChartComponent extends React.Component {
     });
   }
 
-	handleOnClick = (event) => {
-		const instance = this.chart_instance;
+  handleOnClick = (event) => {
+    const instance = this.chart_instance;
 
-		const {
-			getDatasetAtEvent,
-			getElementAtEvent,
-			getElementsAtEvent,
-			onElementsClick
-		} = this.props;
+    const {
+      getDatasetAtEvent,
+      getElementAtEvent,
+      getElementsAtEvent,
+      onElementsClick
+    } = this.props;
 
-		getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event), event);
-		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
-		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
-		onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
-	}
+    getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event), event);
+    getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
+    getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
+    onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
+  }
 
-	render() {
-		const {height, width, onElementsClick} = this.props;
+  render() {
+    const {height, width, onElementsClick} = this.props;
 
-		return (
-			<canvas
-				height={height}
-				width={width}
-				onClick={this.handleOnClick}
-			/>
-		);
-	}
+    return (
+      <canvas
+        height={height}
+        width={width}
+        onClick={this.handleOnClick}
+      />
+    );
+  }
 }
 
 export default ChartComponent;

@@ -116,27 +116,27 @@ class ChartComponent extends React.Component {
     // Pipe datasets to chart instance datasets enabling
     // seamless transitions
     let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
-		const nextDatasets = data.datasets || [];
+    const nextDatasets = data.datasets || [];
 
-		nextDatasets.forEach((dataset, sid) => {
-			if (currentDatasets[sid] && currentDatasets[sid].data) {
-				currentDatasets[sid].data.splice(nextDatasets[sid].data.length);
+    nextDatasets.forEach((dataset, sid) => {
+      if (currentDatasets[sid] && currentDatasets[sid].data) {
+        currentDatasets[sid].data.splice(nextDatasets[sid].data.length);
 
-				dataset.data.forEach((point, pid) => {
-					currentDatasets[sid].data[pid] = nextDatasets[sid].data[pid];
-				});
+        dataset.data.forEach((point, pid) => {
+          currentDatasets[sid].data[pid] = nextDatasets[sid].data[pid];
+        });
 
-				const { data, ...otherProps } = dataset;
+        const { data, ...otherProps } = dataset;
 
-				currentDatasets[sid] = {
-					data: currentDatasets[sid].data,
-					...currentDatasets[sid],
-					...otherProps
-				};
-			} else {
-				currentDatasets[sid] = nextDatasets[sid];
-			}
-		});
+        currentDatasets[sid] = {
+          data: currentDatasets[sid].data,
+          ...currentDatasets[sid],
+          ...otherProps
+        };
+      } else {
+        currentDatasets[sid] = nextDatasets[sid];
+      }
+    });
 
     const { datasets, ...rest } = data;
 

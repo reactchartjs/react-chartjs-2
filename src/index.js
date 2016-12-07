@@ -93,12 +93,12 @@ const ChartComponent = React.createClass({
 					currentData[sid].data[pid] = nextData[sid].data[pid];
 				});
 
-				delete dataset.data;
+				const { data, ...otherProps } = dataset;
 
 				currentData[sid] = {
 					data: currentData[sid].data,
 					...currentData[sid],
-					...dataset
+					...otherProps
 				}
 			} else {
 				currentData[sid] = nextData[sid];

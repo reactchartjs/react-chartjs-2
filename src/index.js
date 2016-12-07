@@ -9,12 +9,12 @@ const ChartComponent = React.createClass({
 
 	propTypes: {
 		data: PropTypes.object.isRequired,
-    getDatasetAtEvent: PropTypes.func,
-    getElementAtEvent: PropTypes.func,
-    getElementsAtEvent: PropTypes.func,
+		getDatasetAtEvent: PropTypes.func,
+		getElementAtEvent: PropTypes.func,
+		getElementsAtEvent: PropTypes.func,
 		height: PropTypes.number,
 		legend: PropTypes.object,
-    onElementsClick: PropTypes.func,
+		onElementsClick: PropTypes.func,
 		options: PropTypes.object,
 		redraw: PropTypes.bool,
 		type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
@@ -88,9 +88,18 @@ const ChartComponent = React.createClass({
 		nextData.forEach(function (dataset, sid) {
 			if (currentData[sid] && currentData[sid].data) {
 				currentData[sid].data.splice(nextData[sid].data.length);
+
 				dataset.data.forEach(function (point, pid) {
 					currentData[sid].data[pid] = nextData[sid].data[pid];
 				});
+
+				const { data, ...otherProps } = dataset;
+
+				currentData[sid] = {
+					data: currentData[sid].data,
+					...currentData[sid],
+					...otherProps
+				}
 			} else {
 				currentData[sid] = nextData[sid];
 			}
@@ -117,19 +126,19 @@ const ChartComponent = React.createClass({
 	},
 
 	handleOnClick(event) {
-    const instance = this.chart_instance;
+		const instance = this.chart_instance;
 
-    const {
-      getDatasetAtEvent,
-      getElementAtEvent,
-      getElementsAtEvent,
-      onElementsClick
-    } = this.props;
+		const {
+			getDatasetAtEvent,
+			getElementAtEvent,
+			getElementsAtEvent,
+			onElementsClick
+		} = this.props;
 
-    getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event),event);
-		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event),event);
-		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event),event);
-    onElementsClick && onElementsClick(instance.getElementsAtEvent(event),event); // Backward compatibility
+		getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event), event);
+		getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
+		getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
+		onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
 	},
 
 	render() {
@@ -244,4 +253,4 @@ export class Bubble extends React.Component {
 }
 
 export const defaults = Chart.defaults;
-export { Chart };
+export {Chart};

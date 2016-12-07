@@ -177,3 +177,4 @@ MIT Licensed
 Copyright (c) 2016 Goran Udosic
 
 ## Contributors
+Jeremy Ayerst [@jerairrest](https://github.com/jerairrest)

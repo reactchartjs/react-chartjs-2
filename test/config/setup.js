@@ -1,17 +1,26 @@
 require('babel-register')();
 
-const jsdom = require('jsdom').jsdom;
-const exposedProperties = ['window', 'navigator', 'document'];
+const canvas = require('canvas');
 
-global.document = jsdom('');
-global.window = document.defaultView;
+const jsdom = require('jsdom');
+const document = jsdom.jsdom();
+const window = document.defaultView;
 
-Object.keys(document.defaultView).forEach((property) => {
- if (typeof global[property] === 'undefined') {
-   exposedProperties.push(property);
-   global[property] = document.defaultView[property];
- }
+const canvasMethods = [
+  'HTMLCanvasElement',
+];
+
+Object.keys(window).forEach(property => {
+  if (typeof global[property] === 'undefined') {
+    global[property] = window[property];
+  }
 });
+
+canvasMethods.forEach(method =>
+  global[method] = window[method]
+);
+
+global['CanvasRenderingContext2D'] = canvas.Context2d;
 
 global.navigator = {
  userAgent: 'node.js'

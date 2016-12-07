@@ -26,7 +26,8 @@ class ChartComponent extends React.Component {
     type: 'doughnut',
     height: 150,
     width: 300,
-    redraw: false
+    redraw: false,
+    options: {}
   }
 
   componentWillMount() {
@@ -86,7 +87,7 @@ class ChartComponent extends React.Component {
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
   // this makes impossible to compare the current and next data changes
-  // therefore we memoize the data prop while sending a dake to Chart.js for mutation.
+  // therefore we memoize the data prop while sending a fake to Chart.js for mutation.
   // see https://github.com/chartjs/Chart.js/blob/master/src/core/core.controller.js#L615-L617
   memoizeDataProps() {
     const { data } = this.props;
@@ -112,15 +113,17 @@ class ChartComponent extends React.Component {
       this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
     }
 
-    let currentData = this.chart_instance.config.data.datasets;
-		const nextData = data.datasets;
+    // Pipe datasets to chart instance datasets enabling
+    // seamless transitions
+    const currentDatasets = this.chart_instance.config.data.datasets;
+		const nextDatasets = data.datasets || [];
 
-		nextData.forEach(function (dataset, sid) {
-			if (currentData[sid] && currentData[sid].data) {
-				currentData[sid].data.splice(nextData[sid].data.length);
+		nextDatasets.forEach((dataset, sid) => {
+			if (currentDatasets[sid] && currentDatasets[sid].data) {
+				currentDatasets[sid].data.splice(nextDatasets[sid].data.length);
 
-				dataset.data.forEach(function (point, pid) {
-					currentData[sid].data[pid] = nextData[sid].data[pid];
+				dataset.data.forEach((point, pid) => {
+					currentDatasets[sid].data[pid] = nextDatasets[sid].data[pid];
 				});
 
 				const { data, ...otherProps } = dataset;
@@ -131,14 +134,15 @@ class ChartComponent extends React.Component {
 					...otherProps
 				};
 			} else {
-				currentData[sid] = nextData[sid];
+				currentDatasets[sid] = nextDatasets[sid];
 			}
 		});
-		delete data.datasets;
+
+    const { datasets, ...rest } = data;
 
     this.chart_instance.config.data = {
       ...this.chart_instance.config.data,
-      ...data
+      ...rest
     };
 
     this.chart_instance.update();

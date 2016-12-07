@@ -115,7 +115,7 @@ class ChartComponent extends React.Component {
 
     // Pipe datasets to chart instance datasets enabling
     // seamless transitions
-    const currentDatasets = this.chart_instance.config.data.datasets;
+    let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
 		const nextDatasets = data.datasets || [];
 
 		nextDatasets.forEach((dataset, sid) => {
@@ -128,9 +128,9 @@ class ChartComponent extends React.Component {
 
 				const { data, ...otherProps } = dataset;
 
-				currentData[sid] = {
-					data: currentData[sid].data,
-					...currentData[sid],
+				currentDatasets[sid] = {
+					data: currentDatasets[sid].data,
+					...currentDatasets[sid],
 					...otherProps
 				};
 			} else {
@@ -161,7 +161,7 @@ class ChartComponent extends React.Component {
     });
   }
 
-	handleOnClick(event) {
+	handleOnClick = (event) => {
 		const instance = this.chart_instance;
 
 		const {

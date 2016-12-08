@@ -13,23 +13,31 @@
     "url": "https://github.com/gor181/react-chartjs-2/issues"
   },
   "dependencies": {
-    "chart.js": "^2.3.0"
+    "chart.js": "~2.3.0",
+    "lodash.isequal": "^4.4.0"
   },
   "devDependencies": {
+    "babel-core": "^6.18.2",
     "babel-eslint": "^4.1.3",
-    "babel-jest": "^14.1.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.18.0",
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
+    "canvas": "^1.6.2",
+    "chai": "^3.5.0",
+    "enzyme": "^2.6.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
     "gulp": "^3.9.0",
-    "jest": "^14.1.0",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.1.2",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
+    "react-addons-test-utils": "^15.3.2",
     "react-component-gulp-tasks": "git+https://github.com/gor181/react-component-gulp-tasks.git",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
+    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
+    "sinon": "^1.17.6"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
@@ -45,14 +53,12 @@
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
-    "test": "jest",
+    "test": "mocha test/config/setup.js test/__tests__/**/*",
     "watch": "gulp watch:lib"
   },
-  "jest": {
-    "automock": false
-  },
   "keywords": [
-    "react",
-    "react-component"
+    "chart",
+    "chart-js",
+    "chart.js"
   ]
 }

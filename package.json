@@ -13,7 +13,6 @@
     "url": "https://github.com/gor181/react-chartjs-2/issues"
   },
   "dependencies": {
-    "chart.js": "~2.3.0",
     "lodash.isequal": "^4.4.0"
   },
   "devDependencies": {
@@ -40,6 +39,7 @@
     "sinon": "^1.17.6"
   },
   "peerDependencies": {
+    "chart.js": "^2.3",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
   },

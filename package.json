@@ -44,7 +44,9 @@
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
   },
   "browserify-shim": {
-    "react": "global:React"
+    "react": "global:React",
+    "react-dom": "global:ReactDOM",
+    "chart.js": "global:Chart"
   },
   "scripts": {
     "build": "gulp clean && NODE_ENV=production gulp build",

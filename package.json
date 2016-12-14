@@ -27,6 +27,7 @@
     "brfs": "^1.4.3",
     "canvas": "^1.6.2",
     "chai": "^3.5.0",
+    "debug": "^2.4.1",
     "enzyme": "^2.6.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",

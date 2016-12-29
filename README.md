@@ -5,10 +5,13 @@
 
 # react-chartjs-2
 
-React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)  
+React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
 Open for PR's and contributions!
 
-# UPDATE
+# UPDATE to 2.x
+As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.4.x is the recommended version of chart.js to use.
+
+# Looking for Contributors!
 Actively looking for contributors as for the moment I do not have enough time to dedicate for maintaining this lib.
 All contributors can add themselves to Contributors section at the bottom of README.
 
@@ -70,7 +73,7 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 />
 ```
 
-### Chart.js instance  
+### Chart.js instance
 Chart.js instance can be accessed by placing a ref to the element as:
 
 ```js
@@ -170,13 +173,13 @@ Looks for the element under the event point, then returns all elements from that
 
 To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
 
-## Thanks  
+## Thanks
 
 Jed Watson for making react-component yo builder!
 
 ## License
 
-MIT Licensed  
+MIT Licensed
 Copyright (c) 2016 Goran Udosic
 
 ## Contributors

@@ -28,27 +28,6 @@ const data = {
   ]
 };
 
-const options = {
-  legend: {
-    display: false
-  },
-  legendCallback: function(chart) {
-    console.log(chart.data);
-    var text = [];
-    text.push('<ul>');
-    for (var i=0; i<chart.data.datasets[0].data.length; i++) {
-      text.push('<li>');
-      text.push('<span style="background-color:' + chart.data.datasets[0].backgroundColor[i] + '">' + chart.data.datasets[0].data[i] + '</span>');
-      if (chart.data.labels[i]) {
-        text.push(chart.data.labels[i]);
-      }
-      text.push('</li>');
-    }
-    text.push('</ul>');
-    return text.join("");
-  }
-};
-
 export default React.createClass({
   displayName: 'LineExample',
 
@@ -56,7 +35,7 @@ export default React.createClass({
     return (
       <div>
         <h2>Line Example</h2>
-        <Line data={data} options={options}/>
+        <Line data={data} />
       </div>
     );
   }

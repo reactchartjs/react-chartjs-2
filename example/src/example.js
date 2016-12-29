@@ -17,9 +17,28 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-			>
+				<hr />
+				<DoughnutExample />
+				<hr />
+				<DynamicDoughnutExample />
+				<hr />
+				<PieExample />
+				<hr />
 				<LineExample />
-
+				<hr />
+				<BarExample />
+				<hr />
+				<HorizontalBarExample />
+				<hr />
+				<RadarExample />
+				<hr />
+				<PolarExample />
+				<hr />
+				<BubbleExample />
+				<hr />
+				<MixedDataExample />
+				<hr />
+				<RandomizedDataLineExample />
 			</div>
 		);
 	}

@@ -154,6 +154,8 @@ class ChartComponent extends React.Component {
 
     this.memoizeDataProps();
 
+    console.log(options);
+
     this.chart_instance = new Chart(node, {
       type,
       data,

@@ -63,6 +63,8 @@
   "keywords": [
     "chart",
     "chart-js",
-    "chart.js"
+    "chart.js",
+    "react-chart",
+    "react-chartjs-2"
   ]
 }

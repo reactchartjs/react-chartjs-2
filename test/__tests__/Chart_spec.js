@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { jsdom } from 'jsdom';
 import sinon from 'sinon';
 
-import Chart from '../../src/index';
+import Chart, { Chart as ChartConstructor } from '../../src/index';
 
 const noop = () => {};
 const createDOM = () => jsdom('<!doctype html><html><body><div></div></body></html>');
@@ -26,6 +26,14 @@ describe('<Chart />', () => {
       }
     ]
   };
+
+  ChartConstructor.plugins.register({
+    afterInit: function (chartInstance) {
+      chartInstance.getDatasetAtEvent = function (e) {
+        return ChartConstructor.Interaction.modes.dataset(this, e, this.options);
+      };
+    }
+  });
 
   const mountComponent = props => mount(
     <Chart data={data} {...props} />,

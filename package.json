@@ -13,7 +13,6 @@
     "url": "https://github.com/gor181/react-chartjs-2/issues"
   },
   "dependencies": {
-    "chart.js": "~2.3.0",
     "lodash.isequal": "^4.4.0"
   },
   "devDependencies": {
@@ -27,6 +26,7 @@
     "brfs": "^1.4.3",
     "canvas": "^1.6.2",
     "chai": "^3.5.0",
+    "chart.js": "^2.3.0",
     "debug": "^2.4.1",
     "enzyme": "^2.6.0",
     "eslint": "^1.6.0",
@@ -41,6 +41,7 @@
     "sinon": "^1.17.6"
   },
   "peerDependencies": {
+    "chart.js": "^2.3",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
   },
@@ -62,6 +63,8 @@
   "keywords": [
     "chart",
     "chart-js",
-    "chart.js"
+    "chart.js",
+    "react-chartjs-2",
+    "react chart.js"
   ]
 }

@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
@@ -30,11 +29,14 @@ class ChartComponent extends React.Component {
     options: {}
   }
 
+  static Chart = null
+  
   componentWillMount() {
     this.chart_instance = undefined;
   }
 
   componentDidMount() {
+  	this.Chart = require('chart.js');
     this.renderChart();
   }
 
@@ -110,7 +112,7 @@ class ChartComponent extends React.Component {
     if (!this.chart_instance) return;
 
     if (options) {
-      this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
+      this.chart_instance.options = this.Chart.helpers.configMerge(this.chart_instance.options, options);
     }
 
     // Pipe datasets to chart instance datasets enabling
@@ -154,7 +156,7 @@ class ChartComponent extends React.Component {
 
     this.memoizeDataProps();
 
-    this.chart_instance = new Chart(node, {
+    this.chart_instance = new this.Chart(node, {
       type,
       data,
       options
@@ -287,6 +289,3 @@ export class Bubble extends React.Component {
     );
   }
 }
-
-export const defaults = Chart.defaults;
-export {Chart};

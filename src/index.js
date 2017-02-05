@@ -117,6 +117,11 @@ class ChartComponent extends React.Component {
     // seamless transitions
     let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
+		
+		// Prevent charting of legend items that no longer exist
+    while (currentDatasets.length > nextDatasets.length) {
+      currentDatasets.pop();
+    }
 
     nextDatasets.forEach((dataset, sid) => {
       if (currentDatasets[sid] && currentDatasets[sid].data) {

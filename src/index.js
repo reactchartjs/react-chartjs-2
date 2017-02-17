@@ -5,7 +5,10 @@ import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.oneOfType([
+    	PropTypes.object,
+    	PropTypes.func
+    ]).isRequired,
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
     getElementsAtEvent: PropTypes.func,
@@ -78,11 +81,18 @@ class ChartComponent extends React.Component {
       return true;
     }
 
-    return !isEqual(this.shadowDataProp, nextProps.data);
+    const nextData = this.transformDataProp()
+    return !isEqual(this.shadowDataProp, nextData);
   }
 
   componentWillUnmount() {
     this.chart_instance.destroy();
+  }
+
+  transformDataProp() {
+    const { dataProp } = this.props;
+    const node = ReactDOM.findDOMNode(this);
+    return (typeof(dataProp) == "function") ? dataProp(node) : dataProp;
   }
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -90,22 +100,26 @@ class ChartComponent extends React.Component {
   // therefore we memoize the data prop while sending a fake to Chart.js for mutation.
   // see https://github.com/chartjs/Chart.js/blob/master/src/core/core.controller.js#L615-L617
   memoizeDataProps() {
-    const { data } = this.props;
+    const { dataProp } = this.props;
 
-    if (!data) {
+    if (!dataProp) {
       return;
     }
+
+    const data = this.transformDataProp();
 
     this.shadowDataProp = {
       ...data,
       datasets: data.datasets && data.datasets.map(set => Object.assign({}, set))
     };
+
+    return data;
   }
 
   updateChart() {
-    const {data, options} = this.props;
+    const {options} = this.props;
 
-    this.memoizeDataProps();
+    const data = this.memoizeDataProps();
 
     if (!this.chart_instance) return;
 
@@ -154,10 +168,10 @@ class ChartComponent extends React.Component {
   }
 
   renderChart() {
-    const {data, options, legend, type, redraw} = this.props;
+    const {options, legend, type, redraw} = this.props;
     const node = ReactDOM.findDOMNode(this);
 
-    this.memoizeDataProps();
+    const data = this.memoizeDataProps();
 
     this.chart_instance = new Chart(node, {
       type,

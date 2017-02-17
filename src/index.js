@@ -90,9 +90,9 @@ class ChartComponent extends React.Component {
   }
 
   transformDataProp() {
-    const { dataProp } = this.props;
+    const { data } = this.props;
     const node = ReactDOM.findDOMNode(this);
-    return (typeof(dataProp) == "function") ? dataProp(node) : dataProp;
+    return (typeof(data) == "function") ? data(node) : data;
   }
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -100,9 +100,7 @@ class ChartComponent extends React.Component {
   // therefore we memoize the data prop while sending a fake to Chart.js for mutation.
   // see https://github.com/chartjs/Chart.js/blob/master/src/core/core.controller.js#L615-L617
   memoizeDataProps() {
-    const { dataProp } = this.props;
-
-    if (!dataProp) {
+    if (!this.props.data) {
       return;
     }
 
@@ -131,7 +129,7 @@ class ChartComponent extends React.Component {
     // seamless transitions
     let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
-		
+
 		// Prevent charting of legend items that no longer exist
     while (currentDatasets.length > nextDatasets.length) {
       currentDatasets.pop();
@@ -170,7 +168,6 @@ class ChartComponent extends React.Component {
   renderChart() {
     const {options, legend, type, redraw} = this.props;
     const node = ReactDOM.findDOMNode(this);
-
     const data = this.memoizeDataProps();
 
     this.chart_instance = new Chart(node, {

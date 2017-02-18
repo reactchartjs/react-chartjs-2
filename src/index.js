@@ -81,7 +81,7 @@ class ChartComponent extends React.Component {
       return true;
     }
 
-    const nextData = this.transformDataProp()
+    const nextData = this.transformDataProp(nextProps)
     return !isEqual(this.shadowDataProp, nextData);
   }
 
@@ -89,10 +89,14 @@ class ChartComponent extends React.Component {
     this.chart_instance.destroy();
   }
 
-  transformDataProp() {
-    const { data } = this.props;
-    const node = ReactDOM.findDOMNode(this);
-    return (typeof(data) == "function") ? data(node) : data;
+  transformDataProp(props) {
+    const { data } = props;
+    if (typeof(data) == "function") {
+      const node = ReactDOM.findDOMNode(this);
+      return data(node)
+    } else {
+      return data;
+    }
   }
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -104,7 +108,7 @@ class ChartComponent extends React.Component {
       return;
     }
 
-    const data = this.transformDataProp();
+    const data = this.transformDataProp(this.props);
 
     this.shadowDataProp = {
       ...data,
@@ -117,7 +121,7 @@ class ChartComponent extends React.Component {
   updateChart() {
     const {options} = this.props;
 
-    const data = this.memoizeDataProps();
+    const data = this.memoizeDataProps(this.props);
 
     if (!this.chart_instance) return;
 

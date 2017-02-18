@@ -209,4 +209,17 @@ describe('<Chart />', () => {
 
     expect(onElementsClick.called).to.equal(true);
   });
+
+  describe('props.data function', () => {
+    it('calls data func with canvas node', () => {
+      const resultData = { test: 1 }
+      const dataFn = sinon.spy((canvas) => resultData);
+      const wrapper = mountComponent({ data: dataFn });
+
+      const canvas = wrapper.find('canvas').at(0).node;
+
+      expect(dataFn.callCount).to.equal(1);
+      expect(dataFn.calledWith(canvas)).to.equal(true);
+    });
+  })
 });

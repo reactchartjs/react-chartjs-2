@@ -47,7 +47,10 @@ const Graph = React.createClass({
 				newData.push(Math.floor(Math.random() * 100));
 			}
 
-			var newDataSet = Object.assign({}, oldDataSet);
+			var newDataSet = {
+				...oldDataSet
+			};
+
 			newDataSet.data = newData;
 
 			_this.setState({datasets: [newDataSet]});

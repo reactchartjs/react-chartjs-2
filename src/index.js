@@ -5,7 +5,10 @@ import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.oneOfType([
+    	PropTypes.object,
+    	PropTypes.func
+    ]).isRequired,
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
     getElementsAtEvent: PropTypes.func,
@@ -78,11 +81,22 @@ class ChartComponent extends React.Component {
       return true;
     }
 
-    return !isEqual(this.shadowDataProp, nextProps.data);
+    const nextData = this.transformDataProp(nextProps)
+    return !isEqual(this.shadowDataProp, nextData);
   }
 
   componentWillUnmount() {
     this.chart_instance.destroy();
+  }
+
+  transformDataProp(props) {
+    const { data } = props;
+    if (typeof(data) == "function") {
+      const node = ReactDOM.findDOMNode(this);
+      return data(node)
+    } else {
+      return data;
+    }
   }
 
   // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -90,11 +104,11 @@ class ChartComponent extends React.Component {
   // therefore we memoize the data prop while sending a fake to Chart.js for mutation.
   // see https://github.com/chartjs/Chart.js/blob/master/src/core/core.controller.js#L615-L617
   memoizeDataProps() {
-    const { data } = this.props;
-
-    if (!data) {
+    if (!this.props.data) {
       return;
     }
+
+    const data = this.transformDataProp(this.props);
 
     this.shadowDataProp = {
       ...data,
@@ -104,12 +118,14 @@ class ChartComponent extends React.Component {
         }
       })
     };
+
+    return data;
   }
 
   updateChart() {
-    const {data, options} = this.props;
+    const {options} = this.props;
 
-    this.memoizeDataProps();
+    const data = this.memoizeDataProps(this.props);
 
     if (!this.chart_instance) return;
 
@@ -121,7 +137,7 @@ class ChartComponent extends React.Component {
     // seamless transitions
     let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
-		
+
 		// Prevent charting of legend items that no longer exist
     while (currentDatasets.length > nextDatasets.length) {
       currentDatasets.pop();
@@ -158,10 +174,9 @@ class ChartComponent extends React.Component {
   }
 
   renderChart() {
-    const {data, options, legend, type, redraw} = this.props;
+    const {options, legend, type, redraw} = this.props;
     const node = ReactDOM.findDOMNode(this);
-
-    this.memoizeDataProps();
+    const data = this.memoizeDataProps();
 
     this.chart_instance = new Chart(node, {
       type,

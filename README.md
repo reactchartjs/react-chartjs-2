@@ -48,7 +48,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 ### Properties
 
-* data: PropTypes.object.isRequired,
+* data: (PropTypes.object | PropTypes.func).isRequired,
 * width: PropTypes.number,
 * height: PropTypes.number,
 * legend: PropTypes.object,
@@ -83,6 +83,31 @@ render() {
 	}
 	return (
 		<Doughnut ref='chart' data={data} />
+	)
+}
+```
+
+### Getting context for data generation
+Canvas node and hence context, that can be used to create CanvasGradient background,
+is passed as argument to data if given as function:
+
+This approach is useful when you want to keep your components pure.
+
+```js
+render() {
+	const data = (canvas) => {
+		const ctx = canvas.getContext("2d")
+		const gradient = ctx.createLinearGradient(0,0,100,0);
+		...
+		return {
+			...
+			backgroundColor: gradient
+			...
+		}
+	}
+
+	return (
+		<Line data={data} />
 	)
 }
 ```

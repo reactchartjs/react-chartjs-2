@@ -112,7 +112,11 @@ class ChartComponent extends React.Component {
 
     this.shadowDataProp = {
       ...data,
-      datasets: data.datasets && data.datasets.map(set => Object.assign({}, set))
+      datasets: data.datasets && data.datasets.map(set => {
+        return {
+            ...set
+        }
+      })
     };
 
     return data;

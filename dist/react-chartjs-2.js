@@ -1973,7 +1973,7 @@ var ChartComponent = function (_React$Component) {
         return true;
       }
 
-      var nextData = this.transformDataProp();
+      var nextData = this.transformDataProp(nextProps);
       return !(0, _lodash2.default)(this.shadowDataProp, nextData);
     }
   }, {
@@ -1983,11 +1983,15 @@ var ChartComponent = function (_React$Component) {
     }
   }, {
     key: 'transformDataProp',
-    value: function transformDataProp() {
-      var data = this.props.data;
+    value: function transformDataProp(props) {
+      var data = props.data;
 
-      var node = _reactDom2.default.findDOMNode(this);
-      return typeof data == "function" ? data(node) : data;
+      if (typeof data == "function") {
+        var node = _reactDom2.default.findDOMNode(this);
+        return data(node);
+      } else {
+        return data;
+      }
     }
 
     // Chart.js directly mutates the data.dataset objects by adding _meta proprerty
@@ -2002,7 +2006,7 @@ var ChartComponent = function (_React$Component) {
         return;
       }
 
-      var data = this.transformDataProp();
+      var data = this.transformDataProp(this.props);
 
       this.shadowDataProp = _extends({}, data, {
         datasets: data.datasets && data.datasets.map(function (set) {
@@ -2018,7 +2022,7 @@ var ChartComponent = function (_React$Component) {
       var options = this.props.options;
 
 
-      var data = this.memoizeDataProps();
+      var data = this.memoizeDataProps(this.props);
 
       if (!this.chart_instance) return;
 

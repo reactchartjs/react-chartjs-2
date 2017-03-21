@@ -145,12 +145,12 @@ class ChartComponent extends React.Component {
 	  // use the key provider to work out which series have been added/removed/changed
 	  const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
 	  const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
-	  const newDatasets = nextDatasets.filter(d => !currentDatasetKeys.includes(this.props.datasetKeyProvider(d)));
+	  const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
 
 	  // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
 	  for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {
 			const currentDatasetKey = this.props.datasetKeyProvider(currentDatasets[idx]);
-			if (!nextDatasetKeys.includes(currentDatasetKey)) {
+			if (nextDatasetKeys.indexOf(currentDatasetKey) === -1) {
 			  // deleted series
 			  currentDatasets.splice(idx, 1);
 		  } else {

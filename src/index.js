@@ -57,6 +57,7 @@ class ChartComponent extends React.Component {
       redraw,
       type,
       options,
+      plugins,
       legend,
       height,
       width

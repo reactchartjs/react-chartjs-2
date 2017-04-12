@@ -16,6 +16,7 @@ class ChartComponent extends React.Component {
     legend: PropTypes.object,
     onElementsClick: PropTypes.func,
     options: PropTypes.object,
+    plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
     type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
     width: PropTypes.number
@@ -79,6 +80,10 @@ class ChartComponent extends React.Component {
 
     if (!isEqual(options, nextProps.options)) {
       return true;
+    }
+
+    if (!isEqual(plugins, nextProps.plugins)) {
+        return true;
     }
 
     const nextData = this.transformDataProp(nextProps)
@@ -174,14 +179,15 @@ class ChartComponent extends React.Component {
   }
 
   renderChart() {
-    const {options, legend, type, redraw} = this.props;
+    const {options, legend, type, redraw, plugins} = this.props;
     const node = ReactDOM.findDOMNode(this);
     const data = this.memoizeDataProps();
 
     this.chart_instance = new Chart(node, {
       type,
       data,
-      options
+      options,
+      plugins
     });
   }
 

@@ -30,16 +30,10 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Demo & Examples via React Storybook
 
-We have to first tell NPM that it can find this module here (where you cloned).
+We have to build the package, then you can run storybook.
 
 ```bash
-npm link
-npm link react-chartjs-2
-```
-
-Then you can just start up storybook
-
-```bash
+npm run build
 npm run storybook
 ```
 

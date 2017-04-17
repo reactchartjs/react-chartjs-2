@@ -13,13 +13,14 @@ var initGulpTasks = require('react-component-gulp-tasks');
 var taskConfig = {
 
 	component: {
-		name: 'Chart',
+		name: 'react-chartjs-2',
 		dependencies: [
 			'react',
 			'react-dom',
 			'chart.js'
 		],
-		lib: 'lib'
+		lib: 'lib',
+		file: 'index.js'
 	},
 
 	example: {

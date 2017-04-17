@@ -1,10 +1,19 @@
-[![build status](https://travis-ci.org/gor181/react-chartjs-2.svg?branch=master)](https://travis-ci.org/gor181/react-chartjs-2)
+[![build status](	https://img.shields.io/travis/gor181/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/gor181/react-chartjs-2)
+[![version](https://img.shields.io/npm/v/react-chartjs-2.svg?style=flat-square)](https://www.npmjs.com/package/react-chartjs-2)
+[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 # react-chartjs-2
 
-React wrapper for [ChartJs 2](http://www.chartjs.org/docs/#getting-started)
-Open for PR's and contributions!
+React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
+Open for PRs and contributions!
 
+# UPDATE to 2.x
+As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.4.x is the recommended version of chart.js to use.
+
+# Looking for Contributors!
+Actively looking for contributors as for the moment I do not have enough time to dedicate for maintaining this lib.
+All contributors can add themselves to Contributors section at the bottom of README.
 
 ## Demo & Examples
 
@@ -12,7 +21,7 @@ Live demo: [gor181.github.io/react-chartjs-2](http://gor181.github.io/react-char
 
 To build the examples locally, run:
 
-```
+```bash
 npm install
 npm start
 ```
@@ -23,13 +32,14 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 We have to first tell NPM that it can find this module here (where you cloned).
 
-```
+```bash
 npm link
 npm link react-chartjs-2
 ```
+
 Then you can just start up storybook
 
-```
+```bash
 npm run storybook
 ```
 
@@ -38,7 +48,7 @@ Then open [`localhost:6006`](http://localhost:6006) in a browser.
 
 ## Installation via NPM
 
-```
+```bash
 npm install react-chartjs-2 chart.js --save
 ```
 
@@ -47,7 +57,7 @@ npm install react-chartjs-2 chart.js --save
 
 Check example/src/components/* for usage.
 
-```
+```js
 import {Doughnut} from 'react-chartjs-2';
 
 <Doughnut data={...} />
@@ -55,18 +65,21 @@ import {Doughnut} from 'react-chartjs-2';
 
 ### Properties
 
-* data: PropTypes.object.isRequired,
+* data: (PropTypes.object | PropTypes.func).isRequired,
+* width: PropTypes.number,
 * height: PropTypes.number,
 * legend: PropTypes.object,
-* onElementsClick: PropTypes.func,
 * options: PropTypes.object,
 * redraw: PropTypes.bool,
-* width: PropTypes.number
+* getDatasetAtEvent: PropTypes.func,
+* getElementAtEvent: PropTypes.func,
+* getElementsAtEvent: PropTypes.func
+* onElementsClick: PropTypes.func, // alias for getElementsAtEvent (backward compatibility)
 
 ### Custom size
 In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:
 
-```
+```js
 <Bar
 	data={data}
 	width={100}
@@ -77,10 +90,10 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 />
 ```
 
-### Chart instance
-Chart instance can be accessed by placing a ref to the element as:
+### Chart.js instance
+Chart.js instance can be accessed by placing a ref to the element as:
 
-```
+```js
 render() {
 	componentDidMount() {
 		console.log(this.refs.chart.chart_instance); // returns a Chart.js instance reference
@@ -91,16 +104,108 @@ render() {
 }
 ```
 
+### Getting context for data generation
+Canvas node and hence context, that can be used to create CanvasGradient background,
+is passed as argument to data if given as function:
+
+This approach is useful when you want to keep your components pure.
+
+```js
+render() {
+	const data = (canvas) => {
+		const ctx = canvas.getContext("2d")
+		const gradient = ctx.createLinearGradient(0,0,100,0);
+		...
+		return {
+			...
+			backgroundColor: gradient
+			...
+		}
+	}
+
+	return (
+		<Line data={data} />
+	)
+}
+```
+
+### Chart.js Defaults
+Chart.js defaults can be set by importing the `defaults` object:
+
+```javascript
+import { defaults } from 'react-chartjs-2';
+
+// Disable animating charts by default.
+defaults.global.animation = false;
+```
+
+If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
+
+```js
+import { defaults } from 'react-chartjs-2';
+import merge from 'lodash.merge';
+// or
+// import { merge } from 'lodash';
+
+merge(defaults, {
+	global: {
+  		animation: false,
+		line: {
+			borderColor: '#F85F73',
+		},
+	},
+});
+```
+
+### Chart.js object
+
+You can access the internal Chart.js object to register plugins or extend charts like this:
+
+```JavaScript
+import { Chart } from 'react-chartjs-2';
+
+componentWillMount() {
+	Chart.pluginService.register({
+		afterDraw: function (chart, easing) {
+			// Plugin code.
+		}
+	});
+}
+```
+
 ### Events
 
-#### onElementsClick (function)
+#### onElementsClick || getElementsAtEvent (function)
 
 A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
 
-```
+```js
 {
-	onElementsClick: (elems) => {}
+	onElementsClick: (elems) => {},
+	getElementsAtEvent: (elems) => {},
 	// `elems` is an array of chartElements
+}
+
+```
+#### getElementAtEvent (function)
+
+Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementatevente)
+
+```js
+{
+	getElementAtEvent: (elems) => {},
+  // => returns the first element at the event point.
+}
+```
+
+#### getDatasetAtEvent (function)
+
+Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getdatasetatevente)
+
+```js
+{
+	getDatasetAtEvent: (dataset) => {}
+	// `dataset` is an array of chartElements
 }
 ```
 
@@ -117,4 +222,7 @@ Jed Watson for making react-component yo builder!
 ## License
 
 MIT Licensed
-Copyright (c) 2016 Goran Udosic && Headstart App.
+Copyright (c) 2016 Goran Udosic
+
+## Contributors
+Jeremy Ayerst [@jerairrest](https://github.com/jerairrest)

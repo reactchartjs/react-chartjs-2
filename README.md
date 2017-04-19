@@ -32,7 +32,7 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 ## Installation via NPM
 
 ```bash
-npm install react-chartjs-2 chart.js --save
+npm install react-chartjs-2 chart.js prop-types --save
 ```
 
 

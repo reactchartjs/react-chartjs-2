@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
+import PropTypes form 'prop-types';
 import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {

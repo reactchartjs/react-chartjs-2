@@ -17,6 +17,7 @@
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "babel-core": "^6.18.2",
     "babel-eslint": "^4.1.3",
     "babel-preset-es2015": "^6.13.2",
@@ -59,7 +60,9 @@
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
     "test": "mocha test/config/setup.js test/__tests__/**/*",
-    "watch": "gulp watch:lib"
+    "watch": "gulp watch:lib",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "chart",

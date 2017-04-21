@@ -28,6 +28,17 @@ npm start
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
+## Demo & Examples via React Storybook
+
+We have to build the package, then you can run storybook.
+
+```bash
+npm run build
+npm run storybook
+```
+
+Then open [`localhost:6006`](http://localhost:6006) in a browser.
+
 
 ## Installation via NPM
 

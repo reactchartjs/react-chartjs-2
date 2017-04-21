@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
@@ -87,12 +88,11 @@ class ChartComponent extends React.Component {
       return true;
     }
 
+    const nextData = this.transformDataProp(nextProps);
+
     if (!isEqual(plugins, nextProps.plugins)) {
         return true;
     }
-
-    const nextData = this.transformDataProp(nextProps)
-    return !isEqual(this.shadowDataProp, nextData);
   }
 
   componentWillUnmount() {
@@ -101,9 +101,9 @@ class ChartComponent extends React.Component {
 
   transformDataProp(props) {
     const { data } = props;
-    if (typeof(data) == "function") {
+    if (typeof(data) == 'function') {
       const node = ReactDOM.findDOMNode(this);
-      return data(node)
+      return data(node);
     } else {
       return data;
     }
@@ -125,7 +125,7 @@ class ChartComponent extends React.Component {
       datasets: data.datasets && data.datasets.map(set => {
         return {
             ...set
-        }
+        };
       })
     };
 

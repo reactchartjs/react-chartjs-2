@@ -90,9 +90,13 @@ class ChartComponent extends React.Component {
 
     const nextData = this.transformDataProp(nextProps);
 
-    if (!isEqual(plugins, nextProps.plugins)) {
-        return true;
-    }
+	  if( !isEqual(this.shadowDataProp, nextData)) {
+		  return true;
+	  }
+
+    return !isEqual(plugins, nextProps.plugins);
+
+
   }
 
   componentWillUnmount() {

@@ -1,6 +1,6 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
   "author": "Goran Udosic",
@@ -36,6 +36,7 @@
     "gulp": "^3.9.0",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
+    "rcolor": "^1.0.1",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-addons-test-utils": "^15.3.2",
     "react-component-gulp-tasks": "git+https://github.com/gor181/react-component-gulp-tasks.git",

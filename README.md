@@ -43,7 +43,7 @@ Then open [`localhost:6006`](http://localhost:6006) in a browser.
 ## Installation via NPM
 
 ```bash
-npm install react-chartjs-2 chart.js --save
+npm install react-chartjs-2 chart.js prop-types --save
 ```
 
 

@@ -160,7 +160,7 @@ class ChartComponent extends React.Component {
 
     if (shouldWarn && !this.hasWarned) {
       this.hasWarned = true; // Only warn once per chart so console isn't spammed with warnings
-      console.error('[react-chartjs-2] Warning: Each dataset need a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
+      console.error('[react-chartjs-2] Warning: Each dataset needs a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
     }
 
 	  // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array

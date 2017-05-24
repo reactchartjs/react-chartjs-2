@@ -6,7 +6,7 @@ import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
-  
+
   static propTypes = {
     data: PropTypes.oneOfType([
     	PropTypes.object,
@@ -155,7 +155,13 @@ class ChartComponent extends React.Component {
 	  // use the key provider to work out which series have been added/removed/changed
 	  const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
 	  const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
+    const shouldWarn = !currentDatasetKeys.every(d => typeof d !== "undefined") || !nextDatasetKeys.every(d => typeof d !== "undefined");
 	  const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
+
+    if (shouldWarn && !this.hasWarned) {
+      this.hasWarned = true; // Only warn once per chart so console isn't spammed with warnings
+      console.error('[react-chartjs-2] Warning: Each dataset need a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
+    }
 
 	  // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
 	  for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {

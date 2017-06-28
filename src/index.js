@@ -106,7 +106,7 @@ class ChartComponent extends React.Component {
   transformDataProp(props) {
     const { data } = props;
     if (typeof(data) == 'function') {
-      const node = ReactDOM.findDOMNode(this);
+      const node = this.element;
       return data(node);
     } else {
       return data;
@@ -194,7 +194,7 @@ class ChartComponent extends React.Component {
 
   renderChart() {
     const {options, legend, type, redraw, plugins} = this.props;
-    const node = ReactDOM.findDOMNode(this);
+    const node = this.element;
     const data = this.memoizeDataProps();
 
     this.chart_instance = new Chart(node, {
@@ -221,11 +221,16 @@ class ChartComponent extends React.Component {
     onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
   }
 
+  ref = (element) => {
+    this.element = element
+  }
+
   render() {
     const {height, width, onElementsClick} = this.props;
 
     return (
       <canvas
+        ref={this.ref}
         height={height}
         width={width}
         onClick={this.handleOnClick}

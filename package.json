@@ -26,9 +26,10 @@
     "babel-register": "^6.18.0",
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
-    "canvas": "^1.6.2",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "chai": "^3.5.0",
     "chart.js": "^2.3.0",
+    "cross-env": "^5.0.0",
     "debug": "^2.4.1",
     "enzyme": "^2.6.0",
     "eslint": "^1.6.0",
@@ -43,6 +44,9 @@
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
     "sinon": "^1.17.6"
   },
+  "optionalDependencies": {
+    "canvas": "^1.6.2"
+  },
   "peerDependencies": {
     "chart.js": "^2.3",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
@@ -54,11 +58,11 @@
     "chart.js": "global:Chart"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
+    "build": "gulp clean && cross-env NODE_ENV=production gulp build",
     "examples": "gulp dev:server",
     "lint": "eslint ./; true",
-    "publish:site": "NODE_ENV=production gulp publish:examples",
-    "release": "NODE_ENV=production gulp release",
+    "publish:site": "cross-env NODE_ENV=production gulp publish:examples",
+    "release": "cross-env NODE_ENV=production gulp release",
     "start": "gulp dev",
     "test": "mocha test/config/setup.js test/__tests__/**/*",
     "watch": "gulp watch:lib",

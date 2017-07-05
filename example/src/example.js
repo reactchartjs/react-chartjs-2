@@ -13,6 +13,8 @@ import BubbleExample from './components/bubble';
 import MixedDataExample from './components/mix';
 import RandomizedDataLineExample from './components/randomizedLine';
 import CrazyDataLineExample from './components/crazyLine';
+import LegendOptionsExample from './components/legend-options'
+import LegendHandlersExample from './components/legend-handlers'
 
 class App extends React.Component {
 	render() {
@@ -42,6 +44,10 @@ class App extends React.Component {
 				<RandomizedDataLineExample />
 				<hr />
 				<CrazyDataLineExample />
+				<hr />
+				<LegendOptionsExample />
+				<hr />
+				<LegendHandlersExample />
 			</div>
 		);
 	}

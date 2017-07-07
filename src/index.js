@@ -21,7 +21,14 @@ class ChartComponent extends React.Component {
     options: PropTypes.object,
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
-    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
+    type: function(props, propName, componentName) {
+      if(!Object.keys(Chart.controllers).find((chartType) => chartType === props[propName])){
+        return new Error(
+          'Invalid chart type `' + props[propName] + '` supplied to' +
+          ' `' + componentName + '`.'
+        );
+      }
+    },
     width: PropTypes.number,
     datasetKeyProvider: PropTypes.func
   }

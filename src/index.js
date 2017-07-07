@@ -4,6 +4,21 @@ import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
 
+// Gets React's enviroment
+// https://stackoverflow.com/a/25922668
+const env = (() => {
+  try {
+    React.createClass({});
+  } catch(e) {
+    if (e.message.indexOf('render') >= 0) {
+      return 'dev';  // A nice, specific error message
+    } else {
+      return 'prod';  // A generic error message
+    }
+  }
+  return 'prod';  // should never happen, but play it safe.
+})();
+
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
 
@@ -155,10 +170,10 @@ class ChartComponent extends React.Component {
 	  // use the key provider to work out which series have been added/removed/changed
 	  const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
 	  const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
-    const shouldWarn = !currentDatasetKeys.every(d => typeof d !== "undefined") || !nextDatasetKeys.every(d => typeof d !== "undefined");
+    const shouldWarn = !currentDatasetKeys.every(d => typeof d !== 'undefined') || !nextDatasetKeys.every(d => typeof d !== 'undefined');
 	  const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
 
-    if (shouldWarn && !this.hasWarned) {
+    if (shouldWarn && !this.hasWarned && env === 'dev') {
       this.hasWarned = true; // Only warn once per chart so console isn't spammed with warnings
       console.error('[react-chartjs-2] Warning: Each dataset needs a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
     }

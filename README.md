@@ -167,6 +167,10 @@ componentWillMount() {
 }
 ```
 
+### Scatter Charts
+
+If you're using Chart.js 2.6 and below, add the `showLines: false` property to your chart options. This was later [added](https://github.com/chartjs/Chart.js/commit/7fa60523599a56255cde78a49e848166bd233c6e) in the default config, so users of later versions would not need to do this extra step.
+
 ### Events
 
 #### onElementsClick || getElementsAtEvent (function)

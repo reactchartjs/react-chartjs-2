@@ -6,7 +6,7 @@ import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
-  
+
   static propTypes = {
     data: PropTypes.oneOfType([
     	PropTypes.object,
@@ -334,6 +334,18 @@ export class Bubble extends React.Component {
         {...this.props}
         ref={ref => this.chart_instance = ref && ref.chart_instance}
         type='bubble'
+      />
+    );
+  }
+}
+
+export class Scatter extends React.Component {
+  render() {
+    return (
+      <ChartComponent
+        {...this.props}
+        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        type='scatter'
       />
     );
   }

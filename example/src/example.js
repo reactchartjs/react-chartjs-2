@@ -10,6 +10,7 @@ import HorizontalBarExample from './components/horizontalBar';
 import RadarExample from './components/radar';
 import PolarExample from './components/polar';
 import BubbleExample from './components/bubble';
+import ScatterExample from './components/scatter';
 import MixedDataExample from './components/mix';
 import RandomizedDataLineExample from './components/randomizedLine';
 import CrazyDataLineExample from './components/crazyLine';
@@ -36,6 +37,8 @@ class App extends React.Component {
 				<PolarExample />
 				<hr />
 				<BubbleExample />
+				<hr />
+				<ScatterExample />
 				<hr />
 				<MixedDataExample />
 				<hr />

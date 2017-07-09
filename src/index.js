@@ -6,7 +6,7 @@ import isEqual from 'lodash.isequal';
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
-  
+
   static propTypes = {
     data: PropTypes.oneOfType([
     	PropTypes.object,
@@ -21,7 +21,7 @@ class ChartComponent extends React.Component {
     options: PropTypes.object,
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
-    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
+    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble', 'scatter']),
     width: PropTypes.number,
     datasetKeyProvider: PropTypes.func
   }
@@ -327,6 +327,18 @@ export class Bubble extends React.Component {
         {...this.props}
         ref={ref => this.chart_instance = ref && ref.chart_instance}
         type='bubble'
+      />
+    );
+  }
+}
+
+export class Scatter extends React.Component {
+  render() {
+    return (
+      <ChartComponent
+        {...this.props}
+        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        type='scatter'
       />
     );
   }

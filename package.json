@@ -1,6 +1,6 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
   "author": "Goran Udosic",
@@ -26,6 +26,7 @@
     "babel-register": "^6.18.0",
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
+    "canvas": "^1.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
     "chai": "^3.5.0",
     "chart.js": "^2.3.0",
@@ -43,9 +44,6 @@
     "react-component-gulp-tasks": "git+https://github.com/gor181/react-component-gulp-tasks.git",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
     "sinon": "^1.17.6"
-  },
-  "optionalDependencies": {
-    "canvas": "^1.6.2"
   },
   "peerDependencies": {
     "chart.js": "^2.3",

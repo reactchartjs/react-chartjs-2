@@ -2965,6 +2965,8 @@ var ChartComponent = function (_React$Component) {
       getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
       getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
       onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
+    }, _this.ref = function (element) {
+      _this.element = element;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -3041,7 +3043,7 @@ var ChartComponent = function (_React$Component) {
       var data = props.data;
 
       if (typeof data == 'function') {
-        var node = _reactDom2.default.findDOMNode(this);
+        var node = this.element;
         return data(node);
       } else {
         return data;
@@ -3151,7 +3153,7 @@ var ChartComponent = function (_React$Component) {
           redraw = _props2.redraw,
           plugins = _props2.plugins;
 
-      var node = _reactDom2.default.findDOMNode(this);
+      var node = this.element;
       var data = this.memoizeDataProps();
 
       this.chart_instance = new _chart2.default(node, {
@@ -3171,6 +3173,7 @@ var ChartComponent = function (_React$Component) {
 
 
       return _react2.default.createElement('canvas', {
+        ref: this.ref,
         height: height,
         width: width,
         onClick: this.handleOnClick

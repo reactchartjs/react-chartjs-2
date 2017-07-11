@@ -1,16 +1,16 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
   "author": "Goran Udosic",
-  "homepage": "https://github.com/gor181/react-chartjs-2",
+  "homepage": "https://github.com/jerairrest/react-chartjs-2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gor181/react-chartjs-2.git"
+    "url": "https://github.com/jerairrest/react-chartjs-2.git"
   },
   "bugs": {
-    "url": "https://github.com/gor181/react-chartjs-2/issues"
+    "url": "https://github.com/jerairrest/react-chartjs-2/issues"
   },
   "dependencies": {
     "lodash.isequal": "^4.4.0",

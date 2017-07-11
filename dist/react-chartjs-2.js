@@ -38,6 +38,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 
 module.exports = emptyFunction;
 },{}],2:[function(require,module,exports){
+(function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -63,7 +64,7 @@ module.exports = emptyFunction;
 
 var validateFormat = function validateFormat(format) {};
 
-if ("production" !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   validateFormat = function validateFormat(format) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
@@ -93,7 +94,9 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],3:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":5}],3:[function(require,module,exports){
+(function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -117,7 +120,7 @@ var emptyFunction = require('./emptyFunction');
 
 var warning = emptyFunction;
 
-if ("production" !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   (function () {
     var printWarning = function printWarning(format) {
       for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -160,7 +163,8 @@ if ("production" !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":1}],4:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./emptyFunction":1,"_process":5}],4:[function(require,module,exports){
 (function (global){
 /**
  * Lodash (Custom Build) <https://lodash.com/>
@@ -2183,6 +2187,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -2273,11 +2281,14 @@ module.exports = checkPropTypes;
 
 var emptyFunction = require('fbjs/lib/emptyFunction');
 var invariant = require('fbjs/lib/invariant');
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
 
 module.exports = function() {
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-  function shim() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
     invariant(
       false,
       'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
@@ -2289,6 +2300,8 @@ module.exports = function() {
   function getShim() {
     return shim;
   };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
   var ReactPropTypes = {
     array: shim,
     bool: shim,
@@ -2315,7 +2328,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"fbjs/lib/emptyFunction":1,"fbjs/lib/invariant":2}],8:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":10,"fbjs/lib/emptyFunction":1,"fbjs/lib/invariant":2}],8:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -2639,6 +2652,20 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       return emptyFunction.thatReturnsNull;
     }
 
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        warning(
+          false,
+          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
+          'received %s at index %s.',
+          getPostfixForTypeWarning(checker),
+          i
+        );
+        return emptyFunction.thatReturnsNull;
+      }
+    }
+
     function validate(props, propName, componentName, location, propFullName) {
       for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
         var checker = arrayOfTypeCheckers[i];
@@ -2771,6 +2798,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   // This handles more types than `getPropType`. Only used for error messages.
   // See `createPrimitiveTypeChecker`.
   function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
     var propType = getPropType(propValue);
     if (propType === 'object') {
       if (propValue instanceof Date) {
@@ -2780,6 +2810,23 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       }
     }
     return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
   }
 
   // Returns class name of the object, if any.
@@ -2854,7 +2901,7 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Chart = exports.defaults = exports.Bubble = exports.Polar = exports.Radar = exports.HorizontalBar = exports.Bar = exports.Line = exports.Pie = exports.Doughnut = undefined;
+exports.Chart = exports.defaults = exports.Scatter = exports.Bubble = exports.Polar = exports.Radar = exports.HorizontalBar = exports.Bar = exports.Line = exports.Pie = exports.Doughnut = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -3152,7 +3199,13 @@ ChartComponent.propTypes = {
   options: _propTypes2.default.object,
   plugins: _propTypes2.default.arrayOf(_propTypes2.default.object),
   redraw: _propTypes2.default.bool,
-  type: _propTypes2.default.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
+  type: function type(props, propName, componentName) {
+    if (!Object.keys(_chart2.default.controllers).find(function (chartType) {
+      return chartType === props[propName];
+    })) {
+      return new Error('Invalid chart type `' + props[propName] + '` supplied to' + ' `' + componentName + '`.');
+    }
+  },
   width: _propTypes2.default.number,
   datasetKeyProvider: _propTypes2.default.func
 };
@@ -3376,6 +3429,32 @@ var Bubble = exports.Bubble = function (_React$Component9) {
   }]);
 
   return Bubble;
+}(_react2.default.Component);
+
+var Scatter = exports.Scatter = function (_React$Component10) {
+  _inherits(Scatter, _React$Component10);
+
+  function Scatter() {
+    _classCallCheck(this, Scatter);
+
+    return _possibleConstructorReturn(this, (Scatter.__proto__ || Object.getPrototypeOf(Scatter)).apply(this, arguments));
+  }
+
+  _createClass(Scatter, [{
+    key: 'render',
+    value: function render() {
+      var _this20 = this;
+
+      return _react2.default.createElement(ChartComponent, _extends({}, this.props, {
+        ref: function ref(_ref10) {
+          return _this20.chart_instance = _ref10 && _ref10.chart_instance;
+        },
+        type: 'scatter'
+      }));
+    }
+  }]);
+
+  return Scatter;
 }(_react2.default.Component);
 
 var defaults = exports.defaults = _chart2.default.defaults;

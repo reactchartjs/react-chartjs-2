@@ -167,6 +167,10 @@ componentWillMount() {
 }
 ```
 
+### Scatter Charts
+
+If you're using Chart.js 2.6 and below, add the `showLines: false` property to your chart options. This was later [added](https://github.com/chartjs/Chart.js/commit/7fa60523599a56255cde78a49e848166bd233c6e) in the default config, so users of later versions would not need to do this extra step.
+
 ### Events
 
 #### onElementsClick || getElementsAtEvent (function)
@@ -202,6 +206,13 @@ Looks for the element under the event point, then returns all elements from that
 	// `dataset` is an array of chartElements
 }
 ```
+
+### Working with Multiple Datasets
+
+You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together. This is because to track changes in the dataset series, the library needs a `key` to be specified - if none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
+
+1. Add a `label` property on each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
+2. Specify a different property to be used as a key by passing a `datasetKeyProvider` prop to your chart component, which would return a unique string value for each dataset.
 
 ## Development (`src`, `lib` and the build process)
 

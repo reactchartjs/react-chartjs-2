@@ -122,14 +122,15 @@ describe('<Chart />', () => {
   it('renders on props.options change', () => {
     const spy = sinon.spy(Chart.prototype, 'render');
     const wrapper = mountComponent({ options: {} });
+    const defaultLegendOpts = wrapper.prop('legend');  
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ options: {} });
+    wrapper.setProps({ options: { legend: defaultLegendOpts } });
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ options: { a: 1 } });
+    wrapper.setProps({ options: { legend: defaultLegendOpts, a: 1 } });
 
     expect(spy.callCount).to.equal(2);
 

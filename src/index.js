@@ -203,6 +203,7 @@ class ChartComponent extends React.Component {
     const {options, legend, type, redraw, plugins} = this.props;
     const node = this.element;
     const data = this.memoizeDataProps();
+    options.legend = legend;
 
     this.chart_instance = new Chart(node, {
       type,

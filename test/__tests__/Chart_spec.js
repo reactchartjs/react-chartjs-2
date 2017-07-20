@@ -36,8 +36,8 @@ describe('<Chart />', () => {
   });
 
   const mountComponent = props => mount(
-    <Chart data={data} {...props} />,
-    { attachTo: DOM.body.firstChild }
+      <Chart data={data} {...props} />,
+      { attachTo: DOM.body.firstChild }
   );
 
   beforeEach(() => {
@@ -122,15 +122,14 @@ describe('<Chart />', () => {
   it('renders on props.options change', () => {
     const spy = sinon.spy(Chart.prototype, 'render');
     const wrapper = mountComponent({ options: {} });
-    const defaultLegendOpts = wrapper.prop('legend');  
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ options: { legend: defaultLegendOpts } });
+    wrapper.setProps({ options: {} });
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ options: { legend: defaultLegendOpts, a: 1 } });
+    wrapper.setProps({ options: { a: 1 } });
 
     expect(spy.callCount).to.equal(2);
 

@@ -2,52 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
-
-
-//Taken from MDN
-if (!Array.prototype.find) {
-  Object.defineProperty(Array.prototype, 'find', {
-    value: function(predicate) {
-      // 1. Let O be ? ToObject(this value).
-      if (this == null) {
-        throw new TypeError('"this" is null or not defined');
-      }
-
-      var o = Object(this);
-
-      // 2. Let len be ? ToLength(? Get(O, "length")).
-      var len = o.length >>> 0;
-
-      // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-      if (typeof predicate !== 'function') {
-        throw new TypeError('predicate must be a function');
-      }
-
-      // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-      var thisArg = arguments[1];
-
-      // 5. Let k be 0.
-      var k = 0;
-
-      // 6. Repeat, while k < len
-      while (k < len) {
-        // a. Let Pk be ! ToString(k).
-        // b. Let kValue be ? Get(O, Pk).
-        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-        // d. If testResult is true, return kValue.
-        var kValue = o[k];
-        if (predicate.call(thisArg, kValue, k, o)) {
-          return kValue;
-        }
-        // e. Increase k by 1.
-        k++;
-      }
-
-      // 7. Return undefined.
-      return undefined;
-    }
-  });
-}
+import find from 'lodash.find';
 
 
 class ChartComponent extends React.Component {
@@ -68,8 +23,7 @@ class ChartComponent extends React.Component {
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
     type: function(props, propName, componentName) {
-
-      if(!Object.keys(Chart.controllers).find((chartType) => chartType === props[propName])){
+      if(!Chart.controllers[props[propName]]) {
         return new Error(
           'Invalid chart type `' + props[propName] + '` supplied to' +
           ' `' + componentName + '`.'
@@ -218,7 +172,7 @@ class ChartComponent extends React.Component {
 			  // deleted series
 			  currentDatasets.splice(idx, 1);
 		  } else {
-			  const retainedDataset = nextDatasets.find(d => this.props.datasetKeyProvider(d) === currentDatasetKey);
+			  const retainedDataset = find(nextDatasets, d => this.props.datasetKeyProvider(d) === currentDatasetKey);
 			  if (retainedDataset) {
 				  // update it in place if it is a retained dataset
 				  currentDatasets[idx].data.splice(retainedDataset.data.length);

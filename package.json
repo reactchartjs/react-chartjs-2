@@ -74,5 +74,6 @@
     "chart.js",
     "react-chartjs-2",
     "react chart.js"
-  ]
+  ],
+  "types": "./index.d.ts"
 }

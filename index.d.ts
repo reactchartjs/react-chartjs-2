@@ -1,5 +1,5 @@
 // Type definitions for react-chartjs-2 2.0
-// Project: https://github.com/gor181/react-chartjs-2
+// Project: https://github.com/jerairrest/react-chartjs-2
 // Definitions by: Alexandre Paré <https://github.com/apare>
 //                 Fabien Lavocat <https://github.com/FabienLavocat>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -8,7 +8,9 @@
 import * as React from "react";
 import * as chartjs from "chart.js";
 
-export type ChartDataFunction<T extends chartjs.ChartData> = (element: HTMLElement) => T;
+export type ChartDataFunction<T extends chartjs.ChartData> = (
+  element: HTMLElement
+) => T;
 export type ChartData<T extends chartjs.ChartData> = ChartDataFunction<T> | T;
 
 export interface ChartComponentProps {
@@ -29,30 +31,24 @@ export interface LinearComponentProps extends ChartComponentProps {
   data: ChartData<chartjs.ChartData>;
 }
 
-export default class ChartComponent<P extends ChartComponentProps> extends React.Component<P> {
+export default class ChartComponent<
+  P extends ChartComponentProps
+> extends React.Component<P> {
   chart_instance: chartjs;
 }
 
-export class Doughnut extends ChartComponent<ChartComponentProps> {
-}
+export class Doughnut extends ChartComponent<ChartComponentProps> {}
 
-export class Pie extends ChartComponent<ChartComponentProps> {
-}
+export class Pie extends ChartComponent<ChartComponentProps> {}
 
-export class Line extends ChartComponent<LinearComponentProps> {
-}
+export class Line extends ChartComponent<LinearComponentProps> {}
 
-export class Bar extends ChartComponent<LinearComponentProps> {
-}
+export class Bar extends ChartComponent<LinearComponentProps> {}
 
-export class HorizontalBar extends ChartComponent<ChartComponentProps> {
-}
+export class HorizontalBar extends ChartComponent<ChartComponentProps> {}
 
-export class Radar extends ChartComponent<ChartComponentProps> {
-}
+export class Radar extends ChartComponent<ChartComponentProps> {}
 
-export class Polar extends ChartComponent<ChartComponentProps> {
-}
+export class Polar extends ChartComponent<ChartComponentProps> {}
 
-export class Bubble extends ChartComponent<ChartComponentProps> {
-}
+export class Bubble extends ChartComponent<ChartComponentProps> {}

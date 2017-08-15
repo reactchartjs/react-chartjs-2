@@ -19,3 +19,4 @@ export class Bar extends React.Component<ChartComponentProps, any>{}
 export class HorizontalBar extends React.Component<ChartComponentProps, any>{}
 export class Radar extends React.Component<ChartComponentProps, any>{}
 export class Polar extends React.Component<ChartComponentProps, any>{}
+export class Scatter extends React.Component<ChartComponentProps, any>{}

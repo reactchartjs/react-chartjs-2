@@ -4,7 +4,6 @@ import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
 import find from 'lodash.find';
 
-
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
 

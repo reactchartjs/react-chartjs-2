@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { jsdom } from 'jsdom';
 import sinon from 'sinon';
 
-import ChartComponent, { ChartComponent as ChartConstructor } from '../../src/index';
+import ChartComponent from '../../src/index';
 
 const noop = () => {};
 const createDOM = () => jsdom('<!doctype html><html><body><div></div></body></html>');
@@ -26,14 +26,6 @@ describe('<ChartComponent />', () => {
       }
     ]
   };
-
-  /*ChartConstructor.Chart.plugins.register({
-    afterInit: function (chartInstance) {
-      chartInstance.getDatasetAtEvent = function (e) {
-        return ChartConstructor.Interaction.modes.dataset(this, e, this.options);
-      };
-    }
-  });*/
 
   const mountComponent = props => mount(
     <ChartComponent data={data} {...props} />,
@@ -174,14 +166,14 @@ describe('<ChartComponent />', () => {
     spy.restore();
   });
 
-  /*it('calls getDatasetAtEvent', () => {
+  it('calls getDatasetAtEvent', () => {
 		const getDatasetAtEvent = sinon.spy();
 		const wrapper = mountComponent({ getDatasetAtEvent });
 
 		wrapper.find('canvas').simulate('click');
 
 		expect(getDatasetAtEvent.called).to.equal(true);
-  });*/
+  });
 
   it('calls getElementAtEvent', () => {
     const getElementAtEvent = sinon.spy();
@@ -208,5 +200,18 @@ describe('<ChartComponent />', () => {
     wrapper.find('canvas').simulate('click');
 
     expect(onElementsClick.called).to.equal(true);
+  });
+
+  describe('props.data function', () => {
+    it('calls data func with canvas node', () => {
+      const resultData = { test: 1 };
+      const dataFn = sinon.spy((canvas) => resultData);
+      const wrapper = mountComponent({ data: dataFn });
+
+      const canvas = wrapper.find('canvas').at(0).node;
+
+      expect(dataFn.callCount).to.equal(1);
+      expect(dataFn.calledWith(canvas)).to.equal(true);
+    });
   });
 });

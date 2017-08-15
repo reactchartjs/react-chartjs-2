@@ -6,7 +6,7 @@
 # react-chartjs-2
 
 React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
-Open for PR's and contributions!
+Open for PRs and contributions!
 
 # UPDATE to 2.x
 As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.4.x is the recommended version of chart.js to use.
@@ -28,6 +28,17 @@ npm start
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
+## Demo & Examples via React Storybook
+
+We have to build the package, then you can run storybook.
+
+```bash
+npm run build
+npm run storybook
+```
+
+Then open [`localhost:6006`](http://localhost:6006) in a browser.
+
 
 ## Installation via NPM
 
@@ -48,7 +59,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 ### Properties
 
-* data: PropTypes.object.isRequired,
+* data: (PropTypes.object | PropTypes.func).isRequired,
 * width: PropTypes.number,
 * height: PropTypes.number,
 * legend: PropTypes.object,
@@ -83,6 +94,31 @@ render() {
 	}
 	return (
 		<Doughnut ref='chart' data={data} />
+	)
+}
+```
+
+### Getting context for data generation
+Canvas node and hence context, that can be used to create CanvasGradient background,
+is passed as argument to data if given as function:
+
+This approach is useful when you want to keep your components pure.
+
+```js
+render() {
+	const data = (canvas) => {
+		const ctx = canvas.getContext("2d")
+		const gradient = ctx.createLinearGradient(0,0,100,0);
+		...
+		return {
+			...
+			backgroundColor: gradient
+			...
+		}
+	}
+
+	return (
+		<Line data={data} />
 	)
 }
 ```
@@ -131,6 +167,10 @@ componentWillMount() {
 }
 ```
 
+### Scatter Charts
+
+If you're using Chart.js 2.6 and below, add the `showLines: false` property to your chart options. This was later [added](https://github.com/chartjs/Chart.js/commit/7fa60523599a56255cde78a49e848166bd233c6e) in the default config, so users of later versions would not need to do this extra step.
+
 ### Events
 
 #### onElementsClick || getElementsAtEvent (function)
@@ -166,6 +206,13 @@ Looks for the element under the event point, then returns all elements from that
 	// `dataset` is an array of chartElements
 }
 ```
+
+### Working with Multiple Datasets
+
+You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together. This is because to track changes in the dataset series, the library needs a `key` to be specified - if none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
+
+1. Add a `label` property on each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
+2. Specify a different property to be used as a key by passing a `datasetKeyProvider` prop to your chart component, which would return a unique string value for each dataset.
 
 ## Development (`src`, `lib` and the build process)
 

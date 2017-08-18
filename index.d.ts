@@ -43,6 +43,8 @@ export class Pie extends ChartComponent<ChartComponentProps> {}
 
 export class Line extends ChartComponent<LinearComponentProps> {}
 
+export class Scatter extends ChartComponent<ChartComponentProps> {}
+
 export class Bar extends ChartComponent<LinearComponentProps> {}
 
 export class HorizontalBar extends ChartComponent<ChartComponentProps> {}

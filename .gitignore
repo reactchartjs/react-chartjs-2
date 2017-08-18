@@ -16,6 +16,10 @@ coverage.html
 # Dependency directory
 node_modules
 
+# Build directories
+lib
+dist
+
 # Example build directory
 example/dist
 .publish

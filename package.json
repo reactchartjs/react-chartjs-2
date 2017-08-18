@@ -15,8 +15,7 @@
     "url": "https://github.com/jerairrest/react-chartjs-2/issues"
   },
   "dependencies": {
-    "lodash.find": "^4.6.0",
-    "lodash.isequal": "^4.4.0",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {

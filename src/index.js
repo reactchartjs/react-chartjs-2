@@ -4,7 +4,6 @@ import Chart from 'chart.js';
 import isEqual from 'lodash.isequal';
 import find from 'lodash.find';
 
-
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
 
@@ -47,11 +46,14 @@ class ChartComponent extends React.Component {
     datasetKeyProvider: ChartComponent.getLabelAsKey
   }
 
+  static Chart = null
+
   componentWillMount() {
     this.chart_instance = undefined;
   }
 
   componentDidMount() {
+  	this.Chart = require('chart.js');
     this.renderChart();
   }
 
@@ -152,7 +154,7 @@ class ChartComponent extends React.Component {
     if (!this.chart_instance) return;
 
     if (options) {
-      this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
+      this.chart_instance.options = this.Chart.helpers.configMerge(this.chart_instance.options, options);
     }
 
     // Pipe datasets to chart instance datasets enabling
@@ -209,7 +211,7 @@ class ChartComponent extends React.Component {
       options.legend = legend;
     }
 
-    this.chart_instance = new Chart(node, {
+    this.chart_instance = new this.Chart(node, {
       type,
       data,
       options,
@@ -361,5 +363,4 @@ export class Scatter extends React.Component {
   }
 }
 
-export const defaults = Chart.defaults;
 export {Chart};

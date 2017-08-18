@@ -19,6 +19,7 @@ node_modules
 # Build directories
 lib
 dist
+es
 
 # Example build directory
 example/dist

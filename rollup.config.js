@@ -25,7 +25,7 @@ const config = {
 };
 
 if (env === 'production') {
-  config.plugins.push(
+   config.plugins.push(
     uglify({
       compress: {
         pure_getters: true,
@@ -33,7 +33,7 @@ if (env === 'production') {
         unsafe_comps: true,
         warnings: false
       },
-    }),
+    })
   );
 }
 

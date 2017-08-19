@@ -1,1 +1,9 @@
+.storybook
+example
 src
+.editorconfig
+.eslintignore
+.eslintrc
+.travis.yml
+bower.json
+rollup.config.js

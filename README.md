@@ -9,15 +9,11 @@ React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
 Open for PRs and contributions!
 
 # UPDATE to 2.x
-As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.4.x is the recommended version of chart.js to use.
-
-# Looking for Contributors!
-Actively looking for contributors as for the moment I do not have enough time to dedicate for maintaining this lib.
-All contributors can add themselves to Contributors section at the bottom of README.
+As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.5.x is the recommended version of chart.js to use.
 
 ## Demo & Examples
 
-Live demo: [gor181.github.io/react-chartjs-2](http://gor181.github.io/react-chartjs-2/)
+Live demo: [jerairrest.github.io/react-chartjs-2](http://jerairrest.github.io/react-chartjs-2/)
 
 To build the examples locally, run:
 
@@ -220,14 +216,9 @@ You will find that any event which causes the chart to re-render, such as hover 
 
 To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
 
-## Thanks
-
-Jed Watson for making react-component yo builder!
 
 ## License
 
 MIT Licensed
-Copyright (c) 2016 Goran Udosic
+Copyright (c) 2017 Jeremy Ayerst
 
-## Contributors
-Jeremy Ayerst [@jerairrest](https://github.com/jerairrest)

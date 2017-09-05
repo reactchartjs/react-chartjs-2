@@ -34,7 +34,7 @@
     "canvas": "^1.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
     "chai": "^3.5.0",
-    "chart.js": "^2.3.0",
+    "chart.js": "2.6.0",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.5",
     "debug": "^2.4.1",

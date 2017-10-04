@@ -33,7 +33,7 @@ export interface LinearComponentProps extends ChartComponentProps {
 
 export default class ChartComponent<
   P extends ChartComponentProps
-> extends React.Component<P> {
+> extends React.Component<P, {}> {
   chart_instance: chartjs;
 }
 

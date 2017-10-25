@@ -15,10 +15,6 @@
     "url": "https://github.com/jerairrest/react-chartjs-2/issues"
   },
   "devDependencies": {
-    "lodash": "^4.17.4",
-    "prop-types": "^15.5.8"
-  },
-  "dependencies": {
     "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",
@@ -31,35 +27,39 @@
     "babel-register": "^6.18.0",
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
-    "canvas": "^1.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
+    "canvas": "^1.6.2",
     "chai": "^3.5.0",
-    "chart.js": "2.6.0",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.5",
     "debug": "^2.4.1",
     "enzyme": "^2.6.0",
-    "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
+    "eslint": "^1.6.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.0",
     "html-webpack-plugin": "^2.30.1",
     "jsdom": "^9.8.3",
+    "lodash": "^4.17.4",
     "mocha": "^3.1.2",
+    "prop-types": "^15.5.8",
     "rcolor": "^1.0.1",
-    "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
+    "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "rimraf": "^2.6.1",
-    "rollup": "^0.47.6",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
+    "rollup": "^0.47.6",
     "sinon": "^1.17.6",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
+    "chart.js": "2.6.0"
   },
   "peerDependencies": {
     "chart.js": "^2.3",

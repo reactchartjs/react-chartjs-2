@@ -14,11 +14,11 @@
   "bugs": {
     "url": "https://github.com/jerairrest/react-chartjs-2/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.5.8"
   },
-  "devDependencies": {
+  "dependencies": {
     "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",

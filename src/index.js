@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Chart from 'chart.js';
 import isEqual from 'lodash/isEqual';
 import find from 'lodash/find';
-
+import keyBy from 'lodash/keyBy';
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
@@ -160,36 +160,35 @@ class ChartComponent extends React.Component {
     let currentDatasets = (this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
 
-    // use the key provider to work out which series have been added/removed/changed
-    const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
-    const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
-    const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
+    const currentDatasetsIndexed = keyBy(
+      currentDatasets,
+      this.props.datasetKeyProvider
+    );
 
-    // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
-    for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {
-      const currentDatasetKey = this.props.datasetKeyProvider(currentDatasets[idx]);
-      if (nextDatasetKeys.indexOf(currentDatasetKey) === -1) {
-        // deleted series
-        currentDatasets.splice(idx, 1);
+    // We can safely replace the dataset array, as long as we retain the _meta property
+    // on each dataset.
+    this.chartInstance.config.data.datasets = nextDatasets.map(next => {
+      const current =
+        currentDatasetsIndexed[this.props.datasetKeyProvider(next)];
+      if (current && current.type === next.type) {
+        // The data array must be edited in place. As chart.js adds listeners to it.
+        current.data.splice(next.data.length);
+        next.data.forEach((point, pid) => {
+          current.data[pid] = next.data[pid];
+        });
+        const { data, ...otherProps } = next;
+        // Merge properties. Notice a weakness here. If a property is removed
+        // from next, it will be retained by current and never disappears.
+        // Workaround is to set value to null or undefined in next.
+        return {
+          ...current,
+          ...otherProps
+        };
       } else {
-        const retainedDataset = find(nextDatasets, d => this.props.datasetKeyProvider(d) === currentDatasetKey);
-        if (retainedDataset) {
-          // update it in place if it is a retained dataset
-          currentDatasets[idx].data.splice(retainedDataset.data.length);
-          retainedDataset.data.forEach((point, pid) => {
-            currentDatasets[idx].data[pid] = retainedDataset.data[pid];
-          });
-          const {data, ...otherProps} = retainedDataset;
-          currentDatasets[idx] = {
-            data: currentDatasets[idx].data,
-            ...currentDatasets[idx],
-            ...otherProps
-          };
-        }
+        return next;
       }
-    }
-    // finally add any new series
-    newDatasets.forEach(d => currentDatasets.push(d));
+    });
+
     const { datasets, ...rest } = data;
 
     this.chartInstance.config.data = {

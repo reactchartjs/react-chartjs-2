@@ -10,8 +10,8 @@ class ChartComponent extends React.Component {
 
   static propTypes = {
     data: PropTypes.oneOfType([
-    	PropTypes.object,
-    	PropTypes.func
+      PropTypes.object,
+      PropTypes.func
     ]).isRequired,
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
@@ -98,9 +98,9 @@ class ChartComponent extends React.Component {
 
     const nextData = this.transformDataProp(nextProps);
 
-	  if( !isEqual(this.shadowDataProp, nextData)) {
-		  return true;
-	  }
+    if( !isEqual(this.shadowDataProp, nextData)) {
+      return true;
+    }
 
     return !isEqual(plugins, nextProps.plugins);
 
@@ -160,36 +160,36 @@ class ChartComponent extends React.Component {
     let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
 
-	  // use the key provider to work out which series have been added/removed/changed
-	  const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
-	  const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
-	  const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
+    // use the key provider to work out which series have been added/removed/changed
+    const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
+    const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
+    const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
 
-	  // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
-	  for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {
-			const currentDatasetKey = this.props.datasetKeyProvider(currentDatasets[idx]);
-			if (nextDatasetKeys.indexOf(currentDatasetKey) === -1) {
-			  // deleted series
-			  currentDatasets.splice(idx, 1);
-		  } else {
-			  const retainedDataset = find(nextDatasets, d => this.props.datasetKeyProvider(d) === currentDatasetKey);
-			  if (retainedDataset) {
-				  // update it in place if it is a retained dataset
-				  currentDatasets[idx].data.splice(retainedDataset.data.length);
-				  retainedDataset.data.forEach((point, pid) => {
-					  currentDatasets[idx].data[pid] = retainedDataset.data[pid];
-				  });
-				  const {data, ...otherProps} = retainedDataset;
-				  currentDatasets[idx] = {
-					  data: currentDatasets[idx].data,
-					  ...currentDatasets[idx],
-					  ...otherProps
-				  };
-			  }
-		  }
-	  }
-	  // finally add any new series
-	  newDatasets.forEach(d => currentDatasets.push(d));
+    // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
+    for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {
+      const currentDatasetKey = this.props.datasetKeyProvider(currentDatasets[idx]);
+      if (nextDatasetKeys.indexOf(currentDatasetKey) === -1) {
+        // deleted series
+        currentDatasets.splice(idx, 1);
+      } else {
+        const retainedDataset = find(nextDatasets, d => this.props.datasetKeyProvider(d) === currentDatasetKey);
+        if (retainedDataset) {
+          // update it in place if it is a retained dataset
+          currentDatasets[idx].data.splice(retainedDataset.data.length);
+          retainedDataset.data.forEach((point, pid) => {
+            currentDatasets[idx].data[pid] = retainedDataset.data[pid];
+          });
+          const {data, ...otherProps} = retainedDataset;
+          currentDatasets[idx] = {
+            data: currentDatasets[idx].data,
+            ...currentDatasets[idx],
+            ...otherProps
+          };
+        }
+      }
+    }
+    // finally add any new series
+    newDatasets.forEach(d => currentDatasets.push(d));
     const { datasets, ...rest } = data;
 
     this.chart_instance.config.data = {

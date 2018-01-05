@@ -54,3 +54,5 @@ export class Radar extends ChartComponent<ChartComponentProps> {}
 export class Polar extends ChartComponent<ChartComponentProps> {}
 
 export class Bubble extends ChartComponent<ChartComponentProps> {}
+
+export var defaults: {};

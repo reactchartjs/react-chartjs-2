@@ -48,7 +48,7 @@ class ChartComponent extends React.Component {
   }
 
   componentWillMount() {
-    this.chart_instance = undefined;
+    this.chartInstance = undefined;
   }
 
   componentDidMount() {
@@ -57,7 +57,7 @@ class ChartComponent extends React.Component {
 
   componentDidUpdate() {
     if (this.props.redraw) {
-      this.chart_instance.destroy();
+      this.chartInstance.destroy();
       this.renderChart();
       return;
     }
@@ -108,7 +108,7 @@ class ChartComponent extends React.Component {
   }
 
   componentWillUnmount() {
-    this.chart_instance.destroy();
+    this.chartInstance.destroy();
   }
 
   transformDataProp(props) {
@@ -149,15 +149,15 @@ class ChartComponent extends React.Component {
 
     const data = this.memoizeDataProps(this.props);
 
-    if (!this.chart_instance) return;
+    if (!this.chartInstance) return;
 
     if (options) {
-      this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
+      this.chartInstance.options = Chart.helpers.configMerge(this.chartInstance.options, options);
     }
 
     // Pipe datasets to chart instance datasets enabling
     // seamless transitions
-    let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
+    let currentDatasets = (this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
 
     // use the key provider to work out which series have been added/removed/changed
@@ -192,12 +192,12 @@ class ChartComponent extends React.Component {
     newDatasets.forEach(d => currentDatasets.push(d));
     const { datasets, ...rest } = data;
 
-    this.chart_instance.config.data = {
-      ...this.chart_instance.config.data,
+    this.chartInstance.config.data = {
+      ...this.chartInstance.config.data,
       ...rest
     };
 
-    this.chart_instance.update();
+    this.chartInstance.update();
   }
 
   renderChart() {
@@ -209,7 +209,7 @@ class ChartComponent extends React.Component {
       options.legend = legend;
     }
 
-    this.chart_instance = new Chart(node, {
+    this.chartInstance = new Chart(node, {
       type,
       data,
       options,
@@ -218,7 +218,7 @@ class ChartComponent extends React.Component {
   }
 
   handleOnClick = (event) => {
-    const instance = this.chart_instance;
+    const instance = this.chartInstance;
 
     const {
       getDatasetAtEvent,
@@ -258,7 +258,7 @@ export class Doughnut extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='doughnut'
       />
     );
@@ -270,7 +270,7 @@ export class Pie extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='pie'
       />
     );
@@ -282,7 +282,7 @@ export class Line extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='line'
       />
     );
@@ -294,7 +294,7 @@ export class Bar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='bar'
       />
     );
@@ -306,7 +306,7 @@ export class HorizontalBar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='horizontalBar'
       />
     );
@@ -318,7 +318,7 @@ export class Radar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='radar'
       />
     );
@@ -330,7 +330,7 @@ export class Polar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='polarArea'
       />
     );
@@ -342,7 +342,7 @@ export class Bubble extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='bubble'
       />
     );
@@ -354,7 +354,7 @@ export class Scatter extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='scatter'
       />
     );

@@ -7,3 +7,4 @@ src
 .travis.yml
 bower.json
 rollup.config.js
+.babelrc

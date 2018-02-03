@@ -222,4 +222,79 @@ describe('<Chart />', () => {
       expect(dataFn.calledWith(canvas)).to.equal(true);
     });
   });
+
+  describe('checkDatasets', () => {
+    let consoleStub = null;
+    beforeEach(() => {
+      consoleStub = sinon.stub(global.console, 'error');
+    });
+
+    afterEach(() => {
+      consoleStub.restore();
+      consoleStub = null;
+    });
+
+    it('should log error to console if datasets don\'t have a label', () => {
+      const wrapper = mountComponent({ data: {} });
+      wrapper.setProps({
+          data: {
+            datasets: [
+              {
+                _id: '238940890234809234',
+                data: [10, 20, 10, 20, 10, 20, 10]
+              },
+              {
+                _id: '098340598345839455',
+                data: [50, 100, 50, 100, 50, 100, 50]
+              }
+            ]
+          }
+      });
+      wrapper.update();
+
+      expect(consoleStub.callCount).to.equal(1);
+    });
+
+    it('should not log error to console if all datasets have a label', () => {
+      const wrapper = mountComponent({ data: {} });
+      wrapper.setProps({
+        data: {
+          datasets: [
+            {
+              label: 'My first dataset',
+              data: [10, 20, 10, 20, 10, 20, 10]
+            },
+            {
+              label: 'My second dataset',
+              data: [50, 100, 50, 100, 50, 100, 50]
+            }
+          ]
+        }
+      });
+      wrapper.update();
+
+      expect(consoleStub.callCount).to.equal(0);
+    });
+
+    it('should not log error to console if a custom datasetKeyProvider is provided', () => {
+      const wrapper = mountComponent({ datasetKeyProvider: (d) => d._id });
+      wrapper.setProps({
+          data: {
+            datasets: [
+              {
+                _id: '238940890234809234',
+                data: [10, 20, 10, 20, 10, 20, 10]
+              },
+              {
+                _id: '098340598345839455',
+                data: [50, 100, 50, 100, 50, 100, 50]
+              }
+            ]
+          }
+      });
+      wrapper.update();
+
+      expect(consoleStub.callCount).to.equal(0);
+    });
+  });
 });

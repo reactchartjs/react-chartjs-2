@@ -5,20 +5,7 @@ import isEqual from 'lodash/isEqual';
 import find from 'lodash/find';
 import keyBy from 'lodash/keyBy';
 
-// Gets React's enviroment
-// https://stackoverflow.com/a/25922668
-const env = (() => {
-  try {
-    React.createClass({});
-  } catch(e) {
-    if (e.message.indexOf('render') >= 0) {
-      return 'dev';  // A nice, specific error message
-    } else {
-      return 'prod';  // A generic error message
-    }
-  }
-  return 'prod';  // should never happen, but play it safe.
-})();
+const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
@@ -159,6 +146,25 @@ class ChartComponent extends React.Component {
     return data;
   }
 
+  checkDatasets(datasets) {
+    const isDev = NODE_ENV !== 'production' && NODE_ENV !== 'prod';
+    const usingCustomKeyProvider = this.props.datasetKeyProvider !== ChartComponent.getLabelAsKey;
+    const multipleDatasets = datasets.length > 1;
+
+    if (isDev && multipleDatasets && !usingCustomKeyProvider) {
+      let shouldWarn = false;
+      datasets.forEach((dataset) => {
+        if (!dataset.label) {
+          shouldWarn = true;
+        }
+      });
+
+      if (shouldWarn) {
+        console.error('[react-chartjs-2] Warning: Each dataset needs a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
+      }
+    }
+  }
+
   updateChart() {
     const {options} = this.props;
 
@@ -174,6 +180,7 @@ class ChartComponent extends React.Component {
     // seamless transitions
     let currentDatasets = (this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
+    this.checkDatasets(currentDatasets);
 
     const currentDatasetsIndexed = keyBy(
       currentDatasets,
@@ -185,6 +192,7 @@ class ChartComponent extends React.Component {
     this.chartInstance.config.data.datasets = nextDatasets.map(next => {
       const current =
         currentDatasetsIndexed[this.props.datasetKeyProvider(next)];
+
       if (current && current.type === next.type) {
         // The data array must be edited in place. As chart.js adds listeners to it.
         current.data.splice(next.data.length);

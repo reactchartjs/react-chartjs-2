@@ -1,25 +1,30 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.1.0",
+  "version": "2.6.4",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
-  "author": "Goran Udosic",
-  "homepage": "https://github.com/gor181/react-chartjs-2",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "author": "Jeremy Ayerst",
+  "homepage": "https://github.com/jerairrest/react-chartjs-2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gor181/react-chartjs-2.git"
+    "url": "https://github.com/jerairrest/react-chartjs-2.git"
   },
   "bugs": {
-    "url": "https://github.com/gor181/react-chartjs-2/issues"
+    "url": "https://github.com/jerairrest/react-chartjs-2/issues"
   },
   "dependencies": {
-    "lodash.isequal": "^4.4.0",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^4.1.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-1": "^6.13.0",
@@ -27,26 +32,39 @@
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
     "canvas": "^1.6.2",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "chai": "^3.5.0",
-    "chart.js": "^2.3.0",
+    "chart.js": "2.6.0",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.5",
     "debug": "^2.4.1",
     "enzyme": "^2.6.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gh-pages": "^1.0.0",
     "gulp": "^3.9.0",
+    "html-webpack-plugin": "^2.30.1",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "rcolor": "^1.0.1",
     "react": "^0.14 || ^15.0.0-rc || ^15.0",
     "react-addons-test-utils": "^15.3.2",
-    "react-component-gulp-tasks": "git+https://github.com/gor181/react-component-gulp-tasks.git",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
-    "sinon": "^1.17.6"
+    "rimraf": "^2.6.1",
+    "rollup": "^0.47.6",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "sinon": "^1.17.6",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "peerDependencies": {
     "chart.js": "^2.3",
-    "react": "^0.14 || ^15.0.0-rc || ^15.0",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0"
   },
   "browserify-shim": {
     "react": "global:React",
@@ -54,14 +72,19 @@
     "chart.js": "global:Chart"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
-    "examples": "gulp dev:server",
+    "clean": "rimraf lib es dist",
+    "build:cjs": "babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=jsnext babel src --out-dir es",
+    "build:umd": "cross-env BABEL_ENV=rollup NODE_ENV=development rollup -c -o dist/react-chartjs-2.js",
+    "build:umd:min": "cross-env BABEL_ENV=rollup NODE_ENV=production rollup -c -o dist/react-chartjs-2.min.js",
+    "build": "npm run clean && npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "examples": "webpack-dev-server --config example/webpack.config.babel.js --progress",
+    "examples:clean": "rimraf example/dist",
+    "examples:build": "cross-env BABEL_ENV=development NODE_ENV=production webpack --config example/webpack.config.babel.js --progress",
+    "examples:deploy": "npm run examples:clean && npm run examples:build && gh-pages -d example/dist",
+    "start": "npm run examples",
     "lint": "eslint ./; true",
-    "publish:site": "NODE_ENV=production gulp publish:examples",
-    "release": "NODE_ENV=production gulp release",
-    "start": "gulp dev",
     "test": "mocha test/config/setup.js test/__tests__/**/*",
-    "watch": "gulp watch:lib",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -71,5 +94,6 @@
     "chart.js",
     "react-chartjs-2",
     "react chart.js"
-  ]
+  ],
+  "types": "./index.d.ts"
 }

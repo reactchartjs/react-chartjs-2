@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import Chart from 'chart.js';
-import isEqual from 'lodash.isequal';
+import isEqual from 'lodash/isEqual';
+import find from 'lodash/find';
+import keyBy from 'lodash/keyBy';
 
 // Gets React's enviroment
 // https://stackoverflow.com/a/25922668
@@ -24,8 +25,8 @@ class ChartComponent extends React.Component {
 
   static propTypes = {
     data: PropTypes.oneOfType([
-    	PropTypes.object,
-    	PropTypes.func
+      PropTypes.object,
+      PropTypes.func
     ]).isRequired,
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
@@ -36,7 +37,14 @@ class ChartComponent extends React.Component {
     options: PropTypes.object,
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
-    type: PropTypes.oneOf(['doughnut', 'pie', 'line', 'bar', 'horizontalBar', 'radar', 'polarArea', 'bubble']),
+    type: function(props, propName, componentName) {
+      if(!Chart.controllers[props[propName]]) {
+        return new Error(
+          'Invalid chart type `' + props[propName] + '` supplied to' +
+          ' `' + componentName + '`.'
+        );
+      }
+    },
     width: PropTypes.number,
     datasetKeyProvider: PropTypes.func
   }
@@ -55,7 +63,7 @@ class ChartComponent extends React.Component {
   }
 
   componentWillMount() {
-    this.chart_instance = undefined;
+    this.chartInstance = undefined;
   }
 
   componentDidMount() {
@@ -64,7 +72,7 @@ class ChartComponent extends React.Component {
 
   componentDidUpdate() {
     if (this.props.redraw) {
-      this.chart_instance.destroy();
+      this.chartInstance.destroy();
       this.renderChart();
       return;
     }
@@ -105,9 +113,9 @@ class ChartComponent extends React.Component {
 
     const nextData = this.transformDataProp(nextProps);
 
-	  if( !isEqual(this.shadowDataProp, nextData)) {
-		  return true;
-	  }
+    if( !isEqual(this.shadowDataProp, nextData)) {
+      return true;
+    }
 
     return !isEqual(plugins, nextProps.plugins);
 
@@ -115,13 +123,13 @@ class ChartComponent extends React.Component {
   }
 
   componentWillUnmount() {
-    this.chart_instance.destroy();
+    this.chartInstance.destroy();
   }
 
   transformDataProp(props) {
     const { data } = props;
     if (typeof(data) == 'function') {
-      const node = ReactDOM.findDOMNode(this);
+      const node = this.element;
       return data(node);
     } else {
       return data;
@@ -156,69 +164,66 @@ class ChartComponent extends React.Component {
 
     const data = this.memoizeDataProps(this.props);
 
-    if (!this.chart_instance) return;
+    if (!this.chartInstance) return;
 
     if (options) {
-      this.chart_instance.options = Chart.helpers.configMerge(this.chart_instance.options, options);
+      this.chartInstance.options = Chart.helpers.configMerge(this.chartInstance.options, options);
     }
 
     // Pipe datasets to chart instance datasets enabling
     // seamless transitions
-    let currentDatasets = (this.chart_instance.config.data && this.chart_instance.config.data.datasets) || [];
+    let currentDatasets = (this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
     const nextDatasets = data.datasets || [];
 
-	  // use the key provider to work out which series have been added/removed/changed
-	  const currentDatasetKeys = currentDatasets.map(this.props.datasetKeyProvider);
-	  const nextDatasetKeys = nextDatasets.map(this.props.datasetKeyProvider);
-    const shouldWarn = !currentDatasetKeys.every(d => typeof d !== 'undefined') || !nextDatasetKeys.every(d => typeof d !== 'undefined');
-	  const newDatasets = nextDatasets.filter(d => currentDatasetKeys.indexOf(this.props.datasetKeyProvider(d)) === -1);
+    const currentDatasetsIndexed = keyBy(
+      currentDatasets,
+      this.props.datasetKeyProvider
+    );
 
-    if (shouldWarn && !this.hasWarned && env === 'dev') {
-      this.hasWarned = true; // Only warn once per chart so console isn't spammed with warnings
-      console.error('[react-chartjs-2] Warning: Each dataset needs a unique key. By default, the "label" property on each dataset is used. Alternatively, you may provide a "datasetKeyProvider" as a prop that returns a unique key.');
-    }
+    // We can safely replace the dataset array, as long as we retain the _meta property
+    // on each dataset.
+    this.chartInstance.config.data.datasets = nextDatasets.map(next => {
+      const current =
+        currentDatasetsIndexed[this.props.datasetKeyProvider(next)];
+      if (current && current.type === next.type) {
+        // The data array must be edited in place. As chart.js adds listeners to it.
+        current.data.splice(next.data.length);
+        next.data.forEach((point, pid) => {
+          current.data[pid] = next.data[pid];
+        });
+        const { data, ...otherProps } = next;
+        // Merge properties. Notice a weakness here. If a property is removed
+        // from next, it will be retained by current and never disappears.
+        // Workaround is to set value to null or undefined in next.
+        return {
+          ...current,
+          ...otherProps
+        };
+      } else {
+        return next;
+      }
+    });
 
-	  // process the updates (via a reverse for loop so we can safely splice deleted datasets out of the array
-	  for (let idx = currentDatasets.length - 1; idx >= 0; idx -= 1) {
-			const currentDatasetKey = this.props.datasetKeyProvider(currentDatasets[idx]);
-			if (nextDatasetKeys.indexOf(currentDatasetKey) === -1) {
-			  // deleted series
-			  currentDatasets.splice(idx, 1);
-		  } else {
-			  const retainedDataset = nextDatasets.find(d => this.props.datasetKeyProvider(d) === currentDatasetKey);
-			  if (retainedDataset) {
-				  // update it in place if it is a retained dataset
-				  currentDatasets[idx].data.splice(retainedDataset.data.length);
-				  retainedDataset.data.forEach((point, pid) => {
-					  currentDatasets[idx].data[pid] = retainedDataset.data[pid];
-				  });
-				  const {data, ...otherProps} = retainedDataset;
-				  currentDatasets[idx] = {
-					  data: currentDatasets[idx].data,
-					  ...currentDatasets[idx],
-					  ...otherProps
-				  };
-			  }
-		  }
-	  }
-	  // finally add any new series
-	  newDatasets.forEach(d => currentDatasets.push(d));
     const { datasets, ...rest } = data;
 
-    this.chart_instance.config.data = {
-      ...this.chart_instance.config.data,
+    this.chartInstance.config.data = {
+      ...this.chartInstance.config.data,
       ...rest
     };
 
-    this.chart_instance.update();
+    this.chartInstance.update();
   }
 
   renderChart() {
     const {options, legend, type, redraw, plugins} = this.props;
-    const node = ReactDOM.findDOMNode(this);
+    const node = this.element;
     const data = this.memoizeDataProps();
 
-    this.chart_instance = new Chart(node, {
+    if(typeof legend !== 'undefined' && !isEqual(ChartComponent.defaultProps.legend, legend)) {
+      options.legend = legend;
+    }
+
+    this.chartInstance = new Chart(node, {
       type,
       data,
       options,
@@ -227,7 +232,7 @@ class ChartComponent extends React.Component {
   }
 
   handleOnClick = (event) => {
-    const instance = this.chart_instance;
+    const instance = this.chartInstance;
 
     const {
       getDatasetAtEvent,
@@ -242,11 +247,16 @@ class ChartComponent extends React.Component {
     onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
   }
 
+  ref = (element) => {
+    this.element = element
+  }
+
   render() {
     const {height, width, onElementsClick} = this.props;
 
     return (
       <canvas
+        ref={this.ref}
         height={height}
         width={width}
         onClick={this.handleOnClick}
@@ -262,7 +272,7 @@ export class Doughnut extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='doughnut'
       />
     );
@@ -274,7 +284,7 @@ export class Pie extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='pie'
       />
     );
@@ -286,7 +296,7 @@ export class Line extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='line'
       />
     );
@@ -298,7 +308,7 @@ export class Bar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='bar'
       />
     );
@@ -310,7 +320,7 @@ export class HorizontalBar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='horizontalBar'
       />
     );
@@ -322,7 +332,7 @@ export class Radar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='radar'
       />
     );
@@ -334,7 +344,7 @@ export class Polar extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='polarArea'
       />
     );
@@ -346,8 +356,20 @@ export class Bubble extends React.Component {
     return (
       <ChartComponent
         {...this.props}
-        ref={ref => this.chart_instance = ref && ref.chart_instance}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
         type='bubble'
+      />
+    );
+  }
+}
+
+export class Scatter extends React.Component {
+  render() {
+    return (
+      <ChartComponent
+        {...this.props}
+        ref={ref => this.chartInstance = ref && ref.chartInstance}
+        type='scatter'
       />
     );
   }

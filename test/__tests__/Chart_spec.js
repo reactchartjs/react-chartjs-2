@@ -36,8 +36,8 @@ describe('<Chart />', () => {
   });
 
   const mountComponent = props => mount(
-    <Chart data={data} {...props} />,
-    { attachTo: DOM.body.firstChild }
+      <Chart data={data} {...props} />,
+      { attachTo: DOM.body.firstChild }
   );
 
   beforeEach(() => {

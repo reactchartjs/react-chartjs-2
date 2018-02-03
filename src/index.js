@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual';
 import find from 'lodash/find';
 import keyBy from 'lodash/keyBy';
 
-const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV
+const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV;
 
 class ChartComponent extends React.Component {
   static getLabelAsKey = d => d.label;
@@ -256,7 +256,7 @@ class ChartComponent extends React.Component {
   }
 
   ref = (element) => {
-    this.element = element
+    this.element = element;
   }
 
   render() {

@@ -1,13 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { expect } from 'chai';
-import { jsdom } from 'jsdom';
 import sinon from 'sinon';
 
 import Chart, { Chart as ChartConstructor } from '../../src/index';
 
 const noop = () => {};
-const createDOM = () => jsdom('<!doctype html><html><body><div></div></body></html>');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const createDOM = () => new JSDOM('<!doctype html><html><body><div></div></body></html>')
+
+configure({ adapter: new Adapter() });
 
 describe('<Chart />', () => {
   let DOM;
@@ -37,16 +41,17 @@ describe('<Chart />', () => {
 
   const mountComponent = props => mount(
       <Chart data={data} {...props} />,
-      { attachTo: DOM.body.firstChild }
-  );
+			{ attachTo: DOM.window.document.body.firstChild }
+	);
 
   beforeEach(() => {
     DOM = createDOM();
   });
 
   it('renders', () => {
-    const wrapper = mountComponent();
-    expect(wrapper).to.be.truthy;
+		const wrapper = mountComponent();
+    // expect(wrapper).to.be.truthy;
+    expect(wrapper).to.be.ok;
   });
 
   it('renders chart on props.redraw(true)', () => {
@@ -216,7 +221,7 @@ describe('<Chart />', () => {
       const dataFn = sinon.spy((canvas) => resultData);
       const wrapper = mountComponent({ data: dataFn });
 
-      const canvas = wrapper.find('canvas').at(0).node;
+			const canvas = wrapper.find('canvas').at(0).instance();
 
       expect(dataFn.callCount).to.equal(1);
       expect(dataFn.calledWith(canvas)).to.equal(true);

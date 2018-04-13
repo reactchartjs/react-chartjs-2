@@ -8,9 +8,10 @@ catch(e){
 	canvas = require('canvas-prebuilt');
 } 
 
-const jsdom = require('jsdom');
-const document = jsdom.jsdom();
-const window = document.defaultView;
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const {document} = (new JSDOM('<!doctype html><html><body></body></html>')).window;  
+global.window = document.defaultView;
 
 const canvasMethods = [
   'HTMLCanvasElement',

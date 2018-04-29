@@ -1725,7 +1725,7 @@ chalk@^2.1.0:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
-chart.js@^2.3.0:
+chart.js@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.6.0.tgz#308f9a4b0bfed5a154c14f5deb1d9470d22abe71"
   dependencies:

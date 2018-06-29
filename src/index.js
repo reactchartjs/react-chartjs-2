@@ -260,13 +260,14 @@ class ChartComponent extends React.Component {
   }
 
   render() {
-    const {height, width, onElementsClick} = this.props;
+    const {height, width, onElementsClick, id} = this.props;
 
     return (
       <canvas
         ref={this.ref}
         height={height}
         width={width}
+        id={id}
         onClick={this.handleOnClick}
       />
     );

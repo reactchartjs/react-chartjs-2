@@ -23,8 +23,10 @@ export interface ChartComponentProps {
   legend?: chartjs.ChartLegendOptions;
   onElementsClick?(e: any): void; // alias for getElementsAtEvent (backward compatibility)
   options?: chartjs.ChartOptions;
+  plugins?: object[];
   redraw?: boolean;
   width?: number;
+  datasetKeyProvider: (any) => any;
 }
 
 export interface LinearComponentProps extends ChartComponentProps {

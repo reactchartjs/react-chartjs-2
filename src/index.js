@@ -58,7 +58,7 @@ class ChartComponent extends React.Component {
 
   componentDidUpdate() {
     if (this.props.redraw) {
-      this.chartInstance.destroy();
+      this.destroyChart();
       this.renderChart();
       return;
     }
@@ -109,7 +109,7 @@ class ChartComponent extends React.Component {
   }
 
   componentWillUnmount() {
-    this.chartInstance.destroy();
+    this.destroyChart();
   }
 
   transformDataProp(props) {
@@ -142,6 +142,8 @@ class ChartComponent extends React.Component {
       })
     };
 
+    this.saveCurrentDatasets(); // to remove the dataset metadata from this chart when the chart is destroyed
+
     return data;
   }
 
@@ -164,6 +166,18 @@ class ChartComponent extends React.Component {
     }
   }
 
+  getCurrentDatasets() {
+    return (this.chartInstance && this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
+  }
+
+  saveCurrentDatasets() {
+    this.datasets = this.datasets || {};
+    var currentDatasets = this.getCurrentDatasets();
+    currentDatasets.forEach(d => {
+      this.datasets[this.props.datasetKeyProvider(d)] = d;
+    })
+  }
+
   updateChart() {
     const {options} = this.props;
 
@@ -177,7 +191,7 @@ class ChartComponent extends React.Component {
 
     // Pipe datasets to chart instance datasets enabling
     // seamless transitions
-    let currentDatasets = (this.chartInstance.config.data && this.chartInstance.config.data.datasets) || [];
+    let currentDatasets = this.getCurrentDatasets();
     const nextDatasets = data.datasets || [];
     this.checkDatasets(currentDatasets);
 
@@ -236,6 +250,19 @@ class ChartComponent extends React.Component {
       options,
       plugins
     });
+  }
+
+  destroyChart() {
+    // Put all of the datasets that have existed in the chart back on the chart
+    // so that the metadata associated with this chart get destroyed.
+    // This allows the datasets to be used in another chart. This can happen,
+    // for example, in a tabbed UI where the chart gets created each time the
+    // tab gets switched to the chart and uses the same data).
+    this.saveCurrentDatasets();
+    const datasets = Object.values(this.datasets);
+    this.chartInstance.config.data.datasets = datasets;
+
+    this.chartInstance.destroy();
   }
 
   handleOnClick = (event) => {

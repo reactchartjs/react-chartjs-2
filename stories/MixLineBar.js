@@ -19,9 +19,7 @@ const options = {
         gridLines: {
           display: false
         },
-        labels: {
-          show: true
-        }
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July']
       }
     ],
     yAxes: [
@@ -56,7 +54,6 @@ const options = {
 storiesOf('Mix Line+Bar Example', module)
   .add('Line & Bar Stacked', () => {
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
         label: 'Sales',
         type:'line',
@@ -85,7 +82,6 @@ storiesOf('Mix Line+Bar Example', module)
   })
   .add('Line & Line Stacked', () => {
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
         label: 'Sales',
         type:'line',
@@ -114,7 +110,6 @@ storiesOf('Mix Line+Bar Example', module)
   })
   .add('Line & Line Past vs. Future', () => {
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
         label: 'Past',
         type:'line',
@@ -174,9 +169,7 @@ storiesOf('Mix Line+Bar Example', module)
             gridLines: {
               display: false
             },
-            labels: {
-              show: true
-            }
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
           }
         ],
         yAxes: [

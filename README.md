@@ -85,10 +85,12 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 Chart.js instance can be accessed by placing a ref to the element as:
 
 ```js
+
+componentDidMount() {
+	console.log(this.refs.chart.chartInstance); // returns a Chart.js instance reference
+}
+
 render() {
-	componentDidMount() {
-		console.log(this.refs.chart.chartInstance); // returns a Chart.js instance reference
-	}
 	return (
 		<Doughnut ref='chart' data={data} />
 	)

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Chart from 'chart.js';
 import isEqual from 'lodash/isEqual';
-import find from 'lodash/find';
 import keyBy from 'lodash/keyBy';
 
 const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV;
@@ -223,7 +222,7 @@ class ChartComponent extends React.Component {
   }
 
   renderChart() {
-    const {options, legend, type, redraw, plugins} = this.props;
+    const {options, legend, type, plugins} = this.props;
     const node = this.element;
     const data = this.memoizeDataProps();
 
@@ -260,7 +259,7 @@ class ChartComponent extends React.Component {
   }
 
   render() {
-    const {height, width, onElementsClick, id} = this.props;
+    const {height, width, id} = this.props;
 
     return (
       <canvas

@@ -86,13 +86,15 @@ Chart.js instance can be accessed by placing a ref to the element as:
 
 ```js
 
+chartReference = {};
+
 componentDidMount() {
-	console.log(this.refs.chart.chartInstance); // returns a Chart.js instance reference
+	console.log(this.chartReference); // returns a Chart.js instance reference
 }
 
 render() {
 	return (
-		<Doughnut ref='chart' data={data} />
+		<Doughnut ref={(reference) => this.chartReference = reference } data={data} />
 	)
 }
 ```

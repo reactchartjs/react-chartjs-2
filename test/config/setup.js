@@ -1,13 +1,6 @@
 require('babel-register')();
 
-var canvas;
-try{ 
-canvas = require('canvas');
-}
-catch(e){
-	canvas = require('canvas-prebuilt');
-} 
-
+const canvas = require('canvas-prebuilt');
 const jsdom = require('jsdom');
 const document = jsdom.jsdom();
 const window = document.defaultView;

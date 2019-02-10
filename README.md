@@ -3,6 +3,8 @@
 [![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
+### Looking for maintainers!!
+
 # react-chartjs-2
 
 React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)

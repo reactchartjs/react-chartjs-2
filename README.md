@@ -41,7 +41,7 @@ Then open [`localhost:6006`](http://localhost:6006) in a browser.
 ## Installation via NPM
 
 ```bash
-npm install react-chartjs-2 chart.js --save
+npm install --save react-chartjs-2 chart.js
 ```
 
 
@@ -50,7 +50,7 @@ npm install react-chartjs-2 chart.js --save
 Check example/src/components/* for usage.
 
 ```js
-import {Doughnut} from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 <Doughnut data={...} />
 ```
@@ -74,12 +74,10 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 
 ```js
 <Bar
-	data={data}
-	width={100}
-	height={50}
-	options={{
-		maintainAspectRatio: false
-	}}
+  data={data}
+  width={100}
+  height={50}
+  options={{ maintainAspectRatio: false }}
 />
 ```
 
@@ -87,17 +85,14 @@ In order for Chart.js to obey the custom size you need to set `maintainAspectRat
 Chart.js instance can be accessed by placing a ref to the element as:
 
 ```js
-
 chartReference = {};
 
 componentDidMount() {
-	console.log(this.chartReference); // returns a Chart.js instance reference
+  console.log(this.chartReference); // returns a Chart.js instance reference
 }
 
 render() {
-	return (
-		<Doughnut ref={(reference) => this.chartReference = reference } data={data} />
-	)
+  return (<Doughnut ref={(reference) => this.chartReference = reference } data={data} />)
 }
 ```
 
@@ -109,20 +104,18 @@ This approach is useful when you want to keep your components pure.
 
 ```js
 render() {
-	const data = (canvas) => {
-		const ctx = canvas.getContext("2d")
-		const gradient = ctx.createLinearGradient(0,0,100,0);
-		...
-		return {
-			...
-			backgroundColor: gradient
-			...
-		}
-	}
+  const data = (canvas) => {
+    const ctx = canvas.getContext("2d")
+    const gradient = ctx.createLinearGradient(0,0,100,0);
+    ...
+    return {
+      ...
+      backgroundColor: gradient
+      ...
+    }
+  }
 
-	return (
-		<Line data={data} />
-	)
+  return (<Line data={data} />)
 }
 ```
 
@@ -145,12 +138,12 @@ import merge from 'lodash.merge';
 // import { merge } from 'lodash';
 
 merge(defaults, {
-	global: {
-  		animation: false,
-		line: {
-			borderColor: '#F85F73',
-		},
-	},
+  global: {
+    animation: false,
+    line: {
+      borderColor: '#F85F73',
+     },
+  },
 });
 ```
 
@@ -162,11 +155,11 @@ You can access the internal Chart.js object to register plugins or extend charts
 import { Chart } from 'react-chartjs-2';
 
 componentWillMount() {
-	Chart.pluginService.register({
-		afterDraw: function (chart, easing) {
-			// Plugin code.
-		}
-	});
+  Chart.pluginService.register({
+    afterDraw: function (chart, easing) {
+      // Plugin code.
+    }
+  });
 }
 ```
 
@@ -182,9 +175,9 @@ A function to be called when mouse clicked on chart elememts, will return all el
 
 ```js
 {
-	onElementsClick: (elems) => {},
-	getElementsAtEvent: (elems) => {},
-	// `elems` is an array of chartElements
+  onElementsClick: (elems) => {},
+  getElementsAtEvent: (elems) => {},
+  // `elems` is an array of chartElements
 }
 
 ```
@@ -194,7 +187,7 @@ Calling getElementAtEvent(event) on your Chart instance passing an argument of a
 
 ```js
 {
-	getElementAtEvent: (elems) => {},
+  getElementAtEvent: (elems) => {},
   // => returns the first element at the event point.
 }
 ```
@@ -205,8 +198,8 @@ Looks for the element under the event point, then returns all elements from that
 
 ```js
 {
-	getDatasetAtEvent: (dataset) => {}
-	// `dataset` is an array of chartElements
+  getDatasetAtEvent: (dataset) => {}
+  // `dataset` is an array of chartElements
 }
 ```
 
@@ -226,6 +219,6 @@ To build, watch and serve the examples (which will also watch the component sour
 
 ## License
 
-MIT Licensed
+[MIT Licensed](/LICENSE.md)
 Copyright (c) 2017 Jeremy Ayerst
 

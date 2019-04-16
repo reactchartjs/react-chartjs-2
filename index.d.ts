@@ -57,4 +57,7 @@ export class Polar extends ChartComponent<ChartComponentProps> {}
 
 export class Bubble extends ChartComponent<ChartComponentProps> {}
 
-export var defaults: {};
+export var defaults: {
+  global: chartjs.ChartOptions & chartjs.ChartFontOptions;
+  [key: string]: any;
+};

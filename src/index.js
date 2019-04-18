@@ -41,8 +41,6 @@ class ChartComponent extends React.Component {
       position: 'bottom'
     },
     type: 'doughnut',
-    height: 150,
-    width: 300,
     redraw: false,
     options: {},
     datasetKeyProvider: ChartComponent.getLabelAsKey

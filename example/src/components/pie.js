@@ -4,7 +4,7 @@ import {Pie} from 'react-chartjs-2';
 const data = {
 	labels: [
 		'Red',
-		'Green',
+		'Blue',
 		'Yellow'
 	],
 	datasets: [{

@@ -7,6 +7,11 @@ import keyBy from 'lodash/keyBy';
 const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV;
 
 class ChartComponent extends React.Component {
+  constructor() {
+    super();
+    this.chartInstance = undefined;
+  }
+
   static getLabelAsKey = d => d.label;
 
   static propTypes = {
@@ -46,10 +51,6 @@ class ChartComponent extends React.Component {
     redraw: false,
     options: {},
     datasetKeyProvider: ChartComponent.getLabelAsKey
-  }
-
-  componentWillMount() {
-    this.chartInstance = undefined;
   }
 
   componentDidMount() {
@@ -175,7 +176,7 @@ class ChartComponent extends React.Component {
     var currentDatasets = this.getCurrentDatasets();
     currentDatasets.forEach(d => {
       this.datasets[this.props.datasetKeyProvider(d)] = d;
-    })
+    });
   }
 
   updateChart() {

@@ -9,7 +9,7 @@ import * as React from "react";
 import * as chartjs from "chart.js";
 
 export type ChartDataFunction<T extends chartjs.ChartData> = (
-  element: HTMLElement
+  element: HTMLCanvasElement
 ) => T;
 export type ChartData<T extends chartjs.ChartData> = ChartDataFunction<T> | T;
 

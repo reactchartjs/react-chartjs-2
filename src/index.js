@@ -175,7 +175,7 @@ class ChartComponent extends React.Component {
     var currentDatasets = this.getCurrentDatasets();
     currentDatasets.forEach(d => {
       this.datasets[this.props.datasetKeyProvider(d)] = d;
-    })
+    });
   }
 
   updateChart() {
@@ -265,9 +265,26 @@ class ChartComponent extends React.Component {
     this.chartInstance.destroy();
   }
 
-  handleOnClick = (event) => {
+  // this method will attach _currentDatasetValue to the event
+  // _currentDatasetValue is a object which will have value and label property of current dataset
+  attachValueToEvent = (event) => {
     const instance = this.chartInstance;
+    const activePoints = instance.getElementsAtEventForMode(event, 'point', instance.options);
+    const firstPoint = activePoints[0];
+    if(firstPoint) {
+      const label = instance.data.labels[firstPoint._index];
+      const value = instance.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+      event._currentDatasetValue = {
+        label, value
+      };
+    }
+    return event;
+  }
 
+  handleOnClick = (event) => {
+    event.persist();
+    const instance = this.chartInstance;
+    event = this.attachValueToEvent(event);
     const {
       getDatasetAtEvent,
       getElementAtEvent,

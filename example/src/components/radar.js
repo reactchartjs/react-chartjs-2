@@ -30,11 +30,19 @@ const data = {
 export default React.createClass({
   displayName: 'RadarExample',
 
+  visitorsRadarDrilldownHandler: (e, item) => {
+    console.log(e);
+    console.log(item._currentDatasetValue);
+  },
+
   render() {
     return (
       <div>
         <h2>Radar Example</h2>
-        <Radar data={data} />
+        <Radar
+          getDatasetAtEvent={this.visitorsRadarDrilldownHandler}
+          data={data}
+        />
       </div>
     );
   }

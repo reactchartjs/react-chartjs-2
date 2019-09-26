@@ -45,9 +45,12 @@ const options = {
         gridLines: {
           display: false
         },
-        labels: {
-          show: true
-        }
+        scaleLabel: {
+            display: true,
+            labelString: 'Months',
+            fontColor: 'black',
+            fontSize: 16
+        },
       }
     ],
     yAxes: [
@@ -56,11 +59,14 @@ const options = {
         display: true,
         position: 'left',
         id: 'y-axis-1',
+        scaleLabel: {
+            display: true,
+            labelString: 'Visitor',
+            fontColor: 'black',
+            fontSize: 16
+        },
         gridLines: {
           display: false
-        },
-        labels: {
-          show: true
         }
       },
       {
@@ -68,11 +74,14 @@ const options = {
         display: true,
         position: 'right',
         id: 'y-axis-2',
+        scaleLabel: {
+            display: true,
+            labelString: 'Sales',
+            fontColor: 'black',
+            fontSize: 16
+        },
         gridLines: {
           display: false
-        },
-        labels: {
-          show: true
         }
       }
     ]

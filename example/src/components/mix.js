@@ -58,9 +58,6 @@ const options = {
         id: 'y-axis-1',
         gridLines: {
           display: false
-        },
-        labels: {
-          show: true
         }
       },
       {
@@ -70,9 +67,6 @@ const options = {
         id: 'y-axis-2',
         gridLines: {
           display: false
-        },
-        labels: {
-          show: true
         }
       }
     ]

@@ -1,13 +1,13 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.7.6",
+  "version": "2.8.0",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "author": "Jeremy Ayerst",
   "homepage": "https://github.com/jerairrest/react-chartjs-2",
-  "license" : "MIT" ,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/jerairrest/react-chartjs-2.git"
@@ -35,7 +35,7 @@
     "canvas": "^1.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
     "chai": "^3.5.0",
-    "chart.js": "2.6.0",
+    "chart.js": "^2.6.0",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.5",
     "debug": "^2.4.1",

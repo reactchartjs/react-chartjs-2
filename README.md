@@ -1,224 +1,167 @@
-[![build status](	https://img.shields.io/travis/jerairrest/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chartjs-2)
-[![version](https://img.shields.io/npm/v/react-chartjs-2.svg?style=flat-square)](https://www.npmjs.com/package/react-chartjs-2)
-[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+# TSDX React User Guide
 
-### Looking for maintainers!!
+Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 
-# react-chartjs-2
+> This TSDX setup is meant for developing React components (not apps!) that can be published to NPM. If you’re looking to build an app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
 
-React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
-Open for PRs and contributions!
+> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
 
-# UPDATE to 2.x
-As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.5.x is the recommended version of chart.js to use.
+## Commands
 
-## Demo & Examples
+TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
 
-Live demo: [jerairrest.github.io/react-chartjs-2](http://jerairrest.github.io/react-chartjs-2/)
+The recommended workflow is to run TSDX in one terminal:
 
-To build the examples locally, run:
+```
+npm start # or yarn start
+```
+
+This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+
+Then run the example inside another:
+
+```
+cd example
+npm i # or yarn to install dependencies
+npm start # or yarn start
+```
+
+The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, [we use Parcel's aliasing](https://github.com/palmerhq/tsdx/pull/88/files).
+
+To do a one-off build, use `npm run build` or `yarn build`.
+
+To run tests, use `npm test` or `yarn test`.
+
+## Configuration
+
+Code quality is [set up for you](https://github.com/palmerhq/tsdx/pull/45/files) with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+
+### Jest
+
+Jest tests are set up to run with `npm test` or `yarn test`. This runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
+
+#### Setup Files
+
+This is the folder structure we set up for you:
+
+```
+/example
+  index.html
+  index.tsx       # test your component here in a demo app
+  package.json
+  tsconfig.json
+/src
+  index.tsx       # EDIT THIS
+/test
+  blah.test.tsx   # EDIT THIS
+.gitignore
+package.json
+README.md         # EDIT THIS
+tsconfig.json
+```
+
+#### React Testing Library
+
+We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
+
+### Rollup
+
+TSDX uses [Rollup v1.x](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+
+### TypeScript
+
+`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+
+## Continuous Integration
+
+### Travis
+
+_to be completed_
+
+### Circle
+
+_to be completed_
+
+## Optimizations
+
+Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
+
+```js
+// ./types/index.d.ts
+declare var __DEV__: boolean;
+
+// inside your code...
+if (__DEV__) {
+  console.log('foo');
+}
+```
+
+You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+
+## Module Formats
+
+CJS, ESModules, and UMD module formats are supported.
+
+The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+
+## Using the Playground
+
+```
+cd example
+npm i # or yarn to install dependencies
+npm start # or yarn start
+```
+
+The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**!
+
+## Deploying the Playground
+
+The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
 
 ```bash
-npm install
-npm start
+cd example # if not already in the example folder
+npm run build # builds to dist
+netlify deploy # deploy the dist folder
 ```
 
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
-## Demo & Examples via React Storybook
-
-We have to build the package, then you can run storybook.
+Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
 
 ```bash
-npm run build
-npm run storybook
+netlify init
+# build command: yarn build && cd example && yarn && yarn build
+# directory to deploy: example/dist
+# pick yes for netlify.toml
 ```
 
-Then open [`localhost:6006`](http://localhost:6006) in a browser.
+## Named Exports
 
+Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
 
-## Installation via NPM
+## Including Styles
 
-```bash
-npm install --save react-chartjs-2 chart.js
+There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+
+For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+
+## Publishing to NPM
+
+We recommend using https://github.com/sindresorhus/np.
+
+## Usage with Lerna
+
+When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
+
+The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
+
+Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
+
+```diff
+   "alias": {
+-    "react": "../node_modules/react",
+-    "react-dom": "../node_modules/react-dom"
++    "react": "../../../node_modules/react",
++    "react-dom": "../../../node_modules/react-dom"
+   },
 ```
 
-
-## Usage
-
-Check example/src/components/* for usage.
-
-```js
-import { Doughnut } from 'react-chartjs-2';
-
-<Doughnut data={...} />
-```
-
-### Properties
-
-* data: (PropTypes.object | PropTypes.func).isRequired,
-* width: PropTypes.number,
-* height: PropTypes.number,
-* id: PropTypes.string,
-* legend: PropTypes.object,
-* options: PropTypes.object,
-* redraw: PropTypes.bool,
-* getDatasetAtEvent: PropTypes.func,
-* getElementAtEvent: PropTypes.func,
-* getElementsAtEvent: PropTypes.func
-* onElementsClick: PropTypes.func, // alias for getElementsAtEvent (backward compatibility)
-
-### Custom size
-In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:
-
-```js
-<Bar
-  data={data}
-  width={100}
-  height={50}
-  options={{ maintainAspectRatio: false }}
-/>
-```
-
-### Chart.js instance
-Chart.js instance can be accessed by placing a ref to the element as:
-
-```js
-chartReference = {};
-
-componentDidMount() {
-  console.log(this.chartReference); // returns a Chart.js instance reference
-}
-
-render() {
-  return (<Doughnut ref={(reference) => this.chartReference = reference } data={data} />)
-}
-```
-
-### Getting context for data generation
-Canvas node and hence context, that can be used to create CanvasGradient background,
-is passed as argument to data if given as function:
-
-This approach is useful when you want to keep your components pure.
-
-```js
-render() {
-  const data = (canvas) => {
-    const ctx = canvas.getContext("2d")
-    const gradient = ctx.createLinearGradient(0,0,100,0);
-    ...
-    return {
-      ...
-      backgroundColor: gradient
-      ...
-    }
-  }
-
-  return (<Line data={data} />)
-}
-```
-
-### Chart.js Defaults
-Chart.js defaults can be set by importing the `defaults` object:
-
-```javascript
-import { defaults } from 'react-chartjs-2';
-
-// Disable animating charts by default.
-defaults.global.animation = false;
-```
-
-If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
-
-```js
-import { defaults } from 'react-chartjs-2';
-import merge from 'lodash.merge';
-// or
-// import { merge } from 'lodash';
-
-merge(defaults, {
-  global: {
-    animation: false,
-    line: {
-      borderColor: '#F85F73',
-     },
-  },
-});
-```
-
-### Chart.js object
-
-You can access the internal Chart.js object to register plugins or extend charts like this:
-
-```JavaScript
-import { Chart } from 'react-chartjs-2';
-
-componentWillMount() {
-  Chart.pluginService.register({
-    afterDraw: function (chart, easing) {
-      // Plugin code.
-    }
-  });
-}
-```
-
-### Scatter Charts
-
-If you're using Chart.js 2.6 and below, add the `showLines: false` property to your chart options. This was later [added](https://github.com/chartjs/Chart.js/commit/7fa60523599a56255cde78a49e848166bd233c6e) in the default config, so users of later versions would not need to do this extra step.
-
-### Events
-
-#### onElementsClick || getElementsAtEvent (function)
-
-A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
-
-```js
-{
-  onElementsClick: (elems) => {},
-  getElementsAtEvent: (elems) => {},
-  // `elems` is an array of chartElements
-}
-
-```
-#### getElementAtEvent (function)
-
-Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementatevente)
-
-```js
-{
-  getElementAtEvent: (elems) => {},
-  // => returns the first element at the event point.
-}
-```
-
-#### getDatasetAtEvent (function)
-
-Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getdatasetatevente)
-
-```js
-{
-  getDatasetAtEvent: (dataset) => {}
-  // `dataset` is an array of chartElements
-}
-```
-
-### Working with Multiple Datasets
-
-You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together. This is because to track changes in the dataset series, the library needs a `key` to be specified - if none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
-
-1. Add a `label` property on each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
-2. Specify a different property to be used as a key by passing a `datasetKeyProvider` prop to your chart component, which would return a unique string value for each dataset.
-
-## Development (`src`, `lib` and the build process)
-
-**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
-
-To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
-
-
-## License
-
-[MIT Licensed](/LICENSE.md)
-Copyright (c) 2017 Jeremy Ayerst
-
+An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)

@@ -1,36 +1,9 @@
-# Logs
-logs
 *.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Coverage tools
-lib-cov
-coverage
-coverage.html
-.cover*
-
-# Dependency directory
+.DS_Store
 node_modules
-
-# Build directories
-lib
+.cache
+.rts2_cache_cjs
+.rts2_cache_esm
+.rts2_cache_umd
+.rts2_cache_system
 dist
-es
-
-# Example build directory
-example/dist
-.publish
-
-# Editor and other tmp files
-*.swp
-*.un~
-*.iml
-*.ipr
-*.iws
-*.sublime-*
-.idea/
-*.DS_Store

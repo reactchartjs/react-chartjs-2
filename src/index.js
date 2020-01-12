@@ -255,7 +255,9 @@ class ChartComponent extends React.Component {
   }
 
   destroyChart() {
-    if (!this.chartInstance) return;
+    if (!this.chartInstance) {
+          return;
+     }
 
     // Put all of the datasets that have existed in the chart back on the chart
     // so that the metadata associated with this chart get destroyed.

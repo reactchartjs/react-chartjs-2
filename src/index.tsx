@@ -6,7 +6,11 @@ import keyBy from 'lodash/keyBy';
 const NODE_ENV =
   typeof process !== 'undefined' && process.env && process.env.NODE_ENV;
 
-type ChartProps = {
+export const dataTestIds = {
+  canvas: 'react-chartjs-canvas'
+};
+
+export type ChartProps = {
   data: Chart.ChartData;
   getDatasetAtEvent?: (dataset: {}[], e: React.MouseEvent) => any;
   getElementAtEvent?: (activeElement: object, e: React.MouseEvent) => any;
@@ -24,8 +28,11 @@ type ChartProps = {
 };
 
 class ChartComponent extends React.Component<ChartProps> {
+  // @ts-ignore
   chartInstance: Chart;
-  datasets: [Chart.ChartDataSets];
+  // @ts-ignore
+  datasets: Chart.ChartDataSets[];
+  // @ts-ignore
   shadowDataProp: Chart.ChartData;
   element: any;
 
@@ -94,7 +101,7 @@ class ChartComponent extends React.Component<ChartProps> {
     this.destroyChart();
   }
 
-  transformDataProp(props) {
+  transformDataProp(props: any) {
     const { data } = props;
     if (typeof data == 'function') {
       const node = this.element;
@@ -129,7 +136,7 @@ class ChartComponent extends React.Component<ChartProps> {
     return data;
   }
 
-  checkDatasets(datasets: [Chart.ChartDataSets]) {
+  checkDatasets(datasets: Chart.ChartDataSets[]) {
     const isDev = NODE_ENV !== 'production' && NODE_ENV !== 'prod';
     const usingCustomKeyProvider =
       this.props.datasetKeyProvider !== ChartComponent.getLabelAsKey;
@@ -161,11 +168,12 @@ class ChartComponent extends React.Component<ChartProps> {
   }
 
   saveCurrentDatasets() {
-    this.datasets = this.datasets || null;
-    var currentDatasets = this.getCurrentDatasets();
+    this.datasets = this.datasets || {};
+    const currentDatasets = this.getCurrentDatasets();
 
     currentDatasets.forEach((dataset: Chart.ChartDataSets) => {
       if (this.props.datasetKeyProvider) {
+        // @ts-ignore
         this.datasets[this.props.datasetKeyProvider(dataset)] = dataset;
       }
     });
@@ -210,7 +218,9 @@ class ChartComponent extends React.Component<ChartProps> {
           // Be robust to no data. Relevant for other update mechanisms as in chartjs-plugin-streaming.
           // The data array must be edited in place. As chart.js adds listeners to it.
           current!.data!.splice(next.data.length);
+          // @ts-ignore
           next.data.forEach((_: string, pid: string) => {
+            // @ts-ignore
             current!.data![pid] = next.data[pid];
           });
           const { data, ...otherProps } = next;
@@ -305,6 +315,7 @@ class ChartComponent extends React.Component<ChartProps> {
         width={width}
         id={id}
         onClick={this.handleOnClick}
+        data-testid={dataTestIds.canvas}
       />
     );
   }

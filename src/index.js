@@ -57,8 +57,8 @@ class ChartComponent extends React.Component {
     this.renderChart();
   }
 
-  componentDidUpdate() {
-    if (this.props.redraw) {
+  componentDidUpdate(prevProps) {
+    if (this.props.redraw && (prevProps.data !== this.props.data)) {
       this.destroyChart();
       this.renderChart();
       return;

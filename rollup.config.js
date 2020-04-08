@@ -35,7 +35,7 @@ if (env === 'production') {
         unsafe: true,
         unsafe_comps: true,
       },
-      warnings: true
+      warnings: false
     })
   );
 

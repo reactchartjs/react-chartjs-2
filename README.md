@@ -44,6 +44,12 @@ Then open [`localhost:6006`](http://localhost:6006) in a browser.
 npm install --save react-chartjs-2 chart.js
 ```
 
+## Installation via YARN
+
+```bash
+yarn add react-chartjs-2 chart.js
+```
+
 
 ## Usage
 

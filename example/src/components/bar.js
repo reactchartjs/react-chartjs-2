@@ -16,10 +16,7 @@ const data = {
   ]
 };
 
-export default React.createClass({
-  displayName: 'BarExample',
-
-  render() {
+  function BarExample(){
     return (
       <div>
         <h2>Bar Example (custom size)</h2>
@@ -33,5 +30,4 @@ export default React.createClass({
         />
       </div>
     );
-  }
-});
+}

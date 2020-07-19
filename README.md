@@ -176,7 +176,7 @@ If you're using Chart.js 2.6 and below, add the `showLines: false` property to y
 
 #### onElementsClick || getElementsAtEvent (function)
 
-A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementsatevente)
+A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getelementsatevente)
 
 ```js
 {
@@ -188,7 +188,7 @@ A function to be called when mouse clicked on chart elememts, will return all el
 ```
 #### getElementAtEvent (function)
 
-Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getelementatevente)
+Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getelementatevente)
 
 ```js
 {
@@ -199,7 +199,7 @@ Calling getElementAtEvent(event) on your Chart instance passing an argument of a
 
 #### getDatasetAtEvent (function)
 
-Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/09-Advanced.md#getdatasetatevente)
+Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getdatasetatevente)
 
 ```js
 {

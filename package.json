@@ -38,7 +38,6 @@
     "babelify": "^10.0.0",
     "brfs": "^2.0.2",
     "canvas": "^2.6.1",
-    "canvas-prebuilt": "^2.0.0-alpha.14",
     "chai": "^4.2.0",
     "chart.js": "2.6.0",
     "cross-env": "^7.0.2",

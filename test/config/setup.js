@@ -1,6 +1,6 @@
 require('@babel/register')();
 
-var canvas = require('canvas-prebuilt');
+var canvas = require('canvas');
 
 const jsdom = require('jsdom');
 

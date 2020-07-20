@@ -1,30 +1,32 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify';
-import replace from 'rollup-plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import { uglify } from 'rollup-plugin-uglify';
+import replace from '@rollup/plugin-replace';
 
 const env = process.env.NODE_ENV;
 
 const config = {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   external: ['chart.js', 'react'],
-  globals: {
-    'chart.js': 'Chart',
-    react: 'React'
+  output: {
+    name: 'ReactChartjs2',
+    format: 'umd',
+    globals: {
+        'chart.js': 'Chart',
+        react: 'React'
+      },
+      exports: 'named',
   },
-  exports: 'named',
-  format: 'umd',
-  moduleName: 'ReactChartjs2',
   plugins: [
-    nodeResolve(),
+    resolve(),
     babel({
+      babelHelpers: 'bundled',
       exclude: '**/node_modules/**',
     }),
     commonjs(),
   ],
 };
-
 
 
 if (env === 'production') {

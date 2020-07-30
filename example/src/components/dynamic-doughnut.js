@@ -42,7 +42,7 @@ export default class DynamicDoughnutExample extends React.Component {
   render() {
     return (
       <div>
-        <h2>Dynamicly refreshed Doughnut Example</h2>
+        <h2>Dynamically refreshed Doughnut Example</h2>
         <Doughnut 
           data={this.state} 
           options={{ 

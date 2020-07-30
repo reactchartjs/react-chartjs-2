@@ -29,7 +29,7 @@ const initialState = {
 }
 
 
-export default class Graph extends React.Component {
+export class Graph extends React.Component {
 
 componentWillMount(){
 	this.setState(initialState);

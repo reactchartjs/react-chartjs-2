@@ -1,6 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import color from 'rcolor';
+import color from 'color';
 
 const initialState = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -17,7 +17,7 @@ const initialState = {
   ]
 };
 
-export default class Graph extends React.Component {
+export class Graph extends React.Component {
 
 	componentWillMount(){
 		this.setState(initialState);

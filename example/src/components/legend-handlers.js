@@ -57,7 +57,7 @@ export default class LegendExample extends React.Component {
         <p>Hover over label and click</p>
         <Pie 
           data={data} 
-          legend={this.state.legend}
+//          legend={this.state.legend}
           options={{ 
             maintainAspectRatio: false 
           }

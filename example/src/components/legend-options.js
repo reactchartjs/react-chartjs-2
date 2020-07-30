@@ -58,17 +58,18 @@ export default class LegendExample extends React.Component {
     return (
       <div>
         <h2>Legend Options Example</h2>
-        <textarea
-          cols="40"
-          rows="15"
-          ref={input => { this.legendOptsInput = input; }}
-          defaultValue={JSON.stringify(this.state.legend, null, 2)}></textarea>
+//         <textarea 
+//          cols="40"
+//          rows="15"
+//          ref={input => { this.legendOptsInput = input; }}
+//          defaultValue={JSON.stringify(this.state.legend, null, 2)}>
+//          </textarea>
         <div>
           <button onClick={this.applyLegendSettings}>Apply legend settings</button>
         </div>
         <Pie 
           data={data} 
-          legend={this.state.legend} redraw 
+//          legend={this.state.legend} redraw
           options={{ 
             maintainAspectRatio: false 
           }}

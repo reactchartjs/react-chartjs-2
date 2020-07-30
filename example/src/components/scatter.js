@@ -30,15 +30,19 @@ const data = {
   ]
 };
 
-export default React.createClass({
-  displayName: 'ScatterExample',
+export default class ScatterExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Scatter Example</h2>
-        <Scatter data={data} />
+        <Scatter 
+          data={data} 
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-});
+}

@@ -28,15 +28,19 @@ const data = {
   ]
 };
 
-export default React.createClass({
-  displayName: 'BubbleExample',
+export default class BubbleExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Bubble Example</h2>
-        <Bubble data={data} />
+        <Bubble 
+          data={data} 
+          options={{
+            maintainAspectRatio: false
+          }}
+        />
       </div>
     );
   }
-});
+}

@@ -26,25 +26,30 @@ const getState = () => ({
   }]
 });
 
-export default React.createClass({
-  displayName: 'DynamicDoughnutExample',
+
+export default class DynamicDoughnutExample extends React.Component {
 
 	getInitialState() {
 		return getState();
-	},
+	}
 
 	componentWillMount() {
 		setInterval(() => {
 			this.setState(getState());
 		}, 5000);
-	},
+	}
 
   render() {
     return (
       <div>
         <h2>Dynamicly refreshed Doughnut Example</h2>
-        <Doughnut data={this.state} />
+        <Doughnut 
+          data={this.state} 
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-});
+}

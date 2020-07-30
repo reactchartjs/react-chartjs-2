@@ -26,17 +26,21 @@ const data = {
     'Grey',
     'Blue'
   ]
-};
+}
 
-export default React.createClass({
-  displayName: 'PolarExample',
+export default class PolarExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Polar Example</h2>
-        <Polar data={data} />
+        <Polar 
+          data={data} 
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-});
+}

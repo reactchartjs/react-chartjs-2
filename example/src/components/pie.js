@@ -22,15 +22,20 @@ const data = {
 	}]
 };
 
-export default React.createClass({
-  displayName: 'PieExample',
+export default class PieExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Pie Example</h2>
-        <Pie data={data} />
+		<Pie 
+			data={data}
+			options={{ 
+				maintainAspectRatio: false 
+			  }}
+		/>
       </div>
     );
   }
-});
+}
+

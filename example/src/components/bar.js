@@ -16,8 +16,7 @@ const data = {
   ]
 };
 
-export default React.createClass({
-  displayName: 'BarExample',
+export default class BarExample extends React.Component {
 
   render() {
     return (
@@ -34,4 +33,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

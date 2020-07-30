@@ -31,7 +31,8 @@ const data = {
 const options = {
   responsive: true,
   tooltips: {
-    mode: 'label'
+    mode: 'label',
+  maintainAspectRatio: false 
   },
   elements: {
     line: {
@@ -77,7 +78,7 @@ const options = {
       }
     ]
   }
-};
+}
 
 const plugins = [{
     afterDraw: (chartInstance, easing) => {
@@ -86,8 +87,8 @@ const plugins = [{
     }
 }];
 
-export default React.createClass({
-  displayName: 'MixExample',
+
+export default class MixExample extends React.Component {
 
   render() {
     return (
@@ -101,4 +102,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

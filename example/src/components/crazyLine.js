@@ -17,13 +17,11 @@ const initialState = {
   ]
 };
 
+export default class Graph extends React.Component {
 
-
-const Graph = React.createClass({
-	displayName: 'Graph',
 	componentWillMount(){
 		this.setState(initialState);
-	},
+	}
 	componentDidMount(){
 
 		var _this = this;
@@ -53,26 +51,28 @@ const Graph = React.createClass({
 
 			_this.setState(newState);
 		}, 5000);
-	},
+	}
 	render() {
 		return (
-			<Bar data={this.state} />
+			<Bar 
+				data={this.state} 
+				options={{ 
+					maintainAspectRatio: false 
+				  }}
+			/>
 		);
 	}
-});
+}
 
 
+export default class CrazyDataLineExample extends React.Component {
 
-
-export default React.createClass({
-  displayName: 'Crazy Random Graph',
-
-  render() {
-    return (
-      <div>
-        <h2>You can even make crazy graphs like this!</h2>
- 		<Graph />
-      </div>
-    );
+	render() {
+		return (
+		<div>
+			<h2>You can even make crazy graphs like this!</h2>
+			<Graph />
+		</div>
+		);
   }
-});
+}

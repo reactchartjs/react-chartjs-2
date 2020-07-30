@@ -27,15 +27,19 @@ const data = {
   ]
 };
 
-export default React.createClass({
-  displayName: 'RadarExample',
+export default class RadarExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Radar Example</h2>
-        <Radar data={data} />
+        <Radar 
+          data={data}
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-});
+}

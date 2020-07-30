@@ -14,17 +14,21 @@ const data = {
       data: [65, 59, 80, 81, 56, 55, 40]
     }
   ]
-};
+}
 
-export default React.createClass({
-  displayName: 'BarExample',
+export default class BarExample extends React.Component {
 
-  render() {
+	render() {
     return (
       <div>
         <h2>Horizontal Bar Example</h2>
-        <HorizontalBar data={data} />
+        <HorizontalBar 
+          data={data} 
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-});
+}

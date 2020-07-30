@@ -27,14 +27,14 @@ const legendOpts = {
   onHover: (e, item) => alert(`Item with text ${item.text} and index ${item.index} hovered`),
 };
 
-export default React.createClass({
-  displayName: 'LegendExample',
 
+export default class LegendExample extends React.Component {
+  
   getInitialState() {
     return {
       legend: legendOpts
     }
-  },
+  }
 
   applyLegendSettings() {
     const { value } = this.legendOptsInput;
@@ -48,15 +48,21 @@ export default React.createClass({
       alert(e.message);
       throw Error(e);
     }
-  },
+  }
 
   render() {
     return (
       <div>
         <h2>Legend Handlers Example</h2>
         <p>Hover over label and click</p>
-        <Pie data={data} legend={this.state.legend} />
+        <Pie 
+          data={data} 
+          legend={this.state.legend}
+          options={{ 
+            maintainAspectRatio: false 
+          }
+        } />
       </div>
     );
   }
-})
+}

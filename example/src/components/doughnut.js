@@ -22,15 +22,19 @@ const data = {
 	}]
 };
 
-export default React.createClass({
-  displayName: 'DoughnutExample',
+export default class DoughnutExample extends React.Component {
 
-  render() {
-    return (
-      <div>
-        <h2>Doughnut Example</h2>
-        <Doughnut data={data} />
-      </div>
-    );
-  }
-});
+	render() {
+	  return (
+		<div>
+		  <h2>Doughnut Example</h2>
+		  <Doughnut
+			  data={data}
+			  options={{ 
+				  maintainAspectRatio: false 
+				}}
+		  />
+		</div>
+	  );
+	}
+}

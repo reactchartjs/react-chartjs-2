@@ -26,17 +26,16 @@ const initialState = {
       data: [65, 59, 80, 81, 56, 55, 40]
     }
   ]
-};
+}
 
 
+export default class Graph extends React.Component {
 
-const Graph = React.createClass({
-	displayName: 'Graph',
-	componentWillMount(){
-		this.setState(initialState);
-	},
-	componentDidMount(){
+componentWillMount(){
+	this.setState(initialState);
+}
 
+componentDidMount(){
 		var _this = this;
 
 		setInterval(function(){
@@ -60,26 +59,29 @@ const Graph = React.createClass({
 
 			_this.setState(newState);
 		}, 5000);
-	},
-	render() {
+}
+  
+  render() {
 		return (
-			<Line data={this.state} />
+      <Line 
+        data={this.state}
+        options={{ 
+          maintainAspectRatio: false 
+        }} 
+      />
 		);
 	}
-});
+};
 
-
-
-
-export default React.createClass({
-  displayName: 'RandomizedDataLineExample',
+export default class RandomizedDataLineExample extends React.Component {
 
   render() {
     return (
       <div>
         <h2>Random Animated Line Example</h2>
- 		<Graph />
+ 		    <Graph />
       </div>
     );
   }
-});
+}
+

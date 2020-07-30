@@ -32,14 +32,13 @@ const legendOpts = {
   }
 };
 
-export default React.createClass({
-  displayName: 'LegendExample',
+export default class LegendExample extends React.Component {
 
   getInitialState() {
     return {
       legend: legendOpts
     }
-  },
+  }
 
   applyLegendSettings() {
     const { value } = this.legendOptsInput;
@@ -53,7 +52,7 @@ export default React.createClass({
       alert(e.message);
       throw Error(e);
     }
-  },
+  }
 
   render() {
     return (
@@ -67,8 +66,14 @@ export default React.createClass({
         <div>
           <button onClick={this.applyLegendSettings}>Apply legend settings</button>
         </div>
-        <Pie data={data} legend={this.state.legend} redraw />
+        <Pie 
+          data={data} 
+          legend={this.state.legend} redraw 
+          options={{ 
+            maintainAspectRatio: false 
+          }}
+        />
       </div>
     );
   }
-})
+}

@@ -1,16 +1,10 @@
-require('babel-register')();
+require('@babel/register')();
 
-var canvas;
-try{ 
-canvas = require('canvas');
-}
-catch(e){
-	canvas = require('canvas-prebuilt');
-} 
+var canvas = require('canvas');
 
 const jsdom = require('jsdom');
-const document = jsdom.jsdom();
-const window = document.defaultView;
+
+const { window } = new jsdom.JSDOM(`<!DOCTYPE html>`, { url: 'https://localhost' });
 
 const canvasMethods = [
   'HTMLCanvasElement',

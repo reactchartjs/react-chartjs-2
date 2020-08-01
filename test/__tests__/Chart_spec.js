@@ -1,56 +1,61 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { expect } from 'chai';
-import { jsdom } from 'jsdom';
-import sinon from 'sinon';
+import React from "react";
+import { mount, configure, shallow } from "enzyme";
+import { expect } from "chai";
+import { JSDOM } from "jsdom";
+import sinon from "sinon";
+import Adapter from "enzyme-adapter-react-15";
 
-import Chart, { Chart as ChartConstructor } from '../../src/index';
+configure({ adapter: new Adapter() });
+
+import Chart, { Chart as ChartConstructor } from "../../src/index";
 
 const noop = () => {};
-const createDOM = () => jsdom('<!doctype html><html><body><div></div></body></html>');
+const createDOM = () =>
+  new JSDOM("<!doctype html><html><body><div></div></body></html>", {
+    url: "https://localhost",
+  });
 
-describe('<Chart />', () => {
+describe("<Chart />", () => {
   let DOM;
 
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
-        label: 'My First dataset',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        label: "My First dataset",
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }
-    ]
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [65, 59, 80, 81, 56, 55, 40],
+      },
+    ],
   };
 
   ChartConstructor.plugins.register({
     afterInit: function (chartInstance) {
       chartInstance.getDatasetAtEvent = function (e) {
-        return ChartConstructor.Interaction.modes.dataset(this, e, this.options);
+        return ChartConstructor.Interaction.modes.dataset(
+          this,
+          e,
+          this.options
+        );
       };
-    }
+    },
   });
 
-  const mountComponent = props => mount(
-      <Chart data={data} {...props} />,
-      { attachTo: DOM.body.firstChild }
-  );
+  const mountComponent = (props) =>
+    mount(<Chart data={data} {...props} />, {
+      attachTo: DOM.window.document.body.firstChild,
+    });
 
   beforeEach(() => {
     DOM = createDOM();
   });
 
-  it('renders', () => {
-    const wrapper = mountComponent();
-    expect(wrapper).to.be.truthy;
-  });
-
-  it('renders chart on props.redraw(true)', () => {
-    const spy = sinon.spy(Chart.prototype, 'renderChart');
+  it("renders chart on props.redraw(true)", () => {
+    const spy = sinon.spy(Chart.prototype, "renderChart");
     const wrapper = mountComponent();
 
     expect(spy.callCount).to.equal(1);
@@ -61,8 +66,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('renders on props.height change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("renders on props.height change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent({ height: 100 });
 
     expect(spy.callCount).to.equal(1);
@@ -73,8 +78,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('renders on props.width change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("renders on props.width change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent({ width: 100 });
 
     expect(spy.callCount).to.equal(1);
@@ -85,25 +90,25 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('renders on props.type change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
-    const wrapper = mountComponent({ type: 'line' });
+  it("renders on props.type change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
+    const wrapper = mountComponent({ type: "line" });
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ type: 'line' });
+    wrapper.setProps({ type: "line" });
 
     expect(spy.callCount).to.equal(1);
 
-    wrapper.setProps({ type: 'bar' });
+    wrapper.setProps({ type: "bar" });
 
     expect(spy.callCount).to.equal(2);
 
     spy.restore();
   });
 
-  it('renders on props.legend change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("renders on props.legend change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent({ legend: {} });
 
     expect(spy.callCount).to.equal(1);
@@ -119,8 +124,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('renders on props.options change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("renders on props.options change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent({ options: {} });
 
     expect(spy.callCount).to.equal(1);
@@ -136,8 +141,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('renders on props.data change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("renders on props.data change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent();
 
     expect(spy.callCount).to.equal(1);
@@ -148,8 +153,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('doesn\'t render when props didn\'t change', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("doesn't render when props didn't change", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent();
 
     wrapper.setProps({ data });
@@ -160,8 +165,8 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('doesn\'t render when function references are changed', () => {
-    const spy = sinon.spy(Chart.prototype, 'render');
+  it("doesn't render when function references are changed", () => {
+    const spy = sinon.spy(Chart.prototype, "render");
     const wrapper = mountComponent();
 
     wrapper.setProps({ data });
@@ -174,59 +179,59 @@ describe('<Chart />', () => {
     spy.restore();
   });
 
-  it('calls getDatasetAtEvent', () => {
+  it("calls getDatasetAtEvent", () => {
     const getDatasetAtEvent = sinon.spy();
     const wrapper = mountComponent({ getDatasetAtEvent });
 
-    wrapper.find('canvas').simulate('click');
+    wrapper.find("canvas").simulate("click");
 
     expect(getDatasetAtEvent.called).to.equal(true);
   });
 
-  it('calls getElementAtEvent', () => {
+  it("calls getElementAtEvent", () => {
     const getElementAtEvent = sinon.spy();
     const wrapper = mountComponent({ getElementAtEvent });
 
-    wrapper.find('canvas').simulate('click');
+    wrapper.find("canvas").simulate("click");
 
     expect(getElementAtEvent.called).to.equal(true);
   });
 
-  it('calls getElementsAtEvent', () => {
+  it("calls getElementsAtEvent", () => {
     const getElementsAtEvent = sinon.spy();
     const wrapper = mountComponent({ getElementsAtEvent });
 
-    wrapper.find('canvas').simulate('click');
+    wrapper.find("canvas").simulate("click");
 
     expect(getElementsAtEvent.called).to.equal(true);
   });
 
-  it('calls onElementsClick', () => {
+  it("calls onElementsClick", () => {
     const onElementsClick = sinon.spy();
     const wrapper = mountComponent({ onElementsClick });
 
-    wrapper.find('canvas').simulate('click');
+    wrapper.find("canvas").simulate("click");
 
     expect(onElementsClick.called).to.equal(true);
   });
 
-  describe('props.data function', () => {
-    it('calls data func with canvas node', () => {
+  describe("props.data function", () => {
+    it("calls data func with canvas node", () => {
       const resultData = { test: 1 };
       const dataFn = sinon.spy((canvas) => resultData);
       const wrapper = mountComponent({ data: dataFn });
 
-      const canvas = wrapper.find('canvas').at(0).node;
+      const canvas = wrapper.find("canvas").at(0).getDOMNode();
 
       expect(dataFn.callCount).to.equal(1);
       expect(dataFn.calledWith(canvas)).to.equal(true);
     });
   });
 
-  describe('checkDatasets', () => {
+  describe("checkDatasets", () => {
     let consoleStub = null;
     beforeEach(() => {
-      consoleStub = sinon.stub(global.console, 'error');
+      consoleStub = sinon.stub(global.console, "error");
     });
 
     afterEach(() => {
@@ -234,63 +239,81 @@ describe('<Chart />', () => {
       consoleStub = null;
     });
 
-    it('should log error to console if datasets don\'t have a label', () => {
-      const wrapper = mountComponent({ data: {} });
-      wrapper.setProps({
-          data: {
-            datasets: [
-              {
-                _id: '238940890234809234',
-                data: [10, 20, 10, 20, 10, 20, 10]
-              },
-              {
-                _id: '098340598345839455',
-                data: [50, 100, 50, 100, 50, 100, 50]
-              }
-            ]
-          }
-      });
-      wrapper.update();
-
-      expect(consoleStub.callCount).to.equal(1);
-    });
-
-    it('should not log error to console if all datasets have a label', () => {
+    it("should log error to console if datasets don't have a label", () => {
       const wrapper = mountComponent({ data: {} });
       wrapper.setProps({
         data: {
           datasets: [
             {
-              label: 'My first dataset',
-              data: [10, 20, 10, 20, 10, 20, 10]
+              _id: "23894089023809234",
+              data: [10, 20, 10, 20, 10, 20, 10],
             },
             {
-              label: 'My second dataset',
-              data: [50, 100, 50, 100, 50, 100, 50]
-            }
-          ]
-        }
+              _id: "098340598345839455",
+              data: [50, 100, 50, 100, 50, 100, 50],
+            },
+          ],
+        },
+      });
+      wrapper.update();
+
+      // Updating twice since 'update' doesn't call the entire lifecycle
+      wrapper.setProps({
+        data: {
+          datasets: [
+            {
+              _id: "23894089023809234",
+              data: [10, 20, 10, 20, 11, 20, 10],
+            },
+            {
+              _id: "098340598345839455",
+              data: [50, 100, 50, 100, 50, 100, 50],
+            },
+          ],
+        },
+      });
+
+      wrapper.update();
+
+      expect(consoleStub.callCount).to.equal(1);
+    });
+
+    it("should not log error to console if all datasets have a label", () => {
+      const wrapper = mountComponent({ data: {} });
+      wrapper.setProps({
+        data: {
+          datasets: [
+            {
+              label: "My first dataset",
+              data: [10, 20, 10, 20, 10, 20, 10],
+            },
+            {
+              label: "My second dataset",
+              data: [50, 100, 50, 100, 50, 100, 50],
+            },
+          ],
+        },
       });
       wrapper.update();
 
       expect(consoleStub.callCount).to.equal(0);
     });
 
-    it('should not log error to console if a custom datasetKeyProvider is provided', () => {
+    it("should not log error to console if a custom datasetKeyProvider is provided", () => {
       const wrapper = mountComponent({ datasetKeyProvider: (d) => d._id });
       wrapper.setProps({
-          data: {
-            datasets: [
-              {
-                _id: '238940890234809234',
-                data: [10, 20, 10, 20, 10, 20, 10]
-              },
-              {
-                _id: '098340598345839455',
-                data: [50, 100, 50, 100, 50, 100, 50]
-              }
-            ]
-          }
+        data: {
+          datasets: [
+            {
+              _id: "238940890234809234",
+              data: [10, 20, 10, 20, 10, 20, 10],
+            },
+            {
+              _id: "098340598345839455",
+              data: [50, 100, 50, 100, 50, 100, 50],
+            },
+          ],
+        },
       });
       wrapper.update();
 

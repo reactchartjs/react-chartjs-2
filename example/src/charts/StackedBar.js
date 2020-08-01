@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -53,7 +53,7 @@ const StackedBar = () => (
         </a>
       </div>
     </div>
-    <BarChart data={data} options={options} />
+    <Bar data={data} options={options} />
   </>
 )
 

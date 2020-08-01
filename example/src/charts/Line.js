@@ -1,5 +1,5 @@
 import React from 'react'
-import { LineChart } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -26,7 +26,7 @@ const options = {
   },
 }
 
-const Line = () => (
+const LineChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Line Chart</h1>
@@ -39,8 +39,8 @@ const Line = () => (
         </a>
       </div>
     </div>
-    <LineChart data={data} options={options} />
+    <Line data={data} options={options} />
   </>
 )
 
-export default Line
+export default LineChart

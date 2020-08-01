@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 const rand = () => Math.round(Math.random() * 20 - 10)
 
@@ -44,7 +44,7 @@ const MultiType = () => (
         </a>
       </div>
     </div>
-    <BarChart data={data} />
+    <Bar data={data} />
   </>
 )
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { PieChart } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -28,7 +28,7 @@ const data = {
   ],
 }
 
-const Pie = () => (
+const PieChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Pie Chart</h1>
@@ -41,8 +41,8 @@ const Pie = () => (
         </a>
       </div>
     </div>
-    <PieChart data={data} />
+    <Pie data={data} />
   </>
 )
 
-export default Pie
+export default PieChart

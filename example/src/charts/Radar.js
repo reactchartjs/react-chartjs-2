@@ -1,5 +1,5 @@
 import React from 'react'
-import { RadarChart } from 'react-chartjs-2'
+import { Radar } from 'react-chartjs-2'
 
 const data = {
   labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
@@ -20,7 +20,7 @@ const options = {
   },
 }
 
-const Radar = () => (
+const RadarChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Radar Chart</h1>
@@ -33,8 +33,8 @@ const Radar = () => (
         </a>
       </div>
     </div>
-    <RadarChart data={data} options={options} />
+    <Radar data={data} options={options} />
   </>
 )
 
-export default Radar
+export default RadarChart

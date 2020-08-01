@@ -1,5 +1,5 @@
 import React from 'react'
-import { PolarAreaChart } from 'react-chartjs-2'
+import { PolarArea } from 'react-chartjs-2'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -33,7 +33,7 @@ const Polar = () => (
         </a>
       </div>
     </div>
-    <PolarAreaChart data={data} />
+    <PolarArea data={data} />
   </>
 )
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -53,7 +53,7 @@ const VerticalBar = () => (
         </a>
       </div>
     </div>
-    <BarChart data={data} options={options} />
+    <Bar data={data} options={options} />
   </>
 )
 

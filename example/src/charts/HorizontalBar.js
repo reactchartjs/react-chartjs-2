@@ -1,5 +1,5 @@
 import React from 'react'
-import { HorizontalBarChart } from 'react-chartjs-2'
+import { HorizontalBar } from 'react-chartjs-2'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -40,7 +40,7 @@ const options = {
   },
 }
 
-const HorizontalBar = () => (
+const HorizontalBarChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Horizontal Bar Chart</h1>
@@ -53,8 +53,8 @@ const HorizontalBar = () => (
         </a>
       </div>
     </div>
-    <HorizontalBarChart data={data} options={options} />
+    <HorizontalBar data={data} options={options} />
   </>
 )
 
-export default HorizontalBar
+export default HorizontalBarChart

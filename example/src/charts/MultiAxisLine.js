@@ -1,5 +1,5 @@
 import React from 'react'
-import { LineChart } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -38,7 +38,7 @@ const options = {
         position: 'right',
         id: 'y-axis-2',
         gridLines: {
-          drawOnChartArea: false,
+          drawOnArea: false,
         },
       },
     ],
@@ -58,7 +58,7 @@ const MultiAxisLine = () => (
         </a>
       </div>
     </div>
-    <LineChart data={data} options={options} />
+    <Line data={data} options={options} />
   </>
 )
 

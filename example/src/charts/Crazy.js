@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BarChart } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 const rand = () => Math.floor(Math.random() * 255)
 
@@ -65,7 +65,7 @@ const Crazy = () => {
           </a>
         </div>
       </div>
-      <BarChart data={data} options={options} />
+      <Bar data={data} options={options} />
     </>
   )
 }

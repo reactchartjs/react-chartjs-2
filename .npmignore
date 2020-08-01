@@ -4,5 +4,5 @@ src
 .editorconfig
 .eslintignore
 .eslintrc
-rollup.config.js
-.babelrc
+.circleci
+stories

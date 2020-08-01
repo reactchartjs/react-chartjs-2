@@ -5,7 +5,6 @@
   "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "unpkg": "dist/index.umd.js",
   "author": "Jeremy Ayerst",
   "homepage": "https://github.com/jerairrest/react-chartjs-2",
   "license": "MIT",
@@ -24,14 +23,15 @@
     "react chart.js"
   ],
   "scripts": {
-    "build": "microbundle --no-compress",
-    "start": "microbundle watch --no-compress",
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepublish": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
-    "test:lint": "eslint .",
+    "test:lint": "eslint src",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom"
+    "test:watch": "react-scripts test --env=jsdom",
+    "format": "prettier --write src"
   },
   "dependencies": {
     "lodash": "^4.17.19"
@@ -66,7 +66,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
     "jest-canvas-mock": "^2.2.0",
-    "microbundle": "^0.12.3",
+    "microbundle-crl": "^0.13.11",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",

@@ -47,7 +47,7 @@ const Scatter = () => (
       <div className='links'>
         <a
           class='btn btn-gh'
-          href='https://github.com/jhonnold/react-chart.js/blob/master/example/src/charts/Scatter.js'
+          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Scatter.js'
         >
           Github Source
         </a>

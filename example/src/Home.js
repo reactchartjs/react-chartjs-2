@@ -8,18 +8,18 @@ const Home = () => (
       <h2 className='subtitle'>React wrapper for Chart.js 2</h2>
       <div className='links'>
         <a
-          class='btn btn-npm'
+          className='btn btn-npm'
           href='https://www.npmjs.com/package/react-chartjs-2'
         >
           NPM
         </a>
         <a
-          class='btn btn-gh'
+          className='btn btn-gh'
           href='https://github.com/jerairrest/react-chartjs-2'
         >
           Github
         </a>
-        <a class='btn btn-chartjs' href='https://www.chartjs.org'>
+        <a className='btn btn-chartjs' href='https://www.chartjs.org'>
           Chart.js
         </a>
       </div>
@@ -85,6 +85,14 @@ const Home = () => (
           </li>
           <li className='entry'>
             <Link to='/crazy'>Crazy</Link>
+          </li>
+        </ul>
+      </div>
+      <div className='category'>
+        <h3 className='title'>Events</h3>
+        <ul className='items'>
+          <li className='entry'>
+            <Link to='/click-events'>Click Events</Link>
           </li>
         </ul>
       </div>

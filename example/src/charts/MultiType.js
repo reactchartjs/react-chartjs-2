@@ -37,7 +37,7 @@ const MultiType = () => (
       <h1 className='title'>MultiType Chart</h1>
       <div className='links'>
         <a
-          class='btn btn-gh'
+          className='btn btn-gh'
           href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/MultiType.js'
         >
           Github Source

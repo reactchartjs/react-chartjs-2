@@ -46,7 +46,7 @@ const StackedBar = () => (
       <h1 className='title'>Stacked Bar Chart</h1>
       <div className='links'>
         <a
-          class='btn btn-gh'
+          className='btn btn-gh'
           href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/StackedBar.js'
         >
           Github Source

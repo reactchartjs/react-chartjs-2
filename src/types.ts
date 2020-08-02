@@ -11,4 +11,16 @@ export interface Props {
   data: Chart.ChartData | DataFn
   options?: Chart.ChartOptions
   plugins?: Chart.PluginServiceRegistrationOptions[]
+  getDatasetAtEvent?: (
+    dataset: Array<{}>,
+    event: React.MouseEvent<HTMLCanvasElement>
+  ) => unknown
+  getElementAtEvent?: (
+    element: [{}],
+    event: React.MouseEvent<HTMLCanvasElement>
+  ) => unknown
+  getElementsAtEvent?: (
+    elements: Array<{}>,
+    event: React.MouseEvent<HTMLCanvasElement>
+  ) => unknown
 }

@@ -26,7 +26,7 @@ const Polar = () => (
       <h1 className='title'>Polar Area Chart</h1>
       <div className='links'>
         <a
-          class='btn btn-gh'
+          className='btn btn-gh'
           href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Polar.js'
         >
           Github Source

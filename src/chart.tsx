@@ -44,6 +44,16 @@ const ChartComponent = React.forwardRef(
       )
     }
 
+    const onClick = (e: React.MouseEvent<HTMLCanvasElement>): void => {
+      if (!chart) return
+
+      const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props
+
+      getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e)
+      getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e)
+      getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e)
+    }
+
     const updateChart = (): void => {
       if (!chart) return
 
@@ -114,7 +124,16 @@ const ChartComponent = React.forwardRef(
       }
     }, [props, computedData])
 
-    return <canvas height={height} width={width} ref={canvas} id={id} />
+    return (
+      <canvas
+        height={height}
+        width={width}
+        ref={canvas}
+        id={id}
+        onClick={onClick}
+        data-testid='canvas'
+      />
+    )
   }
 )
 

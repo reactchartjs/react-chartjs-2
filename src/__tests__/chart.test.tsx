@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, cleanup } from '@testing-library/react'
+import { render, cleanup, fireEvent } from '@testing-library/react'
 import Chart from 'chart.js'
 import ChartComponent from '../chart'
 
@@ -307,5 +307,41 @@ describe('<ChartComponent />', () => {
     unmount()
 
     expect(chart).toBe(null)
+  })
+
+  it('should call getDatasetAtEvent', () => {
+    const getDatasetAtEvent = jest.fn()
+
+    const { getByTestId } = render(
+      <ChartComponent data={data} options={options} type='bar' ref={ref} getDatasetAtEvent={getDatasetAtEvent} />
+    )
+
+    fireEvent.click(getByTestId('canvas'))
+
+    expect(getDatasetAtEvent).toHaveBeenCalled()
+  })
+
+  it('should call getElementAtEvent', () => {
+    const getElementAtEvent = jest.fn()
+
+    const { getByTestId } = render(
+      <ChartComponent data={data} options={options} type='bar' ref={ref} getElementAtEvent={getElementAtEvent} />
+    )
+
+    fireEvent.click(getByTestId('canvas'))
+
+    expect(getElementAtEvent).toHaveBeenCalled()
+  })
+
+  it('should call getElementsAtEvent', () => {
+    const getElementsAtEvent = jest.fn()
+
+    const { getByTestId } = render(
+      <ChartComponent data={data} options={options} type='bar' ref={ref} getElementsAtEvent={getElementsAtEvent} />
+    )
+
+    fireEvent.click(getByTestId('canvas'))
+
+    expect(getElementsAtEvent).toHaveBeenCalled()
   })
 })

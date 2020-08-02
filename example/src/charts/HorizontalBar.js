@@ -46,7 +46,7 @@ const HorizontalBarChart = () => (
       <h1 className='title'>Horizontal Bar Chart</h1>
       <div className='links'>
         <a
-          class='btn btn-gh'
+          className='btn btn-gh'
           href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/HorizontalBar.js'
         >
           Github Source

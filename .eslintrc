@@ -39,7 +39,7 @@
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
     "react/self-closing-comp": 1,
-    "semi": 2,
+    "semi": [2, "always"],
     "strict": 0
   }
 }

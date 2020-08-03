@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Props } from './types'
+import { Props } from './types';
 
-import Chart from 'chart.js'
-import merge from 'lodash/merge'
-import assign from 'lodash/assign'
-import find from 'lodash/find'
+import Chart from 'chart.js';
+import merge from 'lodash/merge';
+import assign from 'lodash/assign';
+import find from 'lodash/find';
 
 const ChartComponent = React.forwardRef(
   (props: Props, ref): React.ReactElement => {
@@ -18,21 +18,21 @@ const ChartComponent = React.forwardRef(
       data,
       options = {},
       plugins = [],
-    } = props
+    } = props;
 
-    const canvas = React.useRef<HTMLCanvasElement>(null)
-    const [chart, setChart] = React.useState<Chart | null>(null)
+    const canvas = React.useRef<HTMLCanvasElement>(null);
+    const [chart, setChart] = React.useState<Chart | null>(null);
 
-    React.useImperativeHandle(ref, (): Chart | null => chart, [chart])
+    React.useImperativeHandle(ref, (): Chart | null => chart, [chart]);
 
     const computedData = React.useMemo<Chart.ChartData>(
       (): Chart.ChartData =>
         typeof data === 'function' ? data(canvas.current) : merge({}, data),
       [data, canvas.current]
-    )
+    );
 
     const renderChart = (): void => {
-      if (canvas.current === null) return
+      if (canvas.current === null) return;
 
       setChart(
         new Chart(canvas.current, {
@@ -41,37 +41,41 @@ const ChartComponent = React.forwardRef(
           options,
           plugins,
         })
-      )
-    }
+      );
+    };
 
     const onClick = (e: React.MouseEvent<HTMLCanvasElement>): void => {
-      if (!chart) return
+      if (!chart) return;
 
-      const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props
+      const {
+        getDatasetAtEvent,
+        getElementAtEvent,
+        getElementsAtEvent,
+      } = props;
 
-      getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e)
-      getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e)
-      getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e)
-    }
+      getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e);
+      getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e);
+      getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e);
+    };
 
     const updateChart = (): void => {
-      if (!chart) return
+      if (!chart) return;
 
       if (options) {
-        chart.options = Chart.helpers.configMerge(chart.options, options)
+        chart.options = Chart.helpers.configMerge(chart.options, options);
       }
 
       if (!chart.config.data) {
-        chart.config.data = computedData
-        chart.update()
-        return
+        chart.config.data = computedData;
+        chart.update();
+        return;
       }
 
-      const { datasets: newDataSets = [], ...newChartData } = computedData
-      const { datasets: currentDataSets = [] } = chart.config.data
+      const { datasets: newDataSets = [], ...newChartData } = computedData;
+      const { datasets: currentDataSets = [] } = chart.config.data;
 
       // copy values
-      assign(chart.config.data, newChartData)
+      assign(chart.config.data, newChartData);
       chart.config.data.datasets = newDataSets.map(
         (newDataSet: Chart.ChartDataSets): Chart.ChartDataSets => {
           // given the new set, find it's current match
@@ -79,50 +83,50 @@ const ChartComponent = React.forwardRef(
             currentDataSets,
             (d: Chart.ChartDataSets): boolean =>
               d.label === newDataSet.label && d.type === newDataSet.type
-          )
+          );
 
           // There is no original to update, so simply add new one
-          if (!currentDataSet || !newDataSet.data) return newDataSet
+          if (!currentDataSet || !newDataSet.data) return newDataSet;
 
           if (!currentDataSet.data) {
-            currentDataSet.data = []
+            currentDataSet.data = [];
           } else {
-            currentDataSet.data.splice(newDataSet.data.length)
+            currentDataSet.data.splice(newDataSet.data.length);
           }
 
           // copy in values
-          assign(currentDataSet.data, newDataSet.data)
+          assign(currentDataSet.data, newDataSet.data);
 
           // apply dataset changes, but keep copied data
           return {
             ...currentDataSet,
             ...newDataSet,
             data: currentDataSet.data,
-          }
+          };
         }
-      )
+      );
 
-      chart.update()
-    }
+      chart.update();
+    };
 
     const destroyChart = (): void => {
-      if (chart) chart.destroy()
-    }
+      if (chart) chart.destroy();
+    };
 
     React.useEffect((): (() => void) => {
-      renderChart()
+      renderChart();
 
-      return () => destroyChart()
-    }, [])
+      return () => destroyChart();
+    }, []);
 
     React.useEffect((): void => {
       if (redraw) {
-        destroyChart()
-        renderChart()
+        destroyChart();
+        renderChart();
       } else {
-        updateChart()
+        updateChart();
       }
-    }, [props, computedData])
+    }, [props, computedData]);
 
     return (
       <canvas
@@ -133,8 +137,8 @@ const ChartComponent = React.forwardRef(
         onClick={onClick}
         data-testid='canvas'
       />
-    )
+    );
   }
-)
+);
 
-export default ChartComponent
+export default ChartComponent;

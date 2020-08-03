@@ -31,7 +31,9 @@
     "test:lint": "eslint src/**/*.{ts,tsx,js,jsx}",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
     "lodash": "^4.17.19"

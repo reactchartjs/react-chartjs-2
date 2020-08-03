@@ -1,6 +1,6 @@
 {
   "name": "react-chartjs-2",
-  "version": "3.0.0",
+  "version": "2.10.0-react16",
   "description": "react-chartjs-2",
   "source": "src/index.tsx",
   "main": "dist/index.js",

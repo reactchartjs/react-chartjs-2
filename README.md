@@ -1,139 +1,202 @@
-[![build status](	https://img.shields.io/travis/jerairrest/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chartjs-2)
+[![build status](https://img.shields.io/travis/jerairrest/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chartjs-2)
 [![version](https://img.shields.io/npm/v/react-chartjs-2.svg?style=flat-square)](https://www.npmjs.com/package/react-chartjs-2)
 [![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-### Looking for maintainers!!
-
 # react-chartjs-2
 
 React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
-Open for PRs and contributions!
 
-# UPDATE to 2.x
-As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.5.x is the recommended version of chart.js to use.
+## Getting started
 
-## Demo & Examples
-
-Live demo: [jerairrest.github.io/react-chartjs-2](http://jerairrest.github.io/react-chartjs-2/)
-
-To build the examples locally, run:
-
-```bash
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
-## Demo & Examples via React Storybook
-
-We have to build the package, then you can run storybook.
-
-```bash
-npm run build
-npm run storybook
-```
-
-Then open [`localhost:6006`](http://localhost:6006) in a browser.
-
-
-## Installation via NPM
+### Install library with peer dependencies
 
 ```bash
 npm install --save react-chartjs-2 chart.js
-```
 
-## Installation via YARN
+# or
 
-```bash
 yarn add react-chartjs-2 chart.js
 ```
 
+###### We recommend using `chart.js ^2.5.0`
 
-## Usage
+### Usage
 
-Check example/src/components/* for usage.
-
-```js
+```jsx
 import { Doughnut } from 'react-chartjs-2';
 
 <Doughnut data={...} />
 ```
 
-### Properties
+## Examples
 
-* data: (PropTypes.object | PropTypes.func).isRequired,
-* width: PropTypes.number,
-* height: PropTypes.number,
-* id: PropTypes.string,
-* legend: PropTypes.object,
-* options: PropTypes.object,
-* redraw: PropTypes.bool,
-* getDatasetAtEvent: PropTypes.func,
-* getElementAtEvent: PropTypes.func,
-* getElementsAtEvent: PropTypes.func
-* onElementsClick: PropTypes.func, // alias for getElementsAtEvent (backward compatibility)
+Live: [jerairrest.github.io/react-chartjs-2](jerairrest.github.io/react-chartjs-2)
 
-### Custom size
-In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false, example:
+See [examples](example) for more information
+
+## Configure
+
+### Chart props
 
 ```js
+  id?: string;
+  height?: number;
+  width?: number;
+  redraw?: boolean;
+  type: Chart.ChartType
+  data: Chart.ChartData | (canvas: HTMLCanvasElement | null) => Chart.ChartData;
+  options?: Chart.ChartOptions;
+  plugins?: Chart.PluginServiceRegistrationOptions[];
+  getDatasetAtEvent?: (dataset: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
+  getElementAtEvent?: (element: [{}], event: React.MouseEvent<HTMLCanvasElement>) => void;
+  getElementsAtEvent?: (elements: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
+```
+
+#### id
+
+Type `string`
+Default: `undefined`
+
+ID attribute applied to the rendered canvas
+
+#### height
+
+Type: `number`
+Default: `150`
+
+Height attribute applied to the rendered canvas
+
+#### width
+
+Type: `number`
+Default: `300`
+
+Width attribute applied to the rendered canvas
+
+#### redraw
+
+Type: `boolean`
+Default: `false`
+
+If true, will tear down and redraw chart on all updates
+
+#### type
+
+Type: `'line' | 'bar' | 'horizontalBar' | 'radar' | 'doughnut' | 'polarArea' | 'bubble' | 'pie' | 'scatter'`
+
+Chart.js chart type (required only on ChartComponent)
+
+#### data (required)
+
+Type: `Chart.ChartData | (canvas: HTMLCanvasElement | null) => Chart.ChartData`
+
+The data object that is passed into the Chart.js chart ([more info](https://www.chartjs.org/docs/latest/getting-started/)).
+
+This can also be a function, that receives a canvas element and returns the data object.
+
+```tsx
+const data = canvas => {
+    const ctx = canvas.getContext('2d');
+    const g = ctx.createLinearGradient(...);
+
+    return {
+        datasets: [{
+            backgroundColor: g,
+            // ...the rest
+        }],
+    };
+}
+```
+
+#### options
+
+Type: `Chart.ChartOptions`
+
+The options object that is passed into the Chart.js chart ([more info](https://www.chartjs.org/docs/latest/general/options.html))
+
+#### plugins
+
+Type: `Chart.PluginServiceRegistrationOptions[]`
+
+The plugins array that is passed into the Chart.js chart ([more info](https://www.chartjs.org/docs/latest/developers/plugins.html))
+
+#### getDatasetAtEvent
+
+Type: `(dataset: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void`
+Default: `undefined`
+
+Proxy for Chart.js `getDatasetAtEvent`. Calls with dataset and triggering event
+
+#### getElementAtEvent
+
+Type: `(element: [{}], event: React.MouseEvent<HTMLCanvasElement>) => void`
+Default: `undefined`
+
+Proxy for Chart.js `getElementAtEvent`. Calls with single element array and triggering event
+
+#### getElementsAtEvent
+
+Type: `(elements: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void`
+Default: `undefined`
+
+Proxy for Chart.js `getElementsAtEvent`. Calls with element array and triggering event
+
+## FAQ
+
+### Why doesn't my chart maintain it's width/height?
+
+In order for Chart.js to obey the custom size you need to set `maintainAspectRatio` to false
+
+```tsx
 <Bar
-  data={data}
-  width={100}
-  height={50}
-  options={{ maintainAspectRatio: false }}
+	data={data}
+	width={100}
+	height={50}
+	options={{ maintainAspectRatio: false }}
 />
 ```
 
-### Chart.js instance
-Chart.js instance can be accessed by placing a ref to the element as:
+### How do I access my chart's instance?
 
-```js
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.chartReference = React.createRef();
-  }
+The Chart.js instance can be accessed by placing a ref to the element as:
 
-  componentDidMount() {
-    console.log(this.chartReference); // returns a Chart.js instance reference
-  }
+```tsx
+const App => {
+  const ref = useRef();
 
-  render() {
-    return (<Doughnut ref={this.chartReference} data={data} options={options} />)
-  }
-}
+  return <Doughnut ref={ref} data={data} options={options} />;
+};
 ```
 
-### Getting context for data generation
-Canvas node and hence context, that can be used to create CanvasGradient background,
-is passed as argument to data if given as function:
+### How do I acess the canvas context?
 
+The canvas node and hence context can be accessed within the data function.
 This approach is useful when you want to keep your components pure.
 
-```js
+```tsx
 render() {
   const data = (canvas) => {
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     const gradient = ctx.createLinearGradient(0,0,100,0);
-    ...
+
     return {
-      ...
       backgroundColor: gradient
-      ...
+      // ...the rest
     }
   }
 
-  return (<Line data={data} />)
+  return <Line data={data} />;
 }
 ```
 
-### Chart.js Defaults
+## Additional Information
+
+### Defaults
+
 Chart.js defaults can be set by importing the `defaults` object:
 
-```javascript
+```tsx
 import { defaults } from 'react-chartjs-2';
 
 // Disable animating charts by default.
@@ -142,19 +205,17 @@ defaults.global.animation = false;
 
 If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
 
-```js
+```tsx
 import { defaults } from 'react-chartjs-2';
 import merge from 'lodash.merge';
-// or
-// import { merge } from 'lodash';
 
 merge(defaults, {
-  global: {
-    animation: false,
-    line: {
-      borderColor: '#F85F73',
-     },
-  },
+	global: {
+		animation: false,
+		line: {
+			borderColor: '#F85F73',
+		},
+	},
 });
 ```
 
@@ -174,46 +235,6 @@ componentWillMount() {
 }
 ```
 
-### Scatter Charts
-
-If you're using Chart.js 2.6 and below, add the `showLines: false` property to your chart options. This was later [added](https://github.com/chartjs/Chart.js/commit/7fa60523599a56255cde78a49e848166bd233c6e) in the default config, so users of later versions would not need to do this extra step.
-
-### Events
-
-#### onElementsClick || getElementsAtEvent (function)
-
-A function to be called when mouse clicked on chart elememts, will return all element at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getelementsatevente)
-
-```js
-{
-  onElementsClick: (elems) => {},
-  getElementsAtEvent: (elems) => {},
-  // `elems` is an array of chartElements
-}
-
-```
-#### getElementAtEvent (function)
-
-Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getelementatevente)
-
-```js
-{
-  getElementAtEvent: (elems) => {},
-  // => returns the first element at the event point.
-}
-```
-
-#### getDatasetAtEvent (function)
-
-Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getdatasetatevente)
-
-```js
-{
-  getDatasetAtEvent: (dataset) => {}
-  // `dataset` is an array of chartElements
-}
-```
-
 ### Working with Multiple Datasets
 
 You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together. This is because to track changes in the dataset series, the library needs a `key` to be specified - if none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
@@ -221,15 +242,11 @@ You will find that any event which causes the chart to re-render, such as hover 
 1. Add a `label` property on each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
 2. Specify a different property to be used as a key by passing a `datasetKeyProvider` prop to your chart component, which would return a unique string value for each dataset.
 
-## Development (`src`, `lib` and the build process)
+## Development
 
-**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
-
-To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
-
+**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `dist` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
 
 ## License
 
-[MIT Licensed](/LICENSE.md)
-Copyright (c) 2017 Jeremy Ayerst
-
+[MIT Licensed](LICENSE)
+Copyright (c) 2020 Jeremy Ayerst

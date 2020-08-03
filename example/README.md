@@ -1,5 +1,18 @@
-This example was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-chartjs-2-examples
 
-It is linked to the react-chart.js package in the parent directory for development purposes.
+Live: [jerairrest.github.io/react-chartjs-2](jerairrest.github.io/react-chartjs-2)
 
-You can run `npm install` and then `npm start` to test your package.
+### Running locally
+
+```bash
+# clone repo
+https://github.com/jerairrest/react-chartjs-2
+
+# install react-chartjs-2 dependencies
+npm install
+
+# cd into the example, install example dependencies
+cd example && npm install
+
+npm start
+```

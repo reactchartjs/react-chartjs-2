@@ -67,6 +67,7 @@ import { Doughnut } from 'react-chartjs-2';
 * width: PropTypes.number,
 * height: PropTypes.number,
 * id: PropTypes.string,
+* className: PropTypes.string,
 * legend: PropTypes.object,
 * options: PropTypes.object,
 * redraw: PropTypes.bool,

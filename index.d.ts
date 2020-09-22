@@ -8,6 +8,8 @@
 import * as React from "react";
 import * as chartjs from "chart.js";
 
+export { Chart } from "chart.js";
+
 export type ChartDataFunction<T extends chartjs.ChartData> = (
   element: HTMLElement
 ) => T;
@@ -56,6 +58,8 @@ export class Radar extends ChartComponent<ChartComponentProps> {}
 export class Polar extends ChartComponent<ChartComponentProps> {}
 
 export class Bubble extends ChartComponent<ChartComponentProps> {}
+
+export const Chart = chartjs.Chart;
 
 export var defaults: {
   global: chartjs.ChartOptions & chartjs.ChartFontOptions;

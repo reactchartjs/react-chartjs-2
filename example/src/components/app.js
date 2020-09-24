@@ -5,6 +5,7 @@ import DynamicDoughnutExample from './dynamic-doughnut';
 import PieExample from './pie';
 import LineExample from './line';
 import BarExample from './bar';
+import BarGroupExample from './barGroup';
 import HorizontalBarExample from './horizontalBar';
 import RadarExample from './radar';
 import PolarExample from './polar';
@@ -17,40 +18,42 @@ import LegendOptionsExample from './legend-options';
 import LegendHandlersExample from './legend-handlers';
 
 export default class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<hr />
-				<DoughnutExample />
-				<hr />
-				<DynamicDoughnutExample />
-				<hr />
-				<PieExample />
-				<hr />
-				<LineExample />
-				<hr />
-				<BarExample />
-				<hr />
-				<HorizontalBarExample />
-				<hr />
-				<RadarExample />
-				<hr />
-				<PolarExample />
-				<hr />
-				<BubbleExample />
-				<hr />
-				<ScatterExample />
-				<hr />
-				<MixedDataExample />
-				<hr />
-				<RandomizedDataLineExample />
-				<hr />
-				<CrazyDataLineExample />
-				<hr />
-				<LegendOptionsExample />
-				<hr />
-				<LegendHandlersExample />
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <hr />
+        <DoughnutExample />
+        <hr />
+        <DynamicDoughnutExample />
+        <hr />
+        <PieExample />
+        <hr />
+        <LineExample />
+        <hr />
+        <BarExample />
+        <hr />
+        <BarGroupExample />
+        <hr />
+        <HorizontalBarExample />
+        <hr />
+        <RadarExample />
+        <hr />
+        <PolarExample />
+        <hr />
+        <BubbleExample />
+        <hr />
+        <ScatterExample />
+        <hr />
+        <MixedDataExample />
+        <hr />
+        <RandomizedDataLineExample />
+        <hr />
+        <CrazyDataLineExample />
+        <hr />
+        <LegendOptionsExample />
+        <hr />
+        <LegendHandlersExample />
+      </div>
+    );
+  }
 }

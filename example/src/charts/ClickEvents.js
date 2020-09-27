@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Bar } from 'react-chartjs-2'
+import { Bar } from '@reactchartjs/react-chart.js'
 
 const rand = () => Math.floor(Math.random() * 255)
 
@@ -79,7 +79,7 @@ const ClickEvents = () => {
         <div className='links'>
           <a
             className='btn btn-gh'
-            href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/ClickEvents.js'
+            href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/ClickEvents.js'
           >
             Github Source
           </a>

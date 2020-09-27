@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Bar } from 'react-chartjs-2'
+import { Bar } from '@reactchartjs/react-chart.js'
 
 const rand = () => Math.round(Math.random() * 20 - 10)
 
@@ -58,7 +58,7 @@ const Dynamic = () => {
         <div className='links'>
           <a
             className='btn btn-gh'
-            href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Dynamic.js'
+            href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/Dynamic.js'
           >
             Github Source
           </a>

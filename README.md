@@ -1,22 +1,22 @@
-[![build status](https://img.shields.io/travis/jerairrest/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chartjs-2)
-[![version](https://img.shields.io/npm/v/react-chartjs-2.svg?style=flat-square)](https://www.npmjs.com/package/react-chartjs-2)
-[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
+[![build status](https://img.shields.io/travis/jerairrest/react-chart.js.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chart.js)
+[![version](https://img.shields.io/npm/v/@reactchartjs/react-chart.js?style=flat-square)](https://www.npmjs.com/package/@reactchartjs/react-chart.js)
+[![downloads](https://img.shields.io/npm/dm/@reactchartjs/react-chart.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@reactchartjs/react-chart.js&from=2016-01-01)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-# react-chartjs-2
+# @reactchartjs/react-chart.js
 
-React wrapper for [Chart.js 2](http://www.chartjs.org/docs/#getting-started)
+React wrapper for [Chart.js](http://www.chartjs.org/docs/#getting-started)
 
 ## Getting started
 
 ### Install library with peer dependencies
 
 ```bash
-npm install --save react-chartjs-2 chart.js
+npm install --save @reactchartjs/react-chart.js chart.js
 
 # or
 
-yarn add react-chartjs-2 chart.js
+yarn add @reactchartjs/react-chart.js chart.js
 ```
 
 ###### We recommend using `chart.js ^2.5.0`
@@ -24,16 +24,16 @@ yarn add react-chartjs-2 chart.js
 ### Usage
 
 ```jsx
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut } from '@reactchartjs/react-chart.js';
 
 <Doughnut data={...} />
 ```
 
 ## Examples
 
-Live: [jerairrest.github.io/react-chartjs-2](jerairrest.github.io/react-chartjs-2)
+Live: [jerairrest.github.io/react-chart.js](jerairrest.github.io/react-chart.js)
 
-See [examples](example) for more information
+See [these examples](example) for more information
 
 ## Configure
 
@@ -197,7 +197,7 @@ render() {
 Chart.js defaults can be set by importing the `defaults` object:
 
 ```tsx
-import { defaults } from 'react-chartjs-2';
+import { defaults } from '@reactchartjs/react-chart.js';
 
 // Disable animating charts by default.
 defaults.global.animation = false;
@@ -206,7 +206,7 @@ defaults.global.animation = false;
 If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
 
 ```tsx
-import { defaults } from 'react-chartjs-2';
+import { defaults } from '@reactchartjs/react-chart.js';
 import merge from 'lodash.merge';
 
 merge(defaults, {
@@ -224,7 +224,7 @@ merge(defaults, {
 You can access the internal Chart.js object to register plugins or extend charts like this:
 
 ```JavaScript
-import { Chart } from 'react-chartjs-2';
+import { Chart } from '@reactchartjs/react-chart.js';
 
 componentWillMount() {
   Chart.pluginService.register({

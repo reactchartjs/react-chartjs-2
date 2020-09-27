@@ -1,5 +1,5 @@
 import React from 'react'
-import { Radar } from 'react-chartjs-2'
+import { Radar } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
@@ -27,7 +27,7 @@ const RadarChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Radar.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/Radar.js'
         >
           Github Source
         </a>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Doughnut } from 'react-chartjs-2'
+import { Doughnut } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -35,7 +35,7 @@ const DoughnutChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Doughnut.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/Doughnut.js'
         >
           Github Source
         </a>

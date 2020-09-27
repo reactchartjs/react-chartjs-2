@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bar } from 'react-chartjs-2'
+import { Bar } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -41,7 +41,7 @@ const GroupedBar = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/GroupedBar.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/GroupedBar.js'
         >
           Github Source
         </a>

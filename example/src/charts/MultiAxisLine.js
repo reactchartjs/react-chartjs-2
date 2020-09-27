@@ -1,5 +1,5 @@
 import React from 'react'
-import { Line } from 'react-chartjs-2'
+import { Line } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -52,7 +52,7 @@ const MultiAxisLine = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/MultiAxisLine.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/MultiAxisLine.js'
         >
           Github Source
         </a>

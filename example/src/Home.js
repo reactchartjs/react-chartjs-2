@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom'
 const Home = () => (
   <>
     <div className='header'>
-      <h1 className='title'>react-chartjs-2</h1>
-      <h2 className='subtitle'>React wrapper for Chart.js 2</h2>
+      <h1 className='title'>@reactchartjs/react-chart.js</h1>
+      <h2 className='subtitle'>React wrapper for Chart.js</h2>
       <div className='links'>
         <a
           className='btn btn-npm'
-          href='https://www.npmjs.com/package/react-chartjs-2'
+          href='https://www.npmjs.com/package/@reactchartjs/react-chart.js'
         >
           NPM
         </a>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2'
+          href='https://github.com/jerairrest/@reactchartjs/react-chart.js'
         >
           Github
         </a>
@@ -101,7 +101,7 @@ const Home = () => (
     <div className='footer'>
       <h6>
         For questions or issues please visit{' '}
-        <a href='https://github.com/jerairrest/react-chartjs-2/issues'>
+        <a href='https://github.com/jerairrest/react-chart.js/issues'>
           Github
         </a>
       </h6>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Scatter } from 'react-chartjs-2'
+import { Scatter } from '@reactchartjs/react-chart.js'
 
 const rand = () => Math.round(Math.random() * 20 - 10)
 
@@ -47,7 +47,7 @@ const ScatterChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/Scatter.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/Scatter.js'
         >
           Github Source
         </a>

@@ -1,26 +1,27 @@
 {
-  "name": "react-chartjs-2",
-  "version": "2.10.0-react16",
-  "description": "react-chartjs-2",
+  "name": "@reactchartjs/react-chart.js",
+  "version": "1.0.0-rc.1",
+  "description": "React components for Chart.js",
   "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "author": "Jeremy Ayerst",
-  "homepage": "https://github.com/jerairrest/react-chartjs-2",
+  "homepage": "https://github.com/jerairrest/react-chart.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerairrest/react-chartjs-2.git"
+    "url": "https://github.com/jerairrest/react-chart.js.git"
   },
   "bugs": {
-    "url": "https://github.com/jerairrest/react-chartjs-2/issues"
+    "url": "https://github.com/jerairrest/react-chart.js/issues"
   },
   "keywords": [
     "chart",
     "chart-js",
     "chart.js",
     "react-chartjs-2",
-    "react chart.js"
+    "react chart.js",
+    "react-chart.js"
   ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",

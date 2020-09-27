@@ -1,5 +1,5 @@
 import React from 'react'
-import { HorizontalBar } from 'react-chartjs-2'
+import { HorizontalBar } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -47,7 +47,7 @@ const HorizontalBarChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/charts/HorizontalBar.js'
+          href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/HorizontalBar.js'
         >
           Github Source
         </a>

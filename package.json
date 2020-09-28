@@ -1,102 +1,82 @@
 {
-  "name": "react-chartjs-2",
-  "version": "2.10.0",
-  "description": "react-chartjs-2",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "name": "@reactchartjs/react-chart.js",
+  "version": "1.0.0-rc.1",
+  "description": "React components for Chart.js",
+  "source": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
   "author": "Jeremy Ayerst",
-  "homepage": "https://github.com/jerairrest/react-chartjs-2",
+  "homepage": "https://github.com/jerairrest/react-chart.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerairrest/react-chartjs-2.git"
+    "url": "https://github.com/jerairrest/react-chart.js.git"
   },
   "bugs": {
-    "url": "https://github.com/jerairrest/react-chartjs-2/issues"
-  },
-  "dependencies": {
-    "lodash": "^4.17.19",
-    "prop-types": "^15.7.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "@babel/runtime": "^7.10.5",
-    "@kadira/storybook": "^2.35.3",
-    "@rollup/plugin-alias": "^3.1.1",
-    "@rollup/plugin-babel": "^5.1.0",
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.4.0",
-    "@rollup/plugin-replace": "^2.3.3",
-    "@storybook/react": "^5.3.19",
-    "babelify": "^10.0.0",
-    "brfs": "^2.0.2",
-    "canvas": "^2.6.1",
-    "chai": "^4.2.0",
-    "chart.js": "2.6.0",
-    "cross-env": "^7.0.2",
-    "css-loader": "^3.6.0",
-    "debug": "^4.1.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-15": "^1.4.1",
-    "eslint": "^7.5.0",
-    "eslint-plugin-react": "^7.20.3",
-    "gh-pages": "^3.1.0",
-    "gulp": "^4.0.2",
-    "jsdom": "^16.3.0",
-    "mocha": "^8.0.1",
-    "rcolor": "^2.0.2",
-    "react": "^0.14 || ^15.0.0-rc || ^15.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0",
-    "react-test-renderer": "15",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.22.1",
-    "rollup-plugin-generate-html-template": "^1.7.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "serve": "^11.3.2",
-    "sinon": "^9.0.2",
-    "webpack": "^4.43.0",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "peerDependencies": {
-    "chart.js": "^2.3",
-    "react": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0"
-  },
-  "browserify-shim": {
-    "react": "global:React",
-    "react-dom": "global:ReactDOM",
-    "chart.js": "global:Chart"
-  },
-  "scripts": {
-    "clean": "rimraf lib es dist",
-    "build:cjs": "babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=jsnext babel src --out-dir es",
-    "build:umd": "cross-env BABEL_ENV=rollup NODE_ENV=development rollup -c -o dist/react-chartjs-2.js",
-    "build:umd:min": "cross-env BABEL_ENV=rollup NODE_ENV=production rollup -c -o dist/react-chartjs-2.min.js",
-    "build": "npm run clean && npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "examples": "rollup -c example/rollup.config.js",
-    "examples:clean": "rimraf example/dist",
-    "examples:deploy": "npm run examples:clean && npm run examples && gh-pages -d example/dist",
-    "start": "npm run examples",
-    "lint": "eslint ./; true",
-    "test": "mocha test/config/setup.js test/__tests__/**/*",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "url": "https://github.com/jerairrest/react-chart.js/issues"
   },
   "keywords": [
     "chart",
     "chart-js",
     "chart.js",
     "react-chartjs-2",
-    "react chart.js"
+    "react chart.js",
+    "react-chart.js"
   ],
-  "types": "./index.d.ts"
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepublish": "run-s build",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint src/**/*.{ts,tsx,js,jsx}",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "format": "prettier --write src",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "dependencies": {
+    "lodash": "^4.17.19"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "chart.js": "^2.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.3",
+    "@types/chart.js": "^2.9.19",
+    "@types/jest": "^25.1.4",
+    "@types/lodash": "^4.14.150",
+    "@types/react": "^16.9.27",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "babel-eslint": "^10.0.3",
+    "chart.js": "^2.3.0",
+    "cross-env": "^7.0.2",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.2.0",
+    "jest-canvas-mock": "^2.2.0",
+    "microbundle-crl": "^0.13.11",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.3",
+    "react-test-renderer": "^16.13.1"
+  },
+  "files": [
+    "dist"
+  ]
 }

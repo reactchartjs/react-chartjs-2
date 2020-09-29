@@ -81,8 +81,7 @@ describe('<ChartComponent />', () => {
     expect(chart.config.options).toMatchObject(options);
     expect(chart.config.type).toEqual('bar');
 
-    // called twice (once with null canvas, once with the canvas)
-    expect(dataFn).toHaveBeenCalledTimes(2);
+    expect(dataFn).toHaveBeenCalledTimes(1);
     expect(dataFn).toHaveBeenCalledWith(expect.any(HTMLCanvasElement));
     expect(update).toHaveBeenCalledTimes(1);
   });

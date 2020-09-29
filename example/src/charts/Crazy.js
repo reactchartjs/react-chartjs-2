@@ -59,7 +59,7 @@ const Crazy = () => {
         <div className='links'>
           <a
             className='btn btn-gh'
-            href='https://github.com/jerairrest/react-chart.js/blob/master/example/src/charts/Crazy.js'
+            href='https://github.com/jerairrest/react-chartjs-2/blob/react16/example/src/charts/Crazy.js'
           >
             Github Source
           </a>

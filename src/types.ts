@@ -1,26 +1,22 @@
-export interface DataFn {
-  (canvas: HTMLCanvasElement | null): Chart.ChartData;
-}
-
 export interface Props {
   id?: string;
   height?: number;
   width?: number;
   redraw?: boolean;
   type: Chart.ChartType;
-  data: Chart.ChartData | DataFn;
+  data: Chart.ChartData | ((canvas: HTMLCanvasElement) => Chart.ChartData);
   options?: Chart.ChartOptions;
   plugins?: Chart.PluginServiceRegistrationOptions[];
   getDatasetAtEvent?: (
     dataset: Array<{}>,
     event: React.MouseEvent<HTMLCanvasElement>
-  ) => unknown;
+  ) => void;
   getElementAtEvent?: (
     element: [{}],
     event: React.MouseEvent<HTMLCanvasElement>
-  ) => unknown;
+  ) => void;
   getElementsAtEvent?: (
     elements: Array<{}>,
     event: React.MouseEvent<HTMLCanvasElement>
-  ) => unknown;
+  ) => void;
 }

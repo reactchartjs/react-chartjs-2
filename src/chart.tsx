@@ -1,4 +1,11 @@
-import * as React from 'react';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useImperativeHandle,
+  useMemo,
+  forwardRef,
+} from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Props } from './types';
 
@@ -7,138 +14,132 @@ import merge from 'lodash/merge';
 import assign from 'lodash/assign';
 import find from 'lodash/find';
 
-const ChartComponent = React.forwardRef(
-  (props: Props, ref): React.ReactElement => {
-    const {
-      id,
-      height = 150,
-      width = 300,
-      redraw = false,
-      type,
-      data,
-      options = {},
-      plugins = [],
-    } = props;
+const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
+  const {
+    id,
+    height = 150,
+    width = 300,
+    redraw = false,
+    type,
+    data,
+    options = {},
+    plugins = [],
+  } = props;
 
-    const canvas = React.useRef<HTMLCanvasElement>(null);
-    const [chart, setChart] = React.useState<Chart | null>(null);
+  const canvas = useRef<HTMLCanvasElement>(null);
 
-    React.useImperativeHandle(ref, (): Chart | null => chart, [chart]);
+  const computedData = useMemo<Chart.ChartData>(() => {
+    if (typeof data === 'function') {
+      return canvas.current ? data(canvas.current) : {};
+    } else return merge({}, data);
+  }, [data, canvas.current]);
 
-    const computedData = React.useMemo<Chart.ChartData>(
-      (): Chart.ChartData =>
-        typeof data === 'function' ? data(canvas.current) : merge({}, data),
-      [data, canvas.current]
+  const [chart, setChart] = useState<Chart>();
+
+  useImperativeHandle<Chart | undefined, Chart | undefined>(ref, () => chart, [
+    chart,
+  ]);
+
+  const renderChart = () => {
+    if (!canvas.current) return;
+
+    setChart(
+      new Chart(canvas.current, {
+        type,
+        data: computedData,
+        options,
+        plugins,
+      })
     );
+  };
 
-    const renderChart = (): void => {
-      if (canvas.current === null) return;
+  const onClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!chart) return;
 
-      setChart(
-        new Chart(canvas.current, {
-          type,
-          data: computedData,
-          options,
-          plugins,
-        })
-      );
-    };
+    const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props;
 
-    const onClick = (e: React.MouseEvent<HTMLCanvasElement>): void => {
-      if (!chart) return;
+    getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e);
+    getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e);
+    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e);
+  };
 
-      const {
-        getDatasetAtEvent,
-        getElementAtEvent,
-        getElementsAtEvent,
-      } = props;
+  const updateChart = () => {
+    if (!chart) return;
 
-      getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e);
-      getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e);
-      getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e);
-    };
+    if (options) {
+      chart.options = Chart.helpers.configMerge(chart.options, options);
+    }
 
-    const updateChart = (): void => {
-      if (!chart) return;
-
-      if (options) {
-        chart.options = Chart.helpers.configMerge(chart.options, options);
-      }
-
-      if (!chart.config.data) {
-        chart.config.data = computedData;
-        chart.update();
-        return;
-      }
-
-      const { datasets: newDataSets = [], ...newChartData } = computedData;
-      const { datasets: currentDataSets = [] } = chart.config.data;
-
-      // copy values
-      assign(chart.config.data, newChartData);
-      chart.config.data.datasets = newDataSets.map(
-        (newDataSet: Chart.ChartDataSets): Chart.ChartDataSets => {
-          // given the new set, find it's current match
-          const currentDataSet = find(
-            currentDataSets,
-            (d: Chart.ChartDataSets): boolean =>
-              d.label === newDataSet.label && d.type === newDataSet.type
-          );
-
-          // There is no original to update, so simply add new one
-          if (!currentDataSet || !newDataSet.data) return newDataSet;
-
-          if (!currentDataSet.data) {
-            currentDataSet.data = [];
-          } else {
-            currentDataSet.data.splice(newDataSet.data.length);
-          }
-
-          // copy in values
-          assign(currentDataSet.data, newDataSet.data);
-
-          // apply dataset changes, but keep copied data
-          return {
-            ...currentDataSet,
-            ...newDataSet,
-            data: currentDataSet.data,
-          };
-        }
-      );
-
+    if (!chart.config.data) {
+      chart.config.data = computedData;
       chart.update();
-    };
+      return;
+    }
 
-    const destroyChart = (): void => {
-      if (chart) chart.destroy();
-    };
+    const { datasets: newDataSets = [], ...newChartData } = computedData;
+    const { datasets: currentDataSets = [] } = chart.config.data;
 
-    React.useEffect((): (() => void) => {
-      renderChart();
+    // copy values
+    assign(chart.config.data, newChartData);
+    chart.config.data.datasets = newDataSets.map(newDataSet => {
+      // given the new set, find it's current match
+      const currentDataSet = find(
+        currentDataSets,
+        d => d.label === newDataSet.label && d.type === newDataSet.type
+      );
 
-      return () => destroyChart();
-    }, []);
+      // There is no original to update, so simply add new one
+      if (!currentDataSet || !newDataSet.data) return newDataSet;
 
-    React.useEffect((): void => {
-      if (redraw) {
-        destroyChart();
-        renderChart();
+      if (!currentDataSet.data) {
+        currentDataSet.data = [];
       } else {
-        updateChart();
+        currentDataSet.data.splice(newDataSet.data.length);
       }
-    }, [props, computedData]);
 
-    return (
-      <canvas
-        height={height}
-        width={width}
-        ref={canvas}
-        id={id}
-        onClick={onClick}
-        data-testid='canvas'
-      />
-    );
-  }
-);
+      // copy in values
+      assign(currentDataSet.data, newDataSet.data);
+
+      // apply dataset changes, but keep copied data
+      return {
+        ...currentDataSet,
+        ...newDataSet,
+        data: currentDataSet.data,
+      };
+    });
+
+    chart.update();
+  };
+
+  const destroyChart = () => {
+    if (chart) chart.destroy();
+  };
+
+  useEffect(() => {
+    renderChart();
+
+    return () => destroyChart();
+  }, []);
+
+  useEffect(() => {
+    if (redraw) {
+      destroyChart();
+      renderChart();
+    } else {
+      updateChart();
+    }
+  }, [props, computedData]);
+
+  return (
+    <canvas
+      height={height}
+      width={width}
+      ref={canvas}
+      id={id}
+      onClick={onClick}
+      data-testid='canvas'
+    />
+  );
+});
 
 export default ChartComponent;

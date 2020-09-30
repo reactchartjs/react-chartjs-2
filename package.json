@@ -59,6 +59,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.22.1",
     "rollup-plugin-generate-html-template": "^1.7.0",
+    "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-uglify": "^6.0.4",
     "serve": "^11.3.2",
     "sinon": "^9.0.2",

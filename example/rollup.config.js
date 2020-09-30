@@ -6,6 +6,7 @@ import replace from '@rollup/plugin-replace';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
 import serve from 'rollup-plugin-serve';
+import livereload from 'rollup-plugin-livereload';
 
 const pathResolve = (loc) => path.resolve(__dirname, loc);
 
@@ -37,5 +38,6 @@ export default {
       host: 'localhost',
       port: 8000,
     }),
+    livereload(pathResolve('dist')),
   ],
 };

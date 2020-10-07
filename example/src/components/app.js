@@ -5,6 +5,7 @@ import DynamicDoughnutExample from './dynamic-doughnut';
 import PieExample from './pie';
 import LineExample from './line';
 import BarExample from './bar';
+import BarGroupExample from './barGroup';
 import HorizontalBarExample from './horizontalBar';
 import RadarExample from './radar';
 import PolarExample from './polar';
@@ -30,6 +31,8 @@ export default class App extends React.Component {
 				<LineExample />
 				<hr />
 				<BarExample />
+				<hr />
+				<BarGroupExample />
 				<hr />
 				<HorizontalBarExample />
 				<hr />

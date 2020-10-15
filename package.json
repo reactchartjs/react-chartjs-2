@@ -40,8 +40,8 @@
     "lodash": "^4.17.19"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "chart.js": "^2.3.0"
+    "chart.js": "^2.3.0",
+    "react": "^16.8.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",

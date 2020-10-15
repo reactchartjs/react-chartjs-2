@@ -3,8 +3,8 @@
   "homepage": "https://jerairrest.github.io/react-chart.js/",
   "version": "0.0.0",
   "dependencies": {
-    "react": "file:../node_modules/react",
     "@reactchartjs/react-chart.js": "file:..",
+    "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-router-dom": "^5.1.2",
     "react-scripts": "file:../node_modules/react-scripts"

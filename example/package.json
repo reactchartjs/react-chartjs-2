@@ -1,6 +1,6 @@
 {
   "name": "react-chart.js-example",
-  "homepage": "https://jerairrest.github.io/react-chart.js/",
+  "homepage": "./",
   "version": "0.0.0",
   "dependencies": {
     "@reactchartjs/react-chart.js": "file:..",

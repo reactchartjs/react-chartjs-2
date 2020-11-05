@@ -1,19 +1,19 @@
 {
   "name": "react-chartjs-2",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "react-chartjs-2",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
-  "author": "Jeremy Ayerst",
-  "homepage": "https://github.com/jerairrest/react-chartjs-2",
+  "author": "reactchartjs",
+  "homepage": "https://github.com/reactchartjs/react-chartjs-2",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerairrest/react-chartjs-2.git"
+    "url": "https://github.com/reactchartjs/react-chartjs-2.git"
   },
   "bugs": {
-    "url": "https://github.com/jerairrest/react-chartjs-2/issues"
+    "url": "https://github.com/reactchartjs/react-chartjs-2/issues"
   },
   "dependencies": {
     "lodash": "^4.17.19",
@@ -67,8 +67,8 @@
   },
   "peerDependencies": {
     "chart.js": "^2.3",
-    "react": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0"
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
   },
   "browserify-shim": {
     "react": "global:React",

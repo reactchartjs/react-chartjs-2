@@ -15,7 +15,7 @@ As of 2.x we have made chart.js a peer dependency for greater flexibility. Pleas
 
 ## Demo & Examples
 
-Live demo: [jerairrest.github.io/react-chartjs-2](http://jerairrest.github.io/react-chartjs-2/)
+Live demo: [reactchartjs.github.io/react-chartjs-2](https://reactchartjs.github.io/react-chartjs-2/)
 
 To build the examples locally, run:
 

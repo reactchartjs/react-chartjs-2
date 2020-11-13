@@ -215,11 +215,9 @@ class ChartComponent extends React.Component {
           current.data[pid] = next.data[pid];
         });
         const { data, ...otherProps } = next;
-        // Merge properties. Notice a weakness here. If a property is removed
-        // from next, it will be retained by current and never disappears.
-        // Workaround is to set value to null or undefined in next.
+
         return {
-          ...current,
+          data: current.data,
           ...otherProps
         };
       } else {

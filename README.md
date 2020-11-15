@@ -1,4 +1,4 @@
-[![build status](https://img.shields.io/travis/jerairrest/react-chart.js.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chart.js)
+[![build status](https://img.shields.io/travis/jerairrest/react-chart.js.svg?branch=master&style=flat-square)](https://travis-ci.org/reactchartjs/react-chart.js)
 [![version](https://img.shields.io/npm/v/@reactchartjs/react-chart.js?style=flat-square)](https://www.npmjs.com/package/@reactchartjs/react-chart.js)
 [![downloads](https://img.shields.io/npm/dm/@reactchartjs/react-chart.js.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@reactchartjs/react-chart.js&from=2016-01-01)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
@@ -31,7 +31,7 @@ import { Doughnut } from '@reactchartjs/react-chart.js';
 
 ## Examples
 
-Live: [jerairrest.github.io/react-chart.js](jerairrest.github.io/react-chart.js)
+Live: [reactchartjs.github.io/react-chartjs-2](https://reactchartjs.github.io/react-chartjs-2/#/)
 
 See [these examples](example) for more information
 

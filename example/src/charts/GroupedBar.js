@@ -41,7 +41,7 @@ const GroupedBar = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/react16/example/src/charts/GroupedBar.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/GroupedBar.js'
         >
           Github Source
         </a>

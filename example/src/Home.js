@@ -15,7 +15,7 @@ const Home = () => (
         </a>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/@reactchartjs/react-chart.js'
+          href='https://github.com/reactchartjs/react-chartjs-2'
         >
           Github
         </a>
@@ -101,7 +101,7 @@ const Home = () => (
     <div className='footer'>
       <h6>
         For questions or issues please visit{' '}
-        <a href='https://github.com/jerairrest/react-chart.js/issues'>
+        <a href='https://github.com/reactchartjs/react-chartjs-2/issues'>
           Github
         </a>
       </h6>

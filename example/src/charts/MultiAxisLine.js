@@ -52,7 +52,7 @@ const MultiAxisLine = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/react16/example/src/charts/MultiAxisLine.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/MultiAxisLine.js'
         >
           Github Source
         </a>

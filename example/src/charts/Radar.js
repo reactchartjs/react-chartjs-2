@@ -27,7 +27,7 @@ const RadarChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/jerairrest/react-chartjs-2/blob/react16/example/src/charts/Radar.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/Radar.js'
         >
           Github Source
         </a>

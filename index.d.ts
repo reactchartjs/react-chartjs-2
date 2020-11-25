@@ -14,6 +14,7 @@ export type ChartDataFunction<T extends chartjs.ChartData> = (
 export type ChartData<T extends chartjs.ChartData> = ChartDataFunction<T> | T;
 
 export interface ChartComponentProps {
+  id?: string;
   data: ChartData<chartjs.ChartData>;
   type?: chartjs.ChartType;
   getDatasetAtEvent?(e: any): void;

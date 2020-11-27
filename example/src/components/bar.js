@@ -27,9 +27,7 @@ export default React.createClass({
           data={data}
           width={100}
           height={50}
-          options={{
-            maintainAspectRatio: false
-          }}
+          options={{}}
         />
       </div>
     );

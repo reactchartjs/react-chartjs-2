@@ -1,14 +1,18 @@
 import React from 'react';
 import {Polar} from 'react-chartjs-2';
 
+var randomScalingFactor = function() {
+  return Math.round(Math.random() * 100);
+};
+
 const data = {
   datasets: [{
     data: [
-      11,
-      16,
-      7,
-      3,
-      14
+      randomScalingFactor(),
+      randomScalingFactor(),
+      randomScalingFactor(),
+      randomScalingFactor(),
+      randomScalingFactor(),
     ],
     backgroundColor: [
       '#FF6384',

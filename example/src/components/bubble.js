@@ -1,6 +1,10 @@
 import React from 'react';
 import {Bubble} from 'react-chartjs-2';
 
+var randomScalingFactor = function() {
+  return Math.round(Math.random() * 100);
+};
+
 const data = {
   labels: ['January'],
   datasets: [
@@ -23,10 +27,51 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [{x:10,y:20,r:5}]
+      data: [{
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }, {
+        x: randomScalingFactor(),
+        y: randomScalingFactor(),
+        r: Math.abs(randomScalingFactor()) / 5,
+      }]
     }
   ]
 };
+
+const options = {
+  responsive: true,
+    plugins: {
+    title: {
+      display: true,
+        text: 'Chart.js Bubble Chart'
+    },
+    tooltip: {
+      mode: 'point'
+    }
+  }
+}
 
 export default React.createClass({
   displayName: 'BubbleExample',
@@ -35,7 +80,7 @@ export default React.createClass({
     return (
       <div>
         <h2>Bubble Example</h2>
-        <Bubble data={data} />
+        <Bubble data={data} options={options} />
       </div>
     );
   }

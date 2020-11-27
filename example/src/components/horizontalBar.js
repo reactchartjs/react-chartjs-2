@@ -16,6 +16,28 @@ const data = {
   ]
 };
 
+const options = {
+  indexAxis: 'y',
+  // Elements options apply to all of the options unless overridden in a dataset
+  // In this case, we are setting the border of each horizontal bar to be 2px wide
+  elements: {
+    bar: {
+      borderWidth: 2,
+    }
+  },
+  responsive: true,
+  plugins: {
+    legend: {
+      display: true,
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Horizontal Bar Chart'
+    }
+  }
+}
+
 export default React.createClass({
   displayName: 'BarExample',
 
@@ -23,7 +45,7 @@ export default React.createClass({
     return (
       <div>
         <h2>Horizontal Bar Example</h2>
-        <HorizontalBar data={data} />
+        <HorizontalBar data={data} options={options} />
       </div>
     );
   }

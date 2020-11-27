@@ -79,12 +79,12 @@ const options = {
   }
 };
 
-const plugins = [{
-    afterDraw: (chartInstance, easing) => {
-        const ctx = chartInstance.chart.ctx;
-        ctx.fillText("This text drawn by a plugin", 100, 100);
-    }
-}];
+// const plugins = [{
+//     afterDraw: (chartInstance, easing) => {
+//         const ctx = chartInstance.chart.ctx;
+//         ctx.fillText("This text drawn by a plugin", 100, 100);
+//     }
+// }];
 
 export default React.createClass({
   displayName: 'MixExample',
@@ -96,7 +96,7 @@ export default React.createClass({
         <Bar
           data={data}
           options={options}
-          plugins={plugins}
+          // plugins={plugins}
         />
       </div>
     );

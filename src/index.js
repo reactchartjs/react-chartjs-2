@@ -1,8 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Chart from 'chart.js';
+// import Chart from 'chart.js';
 import isEqual from 'lodash/isEqual';
 import keyBy from 'lodash/keyBy';
+import {
+  Chart,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  DoughnutController,
+  ArcElement,
+  PieController,
+  BarController,
+  BarElement,
+  RadarController,
+  RadialLinearScale,
+  PolarAreaController,
+  BubbleController,
+  ScatterController,
+} from 'chart.js'
+
+// Line
+Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
+// Doughnut
+Chart.register(DoughnutController, ArcElement);
+// Pie
+Chart.register(PieController, ArcElement);
+// Bar
+Chart.register(BarController, BarElement);
+// Horizontal bar was removed
+
+// Radar
+Chart.register(RadarController, RadialLinearScale);
+// Polar
+Chart.register(PolarAreaController);
+// Bubble
+Chart.register(BubbleController);
+// Scatter
+Chart.register(ScatterController);
 
 const NODE_ENV = (typeof process !== 'undefined') && process.env && process.env.NODE_ENV;
 
@@ -28,8 +66,10 @@ class ChartComponent extends React.Component {
     options: PropTypes.object,
     plugins: PropTypes.arrayOf(PropTypes.object),
     redraw: PropTypes.bool,
-    type: function(props, propName, componentName) {
-      if(!Chart.controllers[props[propName]]) {
+    type: function (props, propName, componentName) {
+      let type = props[propName];
+      let types = ['line', 'bar', 'radar', 'doughnut', 'pie', 'polarArea', 'bubble', 'scatter', 'area'];
+      if (!types.includes(type)) {
         return new Error(
           'Invalid chart type `' + props[propName] + '` supplied to' +
           ' `' + componentName + '`.'
@@ -49,7 +89,21 @@ class ChartComponent extends React.Component {
     height: 150,
     width: 300,
     redraw: false,
-    options: {},
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            usePointStyle: false
+          }
+        },
+        title: {
+          display: true,
+          text: 'Normal Legend'
+        }
+      }
+    },
     datasetKeyProvider: ChartComponent.getLabelAsKey
   }
 
@@ -100,7 +154,7 @@ class ChartComponent extends React.Component {
 
     const nextData = this.transformDataProp(nextProps);
 
-    if( !isEqual(this.shadowDataProp, nextData)) {
+    if (!isEqual(this.shadowDataProp, nextData)) {
       return true;
     }
 
@@ -114,8 +168,8 @@ class ChartComponent extends React.Component {
   }
 
   transformDataProp(props) {
-    const { data } = props;
-    if (typeof(data) == 'function') {
+    const {data} = props;
+    if (typeof (data) == 'function') {
       const node = this.element;
       return data(node);
     } else {
@@ -138,7 +192,7 @@ class ChartComponent extends React.Component {
       ...data,
       datasets: data.datasets && data.datasets.map(set => {
         return {
-            ...set
+          ...set
         };
       })
     };
@@ -187,7 +241,7 @@ class ChartComponent extends React.Component {
     if (!this.chartInstance) return;
 
     if (options) {
-      this.chartInstance.options = Chart.helpers.configMerge(this.chartInstance.options, options);
+      this.chartInstance.options = {...this.chartInstance.options, ...options};
     }
 
     // Pipe datasets to chart instance datasets enabling
@@ -210,11 +264,11 @@ class ChartComponent extends React.Component {
       if (current && current.type === next.type && next.data) {
         // Be robust to no data. Relevant for other update mechanisms as in chartjs-plugin-streaming.
         // The data array must be edited in place. As chart.js adds listeners to it.
-        current.data.splice(next.data.length);
+        current.data.length = next.data.length;
         next.data.forEach((point, pid) => {
           current.data[pid] = next.data[pid];
         });
-        const { data, ...otherProps } = next;
+        const {data, ...otherProps} = next;
         // Merge properties. Notice a weakness here. If a property is removed
         // from next, it will be retained by current and never disappears.
         // Workaround is to set value to null or undefined in next.
@@ -227,7 +281,7 @@ class ChartComponent extends React.Component {
       }
     });
 
-    const { datasets, ...rest } = data;
+    const {datasets, ...rest} = data;
 
     this.chartInstance.config.data = {
       ...this.chartInstance.config.data,
@@ -256,8 +310,8 @@ class ChartComponent extends React.Component {
 
   destroyChart() {
     if (!this.chartInstance) {
-          return;
-     }
+      return;
+    }
 
     // Put all of the datasets that have existed in the chart back on the chart
     // so that the metadata associated with this chart get destroyed.
@@ -362,7 +416,7 @@ export class HorizontalBar extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='horizontalBar'
+        type='bar'
       />
     );
   }

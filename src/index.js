@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Chart from 'chart.js';
+// import * as Chart from 'chart.js';
 import isEqual from 'lodash/isEqual';
 import keyBy from 'lodash/keyBy';
 import {
@@ -21,10 +21,11 @@ import {
   PolarAreaController,
   BubbleController,
   ScatterController,
+  Legend
 } from 'chart.js'
 
 // Line
-Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
+Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, Legend);
 // Doughnut
 Chart.register(DoughnutController, ArcElement);
 // Pie

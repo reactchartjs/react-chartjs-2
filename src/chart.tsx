@@ -7,14 +7,53 @@ import React, {
   forwardRef,
 } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Props } from './types';
 
-import Chart from 'chart.js';
+import {
+  Chart,
+  ChartData,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  DoughnutController,
+  ArcElement,
+  PieController,
+  BarController,
+  BarElement,
+  RadarController,
+  RadialLinearScale,
+  PolarAreaController,
+  BubbleController,
+  ScatterController,
+  Legend
+} from 'chart.js'
+
+// Line
+Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, Legend);
+// Doughnut
+Chart.register(DoughnutController, ArcElement);
+// Pie
+Chart.register(PieController, ArcElement);
+// Bar
+Chart.register(BarController, BarElement);
+// Horizontal bar was removed
+
+// Radar
+Chart.register(RadarController, RadialLinearScale);
+// Polar
+Chart.register(PolarAreaController);
+// Bubble
+Chart.register(BubbleController);
+// Scatter
+Chart.register(ScatterController);
+
 import merge from 'lodash/merge';
 import assign from 'lodash/assign';
 import find from 'lodash/find';
 
-const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
+const ChartComponent = forwardRef<Chart | undefined, any>((props, ref) => {
   const {
     id,
     height = 150,
@@ -28,13 +67,13 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   const canvas = useRef<HTMLCanvasElement>(null);
 
-  const computedData = useMemo<Chart.ChartData>(() => {
+  const computedData = useMemo<ChartData>(() => {
     if (typeof data === 'function') {
       return canvas.current ? data(canvas.current) : {};
     } else return merge({}, data);
   }, [data, canvas.current]);
 
-  const [chart, setChart] = useState<Chart>();
+  const [chart, setChart] = useState<any>();
 
   useImperativeHandle<Chart | undefined, Chart | undefined>(ref, () => chart, [
     chart,
@@ -58,16 +97,16 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
     const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props;
 
-    getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e);
-    getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e);
-    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e);
+    getDatasetAtEvent && getDatasetAtEvent(chart.getElementsAtEventForMode(e, 'dataset', { intersect: true }, false), e);
+    getElementAtEvent && getElementAtEvent(chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false), e);
+    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEventForMode(e, 'index', { intersect: true }, false), e);
   };
 
   const updateChart = () => {
     if (!chart) return;
 
     if (options) {
-      chart.options = Chart.helpers.configMerge(chart.options, options);
+      chart.options = {...chart.options, ...options}
     }
 
     if (!chart.config.data) {
@@ -94,7 +133,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       if (!currentDataSet.data) {
         currentDataSet.data = [];
       } else {
-        currentDataSet.data.splice(newDataSet.data.length);
+        currentDataSet.data.length = newDataSet.data.length;
       }
 
       // copy in values

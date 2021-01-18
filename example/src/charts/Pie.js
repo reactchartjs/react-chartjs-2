@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pie } from '@reactchartjs/react-chart.js'
+import { Pie } from 'react-chartjs-2'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

@@ -188,6 +188,15 @@ describe("<Chart />", () => {
     expect(getDatasetAtEvent.called).to.equal(true);
   });
 
+  it("calls getNearestElements", () => {
+    const getNearestElements = sinon.spy();
+    const wrapper = mountComponent({ getNearestElements });
+
+    wrapper.find("canvas").simulate("click");
+
+    expect(getNearestElements.called).to.equal(true);
+  });
+
   it("calls getElementAtEvent", () => {
     const getElementAtEvent = sinon.spy();
     const wrapper = mountComponent({ getElementAtEvent });

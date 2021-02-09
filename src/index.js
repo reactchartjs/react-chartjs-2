@@ -22,6 +22,7 @@ class ChartComponent extends React.Component {
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
     getElementsAtEvent: PropTypes.func,
+    getNearestElements: PropTypes.func,
     height: PropTypes.number,
     legend: PropTypes.object,
     onElementsClick: PropTypes.func,
@@ -278,12 +279,14 @@ class ChartComponent extends React.Component {
       getDatasetAtEvent,
       getElementAtEvent,
       getElementsAtEvent,
+      getNearestElements,
       onElementsClick
     } = this.props;
 
     getDatasetAtEvent && getDatasetAtEvent(instance.getDatasetAtEvent(event), event);
     getElementAtEvent && getElementAtEvent(instance.getElementAtEvent(event), event);
     getElementsAtEvent && getElementsAtEvent(instance.getElementsAtEvent(event), event);
+    getNearestElements && getNearestElements(instance.getElementsAtEventForMode(event, 'nearest', { intersect: false }), event);
     onElementsClick && onElementsClick(instance.getElementsAtEvent(event), event); // Backward compatibility
   }
 

@@ -73,6 +73,7 @@ import { Doughnut } from 'react-chartjs-2';
 * getDatasetAtEvent: PropTypes.func,
 * getElementAtEvent: PropTypes.func,
 * getElementsAtEvent: PropTypes.func
+* getNearestElements: PropTypes.func
 * onElementsClick: PropTypes.func, // alias for getElementsAtEvent (backward compatibility)
 
 ### Custom size
@@ -188,6 +189,18 @@ A function to be called when mouse clicked on chart elememts, will return all el
 {
   onElementsClick: (elems) => {},
   getElementsAtEvent: (elems) => {},
+  // `elems` is an array of chartElements
+}
+
+```
+
+#### getNearestElements
+
+A function to be called when mouse clicked on chart canvas, will return the nearest elements at that point as an array. [Check](https://github.com/chartjs/Chart.js/blob/master/docs/docs/developers/api.md#getelementsateventformodee-mode-options-usefinalposition)
+
+```js
+{
+  getNearestElements: (elems) => {},
   // `elems` is an array of chartElements
 }
 

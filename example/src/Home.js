@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <>
@@ -9,7 +9,7 @@ const Home = () => (
       <div className='links'>
         <a
           className='btn btn-npm'
-          href='https://www.npmjs.com/package/@reactchartjs/react-chart.js'
+          href='https://www.npmjs.com/package/react-chartjs-2'
         >
           NPM
         </a>
@@ -107,6 +107,6 @@ const Home = () => (
       </h6>
     </div>
   </>
-)
+);
 
-export default Home
+export default Home;

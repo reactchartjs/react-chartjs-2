@@ -53,14 +53,14 @@ const ClickEvents = () => {
   const getDatasetAtEvent = dataset => {
     if (!dataset.length) return
 
-    const datasetIndex = dataset[0]._datasetIndex
+    const datasetIndex = dataset[0].datasetIndex
     setClickedDataset(data.datasets[datasetIndex].label)
   }
 
   const getElementAtEvent = element => {
     if (!element.length) return
 
-    const { _datasetIndex: datasetIndex, _index: index } = element[0]
+    const { datasetIndex, index } = element[0]
     setClickedElement(
       `${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`
     )

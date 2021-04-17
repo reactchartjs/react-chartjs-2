@@ -3,7 +3,7 @@
   "homepage": "./",
   "version": "0.0.0",
   "dependencies": {
-    "@reactchartjs/react-chart.js": "file:..",
+    "@reactchartjs/react-chart.js": "file:../dist",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-router-dom": "^5.1.2",

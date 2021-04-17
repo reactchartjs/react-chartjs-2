@@ -1,3 +1,5 @@
+import Chart from 'chart.js/auto';
+
 export interface Props {
   id?: string;
   height?: number;
@@ -19,4 +21,12 @@ export interface Props {
     elements: Array<{}>,
     event: React.MouseEvent<HTMLCanvasElement>
   ) => void;
+  // generateLegend?: (
+  //   element: [{}],
+  //   event: React.MouseEvent<HTMLCanvasElement>
+  // ) => void;
+  // getElementsAtXAxis?: (
+  //   elements: Array<{}>,
+  //   event: React.MouseEvent<HTMLCanvasElement>
+  // ) => void;
 }

@@ -59,16 +59,38 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
     const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props;
 
-    getDatasetAtEvent && getDatasetAtEvent(chart.getElementsAtEventForMode(e, 'dataset', { intersect: true }, false), e);
-    getElementAtEvent && getElementAtEvent(chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false), e);
-    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEventForMode(e, 'index', { intersect: true }, false), e);
+    getDatasetAtEvent &&
+      getDatasetAtEvent(
+        chart.getElementsAtEventForMode(
+          e,
+          'dataset',
+          { intersect: true },
+          false
+        ),
+        e
+      );
+    getElementAtEvent &&
+      getElementAtEvent(
+        chart.getElementsAtEventForMode(
+          e,
+          'nearest',
+          { intersect: true },
+          false
+        ),
+        e
+      );
+    getElementsAtEvent &&
+      getElementsAtEvent(
+        chart.getElementsAtEventForMode(e, 'index', { intersect: true }, false),
+        e
+      );
   };
 
   const updateChart = () => {
     if (!chart) return;
 
     if (options) {
-      chart.options = { ...chart.options, ...options }
+      chart.options = { ...chart.options, ...options };
     }
 
     if (!chart.config.data) {

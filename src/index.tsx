@@ -11,10 +11,6 @@ export const Bar = forwardRef<Chart | undefined, Props>((props, ref) => (
   <ChartComponent {...props} type='bar' ref={ref} />
 ));
 
-export const HorizontalBar = forwardRef<Chart | undefined, Props>(
-  (props, ref) => <ChartComponent {...props} type='horizontalBar' ref={ref} />
-);
-
 export const Radar = forwardRef<Chart | undefined, Props>((props, ref) => (
   <ChartComponent {...props} type='radar' ref={ref} />
 ));

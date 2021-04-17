@@ -9,7 +9,8 @@ import React, {
 // eslint-disable-next-line no-unused-vars
 import { Props } from './types';
 
-import Chart from 'chart.js';
+import Chart from 'chart.js/auto';
+
 import merge from 'lodash/merge';
 import assign from 'lodash/assign';
 import find from 'lodash/find';
@@ -58,16 +59,16 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
     const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props;
 
-    getDatasetAtEvent && getDatasetAtEvent(chart.getDatasetAtEvent(e), e);
-    getElementAtEvent && getElementAtEvent(chart.getElementAtEvent(e), e);
-    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEvent(e), e);
+    getDatasetAtEvent && getDatasetAtEvent(chart.getElementsAtEventForMode(e, 'dataset', { intersect: true }, false), e);
+    getElementAtEvent && getElementAtEvent(chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false), e);
+    getElementsAtEvent && getElementsAtEvent(chart.getElementsAtEventForMode(e, 'index', { intersect: true }, false), e);
   };
 
   const updateChart = () => {
     if (!chart) return;
 
     if (options) {
-      chart.options = Chart.helpers.configMerge(chart.options, options);
+      chart.options = { ...chart.options, ...options }
     }
 
     if (!chart.config.data) {
@@ -81,7 +82,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
     // copy values
     assign(chart.config.data, newChartData);
-    chart.config.data.datasets = newDataSets.map(newDataSet => {
+    chart.config.data.datasets = newDataSets.map((newDataSet: any) => {
       // given the new set, find it's current match
       const currentDataSet = find(
         currentDataSets,
@@ -94,7 +95,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       if (!currentDataSet.data) {
         currentDataSet.data = [];
       } else {
-        currentDataSet.data.splice(newDataSet.data.length);
+        currentDataSet.data.length = newDataSet.data.length;
       }
 
       // copy in values

@@ -26,6 +26,7 @@
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "dev": "microbundle-crl --no-compress --no-sourcemap watch",
     "prepublish": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -40,20 +41,20 @@
     "lodash": "^4.17.19"
   },
   "peerDependencies": {
-    "chart.js": "^2.3.0",
+    "chart.js": "^3.1.0",
     "react": "^16.8.0 || ^17.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
-    "@types/chart.js": "^2.9.19",
+    "@types/chart.js": "^2.9.32",
     "@types/jest": "^25.1.4",
     "@types/lodash": "^4.14.150",
     "@types/react": "^16.9.27",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
-    "chart.js": "^2.3.0",
+    "chart.js": "^3.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",

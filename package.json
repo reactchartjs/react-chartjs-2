@@ -1,6 +1,6 @@
 {
   "name": "@reactchartjs/react-chart.js",
-  "version": "1.0.0-rc.3",
+  "version": "3.0.0",
   "description": "React components for Chart.js",
   "source": "src/index.tsx",
   "main": "dist/index.js",

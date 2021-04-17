@@ -1,5 +1,5 @@
 import React from 'react'
-import { HorizontalBar } from '@reactchartjs/react-chart.js'
+import { Bar } from '@reactchartjs/react-chart.js'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -29,15 +29,24 @@ const data = {
 }
 
 const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
+  indexAxis: 'y',
+   // Elements options apply to all of the options unless overridden in a dataset
+   // In this case, we are setting the border of each horizontal bar to be 2px wide
+   elements: {
+     bar: {
+       borderWidth: 2,
+     }
+   },
+   responsive: true,
+   plugins: {
+     legend: {
+       position: 'right',
+     },
+     title: {
+       display: true,
+       text: 'Chart.js Horizontal Bar Chart'
+     }
+   }
 }
 
 const HorizontalBarChart = () => (
@@ -53,7 +62,7 @@ const HorizontalBarChart = () => (
         </a>
       </div>
     </div>
-    <HorizontalBar data={data} options={options} />
+    <Bar data={data} options={options} />
   </>
 )
 

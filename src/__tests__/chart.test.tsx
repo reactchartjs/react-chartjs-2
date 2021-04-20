@@ -309,6 +309,22 @@ describe('<ChartComponent />', () => {
     expect(chart).toBe(null);
   });
 
+  it('should add className ', () => {
+    render(
+      <ChartComponent
+        data={data}
+        options={options}
+        className='chart-example'
+        type='bar'
+        ref={ref}
+      />
+    );
+
+    expect(chart).toBeTruthy();
+    expect(chart.canvas).toHaveProperty('className');
+    expect(chart.canvas).toHaveClass('chart-example');
+  });
+
   it('should call getDatasetAtEvent', () => {
     const getDatasetAtEvent = jest.fn();
 

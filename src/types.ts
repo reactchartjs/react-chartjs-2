@@ -1,7 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
 
 export interface Props {
   id?: string;
+  className?: string;
   height?: number;
   width?: number;
   redraw?: boolean;

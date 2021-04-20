@@ -18,6 +18,7 @@ import find from 'lodash/find';
 const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
   const {
     id,
+    className,
     height = 150,
     width = 300,
     redraw = false,
@@ -90,7 +91,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     if (!chart) return;
 
     if (options) {
-      chart.options = { ...chart.options, ...options };
+      chart.options = { ...options };
     }
 
     if (!chart.config.data) {
@@ -147,7 +148,9 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
   useEffect(() => {
     if (redraw) {
       destroyChart();
-      renderChart();
+      setTimeout(() => {
+        renderChart();
+      }, 0);
     } else {
       updateChart();
     }
@@ -159,6 +162,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       width={width}
       ref={canvas}
       id={id}
+      className={className}
       onClick={onClick}
       data-testid='canvas'
     />

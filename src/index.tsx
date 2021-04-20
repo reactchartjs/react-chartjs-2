@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Props } from './types';
 import ChartComponent from './chart';
+// eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
 
 export const Line = forwardRef<Chart | undefined, Props>((props, ref) => (

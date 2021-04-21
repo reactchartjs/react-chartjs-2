@@ -12,11 +12,11 @@ React wrapper for [Chart.js](http://www.chartjs.org/docs/#getting-started)
 ### Install library with peer dependencies
 
 ```bash
-npm install --save @reactchartjs/react-chart.js chart.js
+npm install --save react-chartjs-2 chart.js
 
 # or
 
-yarn add @reactchartjs/react-chart.js chart.js
+yarn add react-chartjs-2 chart.js
 ```
 
 ###### We recommend using `chart.js ^2.5.0`
@@ -192,7 +192,7 @@ render() {
 
 ## Additional Information
 
-### Defaults
+<!-- ### Defaults
 
 Chart.js defaults can be set by importing the `defaults` object:
 
@@ -217,9 +217,9 @@ merge(defaults, {
 		},
 	},
 });
-```
+``` -->
 
-### Chart.js object
+<!-- ### Chart.js object
 
 You can access the internal Chart.js object to register plugins or extend charts like this:
 
@@ -233,7 +233,7 @@ componentWillMount() {
     }
   });
 }
-```
+``` -->
 
 ### Working with Multiple Datasets
 

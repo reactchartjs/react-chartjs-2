@@ -1,5 +1,5 @@
-import React from 'react'
-import { PolarArea } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { PolarArea } from 'react-chartjs-2';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -18,7 +18,7 @@ const data = {
       borderWidth: 1,
     },
   ],
-}
+};
 
 const Polar = () => (
   <>
@@ -35,6 +35,6 @@ const Polar = () => (
     </div>
     <PolarArea data={data} />
   </>
-)
+);
 
-export default Polar
+export default Polar;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Line } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Line } from 'react-chartjs-2';
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -21,7 +21,7 @@ const data = {
       yAxisID: 'y-axis-2',
     },
   ],
-}
+};
 
 const options = {
   scales: {
@@ -43,7 +43,7 @@ const options = {
       },
     ],
   },
-}
+};
 
 const MultiAxisLine = () => (
   <>
@@ -60,6 +60,6 @@ const MultiAxisLine = () => (
     </div>
     <Line data={data} options={options} />
   </>
-)
+);
 
-export default MultiAxisLine
+export default MultiAxisLine;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -20,7 +20,7 @@ const data = {
       backgroundColor: 'rgb(75, 192, 192)',
     },
   ],
-}
+};
 
 const options = {
   scales: {
@@ -38,7 +38,7 @@ const options = {
       },
     ],
   },
-}
+};
 
 const StackedBar = () => (
   <>
@@ -55,6 +55,6 @@ const StackedBar = () => (
     </div>
     <Bar data={data} options={options} />
   </>
-)
+);
 
-export default StackedBar
+export default StackedBar;

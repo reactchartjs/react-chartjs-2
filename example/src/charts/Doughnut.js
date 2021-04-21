@@ -1,5 +1,5 @@
-import React from 'react'
-import { Doughnut } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -26,7 +26,7 @@ const data = {
       borderWidth: 1,
     },
   ],
-}
+};
 
 const DoughnutChart = () => (
   <>
@@ -43,6 +43,6 @@ const DoughnutChart = () => (
     </div>
     <Doughnut data={data} />
   </>
-)
+);
 
-export default DoughnutChart
+export default DoughnutChart;

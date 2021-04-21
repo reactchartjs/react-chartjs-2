@@ -1,6 +1,6 @@
 {
-  "short_name": "@reactchartjs/react-chart.js",
-  "name": "@reactchartjs/react-chart.js component examples",
+  "short_name": "react-chartjs-2",
+  "name": "react-chartjs-2 component examples",
   "icons": [
     {
       "src": "favicon.ico",

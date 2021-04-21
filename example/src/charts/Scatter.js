@@ -1,7 +1,7 @@
-import React from 'react'
-import { Scatter } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Scatter } from 'react-chartjs-2';
 
-const rand = () => Math.round(Math.random() * 20 - 10)
+const rand = () => Math.round(Math.random() * 20 - 10);
 
 const data = {
   datasets: [
@@ -26,7 +26,7 @@ const data = {
       backgroundColor: 'rgba(255, 99, 132, 1)',
     },
   ],
-}
+};
 
 const options = {
   scales: {
@@ -38,7 +38,7 @@ const options = {
       },
     ],
   },
-}
+};
 
 const ScatterChart = () => (
   <>
@@ -55,6 +55,6 @@ const ScatterChart = () => (
     </div>
     <Scatter data={data} options={options} />
   </>
-)
+);
 
-export default ScatterChart
+export default ScatterChart;

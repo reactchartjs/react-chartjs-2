@@ -1,4 +1,4 @@
-# @reactchartjs/react-chart.js examples
+# react-chartjs-2 examples
 
 Live: [reactchartjs.github.io/react-chartjs-2](https://reactchartjs.github.io/react-chartjs-2/#/)
 
@@ -8,7 +8,7 @@ Live: [reactchartjs.github.io/react-chartjs-2](https://reactchartjs.github.io/re
 # clone repo
 https://github.com/reactchartjs/react-chart.js
 
-# install @reactchartjs/react-chart.js dependencies
+# install react-chartjs-2 dependencies
 npm install
 
 # cd into the example, install example dependencies

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-const rand = () => Math.round(Math.random() * 20 - 10)
+const rand = () => Math.round(Math.random() * 20 - 10);
 
 const genData = () => ({
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -28,7 +28,7 @@ const genData = () => ({
       borderWidth: 1,
     },
   ],
-})
+});
 
 const options = {
   scales: {
@@ -40,16 +40,16 @@ const options = {
       },
     ],
   },
-}
+};
 
 const Dynamic = () => {
-  const [data, setData] = useState(genData())
+  const [data, setData] = useState(genData());
 
   useEffect(() => {
-    const interval = setInterval(() => setData(genData()), 5000)
+    const interval = setInterval(() => setData(genData()), 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -66,7 +66,7 @@ const Dynamic = () => {
       </div>
       <Bar data={data} options={options} />
     </>
-  )
-}
+  );
+};
 
-export default Dynamic
+export default Dynamic;

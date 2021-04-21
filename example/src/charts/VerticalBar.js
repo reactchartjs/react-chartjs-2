@@ -1,5 +1,5 @@
-import React from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -26,7 +26,7 @@ const data = {
       borderWidth: 1,
     },
   ],
-}
+};
 
 const options = {
   scales: {
@@ -38,7 +38,7 @@ const options = {
       },
     ],
   },
-}
+};
 
 const VerticalBar = () => (
   <>
@@ -55,6 +55,6 @@ const VerticalBar = () => (
     </div>
     <Bar data={data} options={options} />
   </>
-)
+);
 
-export default VerticalBar
+export default VerticalBar;

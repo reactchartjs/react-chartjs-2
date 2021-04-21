@@ -1,5 +1,5 @@
-import React from 'react'
-import { Line } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Line } from 'react-chartjs-2';
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -12,7 +12,7 @@ const data = {
       borderColor: 'rgba(255, 99, 132, 0.2)',
     },
   ],
-}
+};
 
 const options = {
   scales: {
@@ -24,7 +24,7 @@ const options = {
       },
     ],
   },
-}
+};
 
 const LineChart = () => (
   <>
@@ -41,6 +41,6 @@ const LineChart = () => (
     </div>
     <Line data={data} options={options} />
   </>
-)
+);
 
-export default LineChart
+export default LineChart;

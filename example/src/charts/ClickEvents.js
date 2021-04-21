@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React, { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-const rand = () => Math.floor(Math.random() * 255)
+const rand = () => Math.floor(Math.random() * 255);
 
 const genData = () => ({
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -29,7 +29,7 @@ const genData = () => ({
       data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
     },
   ],
-})
+});
 
 const options = {
   scales: {
@@ -41,36 +41,36 @@ const options = {
       },
     ],
   },
-}
+};
 
-const data = genData()
+const data = genData();
 
 const ClickEvents = () => {
-  const [clickedDataset, setClickedDataset] = useState('')
-  const [clickedElement, setClickedElement] = useState('')
-  const [clickedElements, setClickedElements] = useState('')
+  const [clickedDataset, setClickedDataset] = useState('');
+  const [clickedElement, setClickedElement] = useState('');
+  const [clickedElements, setClickedElements] = useState('');
 
   const getDatasetAtEvent = dataset => {
-    if (!dataset.length) return
+    if (!dataset.length) return;
 
-    const datasetIndex = dataset[0].datasetIndex
-    setClickedDataset(data.datasets[datasetIndex].label)
-  }
+    const datasetIndex = dataset[0].datasetIndex;
+    setClickedDataset(data.datasets[datasetIndex].label);
+  };
 
   const getElementAtEvent = element => {
-    if (!element.length) return
+    if (!element.length) return;
 
-    const { datasetIndex, index } = element[0]
+    const { datasetIndex, index } = element[0];
     setClickedElement(
       `${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`
-    )
-  }
+    );
+  };
 
   const getElementsAtEvent = elements => {
-    if (!elements.length) return
+    if (!elements.length) return;
 
-    setClickedElements(elements.length)
-  }
+    setClickedElements(elements.length);
+  };
 
   return (
     <>
@@ -98,7 +98,7 @@ const ClickEvents = () => {
         <p>{clickedElements}</p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ClickEvents
+export default ClickEvents;

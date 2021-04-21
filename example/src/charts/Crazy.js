@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-const rand = () => Math.floor(Math.random() * 255)
+const rand = () => Math.floor(Math.random() * 255);
 
 const genData = () => ({
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -29,7 +29,7 @@ const genData = () => ({
       data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
     },
   ],
-})
+});
 
 const options = {
   scales: {
@@ -41,16 +41,16 @@ const options = {
       },
     ],
   },
-}
+};
 
 const Crazy = () => {
-  const [data, setData] = useState(genData())
+  const [data, setData] = useState(genData());
 
   useEffect(() => {
-    const interval = setInterval(() => setData(genData()), 5000)
+    const interval = setInterval(() => setData(genData()), 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -67,7 +67,7 @@ const Crazy = () => {
       </div>
       <Bar data={data} options={options} />
     </>
-  )
-}
+  );
+};
 
-export default Crazy
+export default Crazy;

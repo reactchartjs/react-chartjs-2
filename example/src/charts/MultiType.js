@@ -1,7 +1,7 @@
-import React from 'react'
-import { Bar } from '@reactchartjs/react-chart.js'
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
-const rand = () => Math.round(Math.random() * 20 - 10)
+const rand = () => Math.round(Math.random() * 20 - 10);
 
 const data = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -29,7 +29,7 @@ const data = {
       data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
     },
   ],
-}
+};
 
 const MultiType = () => (
   <>
@@ -46,6 +46,6 @@ const MultiType = () => (
     </div>
     <Bar data={data} />
   </>
-)
+);
 
-export default MultiType
+export default MultiType;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => (
   <>
     <div className='header'>
-      <h1 className='title'>@reactchartjs/react-chart.js</h1>
+      <h1 className='title'>react-chartjs-2</h1>
       <h2 className='subtitle'>React wrapper for Chart.js</h2>
       <div className='links'>
         <a

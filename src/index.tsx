@@ -4,6 +4,7 @@ import { Props } from './types';
 import ChartComponent from './chart';
 // eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
+import * as chartjs from 'chart.js';
 
 export const Line = forwardRef<Chart | undefined, Props>((props, ref) => (
   <ChartComponent
@@ -76,5 +77,9 @@ export const Scatter = forwardRef<Chart | undefined, Props>((props, ref) => (
     options={props.options || {}}
   />
 ));
+
+export const defaults = chartjs.defaults;
+
+export const Chart = chartjs;
 
 export default ChartComponent;

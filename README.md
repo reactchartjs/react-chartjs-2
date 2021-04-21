@@ -19,7 +19,7 @@ npm install --save react-chartjs-2 chart.js
 yarn add react-chartjs-2 chart.js
 ```
 
-###### We recommend using `chart.js ^2.5.0`
+###### We recommend using `chart.js ^3.0.0`
 
 ### Usage
 

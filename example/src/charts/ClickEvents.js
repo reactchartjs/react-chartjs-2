@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Chart } from 'react-chartjs-2';
 
 const rand = () => Math.floor(Math.random() * 255);
+
+const plugins = [
+  {
+    beforeInit: function (chart, args, options) {
+      console.log(chart);
+      console.log(args);
+      console.log(options);
+    },
+  },
+];
+console.log(Chart.register);
 
 const genData = () => ({
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -88,6 +99,7 @@ const ClickEvents = () => {
       <Bar
         data={data}
         options={options}
+        plugins={plugins}
         getDatasetAtEvent={getDatasetAtEvent}
         getElementAtEvent={getElementAtEvent}
         getElementsAtEvent={getElementsAtEvent}

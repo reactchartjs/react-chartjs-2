@@ -41,6 +41,7 @@ See [these examples](example) for more information
 
 ```js
   id?: string;
+  className?: string;
   height?: number;
   width?: number;
   redraw?: boolean;
@@ -59,6 +60,13 @@ Type `string`
 Default: `undefined`
 
 ID attribute applied to the rendered canvas
+
+#### className
+
+Type `string`
+Default: `undefined`
+
+class attribute applied to the rendered canvas
 
 #### height
 

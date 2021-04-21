@@ -1,19 +1,19 @@
 {
-  "name": "@reactchartjs/react-chart.js",
+  "name": "react-chartjs-2",
   "version": "3.0.0",
   "description": "React components for Chart.js",
   "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "author": "Jeremy Ayerst",
-  "homepage": "https://github.com/reactchartjs/react-chart.js",
+  "homepage": "https://github.com/reactchartjs/react-chartjs-2",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactchartjs/react-chart.js.git"
+    "url": "https://github.com/reactchartjs/react-chartjs-2.git"
   },
   "bugs": {
-    "url": "https://github.com/reactchartjs/react-chart.js/issues"
+    "url": "https://github.com/reactchartjs/react-chartjs-2/issues"
   },
   "keywords": [
     "chart",

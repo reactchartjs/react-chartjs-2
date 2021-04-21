@@ -200,7 +200,7 @@ render() {
 
 ## Additional Information
 
-<!-- ### Defaults
+### Defaults
 
 Chart.js defaults can be set by importing the `defaults` object:
 
@@ -208,22 +208,20 @@ Chart.js defaults can be set by importing the `defaults` object:
 import { defaults } from 'react-chartjs-2';
 
 // Disable animating charts by default.
-defaults.global.animation = false;
+defaults.animation = false;
 ```
 
 If you want to bulk set properties, try using the [lodash.merge](https://lodash.com/docs/#merge) function. This function will do a deep recursive merge preserving previously set values that you don't want to update.
 
-```tsx
+````tsx
 import { defaults } from 'react-chartjs-2';
 import merge from 'lodash.merge';
 
 merge(defaults, {
-	global: {
-		animation: false,
-		line: {
-			borderColor: '#F85F73',
-		},
-	},
+	animation: false,
+  line: {
+    borderColor: '#F85F73',
+  }
 });
 ``` -->
 
@@ -235,13 +233,13 @@ You can access the internal Chart.js object to register plugins or extend charts
 import { Chart } from 'react-chartjs-2';
 
 componentWillMount() {
-  Chart.pluginService.register({
+  Chart.register({
     afterDraw: function (chart, easing) {
       // Plugin code.
     }
   });
 }
-``` -->
+````
 
 ### Working with Multiple Datasets
 

@@ -80,6 +80,6 @@ export const Scatter = forwardRef<Chart | undefined, Props>((props, ref) => (
 
 export const defaults = chartjs.defaults;
 
-export const Chart = chartjs;
+export const Chart = chartjs.Chart;
 
 export default ChartComponent;

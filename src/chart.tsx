@@ -171,7 +171,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
           ? accessibilityOptions.ariaLabel
           : undefined
       }
-      aria-role='img'
+      role='img'
     >
       {accessibilityOptions?.fallbackContent && (
         <p>{accessibilityOptions.fallbackContent}</p>

@@ -47,7 +47,7 @@ const VerticalBar = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/VerticalBar.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/VerticalBar.js'
         >
           Github Source
         </a>

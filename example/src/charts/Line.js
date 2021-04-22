@@ -33,7 +33,7 @@ const LineChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/Line.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Line.js'
         >
           Github Source
         </a>

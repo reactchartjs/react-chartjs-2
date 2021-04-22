@@ -48,6 +48,7 @@ See [these examples](example) for more information
   type: Chart.ChartType
   data: Chart.ChartData | (canvas: HTMLCanvasElement | null) => Chart.ChartData;
   options?: Chart.ChartOptions;
+  accessibilityOptions?: {ariaLabel: string, fallbackContent: React.ReactNode};
   plugins?: Chart.PluginServiceRegistrationOptions[];
   getDatasetAtEvent?: (dataset: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
   getElementAtEvent?: (element: [{}], event: React.MouseEvent<HTMLCanvasElement>) => void;

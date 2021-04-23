@@ -26,7 +26,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     data,
     options = {},
     plugins = [],
-    accessibilityOptions,
+    fallbackContent,
   } = props;
 
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -159,6 +159,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   return (
     <canvas
+      {...props}
       height={height}
       width={width}
       ref={canvas}
@@ -166,16 +167,9 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       className={className}
       onClick={onClick}
       data-testid='canvas'
-      aria-label={
-        accessibilityOptions?.ariaLabel
-          ? accessibilityOptions.ariaLabel
-          : undefined
-      }
       role='img'
     >
-      {accessibilityOptions?.fallbackContent && (
-        <p>{accessibilityOptions.fallbackContent}</p>
-      )}
+      {fallbackContent}
     </canvas>
   );
 });

@@ -1,10 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
-export interface AccessibilityOptions {
-  ariaLabel: string;
-  fallbackContent: React.ReactNode;
-}
-export interface Props {
+export interface Props extends React.AriaAttributes {
   id?: string;
   className?: string;
   height?: number;
@@ -13,7 +9,7 @@ export interface Props {
   type: Chart.ChartType;
   data: Chart.ChartData | ((canvas: HTMLCanvasElement) => Chart.ChartData);
   options?: Chart.ChartOptions;
-  accessibilityOptions?: AccessibilityOptions;
+  fallbackContent?: React.ReactNode;
   plugins?: Chart.PluginServiceRegistrationOptions[];
   getDatasetAtEvent?: (
     dataset: Array<{}>,

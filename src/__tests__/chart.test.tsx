@@ -378,4 +378,36 @@ describe('<ChartComponent />', () => {
 
     expect(getElementsAtEvent).toHaveBeenCalled();
   });
+
+  it('should show fallback content if given', () => {
+    const fallback = <p data-testid='fallbackContent'>Fallback content</p>;
+    const { getByTestId } = render(
+      <ChartComponent
+        data={data}
+        options={options}
+        className='chart-example'
+        type='bar'
+        ref={ref}
+        fallbackContent={fallback}
+      />
+    );
+
+    expect(chart).toBeTruthy();
+    expect(chart.canvas).toContainElement(getByTestId('fallbackContent'));
+  });
+
+  it('should pass through aria labels to the canvas element', () => {
+    const ariaLabel = 'ARIA LABEL';
+    render(
+      <ChartComponent
+        data={data}
+        options={options}
+        type='bar'
+        ref={ref}
+        aria-label={ariaLabel}
+      />
+    );
+
+    expect(chart.canvas.getAttribute('aria-label')).toBe(ariaLabel);
+  });
 });

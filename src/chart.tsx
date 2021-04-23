@@ -26,7 +26,6 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     data,
     options = {},
     plugins = [],
-    fallbackContent,
   } = props;
 
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -157,9 +156,11 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     }
   }, [props, computedData]);
 
+  const { fallbackContent, ...rest } = props;
+
   return (
     <canvas
-      {...props}
+      {...rest}
       height={height}
       width={width}
       ref={canvas}

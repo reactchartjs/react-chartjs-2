@@ -35,7 +35,7 @@ const PieChart = () => (
       <div className='links'>
         <a
           className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/react16/example/src/charts/Pie.js'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Pie.js'
         >
           Github Source
         </a>

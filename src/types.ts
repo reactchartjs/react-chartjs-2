@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
-export interface Props extends React.AriaAttributes {
+
+export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   id?: string;
   className?: string;
   height?: number;
@@ -23,12 +24,4 @@ export interface Props extends React.AriaAttributes {
     elements: Array<{}>,
     event: React.MouseEvent<HTMLCanvasElement>
   ) => void;
-  // generateLegend?: (
-  //   element: [{}],
-  //   event: React.MouseEvent<HTMLCanvasElement>
-  // ) => void;
-  // getElementsAtXAxis?: (
-  //   elements: Array<{}>,
-  //   event: React.MouseEvent<HTMLCanvasElement>
-  // ) => void;
 }

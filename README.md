@@ -48,6 +48,7 @@ See [these examples](example) for more information
   type: Chart.ChartType
   data: Chart.ChartData | (canvas: HTMLCanvasElement | null) => Chart.ChartData;
   options?: Chart.ChartOptions;
+  fallbackContent?: React.ReactNode;
   plugins?: Chart.PluginServiceRegistrationOptions[];
   getDatasetAtEvent?: (dataset: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
   getElementAtEvent?: (element: [{}], event: React.MouseEvent<HTMLCanvasElement>) => void;
@@ -122,6 +123,12 @@ const data = canvas => {
 Type: `Chart.ChartOptions`
 
 The options object that is passed into the Chart.js chart ([more info](https://www.chartjs.org/docs/latest/general/options.html))
+
+### fallbackContent
+
+Type: `React.ReactNode`
+
+A fallback for when the canvas cannot be rendered. Can be used for accessible chart descriptions ([more info](https://www.chartjs.org/docs/latest/general/accessibility.html))
 
 #### plugins
 

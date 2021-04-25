@@ -225,10 +225,6 @@ describe('<ChartComponent />', () => {
       <ChartComponent data={oldData} options={options} type='bar' ref={ref} />
     );
 
-    // https://www.chartjs.org/docs/latest/getting-started/v3-migration.html#removal-of-private-apis
-    // const meta0 = chart.config.data.datasets[0]._meta;
-    // const meta1 = chart.config.data.datasets[1]._meta;
-
     const id = chart.id;
 
     rerender(
@@ -236,9 +232,6 @@ describe('<ChartComponent />', () => {
     );
 
     expect(chart.config.data).toMatchObject(newData);
-    // Since the incoming data was null we stopped passing along the old meta
-    // expect(meta0).not.toEqual(chart.config.data.datasets[1]._meta);
-    // expect(meta1).toEqual(chart.config.data.datasets[0]._meta);
     expect(update).toHaveBeenCalled();
     expect(chart.id).toEqual(id);
   });
@@ -292,9 +285,7 @@ describe('<ChartComponent />', () => {
       />
     );
 
-    // expect(chart.config.data).toMatchObject(newData);
     expect(originalChartDestroy).toHaveBeenCalled();
-    // expect(chart.id).not.toEqual(id);
   });
 
   it('should destroy when unmounted', () => {
@@ -377,5 +368,37 @@ describe('<ChartComponent />', () => {
     fireEvent.click(getByTestId('canvas'));
 
     expect(getElementsAtEvent).toHaveBeenCalled();
+  });
+
+  it('should show fallback content if given', () => {
+    const fallback = <p data-testid='fallbackContent'>Fallback content</p>;
+    const { getByTestId } = render(
+      <ChartComponent
+        data={data}
+        options={options}
+        className='chart-example'
+        type='bar'
+        ref={ref}
+        fallbackContent={fallback}
+      />
+    );
+
+    expect(chart).toBeTruthy();
+    expect(chart.canvas).toContainElement(getByTestId('fallbackContent'));
+  });
+
+  it('should pass through aria labels to the canvas element', () => {
+    const ariaLabel = 'ARIA LABEL';
+    render(
+      <ChartComponent
+        data={data}
+        options={options}
+        type='bar'
+        ref={ref}
+        aria-label={ariaLabel}
+      />
+    );
+
+    expect(chart.canvas.getAttribute('aria-label')).toBe(ariaLabel);
   });
 });

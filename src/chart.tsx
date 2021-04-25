@@ -26,6 +26,11 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     data,
     options = {},
     plugins = [],
+    getDatasetAtEvent,
+    getElementAtEvent,
+    getElementsAtEvent,
+    fallbackContent,
+    ...rest
   } = props;
 
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -57,8 +62,6 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   const onClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!chart) return;
-
-    const { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } = props;
 
     getDatasetAtEvent &&
       getDatasetAtEvent(
@@ -158,6 +161,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   return (
     <canvas
+      {...rest}
       height={height}
       width={width}
       ref={canvas}
@@ -165,7 +169,10 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       className={className}
       onClick={onClick}
       data-testid='canvas'
-    />
+      role='img'
+    >
+      {fallbackContent}
+    </canvas>
   );
 });
 

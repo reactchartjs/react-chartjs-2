@@ -6,7 +6,7 @@ import ChartComponent from './chart';
 import Chart from 'chart.js/auto';
 import * as chartjs from 'chart.js';
 
-export const Line = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Line = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='line'
@@ -15,7 +15,7 @@ export const Line = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Bar = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Bar = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='bar'
@@ -24,7 +24,7 @@ export const Bar = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Radar = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Radar = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='radar'
@@ -33,7 +33,7 @@ export const Radar = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Doughnut = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Doughnut = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='doughnut'
@@ -42,7 +42,7 @@ export const Doughnut = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const PolarArea = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const PolarArea = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='polarArea'
@@ -51,7 +51,7 @@ export const PolarArea = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Bubble = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Bubble = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='bubble'
@@ -60,7 +60,7 @@ export const Bubble = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Pie = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Pie = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='pie'
@@ -69,7 +69,7 @@ export const Pie = forwardRef<Chart | undefined, Props>((props, ref) => (
   />
 ));
 
-export const Scatter = forwardRef<Chart | undefined, Props>((props, ref) => (
+export const Scatter = forwardRef<Chart | undefined, Omit<Props, 'type'>>((props, ref) => (
   <ChartComponent
     {...props}
     type='scatter'

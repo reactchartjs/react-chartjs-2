@@ -154,8 +154,7 @@ describe('<ChartComponent />', () => {
       <ChartComponent data={oldData} options={options} type='bar' ref={ref} />
     );
 
-    const meta0 = chart.config.data.datasets[0]._meta;
-    const meta1 = chart.config.data.datasets[1]._meta;
+    const meta = Object.assign({}, chart._metasets);
 
     const id = chart.id;
 
@@ -164,8 +163,8 @@ describe('<ChartComponent />', () => {
     );
 
     expect(chart.config.data).toMatchObject(newData);
-    expect(meta0).toEqual(chart.config.data.datasets[1]._meta);
-    expect(meta1).toEqual(chart.config.data.datasets[0]._meta);
+    expect(meta[0]).toBe(chart._metasets[1]);
+    expect(meta[1]).toBe(chart._metasets[0]);
     expect(update).toHaveBeenCalled();
     expect(chart.id).toEqual(id);
   });
@@ -191,8 +190,7 @@ describe('<ChartComponent />', () => {
     // even when we feed the data as undefined, the constructor will
     // force it to []. Here we force it back
     chart.config.data.datasets[0].data = undefined;
-    const meta0 = chart.config.data.datasets[0]._meta;
-    const meta1 = chart.config.data.datasets[1]._meta;
+    const meta = Object.assign({}, chart._metasets);
 
     const id = chart.id;
 
@@ -201,8 +199,7 @@ describe('<ChartComponent />', () => {
     );
 
     expect(chart.config.data).toMatchObject(newData);
-    expect(meta0).toEqual(chart.config.data.datasets[1]._meta);
-    expect(meta1).toEqual(chart.config.data.datasets[0]._meta);
+    expect(meta[0]).toBe(chart._metasets[1]);
     expect(update).toHaveBeenCalled();
     expect(chart.id).toEqual(id);
   });

@@ -17,7 +17,7 @@ export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
     event: React.MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementAtEvent?: (
-    element: [{}],
+    element: InteractionItem[],
     event: React.MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementsAtEvent?: (

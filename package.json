@@ -41,7 +41,7 @@
     "lodash": "^4.17.19"
   },
   "peerDependencies": {
-    "chart.js": "^3.1.0",
+    "chart.js": "^3.5.0",
     "react": "^16.8.0 || ^17.0.0"
   },
   "devDependencies": {

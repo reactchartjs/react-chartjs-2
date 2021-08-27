@@ -10,6 +10,7 @@ import React, {
 import { Props } from './types';
 
 import Chart from 'chart.js/auto';
+import type { ChartData } from 'chart.js';
 
 import merge from 'lodash/merge';
 import assign from 'lodash/assign';
@@ -35,7 +36,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   const canvas = useRef<HTMLCanvasElement>(null);
 
-  const computedData = useMemo<Chart.ChartData>(() => {
+  const computedData = useMemo<ChartData>(() => {
     if (typeof data === 'function') {
       return canvas.current ? data(canvas.current) : {};
     } else return merge({}, data);
@@ -66,7 +67,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     getDatasetAtEvent &&
       getDatasetAtEvent(
         chart.getElementsAtEventForMode(
-          e,
+          e as unknown as Event,
           'dataset',
           { intersect: true },
           false
@@ -76,7 +77,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     getElementAtEvent &&
       getElementAtEvent(
         chart.getElementsAtEventForMode(
-          e,
+          e as unknown as Event,
           'nearest',
           { intersect: true },
           false
@@ -85,7 +86,12 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       );
     getElementsAtEvent &&
       getElementsAtEvent(
-        chart.getElementsAtEventForMode(e, 'index', { intersect: true }, false),
+        chart.getElementsAtEventForMode(
+          e as unknown as Event,
+          'index',
+          { intersect: true },
+          false
+        ),
         e
       );
   };
@@ -108,6 +114,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
     // copy values
     assign(chart.config.data, newChartData);
+
     chart.config.data.datasets = newDataSets.map((newDataSet: any) => {
       // given the new set, find it's current match
       const currentDataSet = find(
@@ -116,7 +123,7 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       );
 
       // There is no original to update, so simply add new one
-      if (!currentDataSet || !newDataSet.data) return newDataSet;
+      if (!currentDataSet || !newDataSet.data) return { ...newDataSet };
 
       if (!currentDataSet.data) {
         currentDataSet.data = [];
@@ -128,11 +135,8 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       assign(currentDataSet.data, newDataSet.data);
 
       // apply dataset changes, but keep copied data
-      return {
-        ...currentDataSet,
-        ...newDataSet,
-        data: currentDataSet.data,
-      };
+      assign(currentDataSet, { ...newDataSet, data: currentDataSet.data });
+      return currentDataSet;
     });
 
     chart.update();

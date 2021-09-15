@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import type * as Chart from 'chart.js';
+import Chart from './index';
 
 export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   id?: string;
@@ -11,7 +11,7 @@ export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   data: Chart.ChartData | ((canvas: HTMLCanvasElement) => Chart.ChartData);
   options?: Chart.ChartOptions;
   fallbackContent?: React.ReactNode;
-  plugins?: Chart.PluginOptionsByType<Chart.ChartType>;
+  plugins?: Chart.PluginServiceRegistrationOptions[];
   getDatasetAtEvent?: (
     dataset: Array<{}>,
     event: React.MouseEvent<HTMLCanvasElement>

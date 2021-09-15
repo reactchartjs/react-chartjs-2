@@ -71,7 +71,7 @@ describe('<ChartComponent />', () => {
   });
 
   it('should pass props onto chart if data is fn', () => {
-    const dataFn = jest.fn(() => ({})) as Chart.ChartData<'bar'>;
+    const dataFn = jest.fn(c => (c ? data : {}));
 
     render(
       <ChartComponent data={dataFn} options={options} type='bar' ref={ref} />
@@ -173,7 +173,7 @@ describe('<ChartComponent />', () => {
     const oldData = {
       labels: ['red', 'blue'],
       datasets: [{ label: 'new-colors' }, { label: 'colors', data: [3, 2] }],
-    } as Chart.ChartData;
+    };
 
     const newData = {
       labels: ['red', 'blue'],
@@ -216,7 +216,7 @@ describe('<ChartComponent />', () => {
     const newData = {
       labels: ['red', 'blue'],
       datasets: [{ label: 'colors', data: [4, 5] }, { label: 'new-colors' }],
-    } as Chart.ChartData<'bar'>;
+    };
 
     const { rerender } = render(
       <ChartComponent data={oldData} options={options} type='bar' ref={ref} />

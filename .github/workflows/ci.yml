@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Running tests
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --ignore-engines
+      - name: Run tests
+        run: yarn test
+      # - name: Collect coverage
+      #   uses: coverallsapp/github-action@master
+      #   if: success()
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}

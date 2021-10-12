@@ -1,26 +1,24 @@
 {
   "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "standard",
     "standard-react",
     "plugin:prettier/recommended",
-    "prettier/standard",
-    "prettier/react",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
   "env": {
-    "node": true
+    "browser": true
   },
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "ecmaFeatures": {
-      "legacyDecorators": true,
       "jsx": true
     }
   },
   "settings": {
     "react": {
-      "version": "16"
+      "version": "detect"
     }
   },
   "rules": {
@@ -28,7 +26,7 @@
     "quotes": [2, "single", "avoid-escape"],
     "react/display-name": 0,
     "react/jsx-boolean-value": 1,
-    "jsx-quotes": 1,
+    "jsx-quotes": [1, "prefer-single"],
     "react/jsx-no-undef": 1,
     "react/jsx-sort-props": 0,
     "react/jsx-uses-react": 1,
@@ -40,6 +38,8 @@
     "react/react-in-jsx-scope": 1,
     "react/self-closing-comp": 1,
     "semi": [2, "always"],
-    "strict": 0
+    "strict": 0,
+    "no-use-before-define": 0,
+    "@typescript-eslint/no-use-before-define": 2
   }
 }

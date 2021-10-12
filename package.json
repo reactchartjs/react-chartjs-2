@@ -71,7 +71,7 @@
     "prettier": "^2.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.3",
     "react-test-renderer": "^17.0.1"
   },
   "files": [

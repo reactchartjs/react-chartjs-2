@@ -20,8 +20,9 @@ jobs:
           install-command: yarn --frozen-lockfile --ignore-engines
       - name: Run tests
         run: yarn test
-      # - name: Collect coverage
-      #   uses: coverallsapp/github-action@master
-      #   if: success()
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Collect coverage
+        uses: codecov/codecov-action@v2
+        if: success()
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: true

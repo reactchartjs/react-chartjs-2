@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import Chart from './index';
 
 export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {

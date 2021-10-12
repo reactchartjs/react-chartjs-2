@@ -6,11 +6,9 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Props } from './types';
 
 import Chart from 'chart.js/auto';
-// eslint-disable-next-line no-unused-vars
 import type { ChartData } from 'chart.js';
 
 import merge from 'lodash/merge';

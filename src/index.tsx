@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Props } from './types';
 import ChartComponent from './chart';
 import Chart from 'chart.js/auto';

@@ -30,7 +30,7 @@
     "prepublishOnly": "yarn build",
     "test": "yarn test:unit && yarn test:lint && yarn test:build",
     "test:build": "yarn build",
-    "test:lint": "eslint src/**/*.{ts,tsx}",
+    "test:lint": "eslint 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
     "test:unit": "jest -c jest.config.json",
     "format": "prettier --write src",
     "predeploy": "cd example && yarn && yarn build",

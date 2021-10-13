@@ -1,26 +1,33 @@
-import Chart from './index';
+import type { CanvasHTMLAttributes, ReactNode, MouseEvent } from 'react';
+import type {
+  ChartType,
+  ChartData,
+  ChartOptions,
+  Plugin,
+  InteractionItem,
+} from 'chart.js';
 
-export interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
+export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
   id?: string;
   className?: string;
   height?: number;
   width?: number;
   redraw?: boolean;
-  type: Chart.ChartType;
-  data: Chart.ChartData | ((canvas: HTMLCanvasElement) => Chart.ChartData);
-  options?: Chart.ChartOptions;
-  fallbackContent?: React.ReactNode;
-  plugins?: Chart.PluginServiceRegistrationOptions[];
+  type: ChartType;
+  data: ChartData | ((canvas: HTMLCanvasElement) => ChartData);
+  options?: ChartOptions;
+  fallbackContent?: ReactNode;
+  plugins?: Plugin[];
   getDatasetAtEvent?: (
     dataset: Array<{}>,
-    event: React.MouseEvent<HTMLCanvasElement>
+    event: MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementAtEvent?: (
     element: InteractionItem[],
-    event: React.MouseEvent<HTMLCanvasElement>
+    event: MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementsAtEvent?: (
     elements: Array<{}>,
-    event: React.MouseEvent<HTMLCanvasElement>
+    event: MouseEvent<HTMLCanvasElement>
   ) => void;
 }

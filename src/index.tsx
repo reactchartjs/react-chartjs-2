@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
+import Chart, { defaults } from 'chart.js/auto';
+
 import { Props } from './types';
 import ChartComponent from './chart';
-import Chart from 'chart.js/auto';
-import * as chartjs from 'chart.js';
 
 export const Line = forwardRef<Chart | undefined, Omit<Props, 'type'>>(
   (props, ref) => (
@@ -92,8 +92,6 @@ export const Scatter = forwardRef<Chart | undefined, Omit<Props, 'type'>>(
   )
 );
 
-export const defaults = chartjs.defaults;
-
-export { Chart };
+export { Chart, defaults };
 
 export default ChartComponent;

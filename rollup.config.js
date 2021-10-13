@@ -40,7 +40,7 @@ export default [
       file: pkg.main,
       format: 'cjs',
       exports: 'named',
-      sourcemap: 'inline',
+      sourcemap: true,
     },
   },
   {
@@ -50,7 +50,7 @@ export default [
     output: {
       file: pkg.module,
       format: 'es',
-      sourcemap: 'inline',
+      sourcemap: true,
     },
   },
 ];

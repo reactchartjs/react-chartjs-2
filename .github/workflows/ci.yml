@@ -26,3 +26,8 @@ jobs:
         with:
           files: ./coverage/lcov.info
           fail_ci_if_error: true
+      - name: Check size
+        uses: andresz1/size-limit-action@v1.0.0
+        if: success()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

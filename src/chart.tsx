@@ -6,14 +6,13 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react';
-import { Props } from './types';
-
 import Chart from 'chart.js/auto';
 import type { ChartData } from 'chart.js';
-
 import merge from 'lodash/merge';
 import assign from 'lodash/assign';
 import find from 'lodash/find';
+
+import { Props } from './types';
 
 const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
   const {
@@ -37,7 +36,11 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
 
   const computedData = useMemo<ChartData>(() => {
     if (typeof data === 'function') {
-      return canvas.current ? data(canvas.current) : {};
+      return canvas.current
+        ? data(canvas.current)
+        : {
+            datasets: [],
+          };
     } else return merge({}, data);
   }, [data, canvas.current]);
 

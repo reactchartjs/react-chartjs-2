@@ -1,7 +1,7 @@
 [
   {
     "path": "dist/index.js",
-    "limit": "2 KB",
+    "limit": "2.5 KB",
     "webpack": false,
     "running": false
   },
@@ -12,13 +12,13 @@
   },
   {
     "path": "dist/index.modern.js",
-    "limit": "1.8 KB",
+    "limit": "2.3 KB",
     "webpack": false,
     "running": false
   },
   {
     "path": "dist/index.modern.js",
-    "limit": "9.3 KB",
+    "limit": "9.4 KB",
     "import": "ChartComponent"
   }
 ]

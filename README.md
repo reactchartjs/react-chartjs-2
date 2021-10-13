@@ -184,7 +184,7 @@ const App => {
 };
 ```
 
-### How do I acess the canvas context?
+### How do I access the canvas context?
 
 The canvas node and hence context can be accessed within the data function.
 This approach is useful when you want to keep your components pure.

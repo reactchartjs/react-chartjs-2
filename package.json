@@ -26,7 +26,8 @@
     "emitDeclarations": "tsc --skipLibCheck --emitDeclarationOnly",
     "build": "rollup -c & yarn emitDeclarations",
     "prepublishOnly": "yarn build",
-    "test:lint": "eslint 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
+    "start:storybook": "start-storybook -p 6006 --ci",
+    "test:lint": "eslint 'src/**/*.{ts,tsx}' 'stories/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
     "test:unit": "jest -c jest.config.json",
     "test:build": "yarn build",
     "test:size": "size-limit",
@@ -44,13 +45,20 @@
     "react": "^16.8.0 || ^17.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@size-limit/preset-big-lib": "^6.0.3",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-controls": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addons": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@swc/core": "^1.2.95",
     "@swc/helpers": "^0.2.13",
     "@swc/jest": "^0.2.4",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^12.1.2",
+    "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.150",
     "@types/react": "^17.0.28",
@@ -68,6 +76,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.17.0",
+    "faker": "^5.5.3",
     "gh-pages": "^3.2.3",
     "jest": "^27.2.5",
     "jest-canvas-mock": "^2.2.0",
@@ -80,7 +89,8 @@
     "rollup-plugin-swc": "^0.2.0",
     "simple-git-hooks": "^2.6.1",
     "size-limit": "^6.0.3",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "webpack": "^5.58.2"
   },
   "files": [
     "dist"

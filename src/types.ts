@@ -19,7 +19,7 @@ export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
   fallbackContent?: ReactNode;
   plugins?: Plugin[];
   getDatasetAtEvent?: (
-    dataset: Array<{}>,
+    dataset: InteractionItem[],
     event: MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementAtEvent?: (
@@ -27,7 +27,7 @@ export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
     event: MouseEvent<HTMLCanvasElement>
   ) => void;
   getElementsAtEvent?: (
-    elements: Array<{}>,
+    elements: InteractionItem[],
     event: MouseEvent<HTMLCanvasElement>
   ) => void;
 }

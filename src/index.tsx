@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
-import Chart, { defaults } from 'chart.js/auto';
+import Chart from 'chart.js/auto';
+import { defaults } from 'chart.js';
 
 import { Props } from './types';
 import ChartComponent from './chart';

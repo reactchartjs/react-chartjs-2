@@ -1,4 +1,5 @@
 {
+  "prepare-commit-msg": "exec < /dev/tty && yarn cz --hook || true",
   "pre-commit": "yarn lint-staged",
   "pre-push": "yarn test"
 }

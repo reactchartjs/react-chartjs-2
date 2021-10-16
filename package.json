@@ -35,6 +35,7 @@
     "format": "prettier --write src",
     "predeploy": "cd example && yarn && yarn build",
     "deploy": "gh-pages -d example/build",
+    "commit": "cz",
     "cleanPublish": "yarn test && clean-publish"
   },
   "dependencies": {
@@ -67,6 +68,8 @@
     "browserslist": "^4.17.3",
     "chart.js": "^3.1.0",
     "clean-publish": "^3.4.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",

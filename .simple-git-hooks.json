@@ -1,5 +1,5 @@
 {
-  "prepare-commit-msg": "exec < /dev/tty && yarn cz --hook || true",
+  "commit-msg": "yarn commitlint --edit \"$1\"",
   "pre-commit": "yarn lint-staged",
   "pre-push": "yarn test"
 }

@@ -4793,9 +4793,9 @@ clean-css@^4.2.3:
     source-map "~0.6.0"
 
 clean-publish@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-3.4.1.tgz#b1b7762504e74fb8f94ec3aa47cb584d08b67198"
-  integrity sha512-XEaDZKHLtBAPYc9DSS5N4C5nd5FQn6W4uStx84js0qSdC5FX4I+PGiFai5tPEl6usQ69nlJHvbhukD4stWjsAg==
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-3.4.2.tgz#c5d776ba5c5aaaacff696eacec452263a63f94a5"
+  integrity sha512-VAEF61z7yivCcoIzJg0wEs5T6DpM6JgfMp152q3/JNuKU3leTUkU1QHUjm162dOULq9i+lvPrNYF9vdLS9AfYw==
   dependencies:
     cross-spawn "^7.0.3"
     fast-glob "^3.2.7"

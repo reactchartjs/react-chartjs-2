@@ -24,20 +24,16 @@ const data = {
 
 const options = {
   scales: {
-    yAxes: [
-      {
-        stacked: true,
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-    xAxes: [
-      {
-        stacked: true,
-      },
-    ],
-  },
+    y: {
+      stacked: true,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    x: {
+      stacked: true
+    }
+  }
 };
 
 const StackedBar = () => (

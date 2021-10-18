@@ -8,7 +8,7 @@
   {
     "path": "dist/index.js",
     "limit": "9.4 KB",
-    "import": "ChartComponent"
+    "import": "Chart"
   },
   {
     "path": "dist/index.modern.js",
@@ -19,6 +19,6 @@
   {
     "path": "dist/index.modern.js",
     "limit": "9.4 KB",
-    "import": "ChartComponent"
+    "import": "Chart"
   }
 ]

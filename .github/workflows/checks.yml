@@ -17,3 +17,23 @@ jobs:
         uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+  typings:
+    runs-on: ubuntu-latest
+    name: Checking typings
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --ignore-engines
+      - name: Prebuild
+        run: yarn build
+      - name: Check typings
+        if: success()
+        run: yarn test:typings

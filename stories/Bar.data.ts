@@ -110,6 +110,7 @@ export const groupedOptions = {
   },
   responsive: true,
   interaction: {
+    mode: 'index',
     intersect: false,
   },
   scales: {

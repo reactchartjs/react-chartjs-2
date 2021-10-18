@@ -6,35 +6,43 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react';
-import Chart from 'chart.js/auto';
-import type { ChartData } from 'chart.js';
+import type { Ref, MouseEvent } from 'react';
+import ChartJS from 'chart.js/auto';
+import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
 import merge from 'lodash/merge';
 import assign from 'lodash/assign';
 import find from 'lodash/find';
 
-import { Props } from './types';
+import { Props, ChartJSOrUndefined, TypedChartComponent } from './types';
 
-const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
-  const {
-    id,
-    className,
+function ChartComponent<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+>(
+  {
     height = 150,
     width = 300,
     redraw = false,
     type,
     data,
-    options = {},
+    options,
     plugins = [],
     getDatasetAtEvent,
     getElementAtEvent,
     getElementsAtEvent,
     fallbackContent,
-    ...rest
-  } = props;
+    onClick: onClickProp,
+    ...props
+  }: Props<TType, TData, TLabel>,
+  ref: Ref<ChartJS<TType, TData, TLabel>>
+) {
+  type TypedChartJS = ChartJSOrUndefined<TType, TData, TLabel>;
+  type TypedChartData = ChartData<TType, TData, TLabel>;
 
   const canvas = useRef<HTMLCanvasElement>(null);
 
-  const computedData = useMemo<ChartData>(() => {
+  const computedData = useMemo<TypedChartData>(() => {
     if (typeof data === 'function') {
       return canvas.current
         ? data(canvas.current)
@@ -44,17 +52,15 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     } else return merge({}, data);
   }, [data, canvas.current]);
 
-  const [chart, setChart] = useState<Chart>();
+  const [chart, setChart] = useState<TypedChartJS>();
 
-  useImperativeHandle<Chart | undefined, Chart | undefined>(ref, () => chart, [
-    chart,
-  ]);
+  useImperativeHandle<TypedChartJS, TypedChartJS>(ref, () => chart, [chart]);
 
   const renderChart = () => {
     if (!canvas.current) return;
 
     setChart(
-      new Chart(canvas.current, {
+      new ChartJS(canvas.current, {
         type,
         data: computedData,
         options,
@@ -63,38 +69,42 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     );
   };
 
-  const onClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const onClick = (event: MouseEvent<HTMLCanvasElement>) => {
+    if (onClickProp) {
+      onClickProp(event);
+    }
+
     if (!chart) return;
 
     getDatasetAtEvent &&
       getDatasetAtEvent(
         chart.getElementsAtEventForMode(
-          e as unknown as Event,
+          event.nativeEvent,
           'dataset',
           { intersect: true },
           false
         ),
-        e
+        event
       );
     getElementAtEvent &&
       getElementAtEvent(
         chart.getElementsAtEventForMode(
-          e as unknown as Event,
+          event.nativeEvent,
           'nearest',
           { intersect: true },
           false
         ),
-        e
+        event
       );
     getElementsAtEvent &&
       getElementsAtEvent(
         chart.getElementsAtEventForMode(
-          e as unknown as Event,
+          event.nativeEvent,
           'index',
           { intersect: true },
           false
         ),
-        e
+        event
       );
   };
 
@@ -128,8 +138,10 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
       if (!currentDataSet || !newDataSet.data) return { ...newDataSet };
 
       if (!currentDataSet.data) {
+        // @ts-expect-error Need to refactor
         currentDataSet.data = [];
       } else {
+        // @ts-expect-error Need to refactor
         currentDataSet.data.length = newDataSet.data.length;
       }
 
@@ -163,23 +175,20 @@ const ChartComponent = forwardRef<Chart | undefined, Props>((props, ref) => {
     } else {
       updateChart();
     }
-  }, [props, computedData]);
+  });
 
   return (
     <canvas
-      {...rest}
+      ref={canvas}
+      role='img'
       height={height}
       width={width}
-      ref={canvas}
-      id={id}
-      className={className}
       onClick={onClick}
-      data-testid='canvas'
-      role='img'
+      {...props}
     >
       {fallbackContent}
     </canvas>
   );
-});
+}
 
-export default ChartComponent;
+export const Chart = forwardRef(ChartComponent) as TypedChartComponent;

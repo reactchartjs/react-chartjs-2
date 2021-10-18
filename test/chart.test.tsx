@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import Chart from 'chart.js/auto';
-import ChartComponent from '../src/chart';
+import ChartJS from 'chart.js/auto';
+import Chart from '../src';
 
-describe('<ChartComponent />', () => {
+describe('<Chart />', () => {
   const data = {
     labels: ['red', 'blue'],
     datasets: [{ label: 'colors', data: [1, 2] }],
@@ -14,7 +14,7 @@ describe('<ChartComponent />', () => {
   };
 
   let chart: any, update: any, destroy: any;
-  const ref = (el: Chart | null): void => {
+  const ref = (el: ChartJS<any> | undefined | null): void => {
     chart = el;
 
     if (chart) {
@@ -37,9 +37,7 @@ describe('<ChartComponent />', () => {
   });
 
   it('should not pollute props', () => {
-    render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
-    );
+    render(<Chart data={data} options={options} type='bar' ref={ref} />);
 
     expect(data).toStrictEqual({
       labels: ['red', 'blue'],
@@ -52,18 +50,14 @@ describe('<ChartComponent />', () => {
   });
 
   it('should set ref to chart instance', () => {
-    render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
-    );
+    render(<Chart data={data} options={options} type='bar' ref={ref} />);
 
     expect(chart).toBeTruthy();
-    expect(chart instanceof Chart).toBe(true);
+    expect(chart instanceof ChartJS).toBe(true);
   });
 
   it('should pass props onto chart', () => {
-    render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
-    );
+    render(<Chart data={data} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(data);
     expect(chart.config.options).toMatchObject(options);
@@ -71,11 +65,15 @@ describe('<ChartComponent />', () => {
   });
 
   it('should pass props onto chart if data is fn', () => {
-    const dataFn = jest.fn(c => (c ? data : {}));
-
-    render(
-      <ChartComponent data={dataFn} options={options} type='bar' ref={ref} />
+    const dataFn = jest.fn(c =>
+      c
+        ? data
+        : {
+            datasets: [],
+          }
     );
+
+    render(<Chart data={dataFn} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(data);
     expect(chart.config.options).toMatchObject(options);
@@ -93,15 +91,13 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
+      <Chart data={data} options={options} type='bar' ref={ref} />
     );
 
     // const meta = chart.config.data.datasets[0]._meta;
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={newData} options={options} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={newData} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(newData);
     // make sure that other properties were maintained
@@ -117,15 +113,13 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
+      <Chart data={data} options={options} type='bar' ref={ref} />
     );
 
     const meta = chart.config.data.datasets[0]._meta;
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={newData} options={options} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={newData} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(newData);
     expect(meta).not.toEqual(chart.config.data.datasets[0]);
@@ -151,16 +145,14 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent data={oldData} options={options} type='bar' ref={ref} />
+      <Chart data={oldData} options={options} type='bar' ref={ref} />
     );
 
     const meta = Object.assign({}, chart._metasets);
 
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={newData} options={options} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={newData} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(newData);
     expect(meta[0]).toBe(chart._metasets[1]);
@@ -172,7 +164,10 @@ describe('<ChartComponent />', () => {
   it('should properly update when original data did not exist', () => {
     const oldData = {
       labels: ['red', 'blue'],
-      datasets: [{ label: 'new-colors' }, { label: 'colors', data: [3, 2] }],
+      datasets: [
+        { label: 'new-colors', data: [] },
+        { label: 'colors', data: [3, 2] },
+      ],
     };
 
     const newData = {
@@ -184,7 +179,7 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent data={oldData} options={options} type='bar' ref={ref} />
+      <Chart data={oldData} options={options} type='bar' ref={ref} />
     );
 
     // even when we feed the data as undefined, the constructor will
@@ -194,9 +189,7 @@ describe('<ChartComponent />', () => {
 
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={newData} options={options} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={newData} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(newData);
     expect(meta[0]).toBe(chart._metasets[1]);
@@ -215,18 +208,19 @@ describe('<ChartComponent />', () => {
 
     const newData = {
       labels: ['red', 'blue'],
-      datasets: [{ label: 'colors', data: [4, 5] }, { label: 'new-colors' }],
+      datasets: [
+        { label: 'colors', data: [4, 5] },
+        { label: 'new-colors', data: [] },
+      ],
     };
 
     const { rerender } = render(
-      <ChartComponent data={oldData} options={options} type='bar' ref={ref} />
+      <Chart data={oldData} options={options} type='bar' ref={ref} />
     );
 
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={newData} options={options} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={newData} options={options} type='bar' ref={ref} />);
 
     expect(chart.config.data).toMatchObject(newData);
     expect(update).toHaveBeenCalled();
@@ -239,14 +233,12 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
+      <Chart data={data} options={options} type='bar' ref={ref} />
     );
 
     const id = chart.id;
 
-    rerender(
-      <ChartComponent data={data} options={newOptions} type='bar' ref={ref} />
-    );
+    rerender(<Chart data={data} options={newOptions} type='bar' ref={ref} />);
 
     expect(chart.options).toMatchObject(newOptions);
     expect(update).toHaveBeenCalled();
@@ -260,26 +252,14 @@ describe('<ChartComponent />', () => {
     };
 
     const { rerender } = render(
-      <ChartComponent
-        data={data}
-        options={options}
-        type='bar'
-        ref={ref}
-        redraw
-      />
+      <Chart data={data} options={options} type='bar' ref={ref} redraw />
     );
 
     // const id = chart.id;
     const originalChartDestroy = Object.assign({}, destroy);
 
     rerender(
-      <ChartComponent
-        data={newData}
-        options={options}
-        type='bar'
-        ref={ref}
-        redraw
-      />
+      <Chart data={newData} options={options} type='bar' ref={ref} redraw />
     );
 
     expect(originalChartDestroy).toHaveBeenCalled();
@@ -287,7 +267,7 @@ describe('<ChartComponent />', () => {
 
   it('should destroy when unmounted', () => {
     const { unmount } = render(
-      <ChartComponent data={data} options={options} type='bar' ref={ref} />
+      <Chart data={data} options={options} type='bar' ref={ref} />
     );
 
     expect(chart).toBeTruthy();
@@ -299,7 +279,7 @@ describe('<ChartComponent />', () => {
 
   it('should add className ', () => {
     render(
-      <ChartComponent
+      <Chart
         data={data}
         options={options}
         className='chart-example'
@@ -317,7 +297,8 @@ describe('<ChartComponent />', () => {
     const getDatasetAtEvent = jest.fn();
 
     const { getByTestId } = render(
-      <ChartComponent
+      <Chart
+        data-testid='canvas'
         data={data}
         options={options}
         type='bar'
@@ -335,7 +316,8 @@ describe('<ChartComponent />', () => {
     const getElementAtEvent = jest.fn();
 
     const { getByTestId } = render(
-      <ChartComponent
+      <Chart
+        data-testid='canvas'
         data={data}
         options={options}
         type='bar'
@@ -353,7 +335,8 @@ describe('<ChartComponent />', () => {
     const getElementsAtEvent = jest.fn();
 
     const { getByTestId } = render(
-      <ChartComponent
+      <Chart
+        data-testid='canvas'
         data={data}
         options={options}
         type='bar'
@@ -370,7 +353,7 @@ describe('<ChartComponent />', () => {
   it('should show fallback content if given', () => {
     const fallback = <p data-testid='fallbackContent'>Fallback content</p>;
     const { getByTestId } = render(
-      <ChartComponent
+      <Chart
         data={data}
         options={options}
         className='chart-example'
@@ -387,7 +370,7 @@ describe('<ChartComponent />', () => {
   it('should pass through aria labels to the canvas element', () => {
     const ariaLabel = 'ARIA LABEL';
     render(
-      <ChartComponent
+      <Chart
         data={data}
         options={options}
         type='bar'

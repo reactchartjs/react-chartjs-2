@@ -1,23 +1,33 @@
-import type { CanvasHTMLAttributes, ReactNode, MouseEvent } from 'react';
 import type {
+  CanvasHTMLAttributes,
+  ForwardedRef,
+  ReactNode,
+  MouseEvent,
+} from 'react';
+import type {
+  Chart,
   ChartType,
   ChartData,
   ChartOptions,
+  DefaultDataPoint,
   Plugin,
   InteractionItem,
 } from 'chart.js';
 
-export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
-  id?: string;
-  className?: string;
-  height?: number;
-  width?: number;
+export interface Props<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown,
+  TOtherType extends TType = TType
+> extends CanvasHTMLAttributes<HTMLCanvasElement> {
+  type: TType;
+  data:
+    | ChartData<TOtherType, TData, TLabel>
+    | ((canvas: HTMLCanvasElement) => ChartData<TOtherType, TData, TLabel>);
+  options?: ChartOptions<TOtherType>;
+  plugins?: Plugin<TOtherType>[];
   redraw?: boolean;
-  type: ChartType;
-  data: ChartData | ((canvas: HTMLCanvasElement) => ChartData);
-  options?: ChartOptions;
   fallbackContent?: ReactNode;
-  plugins?: Plugin[];
   getDatasetAtEvent?: (
     dataset: InteractionItem[],
     event: MouseEvent<HTMLCanvasElement>
@@ -31,3 +41,32 @@ export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
     event: MouseEvent<HTMLCanvasElement>
   ) => void;
 }
+
+/**
+ * @todo Replace `undefined` with `null`
+ */
+export type ChartJSOrUndefined<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+> = Chart<TType, TData, TLabel> | undefined;
+
+export type TypedChartComponent<
+  TDefaultType extends ChartType = ChartType,
+  TOmitType = false
+> = TOmitType extends true
+  ? <TData = DefaultDataPoint<TDefaultType>, TLabel = unknown>(
+      props: Omit<Props<TDefaultType, TData, TLabel>, 'type'> & {
+        ref?: ForwardedRef<ChartJSOrUndefined<TDefaultType, TData, TLabel>>;
+      }
+    ) => JSX.Element
+  : <
+      TType extends ChartType = ChartType,
+      TData = DefaultDataPoint<TType>,
+      TLabel = unknown,
+      TOtherType extends TType = TType
+    >(
+      props: Props<TType, TData, TLabel, TOtherType> & {
+        ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
+      }
+    ) => JSX.Element;

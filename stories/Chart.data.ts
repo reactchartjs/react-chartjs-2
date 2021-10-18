@@ -37,13 +37,9 @@ export const multiTypeData = {
 
 export const dynamicOptions = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
+    y: {
+      beginAtZero: true,
+    },
   },
 };
 
@@ -79,13 +75,9 @@ export const getDynamicData = () => ({
 
 export const eventsOptions = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
+    y: {
+      beginAtZero: true,
+    },
   },
 };
 

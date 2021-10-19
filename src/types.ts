@@ -27,6 +27,9 @@ export interface Props<
   options?: ChartOptions<TOtherType>;
   plugins?: Plugin<TOtherType>[];
   redraw?: boolean;
+  /**
+   * @todo Replace with `children` prop.
+   */
   fallbackContent?: ReactNode;
   getDatasetAtEvent?: (
     dataset: InteractionItem[],

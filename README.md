@@ -49,10 +49,10 @@ See [these examples](example) for more information
   data: Chart.ChartData | (canvas: HTMLCanvasElement | null) => Chart.ChartData;
   options?: Chart.ChartOptions;
   fallbackContent?: React.ReactNode;
-  plugins?: Chart.PluginServiceRegistrationOptions[];
-  getDatasetAtEvent?: (dataset: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
-  getElementAtEvent?: (element: [{}], event: React.MouseEvent<HTMLCanvasElement>) => void;
-  getElementsAtEvent?: (elements: Array<{}>, event: React.MouseEvent<HTMLCanvasElement>) => void;
+  plugins?: Chart.Plugin[];
+  getDatasetAtEvent?: (dataset: Chart.InteractionItem[], event: React.MouseEvent<HTMLCanvasElement>) => void;
+  getElementAtEvent?: (element: Chart.InteractionItem[], event: React.MouseEvent<HTMLCanvasElement>) => void;
+  getElementsAtEvent?: (elements: Chart.InteractionItem[], event: React.MouseEvent<HTMLCanvasElement>) => void;
 ```
 
 #### id
@@ -92,7 +92,7 @@ If true, will tear down and redraw chart on all updates
 
 #### type
 
-Type: `'line' | 'bar' | 'horizontalBar' | 'radar' | 'doughnut' | 'polarArea' | 'bubble' | 'pie' | 'scatter'`
+Type: `'bar' | 'line' | 'scatter' | 'bubble' | 'pie' | 'doughnut' | 'polarArea' | 'radar'`
 
 Chart.js chart type (required only on ChartComponent)
 

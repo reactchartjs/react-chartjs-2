@@ -3200,14 +3200,14 @@
     eslint-utils "^3.0.0"
 
 "@typescript-eslint/parser@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.0.0.tgz#50d1be2e0def82d73e863cceba74aeeac9973592"
-  integrity sha512-B6D5rmmQ14I1fdzs71eL3DAuvnPHTY/t7rQABrL9BLnx/H51Un8ox1xqYAchs0/V2trcoyxB1lMJLlrwrJCDgw==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.1.0.tgz#6c7f837d210d2bc0a811e7ea742af414f4e00908"
+  integrity sha512-vx1P+mhCtYw3+bRHmbalq/VKP2Y3gnzNgxGxfEWc6OFpuEL7iQdAeq11Ke3Rhy8NjgB+AHsIWEwni3e+Y7djKA==
   dependencies:
-    "@typescript-eslint/scope-manager" "5.0.0"
-    "@typescript-eslint/types" "5.0.0"
-    "@typescript-eslint/typescript-estree" "5.0.0"
-    debug "^4.3.1"
+    "@typescript-eslint/scope-manager" "5.1.0"
+    "@typescript-eslint/types" "5.1.0"
+    "@typescript-eslint/typescript-estree" "5.1.0"
+    debug "^4.3.2"
 
 "@typescript-eslint/scope-manager@5.0.0":
   version "5.0.0"

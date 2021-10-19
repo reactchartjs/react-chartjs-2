@@ -41,9 +41,7 @@
     "release": "standard-version",
     "cleanPublish": "yarn test && clean-publish"
   },
-  "dependencies": {
-    "lodash": "^4.17.19"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "chart.js": "^3.5.0",
     "react": "^16.8.0 || ^17.0.0"

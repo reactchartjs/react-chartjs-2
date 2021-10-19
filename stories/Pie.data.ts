@@ -1,3 +1,5 @@
+import faker from 'faker';
+
 export const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -24,3 +26,10 @@ export const data = {
     },
   ],
 };
+
+export function randomDataset() {
+  return {
+    value: faker.datatype.number({ min: -100, max: 100 }),
+    color: faker.internet.color(),
+  };
+}

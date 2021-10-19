@@ -9,9 +9,6 @@ import React, {
 import type { Ref, MouseEvent } from 'react';
 import ChartJS from 'chart.js/auto';
 import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
-import merge from 'lodash/merge';
-import assign from 'lodash/assign';
-import find from 'lodash/find';
 
 import { Props, ChartJSOrUndefined, TypedChartComponent } from './types';
 
@@ -49,7 +46,7 @@ function ChartComponent<
         : {
             datasets: [],
           };
-    } else return merge({}, data);
+    } else return data;
   }, [data, canvas.current]);
 
   const [chart, setChart] = useState<TypedChartJS>();
@@ -125,12 +122,11 @@ function ChartComponent<
     const { datasets: currentDataSets = [] } = chart.config.data;
 
     // copy values
-    assign(chart.config.data, newChartData);
+    Object.assign(chart.config.data, newChartData);
 
     chart.config.data.datasets = newDataSets.map((newDataSet: any) => {
       // given the new set, find it's current match
-      const currentDataSet = find(
-        currentDataSets,
+      const currentDataSet = currentDataSets.find(
         d => d.label === newDataSet.label && d.type === newDataSet.type
       );
 
@@ -146,10 +142,13 @@ function ChartComponent<
       }
 
       // copy in values
-      assign(currentDataSet.data, newDataSet.data);
+      Object.assign(currentDataSet.data, newDataSet.data);
 
       // apply dataset changes, but keep copied data
-      assign(currentDataSet, { ...newDataSet, data: currentDataSet.data });
+      Object.assign(currentDataSet, {
+        ...newDataSet,
+        data: currentDataSet.data,
+      });
       return currentDataSet;
     });
 

@@ -5,7 +5,7 @@ export const multiTypeData = {
   labels: months,
   datasets: [
     {
-      type: 'line',
+      type: 'line' as const,
       label: 'Dataset 1',
       borderColor: colorRed,
       borderWidth: 2,
@@ -15,7 +15,7 @@ export const multiTypeData = {
       ),
     },
     {
-      type: 'bar',
+      type: 'bar' as const,
       label: 'Dataset 2',
       backgroundColor: colorGreen,
       data: Array.from({ length: 7 }, () =>
@@ -25,7 +25,7 @@ export const multiTypeData = {
       borderWidth: 2,
     },
     {
-      type: 'bar',
+      type: 'bar' as const,
       label: 'Dataset 3',
       backgroundColor: colorBlue,
       data: Array.from({ length: 7 }, () =>

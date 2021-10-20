@@ -17,15 +17,17 @@ import type {
 export interface Props<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown,
-  TOtherType extends TType = TType
+  TLabel = unknown
 > extends CanvasHTMLAttributes<HTMLCanvasElement> {
   type: TType;
+  /**
+   * @todo Remove function variant.
+   */
   data:
-    | ChartData<TOtherType, TData, TLabel>
-    | ((canvas: HTMLCanvasElement) => ChartData<TOtherType, TData, TLabel>);
-  options?: ChartOptions<TOtherType>;
-  plugins?: Plugin<TOtherType>[];
+    | ChartData<TType, TData, TLabel>
+    | ((canvas: HTMLCanvasElement) => ChartData<TType, TData, TLabel>);
+  options?: ChartOptions<TType>;
+  plugins?: Plugin<TType>[];
   redraw?: boolean;
   /**
    * @todo Replace with `children` prop.
@@ -66,10 +68,9 @@ export type TypedChartComponent<
   : <
       TType extends ChartType = ChartType,
       TData = DefaultDataPoint<TType>,
-      TLabel = unknown,
-      TOtherType extends TType = TType
+      TLabel = unknown
     >(
-      props: Props<TType, TData, TLabel, TOtherType> & {
+      props: Props<TType, TData, TLabel> & {
         ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
       }
     ) => JSX.Element;

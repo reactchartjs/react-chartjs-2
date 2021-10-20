@@ -93,3 +93,10 @@ ClickEvents.argTypes = {
   onElementClick: { action: 'element clicked' },
   onElementsClick: { action: 'elements clicked' },
 };
+
+export const Redraw = args => <Chart {...args} />;
+
+Redraw.args = {
+  data: data.multiTypeData,
+  redraw: true,
+};

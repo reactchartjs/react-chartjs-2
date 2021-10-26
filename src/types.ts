@@ -14,7 +14,7 @@ import type {
   InteractionItem,
 } from 'chart.js';
 
-export interface Props<
+export interface ChartProps<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
   TLabel = unknown
@@ -61,7 +61,7 @@ export type TypedChartComponent<
   TOmitType = false
 > = TOmitType extends true
   ? <TData = DefaultDataPoint<TDefaultType>, TLabel = unknown>(
-      props: Omit<Props<TDefaultType, TData, TLabel>, 'type'> & {
+      props: Omit<ChartProps<TDefaultType, TData, TLabel>, 'type'> & {
         ref?: ForwardedRef<ChartJSOrUndefined<TDefaultType, TData, TLabel>>;
       }
     ) => JSX.Element
@@ -70,7 +70,7 @@ export type TypedChartComponent<
       TData = DefaultDataPoint<TType>,
       TLabel = unknown
     >(
-      props: Props<TType, TData, TLabel> & {
+      props: ChartProps<TType, TData, TLabel> & {
         ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
       }
     ) => JSX.Element;

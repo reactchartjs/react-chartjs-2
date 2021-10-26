@@ -3,7 +3,7 @@ import type { ForwardedRef, MouseEvent } from 'react';
 import ChartJS from 'chart.js/auto';
 import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
 
-import type { Props, TypedChartComponent } from './types';
+import type { ChartProps, TypedChartComponent } from './types';
 import {
   reforwardRef,
   cloneData,
@@ -35,7 +35,7 @@ function ChartComponent<
     fallbackContent,
     onClick: onClickProp,
     ...props
-  }: Props<TType, TData, TLabel>,
+  }: ChartProps<TType, TData, TLabel>,
   ref: ForwardedRef<ChartJS<TType, TData, TLabel>>
 ) {
   type TypedChartJS = ChartJS<TType, TData, TLabel>;

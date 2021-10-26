@@ -55,6 +55,12 @@ See [these examples](example) for more information
   getElementsAtEvent?: (elements: Chart.InteractionItem[], event: React.MouseEvent<HTMLCanvasElement>) => void;
 ```
 
+In TypeScript, you can import chart props types like this:
+
+```ts
+import type { ChartProps } from 'react-chartjs-2';
+```
+
 #### id
 
 Type `string`

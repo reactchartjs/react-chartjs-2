@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { InteractionItem } from 'chart.js';
 import Chart from '../src';
 import * as data from './Chart.data';
@@ -99,4 +99,18 @@ export const Redraw = args => <Chart {...args} />;
 Redraw.args = {
   data: data.multiTypeData,
   redraw: true,
+};
+
+export const SameDataToggle = args => {
+  const [currentData, toggleData] = useReducer(
+    prevState =>
+      prevState === data.sameData1 ? data.sameData2 : data.sameData1,
+    data.sameData1
+  );
+
+  return <Chart {...args} data={currentData} onClick={toggleData} />;
+};
+
+SameDataToggle.args = {
+  type: 'bar',
 };

@@ -108,3 +108,48 @@ export const eventsData = {
     },
   ],
 };
+
+export const sameData1 = {
+  labels: [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'Mei',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ],
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      data: [33, 53, 85, 41, 44, 65, 61, 47, 52, 53, 62, 82],
+    },
+    {
+      label: 'My Second dataset',
+      backgroundColor: '#742774',
+      data: [33, 25, 35, 51, 54, 76, 65, 40, 42, 39, 51, 55],
+    },
+  ],
+};
+
+export const sameData2 = {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      data: [42, 13, 45, 29, 44, 25, 27],
+    },
+    {
+      label: 'My Second dataset',
+      backgroundColor: '#742774',
+      data: [33, 25, 35, 44, 50, 40, 48],
+    },
+  ],
+};

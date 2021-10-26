@@ -4,6 +4,8 @@ import type {
   ChartData,
   DefaultDataPoint,
   ChartDataset,
+  ChartOptions,
+  Chart,
 } from 'chart.js';
 
 export function reforwardRef<T>(ref: ForwardedRef<T>, value: T) {
@@ -14,7 +16,26 @@ export function reforwardRef<T>(ref: ForwardedRef<T>, value: T) {
   }
 }
 
-export function setNextDatasets<
+export function setOptions<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+>(chart: Chart<TType, TData, TLabel>, nextOptions: ChartOptions<TType>) {
+  chart.options = { ...nextOptions };
+}
+
+export function setLabels<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+>(
+  currentData: ChartData<TType, TData, TLabel>,
+  nextLabels: TLabel[] | undefined
+) {
+  currentData.labels = nextLabels;
+}
+
+export function setDatasets<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
   TLabel = unknown
@@ -30,10 +51,26 @@ export function setNextDatasets<
     );
 
     // There is no original to update, so simply add new one
-    if (!currentDataset || !nextDataset.data) return nextDataset;
+    if (!currentDataset || !nextDataset.data) return { ...nextDataset };
 
     Object.assign(currentDataset, nextDataset);
 
     return currentDataset;
   });
+}
+
+export function cloneData<
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+>(data: ChartData<TType, TData, TLabel>) {
+  const nextData: ChartData<TType, TData, TLabel> = {
+    labels: [],
+    datasets: [],
+  };
+
+  setLabels(nextData, data.labels);
+  setDatasets(nextData, data.datasets);
+
+  return nextData;
 }

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v3.2.0...v3.3.0) (2021-10-26)
+
+
+### Features
+
+* export chart props types ([#810](https://github.com/reactchartjs/react-chartjs-2/issues/810)) ([82ab334](https://github.com/reactchartjs/react-chartjs-2/commit/82ab334c62939fb4924ed6021502fccfea29a5a2)), closes [#720](https://github.com/reactchartjs/react-chartjs-2/issues/720)
+
+
+### Bug Fixes
+
+* data updating fix ([#807](https://github.com/reactchartjs/react-chartjs-2/issues/807)) ([45a50cc](https://github.com/reactchartjs/react-chartjs-2/commit/45a50cc46196ce64088a463b6f3b384a6c98eb06)), closes [#806](https://github.com/reactchartjs/react-chartjs-2/issues/806)
+
 ## [3.2.0](https://github.com/reactchartjs/react-chartjs-2/compare/v3.1.1...v3.2.0) (2021-10-21)
 
 

@@ -153,3 +153,53 @@ export const sameData2 = {
     },
   ],
 };
+
+export const decimationOptions = {
+  // Turn off animations and data parsing for performance
+  animation: false,
+  parsing: false,
+
+  interaction: {
+    mode: 'nearest',
+    axis: 'x',
+    intersect: false,
+  },
+  plugins: {
+    decimation: {
+      enabled: true,
+      algorithm: 'lttb',
+      samples: 500,
+    },
+  },
+  scales: {
+    x: {
+      type: 'time',
+      ticks: {
+        source: 'auto',
+        // Disabled rotation for performance
+        maxRotation: 0,
+        autoSkip: true,
+      },
+    },
+  },
+};
+
+export const getDecimationData = () => {
+  const start = Date.now();
+  const data = Array.from({ length: 100000 }, (_, i) => ({
+    x: start + i * 30000,
+    y: faker.datatype.number({ min: 0, max: Math.random() < 0.001 ? 100 : 20 }),
+  }));
+
+  return {
+    datasets: [
+      {
+        borderColor: colorRed,
+        borderWidth: 1,
+        data,
+        label: 'Large Dataset',
+        radius: 0,
+      },
+    ],
+  };
+};

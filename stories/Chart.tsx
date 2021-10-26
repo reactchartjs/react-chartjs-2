@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { InteractionItem } from 'chart.js';
+import 'chartjs-adapter-date-fns';
 import Chart from '../src';
 import * as data from './Chart.data';
 
@@ -113,4 +114,18 @@ export const SameDataToggle = args => {
 
 SameDataToggle.args = {
   type: 'bar',
+};
+
+export const Decimation = args => {
+  const [currentData, toggleData] = useReducer(
+    data.getDecimationData,
+    data.getDecimationData()
+  );
+
+  return <Chart {...args} data={currentData} onClick={toggleData} />;
+};
+
+Decimation.args = {
+  type: 'line',
+  options: data.decimationOptions,
 };

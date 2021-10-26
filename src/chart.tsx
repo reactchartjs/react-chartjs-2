@@ -4,7 +4,13 @@ import ChartJS from 'chart.js/auto';
 import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
 
 import type { Props, TypedChartComponent } from './types';
-import { reforwardRef, setNextDatasets } from './utils';
+import {
+  reforwardRef,
+  cloneData,
+  setOptions,
+  setLabels,
+  setDatasets,
+} from './utils';
 
 const noopData = {
   datasets: [],
@@ -49,7 +55,7 @@ function ChartComponent<
 
     chartRef.current = new ChartJS(canvasRef.current, {
       type,
-      data,
+      data: cloneData(data),
       options,
       plugins,
     });
@@ -119,19 +125,19 @@ function ChartComponent<
 
   useEffect(() => {
     if (!redraw && chartRef.current && options) {
-      chartRef.current.options = { ...options };
+      setOptions(chartRef.current, options);
     }
   }, [redraw, options]);
 
   useEffect(() => {
     if (!redraw && chartRef.current) {
-      chartRef.current.config.data.labels = data.labels;
+      setLabels(chartRef.current.config.data, data.labels);
     }
   }, [redraw, data.labels]);
 
   useEffect(() => {
     if (!redraw && chartRef.current && data.datasets) {
-      setNextDatasets(chartRef.current.config.data, data.datasets);
+      setDatasets(chartRef.current.config.data, data.datasets);
     }
   }, [redraw, data.datasets]);
 

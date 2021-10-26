@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import { ChartType } from 'chart.js';
 
-import { Props, ChartJSOrUndefined, TypedChartComponent } from './types';
+import { ChartProps, ChartJSOrUndefined, TypedChartComponent } from './types';
 import { Chart } from './chart';
 
 function createTypedChart<T extends ChartType>(type: T) {
-  return forwardRef<ChartJSOrUndefined<T>, Omit<Props<T>, 'type'>>(
+  return forwardRef<ChartJSOrUndefined<T>, Omit<ChartProps<T>, 'type'>>(
     (props, ref) => <Chart {...props} ref={ref} type={type} />
   ) as TypedChartComponent<T, true>;
 }

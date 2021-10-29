@@ -28,7 +28,7 @@
     "build": "rollup -c & yarn emitDeclarations",
     "prepublishOnly": "yarn build",
     "start:storybook": "start-storybook -p 6006 --ci",
-    "test:lint": "eslint 'src/**/*.{ts,tsx}' 'stories/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
+    "test:lint": "eslint 'src/**/*.{ts,tsx}' 'stories/**/*.{ts,tsx}' 'sandboxes/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
     "test:unit": "jest -c jest.config.json",
     "test:build": "yarn build",
     "test:size": "size-limit",
@@ -66,6 +66,7 @@
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.150",
     "@types/react": "^17.0.28",
+    "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "browserslist": "^4.17.3",
@@ -103,7 +104,12 @@
     "webpack": "^5.58.2"
   },
   "tsd": {
-    "directory": "./test"
+    "directory": "./test",
+    "compilerOptions": {
+      "paths": {
+        "react-chartjs-2": ["./src"]
+      }
+    }
   },
   "files": [
     "dist"

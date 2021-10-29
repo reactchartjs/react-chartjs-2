@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import faker from 'faker';
 import { Pie } from '../src';
-import { data, randomDataset } from './Pie.data';
+import { data } from '../sandboxes/pie/default/App';
 
 export default {
   title: 'Components/Pie',
@@ -19,6 +20,13 @@ export const Default = args => <Pie {...args} />;
 Default.args = {
   data,
 };
+
+function randomDataset() {
+  return {
+    value: faker.datatype.number({ min: -100, max: 100 }),
+    color: faker.internet.color(),
+  };
+}
 
 export const Dynamic = args => {
   const [datasets, setDatasets] = useState(() => [randomDataset()]);

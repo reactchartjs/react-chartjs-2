@@ -1,5 +1,6 @@
 {
   "src/**/*.{ts,tsx}": ["eslint", "prettier --write"],
   "stories/**/*.{ts,tsx}": ["eslint", "prettier --write"],
+  "sandboxes/**/*.{ts,tsx}": ["eslint", "prettier --write"],
   "test/**/*.{ts,tsx}": ["eslint", "prettier --write"]
 }

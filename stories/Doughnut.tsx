@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Doughnut } from '../src';
-import { data } from './Doughnut.data';
+import { data } from '../sandboxes/doughnut/default/App';
 
 export default {
   title: 'Components/Doughnut',

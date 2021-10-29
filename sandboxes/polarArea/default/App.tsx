@@ -1,3 +1,6 @@
+import React from 'react';
+import { PolarArea } from 'react-chartjs-2';
+
 export const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -16,3 +19,7 @@ export const data = {
     },
   ],
 };
+
+export function App() {
+  return <PolarArea data={data} />;
+}

@@ -1,4 +1,5 @@
-import faker from 'faker';
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
 
 export const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -27,9 +28,6 @@ export const data = {
   ],
 };
 
-export function randomDataset() {
-  return {
-    value: faker.datatype.number({ min: -100, max: 100 }),
-    color: faker.internet.color(),
-  };
+export function App() {
+  return <Pie data={data} />;
 }

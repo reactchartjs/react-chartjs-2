@@ -1,39 +1,5 @@
 import faker from 'faker';
-import { months, colorRed, colorGreen, colorBlue, numbers } from './data';
-
-export const multiTypeData = {
-  labels: months,
-  datasets: [
-    {
-      type: 'line' as const,
-      label: 'Dataset 1',
-      borderColor: colorRed,
-      borderWidth: 2,
-      fill: false,
-      data: Array.from({ length: 6 }, () =>
-        faker.datatype.number({ min: -10, max: 10 })
-      ),
-    },
-    {
-      type: 'bar' as const,
-      label: 'Dataset 2',
-      backgroundColor: colorGreen,
-      data: Array.from({ length: 7 }, () =>
-        faker.datatype.number({ min: -10, max: 10 })
-      ),
-      borderColor: 'white',
-      borderWidth: 2,
-    },
-    {
-      type: 'bar' as const,
-      label: 'Dataset 3',
-      backgroundColor: colorBlue,
-      data: Array.from({ length: 7 }, () =>
-        faker.datatype.number({ min: -10, max: 10 })
-      ),
-    },
-  ],
-};
+import { colorRed } from './data';
 
 export const dynamicOptions = {
   scales: {
@@ -72,42 +38,6 @@ export const getDynamicData = () => ({
     },
   ],
 });
-
-export const eventsOptions = {
-  scales: {
-    y: {
-      beginAtZero: true,
-    },
-  },
-};
-
-export const eventsData = {
-  labels: months,
-  datasets: [
-    {
-      type: 'line',
-      label: 'Dataset 1',
-      borderColor: colorRed,
-      borderWidth: 2,
-      fill: false,
-      data: numbers(),
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 2',
-      backgroundColor: colorGreen,
-      data: numbers(),
-      borderColor: 'white',
-      borderWidth: 2,
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 3',
-      backgroundColor: colorBlue,
-      data: numbers(),
-    },
-  ],
-};
 
 export const sameData1 = {
   labels: [

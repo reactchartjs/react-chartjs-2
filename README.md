@@ -1,27 +1,34 @@
-[![build status](https://img.shields.io/travis/jerairrest/react-chartjs-2.svg?branch=master&style=flat-square)](https://travis-ci.org/jerairrest/react-chartjs-2)
-[![version](https://img.shields.io/npm/v/react-chartjs-2.svg?style=flat-square)](https://www.npmjs.com/package/react-chartjs-2)
-[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-chartjs-2&from=2016-01-01)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+<div align="center">
+	
+<h1>React components for <a href="https://www.chartjs.org">Chart.js</a> 📊📈</h1>
+	
+Simple yet flexible charts for your React app
+	
+[![version](https://img.shields.io/npm/v/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
+[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
+[![license](https://shields.io/badge/license-MIT-green)](http://opensource.org/licenses/MIT)
 
-# react-chartjs-2
+<br />
+<a href="#quickstart">Quickstart</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="#examples">Examples</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://slack.cube.dev/?ref=eco-react-chartjs">Slack</a>
+<br />
+<hr />
+</div>
 
-React wrapper for [Chart.js](http://www.chartjs.org/docs/#getting-started)
+## Quickstart
 
-## Getting started
-
-### Install library with peer dependencies
+Install this library with peer dependencies:
 
 ```bash
 npm install --save react-chartjs-2 chart.js
-
-# or
-
-yarn add react-chartjs-2 chart.js
 ```
 
-###### We recommend using `chart.js ^3.0.0`
+We recommend using `chart.js@^3.0.0`.
 
-### Usage
+Then, import and use individual components:
 
 ```jsx
 import { Doughnut } from 'react-chartjs-2';
@@ -29,11 +36,11 @@ import { Doughnut } from 'react-chartjs-2';
 <Doughnut data={...} />
 ```
 
+Need an API to fetch data? Consider [Cube](https://cube.dev/?ref=eco-react-chartjs), an open-source API for data apps.
+
 ## Examples
 
-Live: [reactchartjs.github.io/react-chartjs-2](https://reactchartjs.github.io/react-chartjs-2/#/)
-
-See [these examples](example) for more information
+Please see [live examples](https://reactchartjs.github.io/react-chartjs-2/) or their [source code](example).
 
 ## Configure
 

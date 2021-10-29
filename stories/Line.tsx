@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from '../src';
-import * as data from './Line.data';
+import * as defaultLine from '../sandboxes/line/default/App';
+import * as multiaxisLine from '../sandboxes/line/multiaxis/App';
 
 export default {
   title: 'Components/Line',
@@ -17,13 +18,13 @@ export default {
 export const Default = args => <Line {...args} />;
 
 Default.args = {
-  data: data.data,
-  options: data.options,
+  data: defaultLine.data,
+  options: defaultLine.options,
 };
 
 export const MultiAxis = args => <Line {...args} />;
 
 MultiAxis.args = {
-  data: data.multiAxisData,
-  options: data.multiAxisOptions,
+  data: multiaxisLine.data,
+  options: multiaxisLine.options,
 };

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { InteractionItem } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import Chart from '../src';
+import * as multitypeChart from '../sandboxes/chart/multitype/App';
+import * as eventsChart from '../sandboxes/chart/events/App';
 import * as data from './Chart.data';
 
 export default {
@@ -19,7 +21,7 @@ export default {
 export const MultiType = args => <Chart {...args} />;
 
 MultiType.args = {
-  data: data.multiTypeData,
+  data: multitypeChart.data,
 };
 
 export const Dynamic = args => {
@@ -85,8 +87,8 @@ export const ClickEvents = ({
 };
 
 ClickEvents.args = {
-  options: data.eventsOptions,
-  data: data.eventsData,
+  options: eventsChart.options,
+  data: eventsChart.data,
 };
 
 ClickEvents.argTypes = {
@@ -98,7 +100,7 @@ ClickEvents.argTypes = {
 export const Redraw = args => <Chart {...args} />;
 
 Redraw.args = {
-  data: data.multiTypeData,
+  data: multitypeChart.data,
   redraw: true,
 };
 

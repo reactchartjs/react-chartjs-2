@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "react-chartjs-2": ["../src"]
+    }
+  },
+  "include": ["./"]
+}

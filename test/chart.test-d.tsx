@@ -2,7 +2,7 @@ import { expectError } from 'tsd';
 import React from 'react';
 import { Plugin } from 'chart.js';
 import Chart, { Scatter, Doughnut } from '../src';
-import { multiTypeData } from '../stories/Chart.data';
+import { data as multiTypeData } from '../sandboxes/chart/multitype/App';
 
 const data = {
   datasets: [],

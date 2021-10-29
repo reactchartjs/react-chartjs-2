@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radar } from '../src';
-import { data, options } from './Radar.data';
+import { data } from '../sandboxes/radar/default/App';
 
 export default {
   title: 'Components/Radar',
@@ -18,5 +18,4 @@ export const Default = args => <Radar {...args} />;
 
 Default.args = {
   data,
-  options,
 };

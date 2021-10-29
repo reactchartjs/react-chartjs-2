@@ -1,6 +1,6 @@
 import React from 'react';
 import { PolarArea } from '../src';
-import { data } from './PolarArea.data';
+import { data } from '../sandboxes/polarArea/default/App';
 
 export default {
   title: 'Components/PolarArea',

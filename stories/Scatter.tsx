@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scatter } from '../src';
-import { data, options } from './Scatter.data';
+import { data, options } from '../sandboxes/scatter/default/App';
 
 export default {
   title: 'Components/Scatter',

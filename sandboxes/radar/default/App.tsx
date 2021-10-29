@@ -1,8 +1,5 @@
-export const options = {
-  scale: {
-    ticks: { beginAtZero: true },
-  },
-};
+import React from 'react';
+import { Radar } from 'react-chartjs-2';
 
 export const data = {
   labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
@@ -16,3 +13,7 @@ export const data = {
     },
   ],
 };
+
+export function App() {
+  return <Radar data={data} />;
+}

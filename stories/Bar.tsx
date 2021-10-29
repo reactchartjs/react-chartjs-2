@@ -1,6 +1,9 @@
 import React from 'react';
 import { Bar } from '../src';
-import * as data from './Bar.data';
+import * as verticalBar from '../sandboxes/bar/vertical/App';
+import * as horizontalBar from '../sandboxes/bar/horizontal/App';
+import * as stackedBar from '../sandboxes/bar/stacked/App';
+import * as groupedBar from '../sandboxes/bar/grouped/App';
 
 export default {
   title: 'Components/Bar',
@@ -17,27 +20,27 @@ export default {
 export const Vertical = args => <Bar {...args} />;
 
 Vertical.args = {
-  data: data.verticalData,
-  options: data.verticalOptions,
+  data: verticalBar.data,
+  options: verticalBar.options,
 };
 
 export const Horizontal = args => <Bar {...args} />;
 
 Horizontal.args = {
-  data: data.horizontalData,
-  options: data.horizontalOptions,
+  data: horizontalBar.data,
+  options: horizontalBar.options,
 };
 
 export const Stacked = args => <Bar {...args} />;
 
 Stacked.args = {
-  data: data.stackedData,
-  options: data.stackedOptions,
+  data: stackedBar.data,
+  options: stackedBar.options,
 };
 
 export const Grouped = args => <Bar {...args} />;
 
 Grouped.args = {
-  data: data.groupedData,
-  options: data.groupedOptions,
+  data: groupedBar.data,
+  options: groupedBar.options,
 };

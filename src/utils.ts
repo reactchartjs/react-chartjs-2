@@ -124,7 +124,7 @@ export function getElementAtEvent(
 }
 
 /**
- * Get dataset element with dataset from mouse click event
+ * Get all dataset elements from mouse click event
  * @param chart - Chart.js instance
  * @param event - Mouse click event
  * @returns Dataset

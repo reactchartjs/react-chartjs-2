@@ -1,0 +1,17 @@
+---
+slug: /components
+description: List of react-chartjs-2 components.
+---
+
+import Link from '@docusaurus/Link';
+import { docs } from './docs';
+
+# Components
+
+<ul>
+  {docs.map(({ title, slug }, i) => (
+    <li key={i}>
+      <Link to={slug}>{title}</Link>
+    </li>
+  ))}
+</ul>

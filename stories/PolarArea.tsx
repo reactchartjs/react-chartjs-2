@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chart.js/auto';
 import { PolarArea } from '../src';
 import { data } from '../sandboxes/polarArea/default/App';
 

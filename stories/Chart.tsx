@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from 'react';
+import 'chart.js/auto';
 import { InteractionItem } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import { Chart } from '../src';

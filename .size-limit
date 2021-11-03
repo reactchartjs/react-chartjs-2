@@ -8,17 +8,17 @@
   {
     "path": "dist/index.js",
     "limit": "1.5 KB",
-    "import": "Chart"
+    "import": "{ Chart }"
   },
   {
     "path": "dist/index.modern.js",
-    "limit": "2.3 KB",
+    "limit": "2.35 KB",
     "webpack": false,
     "running": false
   },
   {
     "path": "dist/index.modern.js",
     "limit": "1.5 KB",
-    "import": "Chart"
+    "import": "{ Chart }"
   }
 ]

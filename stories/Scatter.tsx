@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chart.js/auto';
 import { Scatter } from '../src';
 import { data, options } from '../sandboxes/scatter/default/App';
 

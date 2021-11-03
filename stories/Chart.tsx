@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { InteractionItem } from 'chart.js';
 import 'chartjs-adapter-date-fns';
-import Chart from '../src';
+import { Chart } from '../src';
 import * as multitypeChart from '../sandboxes/chart/multitype/App';
 import * as eventsChart from '../sandboxes/chart/events/App';
 import * as data from './Chart.data';

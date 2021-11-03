@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import ChartJS from 'chart.js/auto';
-import Chart from '../src';
+import { Chart } from '../src';
 
 describe('<Chart />', () => {
   const data = {

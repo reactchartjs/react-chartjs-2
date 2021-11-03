@@ -1,11 +1,24 @@
 import { expectError } from 'tsd';
 import React from 'react';
 import { Plugin } from 'chart.js';
-import Chart, { Scatter, Doughnut } from '../src';
-import { data as multiTypeData } from '../sandboxes/chart/multitype/App';
+import { Chart, Scatter, Doughnut } from '../src';
 
 const data = {
   datasets: [],
+};
+const multiTypeData = {
+  datasets: [
+    {
+      type: 'line' as const,
+      label: 'Dataset 1',
+      data: [],
+    },
+    {
+      type: 'bar' as const,
+      label: 'Dataset 2',
+      data: [],
+    },
+  ],
 };
 
 /**

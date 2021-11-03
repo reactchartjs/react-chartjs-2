@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import type { ForwardedRef, MouseEvent } from 'react';
-import ChartJS from 'chart.js/auto';
+import { Chart as ChartJS } from 'chart.js';
 import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
 
 import type { ChartProps, TypedChartComponent } from './types';

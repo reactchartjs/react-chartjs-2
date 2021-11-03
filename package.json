@@ -2,6 +2,7 @@
   "name": "react-chartjs-2",
   "version": "3.3.0",
   "description": "React components for Chart.js",
+  "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "types": "dist/index.d.ts",

@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chart.js/auto';
 import { Radar } from '../src';
 import { data } from '../sandboxes/radar/default/App';
 

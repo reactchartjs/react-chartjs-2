@@ -1,27 +1,59 @@
 import React, { forwardRef } from 'react';
-import { ChartType } from 'chart.js';
+import {
+  Chart as ChartJS,
+  LineController,
+  BarController,
+  RadarController,
+  DoughnutController,
+  PolarAreaController,
+  BubbleController,
+  PieController,
+  ScatterController,
+} from 'chart.js';
+import type { ChartType, ChartComponentLike } from 'chart.js';
 
-import { ChartProps, ChartJSOrUndefined, TypedChartComponent } from './types';
+import type {
+  ChartProps,
+  ChartJSOrUndefined,
+  TypedChartComponent,
+} from './types';
 import { Chart } from './chart';
 
-function createTypedChart<T extends ChartType>(type: T) {
+function createTypedChart<T extends ChartType>(
+  type: T,
+  registerables: ChartComponentLike
+) {
+  ChartJS.register(registerables);
+
   return forwardRef<ChartJSOrUndefined<T>, Omit<ChartProps<T>, 'type'>>(
     (props, ref) => <Chart {...props} ref={ref} type={type} />
   ) as TypedChartComponent<T, true>;
 }
 
-export const Line = createTypedChart('line');
+export const Line = /* #__PURE__ */ createTypedChart('line', LineController);
 
-export const Bar = createTypedChart('bar');
+export const Bar = /* #__PURE__ */ createTypedChart('bar', BarController);
 
-export const Radar = createTypedChart('radar');
+export const Radar = /* #__PURE__ */ createTypedChart('radar', RadarController);
 
-export const Doughnut = createTypedChart('doughnut');
+export const Doughnut = /* #__PURE__ */ createTypedChart(
+  'doughnut',
+  DoughnutController
+);
 
-export const PolarArea = createTypedChart('polarArea');
+export const PolarArea = /* #__PURE__ */ createTypedChart(
+  'polarArea',
+  PolarAreaController
+);
 
-export const Bubble = createTypedChart('bubble');
+export const Bubble = /* #__PURE__ */ createTypedChart(
+  'bubble',
+  BubbleController
+);
 
-export const Pie = createTypedChart('pie');
+export const Pie = /* #__PURE__ */ createTypedChart('pie', PieController);
 
-export const Scatter = createTypedChart('scatter');
+export const Scatter = /* #__PURE__ */ createTypedChart(
+  'scatter',
+  ScatterController
+);

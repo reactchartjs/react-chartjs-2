@@ -274,8 +274,8 @@ describe('<Chart />', () => {
     expect(chart.canvas).toHaveClass('chart-example');
   });
 
-  it('should call getDatasetAtEvent', () => {
-    const getDatasetAtEvent = jest.fn();
+  it('should call onClick', () => {
+    const onClick = jest.fn();
 
     const { getByTestId } = render(
       <Chart
@@ -284,51 +284,13 @@ describe('<Chart />', () => {
         options={options}
         type='bar'
         ref={ref}
-        getDatasetAtEvent={getDatasetAtEvent}
+        onClick={onClick}
       />
     );
 
     fireEvent.click(getByTestId('canvas'));
 
-    expect(getDatasetAtEvent).toHaveBeenCalled();
-  });
-
-  it('should call getElementAtEvent', () => {
-    const getElementAtEvent = jest.fn();
-
-    const { getByTestId } = render(
-      <Chart
-        data-testid='canvas'
-        data={data}
-        options={options}
-        type='bar'
-        ref={ref}
-        getElementAtEvent={getElementAtEvent}
-      />
-    );
-
-    fireEvent.click(getByTestId('canvas'));
-
-    expect(getElementAtEvent).toHaveBeenCalled();
-  });
-
-  it('should call getElementsAtEvent', () => {
-    const getElementsAtEvent = jest.fn();
-
-    const { getByTestId } = render(
-      <Chart
-        data-testid='canvas'
-        data={data}
-        options={options}
-        type='bar'
-        ref={ref}
-        getElementsAtEvent={getElementsAtEvent}
-      />
-    );
-
-    fireEvent.click(getByTestId('canvas'));
-
-    expect(getElementsAtEvent).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('should show fallback content if given', () => {

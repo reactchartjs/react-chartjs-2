@@ -1,9 +1,4 @@
-import type {
-  CanvasHTMLAttributes,
-  ForwardedRef,
-  ReactNode,
-  MouseEvent,
-} from 'react';
+import type { CanvasHTMLAttributes, ForwardedRef, ReactNode } from 'react';
 import type {
   Chart,
   ChartType,
@@ -11,7 +6,6 @@ import type {
   ChartOptions,
   DefaultDataPoint,
   Plugin,
-  InteractionItem,
 } from 'chart.js';
 
 export interface ChartProps<
@@ -28,18 +22,6 @@ export interface ChartProps<
    * @todo Replace with `children` prop.
    */
   fallbackContent?: ReactNode;
-  getDatasetAtEvent?: (
-    dataset: InteractionItem[],
-    event: MouseEvent<HTMLCanvasElement>
-  ) => void;
-  getElementAtEvent?: (
-    element: InteractionItem[],
-    event: MouseEvent<HTMLCanvasElement>
-  ) => void;
-  getElementsAtEvent?: (
-    elements: InteractionItem[],
-    event: MouseEvent<HTMLCanvasElement>
-  ) => void;
 }
 
 /**

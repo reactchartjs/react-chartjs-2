@@ -65,26 +65,6 @@ describe('<Chart />', () => {
     expect(chart.config.type).toEqual('bar');
   });
 
-  it('should pass props onto chart if data is fn', () => {
-    const dataFn = jest.fn(c =>
-      c
-        ? data
-        : {
-            datasets: [],
-          }
-    );
-
-    render(<Chart data={dataFn} options={options} type='bar' ref={ref} />);
-
-    expect(chart.config.data).toMatchObject(data);
-    expect(chart.config.options).toMatchObject(options);
-    expect(chart.config.type).toEqual('bar');
-
-    expect(dataFn).toHaveBeenCalledTimes(1);
-    expect(dataFn).toHaveBeenCalledWith(expect.any(HTMLCanvasElement));
-    expect(update).toHaveBeenCalledTimes(1);
-  });
-
   it('should pass new data on data change', () => {
     const newData = {
       labels: ['red', 'blue'],

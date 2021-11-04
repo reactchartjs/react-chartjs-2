@@ -20,12 +20,7 @@ export interface ChartProps<
   TLabel = unknown
 > extends CanvasHTMLAttributes<HTMLCanvasElement> {
   type: TType;
-  /**
-   * @todo Remove function variant.
-   */
-  data:
-    | ChartData<TType, TData, TLabel>
-    | ((canvas: HTMLCanvasElement) => ChartData<TType, TData, TLabel>);
+  data: ChartData<TType, TData, TLabel>;
   options?: ChartOptions<TType>;
   plugins?: Plugin<TType>[];
   redraw?: boolean;

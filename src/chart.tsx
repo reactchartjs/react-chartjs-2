@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState, forwardRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import type { ForwardedRef, MouseEvent } from 'react';
 import { Chart as ChartJS } from 'chart.js';
-import type { ChartData, ChartType, DefaultDataPoint } from 'chart.js';
+import type { ChartType, DefaultDataPoint } from 'chart.js';
 
 import type { ChartProps, TypedChartComponent } from './types';
 import {
@@ -11,10 +11,6 @@ import {
   setLabels,
   setDatasets,
 } from './utils';
-
-const noopData = {
-  datasets: [],
-};
 
 function ChartComponent<
   TType extends ChartType = ChartType,
@@ -26,7 +22,7 @@ function ChartComponent<
     width = 300,
     redraw = false,
     type,
-    data: dataProp,
+    data,
     options,
     plugins = [],
     getDatasetAtEvent,
@@ -39,16 +35,9 @@ function ChartComponent<
   ref: ForwardedRef<ChartJS<TType, TData, TLabel>>
 ) {
   type TypedChartJS = ChartJS<TType, TData, TLabel>;
-  type TypedChartData = ChartData<TType, TData, TLabel>;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<TypedChartJS | null>();
-  /**
-   * In case `dataProp` is function use internal state
-   */
-  const [computedData, setComputedData] = useState<TypedChartData>();
-  const data: TypedChartData =
-    computedData || (typeof dataProp === 'function' ? noopData : dataProp);
 
   const renderChart = () => {
     if (!canvasRef.current) return;
@@ -81,7 +70,7 @@ function ChartComponent<
 
     if (!chart) return;
 
-    getDatasetAtEvent &&
+    if (getDatasetAtEvent) {
       getDatasetAtEvent(
         chart.getElementsAtEventForMode(
           event.nativeEvent,
@@ -91,7 +80,9 @@ function ChartComponent<
         ),
         event
       );
-    getElementAtEvent &&
+    }
+
+    if (getElementAtEvent) {
       getElementAtEvent(
         chart.getElementsAtEventForMode(
           event.nativeEvent,
@@ -101,7 +92,9 @@ function ChartComponent<
         ),
         event
       );
-    getElementsAtEvent &&
+    }
+
+    if (getElementsAtEvent) {
       getElementsAtEvent(
         chart.getElementsAtEventForMode(
           event.nativeEvent,
@@ -111,17 +104,8 @@ function ChartComponent<
         ),
         event
       );
-  };
-
-  /**
-   * In case `dataProp` is function,
-   * then update internal state
-   */
-  useEffect(() => {
-    if (typeof dataProp === 'function' && canvasRef.current) {
-      setComputedData(dataProp(canvasRef.current));
     }
-  }, [dataProp]);
+  };
 
   useEffect(() => {
     if (!redraw && chartRef.current && options) {

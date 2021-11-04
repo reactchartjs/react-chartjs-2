@@ -1,4 +1,4 @@
-import type { ForwardedRef } from 'react';
+import type { ForwardedRef, MouseEvent } from 'react';
 import type {
   ChartType,
   ChartData,
@@ -73,4 +73,58 @@ export function cloneData<
   setDatasets(nextData, data.datasets);
 
   return nextData;
+}
+
+/**
+ * Get dataset from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */
+export function getDatasetAtEvent(
+  chart: Chart,
+  event: MouseEvent<HTMLCanvasElement>
+) {
+  return chart.getElementsAtEventForMode(
+    event.nativeEvent,
+    'dataset',
+    { intersect: true },
+    false
+  );
+}
+
+/**
+ * Get single dataset element from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */
+export function getElementAtEvent(
+  chart: Chart,
+  event: MouseEvent<HTMLCanvasElement>
+) {
+  return chart.getElementsAtEventForMode(
+    event.nativeEvent,
+    'nearest',
+    { intersect: true },
+    false
+  );
+}
+
+/**
+ * Get dataset element with dataset from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */
+export function getElementsAtEvent(
+  chart: Chart,
+  event: MouseEvent<HTMLCanvasElement>
+) {
+  return chart.getElementsAtEventForMode(
+    event.nativeEvent,
+    'index',
+    { intersect: true },
+    false
+  );
 }

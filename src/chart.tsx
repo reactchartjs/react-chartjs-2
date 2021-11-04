@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, forwardRef } from 'react';
-import type { ForwardedRef, MouseEvent } from 'react';
+import type { ForwardedRef } from 'react';
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartType, DefaultDataPoint } from 'chart.js';
 
@@ -25,11 +25,7 @@ function ChartComponent<
     data,
     options,
     plugins = [],
-    getDatasetAtEvent,
-    getElementAtEvent,
-    getElementsAtEvent,
     fallbackContent,
-    onClick: onClickProp,
     ...props
   }: ChartProps<TType, TData, TLabel>,
   ref: ForwardedRef<ChartJS<TType, TData, TLabel>>
@@ -58,52 +54,6 @@ function ChartComponent<
     if (chartRef.current) {
       chartRef.current.destroy();
       chartRef.current = null;
-    }
-  };
-
-  const onClick = (event: MouseEvent<HTMLCanvasElement>) => {
-    if (onClickProp) {
-      onClickProp(event);
-    }
-
-    const { current: chart } = chartRef;
-
-    if (!chart) return;
-
-    if (getDatasetAtEvent) {
-      getDatasetAtEvent(
-        chart.getElementsAtEventForMode(
-          event.nativeEvent,
-          'dataset',
-          { intersect: true },
-          false
-        ),
-        event
-      );
-    }
-
-    if (getElementAtEvent) {
-      getElementAtEvent(
-        chart.getElementsAtEventForMode(
-          event.nativeEvent,
-          'nearest',
-          { intersect: true },
-          false
-        ),
-        event
-      );
-    }
-
-    if (getElementsAtEvent) {
-      getElementsAtEvent(
-        chart.getElementsAtEventForMode(
-          event.nativeEvent,
-          'index',
-          { intersect: true },
-          false
-        ),
-        event
-      );
     }
   };
 
@@ -143,14 +93,7 @@ function ChartComponent<
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      role='img'
-      height={height}
-      width={width}
-      onClick={onClick}
-      {...props}
-    >
+    <canvas ref={canvasRef} role='img' height={height} width={width} {...props}>
       {fallbackContent}
     </canvas>
   );

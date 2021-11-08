@@ -324,4 +324,66 @@ describe('<Chart />', () => {
 
     expect(chart.canvas.getAttribute('aria-label')).toBe(ariaLabel);
   });
+
+  it('should rerender datasets with same labels', () => {
+    const getData = () => ({
+      labels: [1, 2, 3],
+      datasets: [
+        {
+          label: '',
+          data: [5, 6, 7],
+        },
+        {
+          label: '',
+          data: [3, 2, 1],
+        },
+      ],
+    });
+
+    const { rerender } = render(
+      <Chart ref={ref} type='line' data={getData()} />
+    );
+
+    const [prevDataset1, prevDataset2] = chart.config.data.datasets;
+
+    rerender(<Chart ref={ref} type='line' data={getData()} />);
+
+    const [nextDataset1, nextDataset2] = chart.config.data.datasets;
+
+    expect(prevDataset1).toBe(nextDataset1);
+    expect(prevDataset2).not.toBe(nextDataset2);
+  });
+
+  it('should rerender datasets with id', () => {
+    const getData = () => ({
+      labels: [1, 2, 3],
+      datasets: [
+        {
+          id: 1,
+          label: '',
+          data: [5, 6, 7],
+        },
+        {
+          id: 2,
+          label: '',
+          data: [3, 2, 1],
+        },
+      ],
+    });
+
+    const { rerender } = render(
+      <Chart ref={ref} datasetIdKey='id' type='line' data={getData()} />
+    );
+
+    const [prevDataset1, prevDataset2] = chart.config.data.datasets;
+
+    rerender(
+      <Chart ref={ref} datasetIdKey='id' type='line' data={getData()} />
+    );
+
+    const [nextDataset1, nextDataset2] = chart.config.data.datasets;
+
+    expect(prevDataset1).toBe(nextDataset1);
+    expect(prevDataset2).toBe(nextDataset2);
+  });
 });

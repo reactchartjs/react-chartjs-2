@@ -18,6 +18,7 @@ export interface ChartProps<
   options?: ChartOptions<TType>;
   plugins?: Plugin<TType>[];
   redraw?: boolean;
+  datasetIdKey?: string;
   /**
    * @todo Replace with `children` prop.
    */

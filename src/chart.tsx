@@ -21,6 +21,7 @@ function ChartComponent<
     height = 150,
     width = 300,
     redraw = false,
+    datasetIdKey,
     type,
     data,
     options,
@@ -40,7 +41,7 @@ function ChartComponent<
 
     chartRef.current = new ChartJS(canvasRef.current, {
       type,
-      data: cloneData(data),
+      data: cloneData(data, datasetIdKey),
       options,
       plugins,
     });
@@ -71,7 +72,7 @@ function ChartComponent<
 
   useEffect(() => {
     if (!redraw && chartRef.current && data.datasets) {
-      setDatasets(chartRef.current.config.data, data.datasets);
+      setDatasets(chartRef.current.config.data, data.datasets, datasetIdKey);
     }
   }, [redraw, data.datasets]);
 

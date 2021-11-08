@@ -8,6 +8,8 @@ import type {
   Chart,
 } from 'chart.js';
 
+const defaultDatasetIdKey = 'label';
+
 export function reforwardRef<T>(ref: ForwardedRef<T>, value: T) {
   if (typeof ref === 'function') {
     ref(value);
@@ -41,17 +43,27 @@ export function setDatasets<
   TLabel = unknown
 >(
   currentData: ChartData<TType, TData, TLabel>,
-  nextDatasets: ChartDataset<TType, TData>[]
+  nextDatasets: ChartDataset<TType, TData>[],
+  datasetIdKey = defaultDatasetIdKey
 ) {
+  const addedDatasets: ChartDataset<TType, TData>[] = [];
+
   currentData.datasets = nextDatasets.map(nextDataset => {
     // given the new set, find it's current match
     const currentDataset = currentData.datasets.find(
-      dataset =>
-        dataset.label === nextDataset.label && dataset.type === nextDataset.type
+      dataset => dataset[datasetIdKey] === nextDataset[datasetIdKey]
     );
 
     // There is no original to update, so simply add new one
-    if (!currentDataset || !nextDataset.data) return { ...nextDataset };
+    if (
+      !currentDataset ||
+      !nextDataset.data ||
+      addedDatasets.includes(currentDataset)
+    ) {
+      return { ...nextDataset };
+    }
+
+    addedDatasets.push(currentDataset);
 
     Object.assign(currentDataset, nextDataset);
 
@@ -63,14 +75,14 @@ export function cloneData<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
   TLabel = unknown
->(data: ChartData<TType, TData, TLabel>) {
+>(data: ChartData<TType, TData, TLabel>, datasetIdKey = defaultDatasetIdKey) {
   const nextData: ChartData<TType, TData, TLabel> = {
     labels: [],
     datasets: [],
   };
 
   setLabels(nextData, data.labels);
-  setDatasets(nextData, data.datasets);
+  setDatasets(nextData, data.datasets, datasetIdKey);
 
   return nextData;
 }

@@ -1,6 +1,15 @@
 import React from 'react';
+import {
+  Chart as ChartJS,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
 import faker from 'faker';
+
+ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
 export const options = {
   scales: {

@@ -4,7 +4,7 @@
     "chart.js": "^3.6.0",
     "faker": "5.5.3",
     "react": "17.0.2",
-    "react-chartjs-2": "^3.3.0",
+    "react-chartjs-2": "^4.0.0",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3"
   },

@@ -5,12 +5,14 @@ description: Working with datasets in react-chartjs-2
 
 # Working with datasets
 
-You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together. This is because to track changes in the dataset series, the library needs a `key` to be specified - if none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
+You will find that any event which causes the chart to re-render, such as hover tooltips, etc., will cause the first dataset to be copied over to other datasets, causing your lines and bars to merge together.
 
-1. Add a `label` property on each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
-2. Specify a different property to be used as a key by passing a `datasetIdKey` prop to your chart component, which.
+This is because to track changes in the dataset series, the library needs a `key` to be specified. If none is found, it can't tell the difference between the datasets while updating. To get around this issue, you can take these two approaches:
 
-Example:
+1. Add a `label` property to each dataset. By default, this library uses the `label` property as the key to distinguish datasets.
+2. Specify a different property to be used as a key by passing a `datasetIdKey` prop to your chart component.
+
+See this example:
 
 ```tsx
 import { Line } from 'react-chartjs-2';

@@ -1,8 +1,10 @@
-<div align="center">
+# react-chartjs-2
 
-<h1>React components for <a href="https://www.chartjs.org">Chart.js</a> 📊📈</h1>
+<img align="right" width="150" height="150" alt="Logo" src="https://raw.githubusercontent.com/reactchartjs/react-chartjs-2/master/website/static/img/logo.svg">
 
-Simple yet flexible charts for your React app
+React components for <a href="https://www.chartjs.org">Chart.js</a>, the most popular charting library.
+
+Supports Chart.js v3 and v2.
 
 [![version](https://img.shields.io/npm/v/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
 [![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
@@ -14,9 +16,10 @@ Simple yet flexible charts for your React app
 <a href="#docs">Docs</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 <a href="https://slack.cube.dev/?ref=eco-react-chartjs">Slack</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://stackoverflow.com/questions/tagged/react-chartjs-2">Stack Overflow</a>
 <br />
 <hr />
-</div>
 
 ## Quickstart
 

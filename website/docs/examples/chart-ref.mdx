@@ -1,0 +1,27 @@
+---
+description: Example of getting ref in react-chartjs-2.
+tags:
+  - Chart
+---
+
+import ContextProvider from '../../src/components/ContextProvider';
+
+# Get Chart Ref
+
+<ContextProvider>
+  {({ branch, theme }) => (
+    <iframe
+      src={`https://codesandbox.io/embed/github/reactchartjs/react-chartjs-2/tree/${branch}/sandboxes/chart/ref?fontsize=14&hidenavigation=1&module=%2FApp.tsx&theme=${theme}`}
+      style={{
+        width: '100%',
+        height: '500px',
+        border: 0,
+        borderRadius: '4px',
+        overflow: 'hidden',
+      }}
+      title='reactchartjs/react-chartjs-2: grouped'
+      allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+      sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+    ></iframe>
+  )}
+</ContextProvider>

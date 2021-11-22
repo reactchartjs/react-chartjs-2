@@ -1,0 +1,17 @@
+---
+slug: /faq
+description: Frequently asked questions about react-chartjs-2.
+---
+
+import Link from '@docusaurus/Link';
+import { docs } from './docs';
+
+# FAQ
+
+<ul>
+  {docs.map(({ title, slug }, i) => (
+    <li key={i}>
+      <Link to={slug}>{title}</Link>
+    </li>
+  ))}
+</ul>

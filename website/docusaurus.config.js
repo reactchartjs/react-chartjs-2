@@ -83,6 +83,14 @@ const config = {
             title: 'Docs',
             items: [
               {
+                label: 'FAQ',
+                to: '/faq',
+              },
+              {
+                label: 'Components',
+                to: '/components',
+              },
+              {
                 label: 'Examples',
                 to: '/examples',
               },

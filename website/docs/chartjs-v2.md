@@ -1,6 +1,6 @@
 ---
 slug: /docs/chartjs-v2
-description: Using this library with Chart.js v2
+description: Using react-chartjs-2 with Chart.js v2
 ---
 
 # Using with Chart.js v2
@@ -17,7 +17,7 @@ or
 npm install --save chart.js@^2.9.4 react-chartjs-2@^2.11.2
 ```
 
-Also, please consider upgrading your app to [Chart.js v3](/docs/chartjs-v3).
+Also, please consider upgrading your app to [Chart.js v3](#upgrading-to-chartjs-v3).
 
 ## Upgrading to Chart.js v3
 

@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/reactchartjs/react-chartjs-2/compare/v3.3.0...v4.0.0) (2021-11-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* getDatasetAtEvent, getElementAtEvent and getElementsAtEvent props are removed,
+utils with the same names can used instead
+* New target browsers: ie 11 dropped for regular bundle, modern bundle builds for
+browsers with es6 modules support.
+* Functional data prop is removed
+* Added support of tree-shaking of Chart.js. Now you should register Chart.js
+components by yourself.
+* default export is renamed to Chart
+* Chart.js re-exports are removed
+
+### Features
+
+* datasetIdKey prop ([#848](https://github.com/reactchartjs/react-chartjs-2/issues/848)) ([f895766](https://github.com/reactchartjs/react-chartjs-2/commit/f895766f012c0d3781d75b5f83adc6dbc8de0b03))
+
+
+* default export is renamed to Chart ([#836](https://github.com/reactchartjs/react-chartjs-2/issues/836)) ([131daa0](https://github.com/reactchartjs/react-chartjs-2/commit/131daa008d3a3c280ba9e751c67ca926708b60e4))
+* functional data prop is removed ([#840](https://github.com/reactchartjs/react-chartjs-2/issues/840)) ([b64dfb0](https://github.com/reactchartjs/react-chartjs-2/commit/b64dfb0430bf5817a5f8b8708551934ad426921e))
+* getDatasetAtEvent, getElementAtEvent and getElementsAtEvent props are removed ([#845](https://github.com/reactchartjs/react-chartjs-2/issues/845)) ([6a9b2a7](https://github.com/reactchartjs/react-chartjs-2/commit/6a9b2a7527d23e7409c9273ad32eb100122ffb51))
+* new target browsers ([#841](https://github.com/reactchartjs/react-chartjs-2/issues/841)) ([b1e83db](https://github.com/reactchartjs/react-chartjs-2/commit/b1e83db599e7f9b832c2fe1942b5e5f296730dd9))
+* removed chart.js re-exports ([#835](https://github.com/reactchartjs/react-chartjs-2/issues/835)) ([30d5c2d](https://github.com/reactchartjs/react-chartjs-2/commit/30d5c2d457eae0b1142ea4ffb6eff8f583b60817))
+* tree-shaking ([#839](https://github.com/reactchartjs/react-chartjs-2/issues/839)) ([fcd2849](https://github.com/reactchartjs/react-chartjs-2/commit/fcd2849037bb01d2eeadbfbc90c90054eb620d4c))
+
 ## [3.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v3.2.0...v3.3.0) (2021-10-26)
 
 

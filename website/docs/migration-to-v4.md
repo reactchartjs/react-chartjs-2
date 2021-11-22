@@ -5,12 +5,14 @@ description: react-chartjs-2 migration guide to v4
 
 # Migration to v4
 
-react-chartjs-2 introduces a number of breaking changes. In order to improve performance, offer new features, and improve maintainability, it was necessary to break backwards compatibility, but we aimed to do so only when worth the benefit.
+With v4, this library introduces a number of breaking changes. In order to improve performance, offer new features, and improve maintainability, it was necessary to break backwards compatibility, but we aimed to do so only when worth the benefit.
+
+v4 is fully compatible with Chart.js v3.
 
 ## New exports
 
-- All re-exports from `chart.js` were removed;
-- Default export was renamed to `Chart`.
+- All re-exports from `chart.js` were removed
+- Default export was renamed to `Chart`
 
 ```jsx title="v3"
 import Chart, {
@@ -31,7 +33,9 @@ import {
 
 ## Tree-shaking
 
-react-chartjs-2@v4, [just like Chart.js@v3](https://www.chartjs.org/docs/latest/getting-started/v3-migration.html#setup-and-installation), is tree-shakable. So you need to import and register the controllers, elements, scales and plugins you want to use, for a list of all the available items to import see [Chart.js docs](https://www.chartjs.org/docs/latest/getting-started/integration.html#bundlers-webpack-rollup-etc).
+v4 of this library, [just like Chart.js v3](https://www.chartjs.org/docs/latest/getting-started/v3-migration.html#setup-and-installation), is tree-shakable. It means that you need to import and register the controllers, elements, scales, and plugins you want to use.
+
+For a list of all the available items to import, see [Chart.js docs](https://www.chartjs.org/docs/latest/getting-started/integration.html#bundlers-webpack-rollup-etc).
 
 ```jsx title="v3"
 import Chart from 'react-chartjs-2';
@@ -39,14 +43,14 @@ import Chart from 'react-chartjs-2';
 <Chart type='line' data={chartData} />
 ```
 
-```jsx title="v4 - lazy way"
+```jsx title="v4 — lazy way"
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 <Chart type='line' data={chartData} />
 ```
 
-```jsx title="v4 - tree-shakable way"
+```jsx title="v4 — tree-shakable way"
 import { Chart } from 'react-chartjs-2';
 import { Chart as ChartJS, LineController, LineElement, PointElement, LinearScale, Title } from 'chart.js';
 
@@ -55,9 +59,11 @@ ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title);
 <Chart type='line' data={chartData} />
 ```
 
-Typed chart components register their controllers by default, so you don't need to register them by yourself. For example: using [`Line`](/components/line) component you don't need to register `LineController`.
+Using the "lazy way" is okay to simplify the migration, but please consider using the tree-shakable way to decrease the bundle size.
 
-```jsx title="v4 - Line component"
+Please note that typed chart components register their controllers by default, so you don't need to register them by yourself. For example, when using the [`Line` component](/components/line), you don't need to register `LineController` explicitly.
+
+```jsx title="v4 — Line component"
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title } from 'chart.js';
 
@@ -66,9 +72,9 @@ ChartJS.register(LineElement, PointElement, LinearScale, Title);
 <Line data={chartData} />
 ```
 
-## Draw charts with gradients
+## Drawing charts with gradients
 
-The possibility to pass a function to the `data` prop was removed.
+The option to pass a function to the `data` prop was removed.
 
 ```jsx title="v3"
 const chartData = canvas => {
@@ -107,9 +113,9 @@ useEffect(() => {
 <Chart type='bar' data={chartData} />
 ```
 
-[See full working example.](/examples/gradient-chart)
+See the [full working example](/examples/gradient-chart).
 
-## Get data from click events
+## Getting data from click events
 
 `getDatasetAtEvent`, `getElementAtEvent` and `getElementsAtEvent` props were removed in favor of tree-shakable methods with the same names.
 
@@ -138,4 +144,4 @@ const chartRef = useRef(null);
 />
 ```
 
-[See full working example.](/examples/chart-events)
+See the [full working example](/examples/chart-events).

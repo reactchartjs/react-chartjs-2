@@ -1,15 +1,15 @@
 ---
-slug: /docs/events
+slug: /docs/working-with-events
 description: Working with events in react-chartjs-2
 ---
 
 # Working with events
 
-There are 3 helpers to get data from click event:
+There are three helper methods to get data from click event.
 
 ## getDatasetAtEvent
 
-Get dataset from mouse click event.
+Gets dataset from mouse click event.
 
 ```jsx
 import { useRef } from 'react';
@@ -33,7 +33,7 @@ function App() {
 
 ## getElementAtEvent
 
-Get single dataset element from mouse click event.
+Gets single dataset element from mouse click event.
 
 ```jsx
 import { useRef } from 'react';
@@ -57,7 +57,7 @@ function App() {
 
 ## getElementsAtEvent
 
-Get all dataset elements from mouse click event
+Gets all dataset elements from mouse click event.
 
 ```jsx
 import { useRef } from 'react';
@@ -79,4 +79,4 @@ function App() {
 }
 ```
 
-[See sandbox with working example](/examples/chart-events).
+See the [full working example](/examples/chart-events).

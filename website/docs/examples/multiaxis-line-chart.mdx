@@ -4,14 +4,14 @@ tags:
   - Line Chart
 ---
 
-import BranchProvider from '../../src/components/BranchProvider';
+import ContextProvider from '../../src/components/ContextProvider';
 
 # Multiaxis Line Chart
 
-<BranchProvider>
-  {branch => (
+<ContextProvider>
+  {({ branch, theme }) => (
     <iframe
-      src={`https://codesandbox.io/embed/github/reactchartjs/react-chartjs-2/tree/${branch}/sandboxes/line/multiaxis?fontsize=14&hidenavigation=1&module=%2FApp.tsx&theme=dark`}
+      src={`https://codesandbox.io/embed/github/reactchartjs/react-chartjs-2/tree/${branch}/sandboxes/line/multiaxis?fontsize=14&hidenavigation=1&module=%2FApp.tsx&theme=${theme}`}
       style={{
         width: '100%',
         height: '500px',
@@ -24,4 +24,4 @@ import BranchProvider from '../../src/components/BranchProvider';
       sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
     ></iframe>
   )}
-</BranchProvider>
+</ContextProvider>

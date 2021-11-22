@@ -1,8 +1,0 @@
-.storybook
-website
-src
-.editorconfig
-.eslintignore
-.eslintrc
-.circleci
-stories

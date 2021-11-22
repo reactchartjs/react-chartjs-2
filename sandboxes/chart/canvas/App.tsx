@@ -1,7 +1,25 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Chart from 'react-chartjs-2';
-import type { Chart as ChartJS, ChartData, ChartArea } from 'chart.js';
+import type { ChartData, ChartArea } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend
+);
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 const colors = [

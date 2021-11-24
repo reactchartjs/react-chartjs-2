@@ -70,52 +70,21 @@ const config = {
             label: 'Examples',
           },
           {
+            href: 'https://slack.cube.dev/?ref=eco-react-chartjs',
+            label: 'Slack',
+            position: 'right',
+          },
+          {
+            href: 'https://stackoverflow.com/questions/tagged/react-chartjs-2',
+            label: 'Stack Overflow',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/reactchartjs/react-chartjs-2',
             label: 'GitHub',
             position: 'right',
           },
         ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'FAQ',
-                to: '/faq',
-              },
-              {
-                label: 'Components',
-                to: '/components',
-              },
-              {
-                label: 'Examples',
-                to: '/examples',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/react-chartjs-2',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/reactchartjs/react-chartjs-2',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} reactchartjs. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

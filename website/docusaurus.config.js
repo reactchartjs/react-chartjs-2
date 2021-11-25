@@ -90,6 +90,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'BH4D9OD16A',
+        apiKey: 'd59187de89e7935f588bbb2fc9273f03',
+        indexName: 'react-chartjs-2',
+      },
     }),
 
   plugins: [

@@ -1,6 +1,6 @@
 # react-chartjs-2
 
-<img align="right" width="150" height="150" alt="Logo" src="https://raw.githubusercontent.com/reactchartjs/react-chartjs-2/master/website/static/img/logo.svg">
+<img align="right" width="150" height="150" alt="Logo" src="website/static/img/logo.svg">
 
 React components for <a href="https://www.chartjs.org">Chart.js</a>, the most popular charting library.
 

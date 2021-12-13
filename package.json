@@ -38,7 +38,8 @@
     "format": "prettier --write src",
     "commit": "cz",
     "release": "standard-version",
-    "cleanPublish": "yarn test && clean-publish"
+    "cleanPublish": "yarn test && clean-publish",
+    "enableGitHooks": "simple-git-hooks"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -87,7 +88,7 @@
     "faker": "^5.5.3",
     "jest": "^27.2.5",
     "jest-canvas-mock": "^2.2.0",
-    "lint-staged": "^12.1.2",
+    "nano-staged": "^0.4.5",
     "prettier": "^2.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

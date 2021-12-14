@@ -49,7 +49,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@size-limit/preset-big-lib": "^6.0.3",
     "@storybook/addon-actions": "^6.3.12",

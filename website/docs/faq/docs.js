@@ -12,4 +12,8 @@ exports.docs = [
     title: 'Why this library has "2" in its name?',
     slug: '/faq/why-two',
   },
+  {
+    title: 'Why is a background fill not working?',
+    slug: '/faq/fill-property',
+  },
 ];

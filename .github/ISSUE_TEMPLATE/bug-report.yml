@@ -1,0 +1,52 @@
+name: "🐛 Bug Report"
+description: "If something isn't working as expected."
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to file a bug report! Please fill out this form as completely as possible.
+
+  - type: checkboxes
+    id: input1
+    attributes:
+      label: "🦄"
+      options:
+        - label: Would you like to work on a fix?
+
+  - type: textarea
+    attributes:
+      label: Current and expected behavior
+      description: A clear and concise description of what the library is doing and what you would expect.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Reproduction
+      description: |
+        Please provide issue reproduction.
+        You can give a link to a repository with the reproduction or make a fork of [this sandbox](https://codesandbox.io/s/github/reactchartjs/react-chartjs-2/tree/master/sandboxes/chart/ref) and reproduce the issue there.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: chart.js version
+      description: Which version of `chart.js` are you using?
+      placeholder: v0.0.0
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: react-chartjs-2 version
+      description: Which version of `react-chartjs-2` are you using?
+      placeholder: v0.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Possible solution
+      description: If you have suggestions on a fix for the bug.

@@ -9933,10 +9933,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
-nano-staged@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/nano-staged/-/nano-staged-0.4.5.tgz#2107f3e189a23d393810eb83271a52f2ea632cce"
-  integrity sha512-XA039XLfYONp/houvY0z6T8T/Z41d8j1dmH9js7NpNnxdajwl0W/o2DRtTh6JB3pfPPbi0qDTeCWPaH5UTD+8Q==
+nano-staged@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/nano-staged/-/nano-staged-0.5.0.tgz#147fd4e176f6baa11bcec706571fcae298b08ad0"
+  integrity sha512-5jkhLvyZM974RmCyI8vt7zo0QK6GIAOCBe6e7L36awXIlG+40/5zJiDvESFrFmO4PhBCRm9lUlnH0SsWAFLDLg==
   dependencies:
     picocolors "^1.0.0"
 

@@ -6,6 +6,10 @@ body:
     attributes:
       value: Thanks for taking the time to suggest a new feature! Please fill out this form as completely as possible.
 
+  - type: markdown
+    attributes:
+      value: ⚠️ react-chartjs-2 is just the wrapper around Chart.js, so if you are experiencing an issue with charts rendering, please create a related issue in [Chart.js repository](https://github.com/chartjs/Chart.js/issues).
+
   - type: checkboxes
     id: input1
     attributes:

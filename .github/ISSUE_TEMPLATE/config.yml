@@ -3,4 +3,7 @@ blank_issues_enabled: false
 contact_links:
   - name: 🤔 Have a Question?
     url: https://stackoverflow.com/questions/tagged/react-chartjs-2
-    about: Feel free to ask questions on Stack Overflow
+    about: Feel free to ask questions on Stack Overflow.
+  - name: 📊 Have a Problem With Chart.js?
+    url: https://github.com/chartjs/Chart.js/issues
+    about: react-chartjs-2 is just the wrapper around Chart.js, so if you are experiencing an issue with charts rendering, please create a related issue in Chart.js repository.

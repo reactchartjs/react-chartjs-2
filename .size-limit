@@ -12,7 +12,7 @@
   },
   {
     "path": "dist/index.modern.js",
-    "limit": "1.5 KB",
+    "limit": "1.6 KB",
     "webpack": false,
     "running": false
   },

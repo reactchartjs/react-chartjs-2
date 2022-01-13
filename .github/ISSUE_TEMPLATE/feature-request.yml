@@ -13,11 +13,9 @@ body:
   - type: checkboxes
     id: input1
     attributes:
-      label: "🦄"
-      description: |
-        Check this if you would like to implement a PR, we are more than happy to help you go through the process
+      label: Would you like to work on this feature?
       options:
-        - label: Would you like to work on this feature?
+        - label: Check this if you would like to implement a PR, we are more than happy to help you go through the process.
 
   - type: textarea
     attributes:

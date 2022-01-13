@@ -3,6 +3,8 @@ slug: /
 description: React components for Chart.js
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import Logo from '@site/static/img/logo.svg';
 
 # react-chartjs-2
@@ -21,15 +23,29 @@ Supports Chart.js v3 (read below) and Chart.js v2 (see [this guide](/docs/chartj
 
 Install this library with peer dependencies:
 
-```bash
-yarn add chart.js react-chartjs-2
-```
+<Tabs>
+  <TabItem value="yarn" default>
 
-or
+  ```bash
+  yarn add chart.js react-chartjs-2
+  ```
 
-```bash
-npm install --save chart.js react-chartjs-2
-```
+  </TabItem>
+  <TabItem value="pnpm">
+
+  ```bash
+  pnpm add chart.js react-chartjs-2
+  ```
+
+  </TabItem>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save chart.js react-chartjs-2
+  ```
+
+  </TabItem>
+</Tabs>
 
 Then, import and use individual components:
 

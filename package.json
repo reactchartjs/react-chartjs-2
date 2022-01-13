@@ -39,7 +39,7 @@
     "commit": "cz",
     "release": "standard-version",
     "cleanPublish": "yarn test && clean-publish",
-    "enableGitHooks": "simple-git-hooks"
+    "updateGitHooks": "simple-git-hooks"
   },
   "dependencies": {},
   "peerDependencies": {

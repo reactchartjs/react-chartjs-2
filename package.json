@@ -84,7 +84,7 @@
     "eslint-plugin-import": "^2.25.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.17.0",
     "faker": "^5.5.3",
     "inquirer": "^8.2.0",

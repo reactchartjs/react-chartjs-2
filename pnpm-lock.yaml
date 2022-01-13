@@ -39,7 +39,7 @@ specifiers:
   eslint-plugin-import: ^2.25.1
   eslint-plugin-node: ^11.0.0
   eslint-plugin-prettier: ^4.0.0
-  eslint-plugin-promise: ^5.1.0
+  eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.17.0
   faker: ^5.5.3
   inquirer: ^8.2.0
@@ -93,12 +93,12 @@ devDependencies:
   del: 6.0.0
   eslint: 7.32.0
   eslint-config-prettier: 8.3.0_eslint@7.32.0
-  eslint-config-standard: 16.0.3_6a48346ff31498e55146b31bc801dc94
+  eslint-config-standard: 16.0.3_d0e80f608141070b904d4b29990a3f4b
   eslint-config-standard-react: 11.0.1_5429c46d75d8c18a8897a831475c306e
   eslint-plugin-import: 2.25.4_eslint@7.32.0
   eslint-plugin-node: 11.1.0_eslint@7.32.0
   eslint-plugin-prettier: 4.0.0_6e6a25a49a944db0fa38418c3ba4bc86
-  eslint-plugin-promise: 5.2.0_eslint@7.32.0
+  eslint-plugin-promise: 6.0.0_eslint@7.32.0
   eslint-plugin-react: 7.28.0_eslint@7.32.0
   faker: 5.5.3
   inquirer: 8.2.0
@@ -7233,7 +7233,7 @@ packages:
       eslint-plugin-react: 7.28.0_eslint@7.32.0
     dev: true
 
-  /eslint-config-standard/16.0.3_6a48346ff31498e55146b31bc801dc94:
+  /eslint-config-standard/16.0.3_d0e80f608141070b904d4b29990a3f4b:
     resolution: {integrity: sha512-x4fmJL5hGqNJKGHSjnLdgA6U6h1YW/G2dW9fA+cyVur4SK6lyue8+UgNKWlZtUDTXvgKDD/Oa3GQjmB5kjtVvg==}
     peerDependencies:
       eslint: ^7.12.1
@@ -7244,7 +7244,7 @@ packages:
       eslint: 7.32.0
       eslint-plugin-import: 2.25.4_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
-      eslint-plugin-promise: 5.2.0_eslint@7.32.0
+      eslint-plugin-promise: 6.0.0_eslint@7.32.0
     dev: true
 
   /eslint-formatter-pretty/4.1.0:
@@ -7341,11 +7341,11 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-promise/5.2.0_eslint@7.32.0:
-    resolution: {integrity: sha512-SftLb1pUG01QYq2A/hGAWfDRXqYD82zE7j7TopDOyNdU+7SvvoXREls/+PRTY17vUXzXnZA/zfnyKgRH6x4JJw==}
-    engines: {node: ^10.12.0 || >=12.0.0}
+  /eslint-plugin-promise/6.0.0_eslint@7.32.0:
+    resolution: {integrity: sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
-      eslint: ^7.0.0
+      eslint: ^7.0.0 || ^8.0.0
     dependencies:
       eslint: 7.32.0
     dev: true

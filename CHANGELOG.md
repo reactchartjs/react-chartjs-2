@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/reactchartjs/react-chartjs-2/compare/v4.0.0...v4.0.1) (2022-01-19)
+
+
+### Bug Fixes
+
+* compatability with react 16 typings ([#987](https://github.com/reactchartjs/react-chartjs-2/issues/987)) ([4a01054](https://github.com/reactchartjs/react-chartjs-2/commit/4a010540ac01b1e4b299705ddd93f412df4875d1)), closes [#870](https://github.com/reactchartjs/react-chartjs-2/issues/870)
+* **deps:** update dependency @svgr/webpack to v6 ([#999](https://github.com/reactchartjs/react-chartjs-2/issues/999)) ([7611ebd](https://github.com/reactchartjs/react-chartjs-2/commit/7611ebdbdbf4e91991b1a15d393fbadf2de01246))
+* **deps:** update dependency react-scripts to v5 ([#1001](https://github.com/reactchartjs/react-chartjs-2/issues/1001)) ([3936227](https://github.com/reactchartjs/react-chartjs-2/commit/3936227b4e6865bbd20419af4a5b0b49561f608c))
+* **deps:** update docusaurus monorepo to v2.0.0-beta.14 ([#994](https://github.com/reactchartjs/react-chartjs-2/issues/994)) ([2a24ee9](https://github.com/reactchartjs/react-chartjs-2/commit/2a24ee92203c703d16c3784eccb0011b5b870802))
+
 ## [4.0.0](https://github.com/reactchartjs/react-chartjs-2/compare/v3.3.0...v4.0.0) (2021-11-22)
 
 

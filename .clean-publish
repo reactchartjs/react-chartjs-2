@@ -1,5 +1,6 @@
 {
   "withoutPublish": true,
   "tempDir": "package",
-  "fields": ["tsd"]
+  "fields": ["tsd"],
+  "files": ["website"]
 }

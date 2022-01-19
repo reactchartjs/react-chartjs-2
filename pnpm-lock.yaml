@@ -2,9 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': ^7.15.8
-  '@commitlint/cli': ^16.0.0
+  '@commitlint/cli': ^16.0.3
   '@commitlint/config-conventional': ^16.0.0
-  '@commitlint/cz-commitlint': ^16.0.0
+  '@commitlint/cz-commitlint': ^16.0.3
   '@rollup/plugin-node-resolve': ^13.0.5
   '@size-limit/preset-big-lib': ^7.0.4
   '@storybook/addon-actions': ^6.3.12
@@ -62,9 +62,9 @@ specifiers:
 
 devDependencies:
   '@babel/core': 7.16.7
-  '@commitlint/cli': 16.0.2_7c5df19f5f7229aa241383981a077ad4
+  '@commitlint/cli': 16.0.3_7c5df19f5f7229aa241383981a077ad4
   '@commitlint/config-conventional': 16.0.0
-  '@commitlint/cz-commitlint': 16.0.0_75aa7a3b666d158ee12a8f9037592676
+  '@commitlint/cz-commitlint': 16.0.3_75aa7a3b666d158ee12a8f9037592676
   '@rollup/plugin-node-resolve': 13.1.3_rollup@2.63.0
   '@size-limit/preset-big-lib': 7.0.5_ccc291585740fdad63785443f5ff1167
   '@storybook/addon-actions': 6.4.12_b3482aaf5744fc7c2aeb7941b0e0a78f
@@ -1579,8 +1579,8 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@commitlint/cli/16.0.2_7c5df19f5f7229aa241383981a077ad4:
-    resolution: {integrity: sha512-Jt7iaBjoLGC5Nq4dHPTvTYnqPGkElFPBtTXTvBpTgatZApczyjI2plE0oG4GYWPp1suHIS/VdVDOMpPZjGVusg==}
+  /@commitlint/cli/16.0.3_7c5df19f5f7229aa241383981a077ad4:
+    resolution: {integrity: sha512-SB1od4/1ek5SShNKjKgUdpqiVNulNVgCkjkV4Zz9zLKrxn3sPcgvXMQNh/wy0/T4WPUVgHrHGcxWYOYXxrGwpg==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
@@ -1614,8 +1614,8 @@ packages:
       ajv: 6.12.6
     dev: true
 
-  /@commitlint/cz-commitlint/16.0.0_75aa7a3b666d158ee12a8f9037592676:
-    resolution: {integrity: sha512-kUYfM4OyXtZubD3wrCbfpkUbFSudHTaHkY4jxt00RofsaKWtKDVrOdhjGqdQzp06KItyRU+1BuNoW/SJ3t+ytQ==}
+  /@commitlint/cz-commitlint/16.0.3_75aa7a3b666d158ee12a8f9037592676:
+    resolution: {integrity: sha512-/jPNTFF3FN97s/l9wZts+2HKbkcUkOp+mTF6nKoo7Rwm3nGBtqCsb6LQ6w2FW4PBEZy53Ndxev4A4T1qUL7mfA==}
     engines: {node: '>= 10'}
     peerDependencies:
       commitizen: ^4.0.3
@@ -5929,6 +5929,23 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /chokidar/3.5.3:
+    resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
+    engines: {node: '>= 8.10.0'}
+    requiresBuild: true
+    dependencies:
+      anymatch: 3.1.2
+      braces: 3.0.2
+      glob-parent: 5.1.2
+      is-binary-path: 2.1.0
+      is-glob: 4.0.3
+      normalize-path: 3.0.0
+      readdirp: 3.6.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+    optional: true
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -14586,7 +14603,7 @@ packages:
       graceful-fs: 4.2.9
       neo-async: 2.6.2
     optionalDependencies:
-      chokidar: 3.5.2
+      chokidar: 3.5.3
       watchpack-chokidar2: 2.0.1
     dev: true
 

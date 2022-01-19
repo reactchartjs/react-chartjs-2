@@ -20,7 +20,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
@@ -43,7 +43,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
@@ -52,3 +52,23 @@ jobs:
       - name: Check typings
         if: success()
         run: pnpm test:typings
+  storybook:
+    runs-on: ubuntu-latest
+    name: Checking storybook
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check storybook
+        run: pnpm build:storybook

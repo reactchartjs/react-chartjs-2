@@ -6,9 +6,26 @@ React components for <a href="https://www.chartjs.org">Chart.js</a>, the most po
 
 Supports Chart.js v3 and v2.
 
-[![version](https://img.shields.io/npm/v/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
-[![downloads](https://img.shields.io/npm/dm/react-chartjs-2.svg)](https://www.npmjs.com/package/react-chartjs-2)
-[![license](https://shields.io/badge/license-MIT-green)](http://opensource.org/licenses/MIT)
+[![NPM version][npm]][npm-url]
+[![Downloads][downloads]][downloads-url]
+[![Build status][build]][build-url]
+[![Coverage status][coverage]][coverage-url]
+[![Bundle size][size]][size-url]
+
+[npm]: https://img.shields.io/npm/v/react-chartjs-2.svg
+[npm-url]: https://www.npmjs.com/package/react-chartjs-2
+
+[downloads]: https://img.shields.io/npm/dm/react-chartjs-2.svg
+[downloads-url]: https://www.npmjs.com/package/react-chartjs-2
+
+[build]: https://img.shields.io/github/workflow/status/reactchartjs/react-chartjs-2/CI.svg
+[build-url]: https://github.com/reactchartjs/react-chartjs-2/actions
+
+[coverage]: https://img.shields.io/codecov/c/github/reactchartjs/react-chartjs-2.svg
+[coverage-url]: https://app.codecov.io/gh/reactchartjs/react-chartjs-2
+
+[size]: https://img.shields.io/bundlephobia/minzip/react-chartjs-2
+[size-url]: https://bundlephobia.com/package/react-chartjs-2
 
 <br />
 <a href="#quickstart">Quickstart</a>

@@ -13,9 +13,13 @@
     "url": "https://github.com/reactchartjs/react-chartjs-2/issues"
   },
   "sideEffects": false,
-  "main": "dist/index.cjs",
-  "module": "dist/index.modern.js",
-  "types": "dist/index.d.ts",
+  "main": "./src/index.tsx",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "directory": "package"
+  },
   "keywords": [
     "chart",
     "chart-js",
@@ -25,10 +29,10 @@
     "react-chart.js"
   ],
   "scripts": {
-    "emitDeclarations": "tsc --skipLibCheck --emitDeclarationOnly",
-    "build": "rollup -c & pnpm emitDeclarations",
     "prepublishOnly": "pnpm test && pnpm build && del ./package && clean-publish",
     "postpublish": "del ./package",
+    "emitDeclarations": "tsc --skipLibCheck --emitDeclarationOnly",
+    "build": "rollup -c & pnpm emitDeclarations",
     "start:storybook": "start-storybook -p 6006 --ci",
     "test:lint": "eslint 'src/**/*.{ts,tsx}' 'stories/**/*.{ts,tsx}' 'sandboxes/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
     "test:unit": "jest -c jest.config.json",
@@ -117,8 +121,5 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "directory": "package"
-  },
   "readme": ""
 }

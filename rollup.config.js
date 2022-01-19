@@ -33,22 +33,22 @@ const plugins = targets => [
 
 export default [
   {
-    input: 'src/index.tsx',
+    input: pkg.main,
     plugins: plugins('defaults, not ie 11, not ie_mob 11'),
     external,
     output: {
-      file: pkg.main,
+      file: pkg.publishConfig.main,
       format: 'cjs',
       exports: 'named',
       sourcemap: true,
     },
   },
   {
-    input: 'src/index.tsx',
+    input: pkg.main,
     plugins: plugins('defaults and supports es6-module'),
     external,
     output: {
-      file: pkg.module,
+      file: pkg.publishConfig.module,
       format: 'es',
       sourcemap: true,
     },

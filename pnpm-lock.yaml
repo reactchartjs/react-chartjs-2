@@ -28,7 +28,7 @@ specifiers:
   browserslist: ^4.17.3
   chart.js: ^3.1.0
   chartjs-adapter-date-fns: ^2.0.0
-  clean-publish: ^3.4.1
+  clean-publish: ^4.0.0
   commitizen: ^4.2.4
   date-fns: ^2.25.0
   del-cli: ^4.0.1
@@ -88,7 +88,7 @@ devDependencies:
   browserslist: 4.19.1
   chart.js: 3.7.0
   chartjs-adapter-date-fns: 2.0.0_chart.js@3.7.0
-  clean-publish: 3.4.5
+  clean-publish: 4.0.0
   commitizen: 4.2.4_7c5df19f5f7229aa241383981a077ad4
   date-fns: 2.28.0
   del-cli: 4.0.1
@@ -6001,16 +6001,14 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /clean-publish/3.4.5:
-    resolution: {integrity: sha512-wxtaEqCy/B7lch+bpTPmx9wI8owTODa619UOVA1XfyNaM2bjwv1SkR1IJNDA6rtf89bjiz6UkpfU5HcEL8YJIw==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >= 16.0.0}
+  /clean-publish/4.0.0:
+    resolution: {integrity: sha512-PcOxJSnPgncx/ANmgPw8hj9DDtdLHTxIc6Vh/yXCX7IA9w1oUSx2POL0Vno/7omhyrKxMKTpnRh2wlzwH5zaCw==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
-      fast-glob: 3.2.10
-      fs-extra: 10.0.0
-      hosted-git-info: 4.1.0
+      fast-glob: 3.2.11
       lilconfig: 2.0.4
+      micromatch: 4.0.4
     dev: true
 
   /clean-stack/2.2.0:
@@ -7914,8 +7912,8 @@ packages:
       micromatch: 3.1.10
     dev: true
 
-  /fast-glob/3.2.10:
-    resolution: {integrity: sha512-s9nFhFnvR63wls6/kM88kQqDhMu0AfdjqouE2l5GVQPbqLgyFjjU5ry/r2yKsJxpb9Py1EYNqieFrmMaX4v++A==}
+  /fast-glob/3.2.11:
+    resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
     engines: {node: '>=8.6.0'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -8622,7 +8620,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.10
+      fast-glob: 3.2.11
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 3.0.0
@@ -8634,7 +8632,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.10
+      fast-glob: 3.2.11
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 3.0.0

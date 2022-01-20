@@ -79,7 +79,7 @@
     "browserslist": "^4.17.3",
     "chart.js": "^3.1.0",
     "chartjs-adapter-date-fns": "^2.0.0",
-    "clean-publish": "^3.4.1",
+    "clean-publish": "^4.0.0",
     "commitizen": "^4.2.4",
     "date-fns": "^2.25.0",
     "del-cli": "^4.0.1",

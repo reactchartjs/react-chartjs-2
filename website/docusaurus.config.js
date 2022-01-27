@@ -10,7 +10,7 @@ const currentBranch = process.env.BRANCH || branch.sync();
 const config = {
   title: 'react-chartjs-2',
   tagline: 'React wrapper for Chart.js',
-  url: 'https://react-chartjs-2.netlify.app',
+  url: 'https://react-chartjs-2.js.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

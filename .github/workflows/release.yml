@@ -1,10 +1,11 @@
-name: Publish Package
+name: Release
 on:
   release:
     types: [created]
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Publish package
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2

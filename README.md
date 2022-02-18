@@ -43,7 +43,11 @@ Supports Chart.js v3 and v2.
 Install this library with peer dependencies:
 
 ```bash
-npm install --save react-chartjs-2 chart.js
+pnpm add react-chartjs-2 chart.js
+# or
+yarn add react-chartjs-2 chart.js
+# or
+npm i react-chartjs-2 chart.js
 ```
 
 We recommend using `chart.js@^3.0.0`.
@@ -58,7 +62,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 Need an API to fetch data? Consider [Cube](https://cube.dev/?ref=eco-react-chartjs), an open-source API for data apps.
 
-# Docs
+## Docs
 
 - [Migration to v4](https://react-chartjs-2.js.org/docs/migration-to-v4)
 - [Working with datasets](https://react-chartjs-2.js.org/docs/working-with-datasets)

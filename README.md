@@ -62,6 +62,10 @@ import { Doughnut } from 'react-chartjs-2';
 
 Need an API to fetch data? Consider [Cube](https://cube.dev/?ref=eco-react-chartjs), an open-source API for data apps.
 
+<br />
+
+[![supported by Cube](https://user-images.githubusercontent.com/986756/154330861-d79ab8ec-aacb-4af8-9e17-1b28f1eccb01.svg)](https://cube.dev/?ref=eco-react-chartjs)
+
 ## Docs
 
 - [Migration to v4](https://react-chartjs-2.js.org/docs/migration-to-v4)

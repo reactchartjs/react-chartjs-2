@@ -50,27 +50,30 @@ export function setDatasets<
 ) {
   const addedDatasets: ChartDataset<TType, TData>[] = [];
 
-  currentData.datasets = nextDatasets.map(nextDataset => {
-    // given the new set, find it's current match
-    const currentDataset = currentData.datasets.find(
-      dataset => dataset[datasetIdKey] === nextDataset[datasetIdKey]
-    );
+  currentData.datasets = nextDatasets.map(
+    (nextDataset: Record<string, unknown>) => {
+      // given the new set, find it's current match
+      const currentDataset = currentData.datasets.find(
+        (dataset: Record<string, unknown>) =>
+          dataset[datasetIdKey] === nextDataset[datasetIdKey]
+      );
 
-    // There is no original to update, so simply add new one
-    if (
-      !currentDataset ||
-      !nextDataset.data ||
-      addedDatasets.includes(currentDataset)
-    ) {
-      return { ...nextDataset };
+      // There is no original to update, so simply add new one
+      if (
+        !currentDataset ||
+        !nextDataset.data ||
+        addedDatasets.includes(currentDataset)
+      ) {
+        return { ...nextDataset } as ChartDataset<TType, TData>;
+      }
+
+      addedDatasets.push(currentDataset);
+
+      Object.assign(currentDataset, nextDataset);
+
+      return currentDataset;
     }
-
-    addedDatasets.push(currentDataset);
-
-    Object.assign(currentDataset, nextDataset);
-
-    return currentDataset;
-  });
+  );
 }
 
 export function cloneData<

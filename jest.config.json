@@ -1,26 +1,23 @@
 {
-	"testEnvironment": "jsdom",
-	"testRegex": "test/.*\\.test\\.(jsx?|tsx?)$",
+  "testEnvironment": "jsdom",
+  "testRegex": "test/.*\\.test\\.(jsx?|tsx?)$",
   "setupFilesAfterEnv": ["<rootDir>/test/setup.js"],
-	"transform": {
-		"^.+\\.(t|j)sx?$": ["@swc/jest", {
-			"module": {
-				"type": "commonjs"
-			},
+  "transform": {
+    "^.+\\.(t|j)sx?$": ["@swc/jest", {
       "env": {
         "targets": {
           "node": 12
         }
       }
-		}]
-	},
-	"collectCoverage": true,
-	"collectCoverageFrom": [
-		"src/**/*.{js,jsx,ts,tsx}",
-		"!**/node_modules/**"
-	],
-	"coverageReporters": [
-		"lcovonly",
-		"text"
-	]
+    }]
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!**/node_modules/**"
+  ],
+  "coverageReporters": [
+    "lcovonly",
+    "text"
+  ]
 }

@@ -2,9 +2,9 @@ name: Commit
 on:
   push:
 jobs:
-  conventional-commit:
+  commitlint:
     runs-on: ubuntu-latest
-    name: Checking commit name
+    name: commitlint
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2

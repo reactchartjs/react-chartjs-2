@@ -2,4 +2,4 @@
   NPM_FLAGS = "--version" # prevent Netlify npm install
 [build]
   publish = "website/build"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm add -D ./website --store=node_modules/.pnpm-store && cd website && npx pnpm build"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && cd website && npx pnpm i --store=node_modules/.pnpm-store && npx pnpm build"

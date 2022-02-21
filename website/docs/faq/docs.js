@@ -16,4 +16,12 @@ exports.docs = [
     title: 'Why is a background fill not working?',
     slug: '/faq/fill-property',
   },
+  {
+    title: 'How to fix "... is not a registered element" error?',
+    slug: '/faq/registered-element',
+  },
+  {
+    title: 'How to fix "... is not a registered scale" error?',
+    slug: '/faq/registered-scale',
+  },
 ];

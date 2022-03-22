@@ -40,7 +40,7 @@ export interface ChartProps<
    */
   plugins?: Plugin<TType>[];
   /**
-   * Teardown and redraw chart on everu update
+   * Teardown and redraw chart on every update
    * @default false
    */
   redraw?: boolean;

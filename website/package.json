@@ -26,9 +26,9 @@
     "file-loader": "^6.2.0",
     "git-branch": "^2.0.1",
     "prism-react-renderer": "^1.2.1",
-    "react": "^17.0.1",
+    "react": "^18.0.0",
     "react-docgen-typescript": "^2.1.1",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.0.0",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

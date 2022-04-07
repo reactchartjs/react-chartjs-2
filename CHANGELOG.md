@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.0.1...v4.1.0) (2022-04-07)
+
+
+### Features
+
+* react 18 support ([#1034](https://github.com/reactchartjs/react-chartjs-2/issues/1034)) ([058035a](https://github.com/reactchartjs/react-chartjs-2/commit/058035a3e2da17ad9ee0c9f50793da3aaefb3913))
+
 ### [4.0.1](https://github.com/reactchartjs/react-chartjs-2/compare/v4.0.0...v4.0.1) (2022-01-19)
 
 

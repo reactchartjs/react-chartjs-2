@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "chart.js": "^3.5.0",
-    "react": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -73,7 +73,6 @@
     "@testing-library/react": "^12.1.2",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
-    "@types/lodash": "^4.14.150",
     "@types/node": "^17.0.8",
     "@types/react": "^17.0.28",
     "@types/react-dom": "^17.0.10",

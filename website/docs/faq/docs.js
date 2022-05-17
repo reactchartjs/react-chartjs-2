@@ -25,7 +25,7 @@ exports.docs = [
     slug: '/faq/registered-scale',
   },
   {
-    title: 'How to use react-chartjs-2 with Typescript?',
+    title: 'How to use react-chartjs-2 with TypeScript?',
     slug: '/faq/typescript',
   },
 ];

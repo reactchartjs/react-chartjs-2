@@ -2,9 +2,9 @@
 slug: /faq/typescript
 ---
 
-# How to use react-chartjs-2 with Typescript?
+# How to use react-chartjs-2 with TypeScript?
 
-`Typescript` has extremely robust type inference capabilities and most of the time
+`TypeScript` has extremely robust type inference capabilities and most of the time
 we can enjoy type safety and autocompletion without having to do any extra work.
 
 But occasionally types need to be set explicitly. They can be imported from `Chart.js`:
@@ -13,7 +13,7 @@ But occasionally types need to be set explicitly. They can be imported from `Cha
 import type { ChartData, ChartOptions } from 'chart.js';
 ```
 
-and then used with `options` and `data` props.
+...and then used with `options` and `data` props:
 
 ```typescript
 interface LineProps {
@@ -22,5 +22,5 @@ interface LineProps {
 }
 ```
 
-The generic being passed is a `ChartType` that can be one of the following values:
+The generic type being passed is a `ChartType` that can be one of the following values:
 `bar`, `line`, `scatter`, `bubble`, `pie`, `doughnut`, `polarArea` or `radar`.

@@ -23,4 +23,4 @@ interface LineProps {
 ```
 
 The generic type being passed is a `ChartType` that can be one of the following values:
-`bar`, `line`, `scatter`, `bubble`, `pie`, `doughnut`, `polarArea` or `radar`.
+`'bar'`, `'line'`, `'scatter'`, `'bubble'`, `'pie'`, `'doughnut'`, `'polarArea'` or `'radar'`.

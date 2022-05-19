@@ -24,4 +24,8 @@ exports.docs = [
     title: 'How to fix "... is not a registered scale" error?',
     slug: '/faq/registered-scale',
   },
+  {
+    title: 'How to use react-chartjs-2 with TypeScript?',
+    slug: '/faq/typescript',
+  },
 ];

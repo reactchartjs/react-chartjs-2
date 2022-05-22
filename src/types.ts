@@ -6,6 +6,7 @@ import type {
   ChartOptions,
   DefaultDataPoint,
   Plugin,
+  UpdateMode,
 } from 'chart.js';
 
 export type ForwardedRef<T> =
@@ -56,6 +57,11 @@ export interface ChartProps<
    * @todo Replace with `children` prop.
    */
   fallbackContent?: ReactNode;
+  /**
+   * A mode string to indicate transition configuration should be used.
+   * @see https://www.chartjs.org/docs/latest/developers/api.html#update-mode
+   */
+  updateMode?: UpdateMode;
 }
 
 /**

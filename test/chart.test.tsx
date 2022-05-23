@@ -386,4 +386,34 @@ describe('<Chart />', () => {
     expect(prevDataset1).toBe(nextDataset1);
     expect(prevDataset2).toBe(nextDataset2);
   });
+
+  it('should pass updateMode prop to update method', () => {
+    const newData = {
+      labels: ['purple', 'pink'],
+      datasets: [{ label: 'new-colors', data: [1, 10] }],
+    };
+
+    const { rerender } = render(
+      <Chart
+        data={data}
+        options={options}
+        type='bar'
+        updateMode='active'
+        ref={ref}
+      />
+    );
+
+    rerender(
+      <Chart
+        data={newData}
+        options={options}
+        type='bar'
+        updateMode='active'
+        ref={ref}
+      />
+    );
+
+    expect(update).toHaveBeenCalledTimes(1);
+    expect(update).toBeCalledWith('active');
+  });
 });

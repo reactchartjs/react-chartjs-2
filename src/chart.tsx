@@ -85,7 +85,7 @@ function ChartComponent<
     } else {
       chartRef.current.update(updateMode);
     }
-  }, [redraw, options, data.labels, data.datasets]);
+  }, [redraw, options, data.labels, data.datasets, updateMode]);
 
   useEffect(() => {
     renderChart();

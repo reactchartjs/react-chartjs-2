@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.1.0...v4.2.0) (2022-06-07)
+
+
+### Features
+
+* implement passing updateMode property to chart's update method ([#1043](https://github.com/reactchartjs/react-chartjs-2/issues/1043)) ([96d2714](https://github.com/reactchartjs/react-chartjs-2/commit/96d2714c3df88346152a1b66b8fe729d43151e40))
+
 ## [4.1.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.0.1...v4.1.0) (2022-04-07)
 
 

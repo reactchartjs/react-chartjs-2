@@ -3,6 +3,7 @@ exports.docs = [
   { title: 'Horizontal Bar Chart', slug: '/examples/horizontal-bar-chart' },
   { title: 'Stacked Bar Chart', slug: '/examples/stacked-bar-chart' },
   { title: 'Grouped Bar Chart', slug: '/examples/grouped-bar-chart' },
+  { title: 'Area Chart', slug: '/examples/area-chart' },
   { title: 'Line Chart', slug: '/examples/line-chart' },
   { title: 'Multiaxis Line Chart', slug: '/examples/multiaxis-line-chart' },
   { title: 'Pie Chart', slug: '/examples/pie-chart' },

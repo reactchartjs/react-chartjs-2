@@ -88,6 +88,13 @@ function ChartComponent<
   }, [redraw, options, data.labels, data.datasets, updateMode]);
 
   useEffect(() => {
+    if (!chartRef.current) return;
+
+    destroyChart();
+    setTimeout(renderChart);
+  }, [type]);
+
+  useEffect(() => {
     renderChart();
 
     return () => destroyChart();

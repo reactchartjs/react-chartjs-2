@@ -108,6 +108,20 @@ describe('<Chart />', () => {
     expect(chart.id).toEqual(id);
   });
 
+  it('should properly update with a new chart type', () => {
+    const newType = 'line';
+
+    const { rerender } = render(
+      <Chart data={data} options={options} type='bar' ref={ref} />
+    );
+
+    const originalChartDestroy = Object.assign({}, destroy);
+
+    rerender(<Chart data={data} options={options} type={newType} ref={ref} />);
+
+    expect(originalChartDestroy).toHaveBeenCalled();
+  });
+
   it('should properly maintain order with new data', () => {
     const oldData = {
       labels: ['red', 'blue'],

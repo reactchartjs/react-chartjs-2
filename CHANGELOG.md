@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.2.0...v4.3.0) (2022-07-12)
+
+
+### Features
+
+* assure redraw occurs when type changes ([#1054](https://github.com/reactchartjs/react-chartjs-2/issues/1054)) ([#1055](https://github.com/reactchartjs/react-chartjs-2/issues/1055)) ([bf0538f](https://github.com/reactchartjs/react-chartjs-2/commit/bf0538fd953ee878659d0b5647676fbfda460c76))
+
 ## [4.2.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.1.0...v4.2.0) (2022-06-07)
 
 

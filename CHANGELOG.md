@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.1](https://github.com/reactchartjs/react-chartjs-2/compare/v4.3.0...v4.3.1) (2022-07-13)
+
+
+### Bug Fixes
+
+* update options without resetting chart ([#1061](https://github.com/reactchartjs/react-chartjs-2/issues/1061)) ([fa0a4bb](https://github.com/reactchartjs/react-chartjs-2/commit/fa0a4bbdb3d85735db289494c4bdf1da083a51da))
+
 ## [4.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.2.0...v4.3.0) (2022-07-12)
 
 

@@ -42,7 +42,7 @@ function ChartComponent<
     chartRef.current = new ChartJS(canvasRef.current, {
       type,
       data: cloneData(data, datasetIdKey),
-      options,
+      options: options && { ...options },
       plugins,
     });
 

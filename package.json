@@ -81,6 +81,8 @@
     "browserslist": "^4.17.3",
     "chart.js": "^3.1.0",
     "chartjs-adapter-date-fns": "^2.0.0",
+    "chartjs-plugin-annotation": "^1.4.0",
+    "chartjs-plugin-zoom": "^1.2.1",
     "clean-publish": "^4.0.0",
     "commitizen": "^4.2.4",
     "date-fns": "^2.25.0",

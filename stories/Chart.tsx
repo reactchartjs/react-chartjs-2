@@ -4,10 +4,14 @@ import React, {
   useState,
   useEffect,
   useReducer,
+  useMemo,
 } from 'react';
 import 'chart.js/auto';
-import type { Chart as ChartJS, InteractionItem } from 'chart.js';
+import type { InteractionItem } from 'chart.js';
+import { Chart as ChartJS } from 'chart.js';
 import 'chartjs-adapter-date-fns';
+import annotationPlugin from 'chartjs-plugin-annotation';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import {
   Chart,
   getDatasetAtEvent,
@@ -17,6 +21,8 @@ import {
 import * as multitypeChart from '../sandboxes/chart/multitype/App';
 import * as eventsChart from '../sandboxes/chart/events/App';
 import * as data from './Chart.data';
+
+ChartJS.register(annotationPlugin, zoomPlugin);
 
 export default {
   title: 'Components/Chart',
@@ -155,4 +161,49 @@ export const Decimation = args => {
 Decimation.args = {
   type: 'line',
   options: data.decimationOptions,
+};
+
+export const DynamicOptions = args => {
+  const [yMax, setYMax] = useState(100);
+  const options = useMemo(
+    () => ({
+      plugins: {
+        annotation: {
+          annotations: {
+            box1: {
+              type: 'box',
+              xMin: 1,
+              xMax: 2,
+              yMin: 50,
+              yMax: yMax,
+              backgroundColor: 'rgba(255, 99, 132, 0.25)',
+            },
+          },
+        },
+        zoom: {
+          zoom: {
+            wheel: {
+              enabled: true,
+            },
+            pinch: {
+              enabled: true,
+            },
+            mode: 'xy',
+          },
+        },
+      },
+    }),
+    [yMax]
+  );
+
+  return (
+    <>
+      <button onClick={() => setYMax(y => y + 10)}>Update options</button>
+      <Chart {...args} options={options} />
+    </>
+  );
+};
+
+DynamicOptions.args = {
+  data: multitypeChart.data,
 };

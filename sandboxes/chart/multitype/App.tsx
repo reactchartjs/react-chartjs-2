@@ -8,6 +8,8 @@ import {
   LineElement,
   Legend,
   Tooltip,
+  LineController,
+  BarController,
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
@@ -19,7 +21,9 @@ ChartJS.register(
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
+  LineController,
+  BarController
 );
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

@@ -38,3 +38,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
     margin: 0 auto;
   }
 }
+
+.container{
+  max-width: 100vw;
+}

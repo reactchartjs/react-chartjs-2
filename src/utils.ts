@@ -25,7 +25,11 @@ export function setOptions<
   TData = DefaultDataPoint<TType>,
   TLabel = unknown
 >(chart: Chart<TType, TData, TLabel>, nextOptions: ChartOptions<TType>) {
-  Object.assign(chart.options, nextOptions);
+  const options = chart.options;
+
+  if (options && nextOptions) {
+    Object.assign(options, nextOptions);
+  }
 }
 
 export function setLabels<

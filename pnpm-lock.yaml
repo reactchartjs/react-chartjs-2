@@ -58,7 +58,7 @@ specifiers:
   simple-github-release: ^1.0.0
   size-limit: ^7.0.4
   standard-version: ^9.3.1
-  tsd: ^0.19.0
+  tsd: ^0.24.0
   typescript: ^4.4.3
   webpack: ^5.58.2
 
@@ -120,7 +120,7 @@ devDependencies:
   simple-github-release: 1.0.0
   size-limit: 7.0.5
   standard-version: 9.3.2
-  tsd: 0.19.1
+  tsd: 0.24.1
   typescript: 4.5.4
   webpack: 5.66.0_@swc+core@1.2.129
 
@@ -4137,9 +4137,8 @@ packages:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
     dev: true
 
-  /@tsd/typescript/4.5.4:
-    resolution: {integrity: sha512-iDlLkdg3sCjUSNdoUCsYM/SXheHrdxHsR6msIkbFDW4pV6gHTMwg/8te/paLtywDjGL4S4ByDdUKA3RbfdBX0g==}
-    hasBin: true
+  /@tsd/typescript/4.8.4:
+    resolution: {integrity: sha512-WMFNVstwWGyDuZP2LGPRZ+kPHxZLmhO+2ormstDvnXiyoBPtW1qq9XhhrkI4NVtxgs+2ZiUTl9AG7nNIRq/uCg==}
     dev: true
 
   /@types/aria-query/4.2.2:
@@ -4196,14 +4195,14 @@ packages:
     resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
     dependencies:
       '@types/estree': 0.0.50
-      '@types/json-schema': 7.0.9
+      '@types/json-schema': 7.0.11
     dev: true
 
   /@types/eslint/8.2.2:
     resolution: {integrity: sha512-nQxgB8/Sg+QKhnV8e0WzPpxjIGT3tuJDDzybkDi8ItE/IgTlHo07U0shaIjzhcvQxlq9SDRE42lsJ23uvEgJ2A==}
     dependencies:
       '@types/estree': 0.0.50
-      '@types/json-schema': 7.0.9
+      '@types/json-schema': 7.0.11
     dev: true
 
   /@types/estree/0.0.39:
@@ -4281,10 +4280,6 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
-    dev: true
-
-  /@types/json-schema/7.0.9:
-    resolution: {integrity: sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==}
     dev: true
 
   /@types/json5/0.0.29:
@@ -7027,7 +7022,7 @@ packages:
     dev: true
 
   /decamelize/1.2.0:
-    resolution: {integrity: sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=}
+    resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -13324,7 +13319,7 @@ packages:
     resolution: {integrity: sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/json-schema': 7.0.9
+      '@types/json-schema': 7.0.11
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
@@ -14422,12 +14417,12 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
-  /tsd/0.19.1:
-    resolution: {integrity: sha512-pSwchclr+ADdxlahRUQXUrdAIOjXx1T1PQV+fLfVLuo/S4z+T00YU84fH8iPlZxyA2pWgJjo42BG1p9SDb4NOw==}
-    engines: {node: '>=12'}
+  /tsd/0.24.1:
+    resolution: {integrity: sha512-sD+s81/2aM4RRhimCDttd4xpBNbUFWnoMSHk/o8kC8Ek23jljeRNWjsxFJmOmYLuLTN9swRt1b6iXfUXTcTiIA==}
+    engines: {node: '>=14.16'}
     hasBin: true
     dependencies:
-      '@tsd/typescript': 4.5.4
+      '@tsd/typescript': 4.8.4
       eslint-formatter-pretty: 4.1.0
       globby: 11.1.0
       meow: 9.0.0

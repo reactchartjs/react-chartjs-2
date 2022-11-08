@@ -92,6 +92,6 @@ jobs:
       - name: Install website dependencies
         run: pnpm install
         working-directory: ./website
-      - name: Build website
+      - name: Check website
         run: pnpm build
         working-directory: ./website

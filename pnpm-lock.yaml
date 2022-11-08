@@ -13,7 +13,7 @@ specifiers:
   '@storybook/addons': ^6.3.12
   '@storybook/react': ^6.3.12
   '@swc/core': ^1.2.95
-  '@swc/helpers': ^0.3.2
+  '@swc/helpers': ^0.4.0
   '@swc/jest': ^0.2.4
   '@testing-library/jest-dom': ^5.5.0
   '@testing-library/react': ^12.1.2
@@ -75,7 +75,7 @@ devDependencies:
   '@storybook/addons': 6.4.20_sfoxds7t5ydpegc3knd667wn6m
   '@storybook/react': 6.4.20_xcv6z2dpyhqyixzwohxiv3wni4
   '@swc/core': 1.2.129
-  '@swc/helpers': 0.3.2
+  '@swc/helpers': 0.4.12
   '@swc/jest': 0.2.17_@swc+core@1.2.129
   '@testing-library/jest-dom': 5.16.4
   '@testing-library/react': 12.1.4_sfoxds7t5ydpegc3knd667wn6m
@@ -3774,7 +3774,7 @@ packages:
       flat-cache: 3.0.4
       micromatch: 4.0.5
       react-docgen-typescript: 2.2.2_typescript@4.5.4
-      tslib: 2.3.1
+      tslib: 2.4.1
       typescript: 4.5.4
       webpack: 4.46.0
     transitivePeerDependencies:
@@ -4120,8 +4120,10 @@ packages:
       '@swc/core-win32-x64-msvc': 1.2.129
     dev: true
 
-  /@swc/helpers/0.3.2:
-    resolution: {integrity: sha512-qEru2uaH1vKZNCZR4rFCUZaflsBP7IWiGcIoQe22qi5tm+HEG/yPdhSba+ZCNTWk2xyYpx/nEFkncDY3orEx3w==}
+  /@swc/helpers/0.4.12:
+    resolution: {integrity: sha512-R6RmwS9Dld5lNvwKlPn62+piU+WDG1sMfsnfJioXCciyko/gZ0DQ4Mqglhq1iGU1nQ/RcGkAwfMH+elMSkJH3Q==}
+    dependencies:
+      tslib: 2.4.1
     dev: true
 
   /@swc/jest/0.2.17_@swc+core@1.2.129:
@@ -5328,7 +5330,7 @@ packages:
     resolution: {integrity: sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /astral-regex/2.0.0:
@@ -5985,7 +5987,7 @@ packages:
     resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /camelcase-css/2.0.1:
@@ -7373,7 +7375,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /dot-prop/5.3.0:
@@ -7410,7 +7412,7 @@ packages:
       prop-types: 15.8.1
       react: 17.0.2
       react-is: 17.0.2
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /duplexify/3.7.1:
@@ -10885,7 +10887,7 @@ packages:
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /lowlight/1.20.0:
@@ -11481,7 +11483,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /node-dir/0.1.17:
@@ -11962,7 +11964,7 @@ packages:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /parent-module/1.0.1:
@@ -12047,7 +12049,7 @@ packages:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /pascalcase/0.1.1:
@@ -13297,7 +13299,7 @@ packages:
   /rxjs/7.5.2:
     resolution: {integrity: sha512-PwDt186XaL3QN5qXj/H9DGyHhP3/RYYgZZwqBv9Tv8rsAaiwFH1IsJJlcgD37J7UW5a6O67qX0KWKS3/pu0m4w==}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.1
     dev: true
 
   /safe-buffer/5.1.1:
@@ -14528,8 +14530,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib/2.3.1:
-    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+  /tslib/2.4.1:
+    resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
     dev: true
 
   /tsutils/3.21.0_typescript@4.5.4:

@@ -56,9 +56,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@commitlint/cli": "^16.0.3",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@commitlint/cz-commitlint": "^16.0.3",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cz-commitlint": "^17.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@size-limit/preset-big-lib": "^7.0.4",
     "@storybook/addon-actions": "^6.3.12",

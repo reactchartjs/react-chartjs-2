@@ -67,7 +67,7 @@
     "@storybook/addons": "^6.3.12",
     "@storybook/react": "^6.3.12",
     "@swc/core": "^1.2.95",
-    "@swc/helpers": "^0.3.2",
+    "@swc/helpers": "^0.4.0",
     "@swc/jest": "^0.2.4",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^12.1.2",

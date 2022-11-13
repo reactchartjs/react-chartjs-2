@@ -13,7 +13,7 @@ As you can see in [migration to v4 guide](/docs/migration-to-v4#tree-shaking):
 So you should register missed components. For example, if you have `Uncaught Error: "category" is not a registered scale.` error, you should register `CategoryScale`:
 
 ```js
-import { CategoryScale } from "chart.js";
+import { CategoryScale, Chart } from "chart.js";
 
-ChartJS.register(CategoryScale);
+Chart.register(CategoryScale);
 ```

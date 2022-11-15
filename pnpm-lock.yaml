@@ -50,7 +50,7 @@ specifiers:
   react: ^18.0.0
   react-dom: ^18.0.0
   react-test-renderer: ^18.0.0
-  rollup: ^2.58.0
+  rollup: ^3.0.0
   rollup-plugin-swc: ^0.2.0
   simple-git-hooks: ^2.6.1
   simple-github-release: ^1.0.0
@@ -68,7 +68,7 @@ devDependencies:
   '@commitlint/cli': 17.2.0_@swc+core@1.2.129
   '@commitlint/config-conventional': 17.2.0
   '@commitlint/cz-commitlint': 17.2.0_2w5737yq37ycwaspyqwvkpwnqq
-  '@rollup/plugin-node-resolve': 13.1.3_rollup@2.63.0
+  '@rollup/plugin-node-resolve': 13.1.3_rollup@3.3.0
   '@size-limit/preset-big-lib': 8.1.0_7chfrav3nso7pvl63wxy7g6xke
   '@storybook/addon-actions': 6.4.20_lbxwco5hoik6kks3ktye6h3qpq
   '@storybook/addon-controls': 6.4.20_lbjcmoh3prz7flmiwe6pozyvxa
@@ -113,8 +113,8 @@ devDependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-test-renderer: 18.2.0_react@18.2.0
-  rollup: 2.63.0
-  rollup-plugin-swc: 0.2.0_t7fcifwbdkkfepwpb4i3s7xd3q
+  rollup: 3.3.0
+  rollup-plugin-swc: 0.2.0_s4irr7xoe37f7hggxlgklg4qo4
   simple-git-hooks: 2.7.0
   simple-github-release: 1.0.0
   size-limit: 8.1.0
@@ -3558,22 +3558,22 @@ packages:
     resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
     dev: true
 
-  /@rollup/plugin-node-resolve/13.1.3_rollup@2.63.0:
+  /@rollup/plugin-node-resolve/13.1.3_rollup@3.3.0:
     resolution: {integrity: sha512-BdxNk+LtmElRo5d06MGY4zoepyrXX1tkzX2hrnPEZ53k78GuOMWLqmJDGIIOPwVRIFZrLQOo+Yr6KtCuLIA0AQ==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.63.0
+      '@rollup/pluginutils': 3.1.0_rollup@3.3.0
       '@types/resolve': 1.17.1
       builtin-modules: 3.2.0
       deepmerge: 4.2.2
       is-module: 1.0.0
       resolve: 1.21.0
-      rollup: 2.63.0
+      rollup: 3.3.0
     dev: true
 
-  /@rollup/pluginutils/3.1.0_rollup@2.63.0:
+  /@rollup/pluginutils/3.1.0_rollup@3.3.0:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
@@ -3582,7 +3582,7 @@ packages:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.3.1
-      rollup: 2.63.0
+      rollup: 3.3.0
     dev: true
 
   /@sitespeed.io/tracium/0.3.3:
@@ -13667,27 +13667,27 @@ packages:
       inherits: 2.0.4
     dev: true
 
-  /rollup-plugin-swc/0.2.0_t7fcifwbdkkfepwpb4i3s7xd3q:
+  /rollup-plugin-swc/0.2.0_s4irr7xoe37f7hggxlgklg4qo4:
     resolution: {integrity: sha512-caZSD80g4RwVxkiaeAp/TYvWGzWjzVKvJKBTSKitcKE95MQrnKm8qICLMwCOdvs4XMgc0RgcsCmVkckl8oMDCg==}
     peerDependencies:
       '@swc/core': '>=1.0'
       rollup: '>=1.5.0'
     dependencies:
       '@swc/core': 1.2.129
-      rollup: 2.63.0
+      rollup: 3.3.0
     dev: true
 
-  /rollup/2.63.0:
-    resolution: {integrity: sha512-nps0idjmD+NXl6OREfyYXMn/dar3WGcyKn+KBzPdaLecub3x/LrId0wUcthcr8oZUAcZAR8NKcfGGFlNgGL1kQ==}
+  /rollup/2.79.1:
+    resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /rollup/2.79.1:
-    resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
-    engines: {node: '>=10.0.0'}
+  /rollup/3.3.0:
+    resolution: {integrity: sha512-wqOV/vUJCYEbWsXvwCkgGWvgaEnsbn4jxBQWKpN816CqsmCimDmCNJI83c6if7QVD4v/zlyRzxN7U2yDT5rfoA==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2

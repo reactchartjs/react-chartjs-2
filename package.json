@@ -70,7 +70,7 @@
     "@swc/helpers": "^0.4.0",
     "@swc/jest": "^0.2.4",
     "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^13.0.0",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
     "@types/node": "^18.0.0",

@@ -16,7 +16,7 @@ specifiers:
   '@swc/helpers': ^0.4.0
   '@swc/jest': ^0.2.4
   '@testing-library/jest-dom': ^5.5.0
-  '@testing-library/react': ^12.1.2
+  '@testing-library/react': ^13.0.0
   '@types/faker': ^5.5.8
   '@types/jest': ^27.0.2
   '@types/node': ^18.0.0
@@ -78,7 +78,7 @@ devDependencies:
   '@swc/helpers': 0.4.12
   '@swc/jest': 0.2.17_@swc+core@1.2.129
   '@testing-library/jest-dom': 5.16.4
-  '@testing-library/react': 12.1.4_biqbaboplfbrettd7655fr4n2y
+  '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@types/faker': 5.5.9
   '@types/jest': 27.4.0
   '@types/node': 18.11.9
@@ -4102,12 +4102,12 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react/12.1.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==}
+  /@testing-library/react/13.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: ^18.0.0
+      react-dom: ^18.0.0
     dependencies:
       '@babel/runtime': 7.17.9
       '@testing-library/dom': 8.13.0
@@ -10861,7 +10861,7 @@ packages:
     dev: true
 
   /lz-string/1.4.4:
-    resolution: {integrity: sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=}
+    resolution: {integrity: sha512-0ckx7ZHRPqb0oUm8zNr+90mtf9DQB60H1wMCjBtfi62Kl3a7JbHob6gA2bC+xRvZoOL+1hzUK8jeuEIQE8svEQ==}
     hasBin: true
     dev: true
 

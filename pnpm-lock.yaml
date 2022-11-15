@@ -21,7 +21,7 @@ specifiers:
   '@types/jest': ^27.0.2
   '@types/node': ^18.0.0
   '@types/react': ^17.0.28
-  '@types/react-dom': ^17.0.10
+  '@types/react-dom': ^18.0.0
   '@types/testing-library__jest-dom': ^5.14.5
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
@@ -83,7 +83,7 @@ devDependencies:
   '@types/jest': 27.4.0
   '@types/node': 18.11.9
   '@types/react': 17.0.44
-  '@types/react-dom': 17.0.15
+  '@types/react-dom': 18.0.0
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.18.0_2lru6i73cebyh5biz3rawgnvou
   '@typescript-eslint/parser': 5.18.0_ek2rpc4knwwiwkb7dlup4o3xyy
@@ -4349,12 +4349,6 @@ packages:
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
-    dev: true
-
-  /@types/react-dom/17.0.15:
-    resolution: {integrity: sha512-Tr9VU9DvNoHDWlmecmcsE5ZZiUkYx+nKBzum4Oxe1K0yJVyBlfbq7H3eXjxXqJczBKqPGq3EgfTru4MgKb9+Yw==}
-    dependencies:
-      '@types/react': 17.0.44
     dev: true
 
   /@types/react-dom/18.0.0:

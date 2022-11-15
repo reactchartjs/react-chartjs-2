@@ -98,7 +98,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.17.0",
     "faker": "^5.5.3",
-    "inquirer": "^8.2.0",
+    "inquirer": "^9.0.0",
     "jest": "^27.2.5",
     "jest-canvas-mock": "^2.2.0",
     "nano-staged": "^0.8.0",

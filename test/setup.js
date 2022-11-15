@@ -1,5 +1,9 @@
-import '@testing-library/jest-dom/extend-expect';
-import 'jest-canvas-mock';
+/* eslint-disable */
+import matchers from '@testing-library/jest-dom/matchers';
+import { expect } from 'vitest';
+import 'vitest-canvas-mock';
+
+expect.extend(matchers);
 
 class ResizeObserver {
   observe() {}

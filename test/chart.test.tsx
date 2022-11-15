@@ -1,3 +1,4 @@
+import { vi, beforeEach, afterEach, describe, it, expect } from 'vitest';
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'chart.js/auto';
@@ -19,8 +20,8 @@ describe('<Chart />', () => {
     chart = el;
 
     if (chart) {
-      update = jest.spyOn(chart, 'update');
-      destroy = jest.spyOn(chart, 'destroy');
+      update = vi.spyOn(chart, 'update');
+      destroy = vi.spyOn(chart, 'destroy');
     }
   };
 
@@ -115,7 +116,7 @@ describe('<Chart />', () => {
       <Chart data={data} options={options} type='bar' ref={ref} />
     );
 
-    const originalChartDestroy = Object.assign({}, destroy);
+    const originalChartDestroy = destroy;
 
     rerender(<Chart data={data} options={options} type={newType} ref={ref} />);
 
@@ -251,7 +252,7 @@ describe('<Chart />', () => {
     );
 
     // const id = chart.id;
-    const originalChartDestroy = Object.assign({}, destroy);
+    const originalChartDestroy = destroy;
 
     rerender(
       <Chart data={newData} options={options} type='bar' ref={ref} redraw />
@@ -289,7 +290,7 @@ describe('<Chart />', () => {
   });
 
   it('should call onClick', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
 
     const { getByTestId } = render(
       <Chart

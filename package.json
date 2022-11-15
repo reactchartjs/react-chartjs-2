@@ -39,7 +39,8 @@
     "start:storybook": "start-storybook -p 6006 --ci",
     "build:storybook": "del ./storybook-static; NODE_ENV=production build-storybook",
     "test:lint": "eslint \"src/**/*.{ts,tsx}\" \"stories/**/*.{ts,tsx}\" \"sandboxes/**/*.{ts,tsx}\" \"test/**/*.{ts,tsx}\"",
-    "test:unit": "jest -c jest.config.json",
+    "test:unit": "vitest run --coverage",
+    "test:unit:watch": "vitest watch",
     "test:size": "size-limit",
     "test:typings": "tsd",
     "test": "pnpm test:lint && pnpm test:unit",
@@ -68,17 +69,17 @@
     "@storybook/react": "^6.3.12",
     "@swc/core": "^1.2.95",
     "@swc/helpers": "^0.4.0",
-    "@swc/jest": "^0.2.4",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^13.0.0",
     "@types/faker": "^5.5.8",
-    "@types/jest": "^27.0.2",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/coverage-c8": "^0.25.2",
     "browserslist": "^4.17.3",
     "chart.js": "^3.1.0",
     "chartjs-adapter-date-fns": "^2.0.0",
@@ -98,9 +99,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.17.0",
     "faker": "^5.5.3",
-    "inquirer": "^9.0.0",
-    "jest": "^27.2.5",
-    "jest-canvas-mock": "^2.2.0",
+    "jsdom": "^20.0.2",
     "nano-staged": "^0.8.0",
     "prettier": "^2.0.4",
     "react": "^18.0.0",
@@ -114,6 +113,9 @@
     "standard-version": "^9.3.1",
     "tsd": "^0.24.0",
     "typescript": "^4.4.3",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.2",
+    "vitest-canvas-mock": "^0.2.1",
     "webpack": "^5.58.2"
   },
   "tsd": {
@@ -125,6 +127,5 @@
         ]
       }
     }
-  },
-  "readme": ""
+  }
 }

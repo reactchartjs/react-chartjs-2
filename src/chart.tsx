@@ -2,14 +2,14 @@ import React, { useEffect, useRef, forwardRef } from 'react';
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartType, DefaultDataPoint } from 'chart.js';
 
-import type { ForwardedRef, ChartProps, TypedChartComponent } from './types';
+import type { ForwardedRef, ChartProps, TypedChartComponent } from './types.js';
 import {
   reforwardRef,
   cloneData,
   setOptions,
   setLabels,
   setDatasets,
-} from './utils';
+} from './utils.js';
 
 function ChartComponent<
   TType extends ChartType = ChartType,

@@ -8,7 +8,7 @@ import type {
   Chart,
 } from 'chart.js';
 
-import type { ForwardedRef } from './types';
+import type { ForwardedRef } from './types.js';
 
 const defaultDatasetIdKey = 'label';
 

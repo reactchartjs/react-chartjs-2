@@ -16,8 +16,8 @@ import type {
   ChartProps,
   ChartJSOrUndefined,
   TypedChartComponent,
-} from './types';
-import { Chart } from './chart';
+} from './types.js';
+import { Chart } from './chart.js';
 
 function createTypedChart<T extends ChartType>(
   type: T,

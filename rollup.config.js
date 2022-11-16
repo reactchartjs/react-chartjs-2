@@ -1,6 +1,6 @@
-import swc from 'rollup-plugin-swc';
+import { swc } from 'rollup-plugin-swc3';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 const extensions = ['.js', '.ts', '.tsx'];
 const external = _ => /node_modules/.test(_) && !/@swc\/helpers/.test(_);
@@ -9,6 +9,7 @@ const plugins = targets => [
     extensions,
   }),
   swc({
+    tsconfig: false,
     jsc: {
       parser: {
         syntax: 'typescript',
@@ -31,26 +32,13 @@ const plugins = targets => [
   }),
 ];
 
-export default [
-  {
-    input: pkg.main,
-    plugins: plugins('defaults, not ie 11, not ie_mob 11'),
-    external,
-    output: {
-      file: pkg.publishConfig.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-    },
+export default {
+  input: pkg.exports,
+  plugins: plugins('defaults and supports es6-module'),
+  external,
+  output: {
+    file: pkg.publishConfig.exports.import,
+    format: 'es',
+    sourcemap: true,
   },
-  {
-    input: pkg.main,
-    plugins: plugins('defaults and supports es6-module'),
-    external,
-    output: {
-      file: pkg.publishConfig.module,
-      format: 'es',
-      sourcemap: true,
-    },
-  },
-];
+};

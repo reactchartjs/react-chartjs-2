@@ -30,7 +30,7 @@ specifiers:
   browserslist: ^4.17.3
   chart.js: ^3.1.0
   chartjs-adapter-date-fns: ^2.0.0
-  chartjs-plugin-annotation: ^1.4.0
+  chartjs-plugin-annotation: ^2.0.0
   chartjs-plugin-zoom: ^1.2.1
   clean-publish: ^4.0.0
   commitizen: ^4.2.4
@@ -94,7 +94,7 @@ devDependencies:
   browserslist: 4.21.4
   chart.js: 3.9.1
   chartjs-adapter-date-fns: 2.0.0_chart.js@3.9.1
-  chartjs-plugin-annotation: 1.4.0_chart.js@3.9.1
+  chartjs-plugin-annotation: 2.0.1_chart.js@3.9.1
   chartjs-plugin-zoom: 1.2.1_chart.js@3.9.1
   clean-publish: 4.0.1
   commitizen: 4.2.5_@swc+core@1.3.18
@@ -5921,6 +5921,7 @@ packages:
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: true
@@ -6182,7 +6183,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -6393,10 +6394,10 @@ packages:
       chart.js: 3.9.1
     dev: true
 
-  /chartjs-plugin-annotation/1.4.0_chart.js@3.9.1:
-    resolution: {integrity: sha512-OC0eGoVvdxTtGGi8mV3Dr+G1YmMhtYYQWqGMb2uWcgcnyiBslaRKPofKwAYWPbh7ABnmQNsNDQLIKPH+XiaZLA==}
+  /chartjs-plugin-annotation/2.0.1_chart.js@3.9.1:
+    resolution: {integrity: sha512-I+bbmiGuxW68DuhFuCS+oSJN4bzX9d3Z+xJ34+4YhrC68+fncRZgNARgJYqlkCD9s+JQohCkZ0iK/GNr+3Ug2A==}
     peerDependencies:
-      chart.js: ^3.1.0
+      chart.js: ^3.7.0
     dependencies:
       chart.js: 3.9.1
     dev: true
@@ -8818,6 +8819,7 @@ packages:
 
   /file-uri-to-path/1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -11426,6 +11428,7 @@ packages:
 
   /nan/2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12429,6 +12432,17 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
+    dev: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise.allsettled/1.0.6:

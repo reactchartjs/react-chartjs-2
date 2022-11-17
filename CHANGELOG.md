@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/reactchartjs/react-chartjs-2/compare/v5.0.0...v5.0.1) (2022-11-17)
+
+
+### Bug Fixes
+
+* remove chart.js v3 from peer dependencies ([7ae5702](https://github.com/reactchartjs/react-chartjs-2/commit/7ae57023783f4c64210119f0447bd1c0e1ba92e9))
+
 ## [5.0.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.3.1...v5.0.0) (2022-11-17)
 
 

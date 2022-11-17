@@ -39,7 +39,7 @@ specifiers:
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
   eslint-config-standard: ^16.0.3
-  eslint-config-standard-react: ^11.0.1
+  eslint-config-standard-react: ^12.0.0
   eslint-plugin-import: ^2.25.1
   eslint-plugin-node: ^11.0.0
   eslint-plugin-prettier: ^4.0.0
@@ -103,7 +103,7 @@ devDependencies:
   eslint: 7.32.0
   eslint-config-prettier: 8.5.0_eslint@7.32.0
   eslint-config-standard: 16.0.3_wnerebu6rbpsve3qx7qqwvcqtq
-  eslint-config-standard-react: 11.0.1_rfut5ehdjmzxinfjxzbnr2vvmi
+  eslint-config-standard-react: 12.0.0_rfut5ehdjmzxinfjxzbnr2vvmi
   eslint-plugin-import: 2.26.0_sgvxsd2i36a2mn3vpklggj663e
   eslint-plugin-node: 11.1.0_eslint@7.32.0
   eslint-plugin-prettier: 4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
@@ -5921,6 +5921,7 @@ packages:
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: true
@@ -6182,7 +6183,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -8089,11 +8090,11 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-config-standard-react/11.0.1_rfut5ehdjmzxinfjxzbnr2vvmi:
-    resolution: {integrity: sha512-4WlBynOqBZJRaX81CBcIGDHqUiqxvw4j/DbEIICz8QkMs3xEncoPgAoysiqCSsg71X92uhaBc8sgqB96smaMmg==}
+  /eslint-config-standard-react/12.0.0_rfut5ehdjmzxinfjxzbnr2vvmi:
+    resolution: {integrity: sha512-Bw0hN/9YtmrJrBB0l5DIX2YhDR2IkWHOCCZGB87AawgmBsQbcX2y9uec7R178BCPnuqhm6jiwBySPw3zvmKRTg==}
     peerDependencies:
-      eslint: ^7.12.1
-      eslint-plugin-react: ^7.21.5
+      eslint: ^8.8.0
+      eslint-plugin-react: ^7.28.0
     dependencies:
       eslint: 7.32.0
       eslint-plugin-react: 7.31.10_eslint@7.32.0
@@ -8819,6 +8820,7 @@ packages:
 
   /file-uri-to-path/1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -11427,6 +11429,7 @@ packages:
 
   /nan/2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12430,6 +12433,17 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
+    dev: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise.allsettled/1.0.6:

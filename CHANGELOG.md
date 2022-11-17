@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/reactchartjs/react-chartjs-2/compare/v4.3.1...v5.0.0) (2022-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* no commonjs support
+
+### Features
+
+* chart.js v4 support ([#1109](https://github.com/reactchartjs/react-chartjs-2/issues/1109)) ([deb2110](https://github.com/reactchartjs/react-chartjs-2/commit/deb211084757225e3ddb2574b567e805ba7eeeb6))
+* package type module ([#1108](https://github.com/reactchartjs/react-chartjs-2/issues/1108)) ([6eb8ce7](https://github.com/reactchartjs/react-chartjs-2/commit/6eb8ce7f23654e46d17aedc104375112b2f2a955))
+
+
+### Bug Fixes
+
+* **deps:** update dependency chart.js to v4 ([#1104](https://github.com/reactchartjs/react-chartjs-2/issues/1104)) ([6192408](https://github.com/reactchartjs/react-chartjs-2/commit/61924087de28a7ee0bba6f61c50a0bde362b662c))
+* **deps:** update dependency react-scripts to v5.0.1 ([#1049](https://github.com/reactchartjs/react-chartjs-2/issues/1049)) ([38a9796](https://github.com/reactchartjs/react-chartjs-2/commit/38a9796f1cefa63390d4eaf3eec960c77fe78d34))
+* **deps:** update react monorepo to v18 ([#1031](https://github.com/reactchartjs/react-chartjs-2/issues/1031)) ([ad73425](https://github.com/reactchartjs/react-chartjs-2/commit/ad734256e173353222995b4edfbf7a8ad0dc96f3))
+* **deps:** update react monorepo to v18.2.0 ([#1082](https://github.com/reactchartjs/react-chartjs-2/issues/1082)) ([72e7352](https://github.com/reactchartjs/react-chartjs-2/commit/72e7352fcdff182465bfdcd6a7f6c4579d062d01))
+* **site:** [#1076](https://github.com/reactchartjs/react-chartjs-2/issues/1076) expand the docusaurus container content to give the sandboxes more space ([#1077](https://github.com/reactchartjs/react-chartjs-2/issues/1077)) ([b512e8d](https://github.com/reactchartjs/react-chartjs-2/commit/b512e8dc130e28c1284be77d4ef6c3a788b9e262))
+
 ### [4.3.1](https://github.com/reactchartjs/react-chartjs-2/compare/v4.3.0...v4.3.1) (2022-07-13)
 
 

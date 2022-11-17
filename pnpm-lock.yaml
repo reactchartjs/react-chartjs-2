@@ -28,9 +28,9 @@ specifiers:
   '@vitejs/plugin-react': ^2.2.0
   '@vitest/coverage-c8': ^0.25.2
   browserslist: ^4.17.3
-  chart.js: ^3.1.0
+  chart.js: ^4.0.1
   chartjs-adapter-date-fns: ^2.0.0
-  chartjs-plugin-annotation: ^1.4.0
+  chartjs-plugin-annotation: ^2.0.1
   chartjs-plugin-zoom: ^1.2.1
   clean-publish: ^4.0.0
   commitizen: ^4.2.4
@@ -92,10 +92,10 @@ devDependencies:
   '@vitejs/plugin-react': 2.2.0_vite@3.2.4
   '@vitest/coverage-c8': 0.25.2_jsdom@20.0.2
   browserslist: 4.21.4
-  chart.js: 3.9.1
-  chartjs-adapter-date-fns: 2.0.0_chart.js@3.9.1
-  chartjs-plugin-annotation: 1.4.0_chart.js@3.9.1
-  chartjs-plugin-zoom: 1.2.1_chart.js@3.9.1
+  chart.js: 4.0.1
+  chartjs-adapter-date-fns: 2.0.0_chart.js@4.0.1
+  chartjs-plugin-annotation: 2.0.1_chart.js@4.0.1
+  chartjs-plugin-zoom: 1.2.1_chart.js@4.0.1
   clean-publish: 4.0.1
   commitizen: 4.2.5_@swc+core@1.3.18
   date-fns: 2.29.3
@@ -6381,32 +6381,33 @@ packages:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
     dev: true
 
-  /chart.js/3.9.1:
-    resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+  /chart.js/4.0.1:
+    resolution: {integrity: sha512-5/8/9eBivwBZK81mKvmIwTb2Pmw4D/5h1RK9fBWZLLZ8mCJ+kfYNmV9rMrGoa5Hgy2/wVDBMLSUDudul2/9ihA==}
+    engines: {pnpm: ^7.0.0}
     dev: true
 
-  /chartjs-adapter-date-fns/2.0.0_chart.js@3.9.1:
+  /chartjs-adapter-date-fns/2.0.0_chart.js@4.0.1:
     resolution: {integrity: sha512-rmZINGLe+9IiiEB0kb57vH3UugAtYw33anRiw5kS2Tu87agpetDDoouquycWc9pRsKtQo5j+vLsYHyr8etAvFw==}
     peerDependencies:
       chart.js: ^3.0.0
     dependencies:
-      chart.js: 3.9.1
+      chart.js: 4.0.1
     dev: true
 
-  /chartjs-plugin-annotation/1.4.0_chart.js@3.9.1:
-    resolution: {integrity: sha512-OC0eGoVvdxTtGGi8mV3Dr+G1YmMhtYYQWqGMb2uWcgcnyiBslaRKPofKwAYWPbh7ABnmQNsNDQLIKPH+XiaZLA==}
+  /chartjs-plugin-annotation/2.0.1_chart.js@4.0.1:
+    resolution: {integrity: sha512-I+bbmiGuxW68DuhFuCS+oSJN4bzX9d3Z+xJ34+4YhrC68+fncRZgNARgJYqlkCD9s+JQohCkZ0iK/GNr+3Ug2A==}
     peerDependencies:
-      chart.js: ^3.1.0
+      chart.js: ^3.7.0
     dependencies:
-      chart.js: 3.9.1
+      chart.js: 4.0.1
     dev: true
 
-  /chartjs-plugin-zoom/1.2.1_chart.js@3.9.1:
+  /chartjs-plugin-zoom/1.2.1_chart.js@4.0.1:
     resolution: {integrity: sha512-2zbWvw2pljrtMLMXkKw1uxYzAne5PtjJiOZftcut4Lo3Ee8qUt95RpMKDWrZ+pBZxZKQKOD/etdU4pN2jxZUmg==}
     peerDependencies:
       chart.js: ^3.2.0
     dependencies:
-      chart.js: 3.9.1
+      chart.js: 4.0.1
       hammerjs: 2.0.8
     dev: true
 

@@ -107,4 +107,6 @@ function ChartComponent<
   );
 }
 
-export const Chart = forwardRef(ChartComponent) as TypedChartComponent;
+export const Chart: TypedChartComponent = forwardRef(
+  ChartComponent
+) as TypedChartComponent;

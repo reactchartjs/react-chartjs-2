@@ -55,7 +55,7 @@
     "updateGitHooks": "simple-git-hooks"
   },
   "peerDependencies": {
-    "chart.js": "^3.5.0 || ^4.0.0",
+    "chart.js": "^4.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {

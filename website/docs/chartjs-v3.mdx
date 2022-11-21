@@ -1,0 +1,67 @@
+---
+slug: /docs/chartjs-v3
+description: Using react-chartjs-2 with Chart.js v3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Using with Chart.js v3
+
+If your app needs [Chart.js v3](https://www.chartjs.org/docs/3.9.1/), please use a [compatible version](https://www.npmjs.com/package/react-chartjs-2/v/4.3.1) of this library:
+
+<Tabs>
+  <TabItem value="yarn" default>
+
+  ```bash
+  yarn add chart.js@^3.9.1 react-chartjs-2@^4.3.1
+  ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+
+  ```bash
+  pnpm add chart.js@^3.9.1 react-chartjs-2@^4.3.1
+  ```
+
+  </TabItem>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save chart.js@^3.9.1 react-chartjs-2@^4.3.1
+  ```
+
+  </TabItem>
+</Tabs>
+
+Also, please consider upgrading your app to [Chart.js v3](#upgrading-to-chartjs-v3).
+
+## Upgrading to Chart.js v4
+
+First, upgrade packages. You'll need to install Chart.js v3 and the latest version of this library:
+
+<Tabs>
+  <TabItem value="yarn" default>
+
+  ```bash
+  yarn add chart.js@^4.0.0 react-chartjs-2@^5.0.0
+  ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+
+  ```bash
+  pnpm add chart.js@^4.0.0 react-chartjs-2@^5.0.0
+  ```
+
+  </TabItem>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save chart.js@^4.0.0 react-chartjs-2@^5.0.0
+  ```
+
+  </TabItem>
+</Tabs>
+
+Then, please follow the [this guide](/docs/migration-to-v5).

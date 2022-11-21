@@ -4,7 +4,7 @@
 
 React components for <a href="https://www.chartjs.org">Chart.js</a>, the most popular charting library.
 
-Supports Chart.js v3 and v2.
+Supports Chart.js v4 and v3.
 
 [![NPM version][npm]][npm-url]
 [![Downloads][downloads]][downloads-url]
@@ -50,7 +50,7 @@ yarn add react-chartjs-2 chart.js
 npm i react-chartjs-2 chart.js
 ```
 
-We recommend using `chart.js@^3.0.0`.
+We recommend using `chart.js@^4.0.0`.
 
 Then, import and use individual components:
 

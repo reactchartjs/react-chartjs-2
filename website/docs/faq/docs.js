@@ -28,4 +28,8 @@ exports.docs = [
     title: 'How to use react-chartjs-2 with TypeScript?',
     slug: '/faq/typescript',
   },
+  {
+    title: 'How to fix "Cannot find module \'react-chartjs-2\'" error?',
+    slug: '/faq/esm-only',
+  },
 ];

@@ -89,7 +89,7 @@
     "chart.js": "^4.0.1",
     "chartjs-adapter-date-fns": "^2.0.0",
     "chartjs-plugin-annotation": "^2.0.1",
-    "chartjs-plugin-zoom": "^1.2.1",
+    "chartjs-plugin-zoom": "^2.0.0",
     "clean-publish": "^4.0.0",
     "commitizen": "^4.2.4",
     "date-fns": "^2.25.0",

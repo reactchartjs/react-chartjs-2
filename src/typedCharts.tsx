@@ -27,7 +27,7 @@ function createTypedChart<T extends ChartType>(
 
   return forwardRef<ChartJSOrUndefined<T>, Omit<ChartProps<T>, 'type'>>(
     (props, ref) => <Chart {...props} ref={ref} type={type} />
-  ) as TypedChartComponent<T, true>;
+  ) as TypedChartComponent<T>;
 }
 
 export const Line = /* #__PURE__ */ createTypedChart('line', LineController);

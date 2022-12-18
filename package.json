@@ -83,7 +83,7 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "@vitejs/plugin-react": "^2.2.0",
+    "@vitejs/plugin-react": "^3.0.0",
     "@vitest/coverage-c8": "^0.25.2",
     "browserslist": "^4.17.3",
     "chart.js": "^4.0.1",

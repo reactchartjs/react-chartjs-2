@@ -87,7 +87,7 @@
     "@vitest/coverage-c8": "^0.25.2",
     "browserslist": "^4.17.3",
     "chart.js": "^4.0.1",
-    "chartjs-adapter-date-fns": "^2.0.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-annotation": "^2.0.1",
     "chartjs-plugin-zoom": "^2.0.0",
     "clean-publish": "^4.0.0",

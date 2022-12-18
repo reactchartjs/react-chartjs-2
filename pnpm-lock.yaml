@@ -29,7 +29,7 @@ specifiers:
   '@vitest/coverage-c8': ^0.25.2
   browserslist: ^4.17.3
   chart.js: ^4.0.1
-  chartjs-adapter-date-fns: ^2.0.0
+  chartjs-adapter-date-fns: ^3.0.0
   chartjs-plugin-annotation: ^2.0.1
   chartjs-plugin-zoom: ^2.0.0
   clean-publish: ^4.0.0
@@ -93,7 +93,7 @@ devDependencies:
   '@vitest/coverage-c8': 0.25.2_jsdom@20.0.2
   browserslist: 4.21.4
   chart.js: 4.0.1
-  chartjs-adapter-date-fns: 2.0.0_chart.js@4.0.1
+  chartjs-adapter-date-fns: 3.0.0_thp3sedjxvmiqxrdsmekdnimom
   chartjs-plugin-annotation: 2.0.1_chart.js@4.0.1
   chartjs-plugin-zoom: 2.0.0_chart.js@4.0.1
   clean-publish: 4.0.1
@@ -6387,12 +6387,14 @@ packages:
     engines: {pnpm: ^7.0.0}
     dev: true
 
-  /chartjs-adapter-date-fns/2.0.0_chart.js@4.0.1:
-    resolution: {integrity: sha512-rmZINGLe+9IiiEB0kb57vH3UugAtYw33anRiw5kS2Tu87agpetDDoouquycWc9pRsKtQo5j+vLsYHyr8etAvFw==}
+  /chartjs-adapter-date-fns/3.0.0_thp3sedjxvmiqxrdsmekdnimom:
+    resolution: {integrity: sha512-Rs3iEB3Q5pJ973J93OBTpnP7qoGwvq3nUnoMdtxO+9aoJof7UFcRbWcIDteXuYd1fgAvct/32T9qaLyLuZVwCg==}
     peerDependencies:
-      chart.js: ^3.0.0
+      chart.js: '>=2.8.0'
+      date-fns: '>=2.0.0'
     dependencies:
       chart.js: 4.0.1
+      date-fns: 2.29.3
     dev: true
 
   /chartjs-plugin-annotation/2.0.1_chart.js@4.0.1:

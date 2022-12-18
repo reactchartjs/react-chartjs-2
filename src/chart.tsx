@@ -2,7 +2,7 @@ import React, { useEffect, useRef, forwardRef } from 'react';
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartType, DefaultDataPoint } from 'chart.js';
 
-import type { ForwardedRef, ChartProps, TypedChartComponent } from './types.js';
+import type { ForwardedRef, ChartProps, BaseChartComponent } from './types.js';
 import {
   reforwardRef,
   cloneData,
@@ -107,6 +107,6 @@ function ChartComponent<
   );
 }
 
-export const Chart: TypedChartComponent = forwardRef(
+export const Chart: BaseChartComponent = forwardRef(
   ChartComponent
-) as TypedChartComponent;
+) as BaseChartComponent;

@@ -73,21 +73,21 @@ export type ChartJSOrUndefined<
   TLabel = unknown
 > = Chart<TType, TData, TLabel> | undefined;
 
-export type TypedChartComponent<
-  TDefaultType extends ChartType = ChartType,
-  TOmitType = false
-> = TOmitType extends true
-  ? <TData = DefaultDataPoint<TDefaultType>, TLabel = unknown>(
-      props: Omit<ChartProps<TDefaultType, TData, TLabel>, 'type'> & {
-        ref?: ForwardedRef<ChartJSOrUndefined<TDefaultType, TData, TLabel>>;
-      }
-    ) => JSX.Element
-  : <
-      TType extends ChartType = ChartType,
-      TData = DefaultDataPoint<TType>,
-      TLabel = unknown
-    >(
-      props: ChartProps<TType, TData, TLabel> & {
-        ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
-      }
-    ) => JSX.Element;
+export type BaseChartComponent = <
+  TType extends ChartType = ChartType,
+  TData = DefaultDataPoint<TType>,
+  TLabel = unknown
+>(
+  props: ChartProps<TType, TData, TLabel> & {
+    ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
+  }
+) => JSX.Element;
+
+export type TypedChartComponent<TDefaultType extends ChartType> = <
+  TData = DefaultDataPoint<TDefaultType>,
+  TLabel = unknown
+>(
+  props: Omit<ChartProps<TDefaultType, TData, TLabel>, 'type'> & {
+    ref?: ForwardedRef<ChartJSOrUndefined<TDefaultType, TData, TLabel>>;
+  }
+) => JSX.Element;

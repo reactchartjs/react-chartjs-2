@@ -18,7 +18,7 @@ Supports Chart.js v4 and v3.
 [downloads]: https://img.shields.io/npm/dm/react-chartjs-2.svg
 [downloads-url]: https://www.npmjs.com/package/react-chartjs-2
 
-[build]: https://img.shields.io/github/workflow/status/reactchartjs/react-chartjs-2/CI.svg
+[build]: https://img.shields.io/github/actions/workflow/status/reactchartjs/react-chartjs-2/ci.yml?branch=master
 [build-url]: https://github.com/reactchartjs/react-chartjs-2/actions
 
 [coverage]: https://img.shields.io/codecov/c/github/reactchartjs/react-chartjs-2.svg

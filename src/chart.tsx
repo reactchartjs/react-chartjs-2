@@ -16,7 +16,10 @@ function ChartComponent<
   TData = DefaultDataPoint<TType>,
   TLabel = unknown
 >(
-  {
+  props: ChartProps<TType, TData, TLabel>,
+  ref: ForwardedRef<ChartJS<TType, TData, TLabel>>
+) {
+  const {
     height = 150,
     width = 300,
     redraw = false,
@@ -27,14 +30,10 @@ function ChartComponent<
     plugins = [],
     fallbackContent,
     updateMode,
-    ...props
-  }: ChartProps<TType, TData, TLabel>,
-  ref: ForwardedRef<ChartJS<TType, TData, TLabel>>
-) {
-  type TypedChartJS = ChartJS<TType, TData, TLabel>;
-
+    ...canvasProps
+  } = props as ChartProps;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const chartRef = useRef<TypedChartJS | null>();
+  const chartRef = useRef<ChartJS | null>();
 
   const renderChart = () => {
     if (!canvasRef.current) return;
@@ -101,12 +100,16 @@ function ChartComponent<
   }, []);
 
   return (
-    <canvas ref={canvasRef} role='img' height={height} width={width} {...props}>
+    <canvas
+      ref={canvasRef}
+      role='img'
+      height={height}
+      width={width}
+      {...canvasProps}
+    >
       {fallbackContent}
     </canvas>
   );
 }
 
-export const Chart: BaseChartComponent = forwardRef(
-  ChartComponent
-) as BaseChartComponent;
+export const Chart = forwardRef(ChartComponent) as BaseChartComponent;

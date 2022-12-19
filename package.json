@@ -26,8 +26,9 @@
   "exports": "./src/index.ts",
   "publishConfig": {
     "exports": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "directory": "package"
   },
@@ -55,7 +56,7 @@
     "updateGitHooks": "simple-git-hooks"
   },
   "peerDependencies": {
-    "chart.js": "^4.0.0",
+    "chart.js": "^4.1.1",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -86,7 +87,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "@vitest/coverage-c8": "^0.25.2",
     "browserslist": "^4.17.3",
-    "chart.js": "^4.0.1",
+    "chart.js": "^4.1.1",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-annotation": "^2.0.1",
     "chartjs-plugin-zoom": "^2.0.0",
@@ -117,7 +118,7 @@
     "size-limit": "^8.0.0",
     "standard-version": "^9.3.1",
     "tsd": "^0.25.0",
-    "typescript": "^4.9.3",
+    "typescript": "^4.9.4",
     "vite": "^4.0.0",
     "vitest": "^0.25.2",
     "vitest-canvas-mock": "^0.2.1"

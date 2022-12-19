@@ -11,7 +11,7 @@
     /* Modules */
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Node", // restore to "NodeNext" after Chart.js update
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     /* Emit */
     "declaration": true,

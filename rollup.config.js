@@ -36,9 +36,16 @@ export default {
   input: pkg.exports,
   plugins: plugins('defaults and supports es6-module'),
   external,
-  output: {
-    file: pkg.publishConfig.exports.import,
-    format: 'es',
-    sourcemap: true,
-  },
+  output: [
+    {
+      file: pkg.publishConfig.exports.import,
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      file: pkg.publishConfig.exports.require,
+      format: 'cjs',
+      sourcemap: true,
+    },
+  ],
 };

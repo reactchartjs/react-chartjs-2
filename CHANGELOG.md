@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.0.1...v5.1.0) (2022-12-19)
+
+
+### Features
+
+* restore CommonJS bundle ([#1137](https://github.com/reactchartjs/react-chartjs-2/issues/1137)) ([7db2643](https://github.com/reactchartjs/react-chartjs-2/commit/7db264337200c999bc987e0e288df08ef7813ee3))
+
 ### [5.0.1](https://github.com/reactchartjs/react-chartjs-2/compare/v5.0.0...v5.0.1) (2022-11-17)
 
 

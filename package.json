@@ -25,6 +25,8 @@
   "types": "./dist/index.d.ts",
   "exports": "./src/index.ts",
   "publishConfig": {
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
     "exports": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",

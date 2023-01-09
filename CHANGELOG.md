@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.1.0...v5.2.0) (2023-01-09)
+
+
+### Features
+
+* restore compatability with webpack 4 ([#1146](https://github.com/reactchartjs/react-chartjs-2/issues/1146)) ([082c26d](https://github.com/reactchartjs/react-chartjs-2/commit/082c26d559f210af7c55c31a826fe4821a429700))
+
 ## [5.1.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.0.1...v5.1.0) (2022-12-19)
 
 

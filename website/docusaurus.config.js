@@ -70,11 +70,6 @@ const config = {
             label: 'Examples',
           },
           {
-            href: 'https://slack.cube.dev/?ref=eco-react-chartjs',
-            label: 'Slack',
-            position: 'right',
-          },
-          {
             href: 'https://stackoverflow.com/questions/tagged/react-chartjs-2',
             label: 'Stack Overflow',
             position: 'right',

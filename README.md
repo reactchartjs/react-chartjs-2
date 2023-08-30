@@ -32,8 +32,6 @@ Supports Chart.js v4 and v3.
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 <a href="#docs">Docs</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://slack.cube.dev/?ref=eco-react-chartjs">Slack</a>
-<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 <a href="https://stackoverflow.com/questions/tagged/react-chartjs-2">Stack Overflow</a>
 <br />
 <hr />

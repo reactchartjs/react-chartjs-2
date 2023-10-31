@@ -7,7 +7,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 

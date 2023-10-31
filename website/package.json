@@ -22,7 +22,7 @@
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^6.0.0",
     "clsx": "^1.1.1",
-    "docusaurus-plugin-react-docgen-typescript": "^0.1.0",
+    "docusaurus-plugin-react-docgen-typescript": "^1.0.0",
     "file-loader": "^6.2.0",
     "git-branch": "^2.0.1",
     "prism-react-renderer": "^1.2.1",

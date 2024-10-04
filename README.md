@@ -66,12 +66,12 @@ Need an API to fetch data? Consider [Cube](https://cube.dev/?ref=eco-react-chart
 
 ## Docs
 
-- [Migration to v4](https://react-chartjs-2.js.org/docs/migration-to-v4)
-- [Working with datasets](https://react-chartjs-2.js.org/docs/working-with-datasets)
-- [Working with events](https://react-chartjs-2.js.org/docs/working-with-events)
-- [FAQ](https://react-chartjs-2.js.org/faq)
-- [Components](https://react-chartjs-2.js.org/components)
-- [Examples](https://react-chartjs-2.js.org/examples)
+- [Migration to v4](https://react-chartjs-2-two.vercel.app/docs/migration-to-v4)
+- [Working with datasets](https://react-chartjs-2-two.vercel.app/docs/working-with-datasets)
+- [Working with events](https://react-chartjs-2-two.vercel.app/docs/working-with-events)
+- [FAQ](https://react-chartjs-2-two.vercel.app/faq)
+- [Components](https://react-chartjs-2-two.vercel.app/components)
+- [Examples](https://react-chartjs-2-two.vercel.app/examples)
 
 ## License
 

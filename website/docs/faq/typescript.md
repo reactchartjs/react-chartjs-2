@@ -10,7 +10,7 @@ we can enjoy type safety and autocompletion without having to do any extra work.
 But occasionally types need to be set explicitly. They can be imported from `Chart.js`:
 
 ```typescript
-import type { ChartData, ChartOptions } from 'chart.js';
+import type { ChartData, ChartOptions } from 'chartjs-v4';;
 ```
 
 ...and then used with `options` and `data` props:

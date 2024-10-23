@@ -1,8 +1,8 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from 'vitest';
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import 'chart.js/auto';
-import { Chart as ChartJS } from 'chart.js';
+import 'chartjs-v4/auto';
+import { Chart as ChartJS } from 'chartjs-v4';
 import { Chart } from '../src/index.js';
 
 describe('<Chart />', () => {

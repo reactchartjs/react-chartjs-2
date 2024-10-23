@@ -8,7 +8,7 @@ import {
   LineElement,
   Legend,
   Tooltip,
-} from 'chart.js';
+} from 'chartjs-v4';
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 

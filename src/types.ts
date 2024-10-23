@@ -7,7 +7,7 @@ import type {
   DefaultDataPoint,
   Plugin,
   UpdateMode,
-} from 'chart.js';
+} from 'chartjs-v4';
 
 export type ForwardedRef<T> =
   | ((instance: T | null) => void)

@@ -9,8 +9,8 @@ import {
   BubbleController,
   PieController,
   ScatterController,
-} from 'chart.js';
-import type { ChartType, ChartComponentLike } from 'chart.js';
+} from 'chartjs-v4';
+import type { ChartType, ChartComponentLike } from 'chartjs-v4';
 
 import type {
   ChartProps,

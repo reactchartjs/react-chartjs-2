@@ -1,6 +1,6 @@
 import { expectError } from 'tsd';
 import React from 'react';
-import type { Plugin } from 'chart.js';
+import type { Plugin } from 'chartjs-v4';
 import { Chart, Scatter, Doughnut } from '../src';
 
 const data = {

@@ -59,6 +59,7 @@
   },
   "peerDependencies": {
     "chart.js": "^4.1.1",
+    "chartjs-v4": "npm:chart.js@^4.1.1",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -90,6 +91,7 @@
     "@vitest/coverage-c8": "^0.27.0",
     "browserslist": "^4.17.3",
     "chart.js": "^4.1.1",
+    "chartjs-v4": "npm:chart.js@^4.1.1",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-annotation": "^2.0.1",
     "chartjs-plugin-zoom": "^2.0.0",

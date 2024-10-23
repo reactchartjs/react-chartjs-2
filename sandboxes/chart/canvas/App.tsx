@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import type { ChartData, ChartArea } from 'chart.js';
+import type { ChartData, ChartArea } from 'chartjs-v4';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,7 +8,7 @@ import {
   LineElement,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from 'chartjs-v4';
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 

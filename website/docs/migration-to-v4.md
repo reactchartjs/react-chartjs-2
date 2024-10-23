@@ -25,7 +25,7 @@ import Chart, {
 import {
   Chart as ChartJS,
   defaults
-} from 'chart.js';
+} from 'chartjs-v4';;
 import {
   Chart
 } from 'react-chartjs-2';
@@ -52,7 +52,7 @@ import { Chart } from 'react-chartjs-2';
 
 ```jsx title="v4 — tree-shakable way"
 import { Chart } from 'react-chartjs-2';
-import { Chart as ChartJS, LineController, LineElement, PointElement, LinearScale, Title } from 'chart.js';
+import { Chart as ChartJS, LineController, LineElement, PointElement, LinearScale, Title } from 'chartjs-v4';
 
 ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title);
 
@@ -65,7 +65,7 @@ Please note that typed chart components register their controllers by default, s
 
 ```jsx title="v4 — Line component"
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title } from 'chart.js';
+import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title } from 'chartjs-v4';
 
 ChartJS.register(LineElement, PointElement, LinearScale, Title);
 

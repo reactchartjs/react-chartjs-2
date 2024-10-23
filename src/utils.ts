@@ -6,7 +6,7 @@ import type {
   ChartDataset,
   ChartOptions,
   Chart,
-} from 'chart.js';
+} from 'chartjs-v4';
 
 import type { ForwardedRef } from './types.js';
 

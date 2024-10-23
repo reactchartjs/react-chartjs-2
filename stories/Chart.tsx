@@ -7,8 +7,8 @@ import React, {
   useMemo,
 } from 'react';
 import 'chart.js/auto';
-import type { InteractionItem } from 'chart.js';
-import { Chart as ChartJS } from 'chart.js';
+import type { InteractionItem } from 'chartjs-v4';
+import { Chart as ChartJS } from 'chartjs-v4';
 import 'chartjs-adapter-date-fns';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import zoomPlugin from 'chartjs-plugin-zoom';

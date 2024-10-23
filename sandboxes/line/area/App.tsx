@@ -9,7 +9,7 @@ import {
   Tooltip,
   Filler,
   Legend,
-} from 'chart.js';
+} from 'chartjs-v4';
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
 

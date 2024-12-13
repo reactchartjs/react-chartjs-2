@@ -1,5 +1,5 @@
 /* eslint-disable */
-import matchers from '@testing-library/jest-dom/matchers';
+import * as matchers from '@testing-library/jest-dom/matchers';
 import { expect } from 'vitest';
 import 'vitest-canvas-mock';
 

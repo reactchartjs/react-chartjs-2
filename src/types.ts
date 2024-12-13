@@ -17,7 +17,7 @@ export type ForwardedRef<T> =
 export interface ChartProps<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 > extends CanvasHTMLAttributes<HTMLCanvasElement> {
   /**
    * Chart.js chart type
@@ -70,13 +70,13 @@ export interface ChartProps<
 export type ChartJSOrUndefined<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 > = Chart<TType, TData, TLabel> | undefined;
 
 export type BaseChartComponent = <
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(
   props: ChartProps<TType, TData, TLabel> & {
     ref?: ForwardedRef<ChartJSOrUndefined<TType, TData, TLabel>>;
@@ -85,7 +85,7 @@ export type BaseChartComponent = <
 
 export type TypedChartComponent<TDefaultType extends ChartType> = <
   TData = DefaultDataPoint<TDefaultType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(
   props: Omit<ChartProps<TDefaultType, TData, TLabel>, 'type'> & {
     ref?: ForwardedRef<ChartJSOrUndefined<TDefaultType, TData, TLabel>>;

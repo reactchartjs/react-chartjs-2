@@ -1,4 +1,4 @@
-import React, { MouseEvent, useRef } from 'react';
+import React, { type MouseEvent, useRef } from 'react';
 import type { InteractionItem } from 'chart.js';
 import {
   Chart as ChartJS,

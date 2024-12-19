@@ -40,6 +40,8 @@
     "semi": [2, "always"],
     "strict": 0,
     "no-use-before-define": 0,
-    "@typescript-eslint/no-use-before-define": 2
+    "@typescript-eslint/no-use-before-define": 2,
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-import-type-side-effects": "error"
   }
 }

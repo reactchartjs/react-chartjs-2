@@ -123,8 +123,8 @@ importers:
         specifier: ^16.0.3
         version: 16.0.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@4.9.5))(eslint@7.32.0))(eslint-plugin-node@11.1.0(eslint@7.32.0))(eslint-plugin-promise@5.2.0(eslint@7.32.0))(eslint@7.32.0)
       eslint-config-standard-react:
-        specifier: ^12.0.0
-        version: 12.0.0(eslint-plugin-react@7.37.3(eslint@7.32.0))(eslint@7.32.0)
+        specifier: ^13.0.0
+        version: 13.0.0(eslint-plugin-react-hooks@4.6.2(eslint@7.32.0))(eslint-plugin-react@7.37.3(eslint@7.32.0))(eslint@7.32.0)
       eslint-plugin-import:
         specifier: ^2.25.1
         version: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@4.9.5))(eslint@7.32.0)
@@ -4033,11 +4033,12 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-config-standard-react@12.0.0:
-    resolution: {integrity: sha512-Bw0hN/9YtmrJrBB0l5DIX2YhDR2IkWHOCCZGB87AawgmBsQbcX2y9uec7R178BCPnuqhm6jiwBySPw3zvmKRTg==}
+  eslint-config-standard-react@13.0.0:
+    resolution: {integrity: sha512-HrVPGj8UncHfV+BsdJTuJpVsomn6AIrke3Af2Fh4XFvQQDU+iO6N2ZL+UsC+scExft4fU3uf7fJwj7PKWnXJDA==}
     peerDependencies:
       eslint: ^8.8.0
       eslint-plugin-react: ^7.28.0
+      eslint-plugin-react-hooks: ^4.6.0
 
   eslint-config-standard@16.0.3:
     resolution: {integrity: sha512-x4fmJL5hGqNJKGHSjnLdgA6U6h1YW/G2dW9fA+cyVur4SK6lyue8+UgNKWlZtUDTXvgKDD/Oa3GQjmB5kjtVvg==}
@@ -4125,6 +4126,12 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     peerDependencies:
       eslint: ^7.0.0
+
+  eslint-plugin-react-hooks@4.6.2:
+    resolution: {integrity: sha512-QzliNJq4GinDBcD8gPB5v0wh6g8q3SUi6EFF0x8N/BL9PoVs0atuGc47ozMRyOWAKdwaZ5OnbOEa3WR+dSGKuQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
 
   eslint-plugin-react@7.37.3:
     resolution: {integrity: sha512-DomWuTQPFYZwF/7c9W2fkKkStqZmBd3uugfqBYLdkZ3Hii23WzZuOLUskGxB8qkSKqftxEeGL1TB2kMhrce0jA==}
@@ -13431,10 +13438,11 @@ snapshots:
     dependencies:
       eslint: 7.32.0
 
-  eslint-config-standard-react@12.0.0(eslint-plugin-react@7.37.3(eslint@7.32.0))(eslint@7.32.0):
+  eslint-config-standard-react@13.0.0(eslint-plugin-react-hooks@4.6.2(eslint@7.32.0))(eslint-plugin-react@7.37.3(eslint@7.32.0))(eslint@7.32.0):
     dependencies:
       eslint: 7.32.0
       eslint-plugin-react: 7.37.3(eslint@7.32.0)
+      eslint-plugin-react-hooks: 4.6.2(eslint@7.32.0)
 
   eslint-config-standard@16.0.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@4.9.5))(eslint@7.32.0))(eslint-plugin-node@11.1.0(eslint@7.32.0))(eslint-plugin-promise@5.2.0(eslint@7.32.0))(eslint@7.32.0):
     dependencies:
@@ -13543,6 +13551,10 @@ snapshots:
       eslint-config-prettier: 8.10.0(eslint@7.32.0)
 
   eslint-plugin-promise@5.2.0(eslint@7.32.0):
+    dependencies:
+      eslint: 7.32.0
+
+  eslint-plugin-react-hooks@4.6.2(eslint@7.32.0):
     dependencies:
       eslint: 7.32.0
 

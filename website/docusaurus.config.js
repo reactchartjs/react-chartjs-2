@@ -10,8 +10,8 @@ const currentBranch = process.env.BRANCH || branch.sync();
 const config = {
   title: 'react-chartjs-2',
   tagline: 'React wrapper for Chart.js',
-  url: 'https://react-chartjs-2.js.org',
-  baseUrl: '/',
+  url: 'http://reactchartjs.github.io/react-chartjs-2/', // 'https://react-chartjs-2.js.org',
+  baseUrl: '/react-chartjs-2/', // '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',

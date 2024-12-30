@@ -1,6 +1,6 @@
 import { swc } from 'rollup-plugin-swc3';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json' with { type: 'json' };
 
 const extensions = ['.js', '.ts', '.tsx'];
 const external = _ => /node_modules/.test(_) && !/@swc\/helpers/.test(_);

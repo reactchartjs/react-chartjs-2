@@ -4,10 +4,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom',
+    environment: 'happy-dom',
     setupFiles: ['test/setup.js'],
-    deps: {
-      inline: ['vitest-canvas-mock'],
+    server: {
+      deps: {
+        inline: ['vitest-canvas-mock'],
+      },
     },
     coverage: {
       reporter: ['lcovonly', 'text'],

@@ -86,8 +86,8 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "@vitejs/plugin-react": "^3.0.0",
-    "@vitest/coverage-c8": "^0.27.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
     "browserslist": "^4.17.3",
     "chart.js": "^4.1.1",
     "chartjs-adapter-date-fns": "^3.0.0",
@@ -107,7 +107,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.17.0",
     "faker": "^5.5.3",
-    "jsdom": "^21.0.0",
+    "happy-dom": "^16.1.0",
     "nano-staged": "^0.8.0",
     "prettier": "^2.0.4",
     "react": "^18.0.0",
@@ -121,9 +121,9 @@
     "standard-version": "^9.3.1",
     "tsd": "^0.25.0",
     "typescript": "^4.9.4",
-    "vite": "^4.0.0",
-    "vitest": "^0.27.0",
-    "vitest-canvas-mock": "^0.2.1"
+    "vite": "^6.0.6",
+    "vitest": "^2.1.8",
+    "vitest-canvas-mock": "^0.3.3"
   },
   "tsd": {
     "directory": "./test",

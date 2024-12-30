@@ -36,8 +36,8 @@ importers:
         specifier: ^6.3.12
         version: 6.5.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/builder-vite':
-        specifier: ^0.2.5
-        version: 0.2.7(@babel/core@7.26.0)(eslint@7.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
+        specifier: ^0.4.0
+        version: 0.4.2(@vitejs/plugin-react@4.3.4(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0)))(eslint@7.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
       '@storybook/client-api':
         specifier: ^6.5.13
         version: 6.5.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1457,11 +1457,14 @@ packages:
     resolution: {integrity: sha512-u3UPsIilWKOM3F9CXtrG8LEJmNxwoCQC/XVj4IKYXvvpx7QIi/Kg1LI5uDmDpKlac62NUtX7eLjRh+jVZcLOzw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.0.5':
-    resolution: {integrity: sha512-HwAEj/vAP1+hzBfIv9DTCyg+1O0/LG48Up7j1RmJ+pFwjb/wRxzUBco4LqKFKe7SZ0M6IyASNh1oKP3yHnJElA==}
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.2.1':
+    resolution: {integrity: sha512-ou4ZJSXMMWHqGS4g8uNRbC5TiTWxAgQZiVucoUrOCWuPrTbkpJbmVyIi9jU72SBry7gQtuMEDp4YR8EEXAg7VQ==}
     peerDependencies:
       typescript: '>= 4.3.x'
-      vite: '>2.0.0-0'
+      vite: ^3.0.0 || ^4.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@jridgewell/gen-mapping@0.3.8':
     resolution: {integrity: sha512-imAbBGkb+ebQyxKgzv5Hu2nmROxoDOXHh80evxdoXNOrvAnVx7zimzc1Oo5h9RlfV4vPXaE2iM5pOFbvOCClWA==}
@@ -1799,18 +1802,24 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@storybook/builder-vite@0.2.7':
-    resolution: {integrity: sha512-IvgInn1dsL4amHn8IDHWv2KaoWyRWxGQvHvctfHl7ayN8fke6Tzg8lBUxVoGBfqeoO3glo/zsVUUO+aNeUUlxQ==}
+  '@storybook/builder-vite@0.4.2':
+    resolution: {integrity: sha512-KBBiDdYCK0BCOns8iCVrtzaIiYQF9NjwQ7u3HY/a0bmAuaXPd9m3t6Tvp2jNwmdRAtHOHXnM+d6ROJAI77DCYg==}
     peerDependencies:
-      '@storybook/mdx2-csf': ^0.0.3
-      '@sveltejs/vite-plugin-svelte': ^1.0.0
-      '@vitejs/plugin-vue': ^3.0.0
-      vite: '>= 3.0.0'
+      '@storybook/mdx2-csf': '>=1.0.0-next.0'
+      '@sveltejs/vite-plugin-svelte': ^2.0.0
+      '@vitejs/plugin-react': ^3.0.0
+      '@vitejs/plugin-react-swc': ^3.0.0
+      '@vitejs/plugin-vue': ^4.0.0
+      vite: '>= 4.0.0'
       vue-docgen-api: ^4.40.0
     peerDependenciesMeta:
       '@storybook/mdx2-csf':
         optional: true
       '@sveltejs/vite-plugin-svelte':
+        optional: true
+      '@vitejs/plugin-react':
+        optional: true
+      '@vitejs/plugin-react-swc':
         optional: true
       '@vitejs/plugin-vue':
         optional: true
@@ -1935,8 +1944,8 @@ packages:
   '@storybook/mdx1-csf@0.0.1':
     resolution: {integrity: sha512-4biZIWWzoWlCarMZmTpqcJNgo/RBesYZwGFbQeXiGYsswuvfWARZnW9RE9aUEMZ4XPn7B1N3EKkWcdcWe/K2tg==}
 
-  '@storybook/mdx1-csf@0.0.4':
-    resolution: {integrity: sha512-xxUEMy0D+0G1aSYxbeVNbs+XBU5nCqW4I7awpBYSTywXDv/MJWeC6FDRpj5P1pgfq8j8jWDD5ZDvBQ7syFg0LQ==}
+  '@storybook/mdx1-csf@1.0.0-next.0':
+    resolution: {integrity: sha512-zrv5yRKSOQum69DU+5+wK1VcfmHv8xdqLsACeVOHJp1Mq2eG8s3/WuEA0L3wljoebbuKasZecn2Eu/TQCt+0og==}
 
   '@storybook/node-logger@6.5.16':
     resolution: {integrity: sha512-YjhBKrclQtjhqFNSO+BZK+RXOx6EQypAELJKoLFaawg331e8VUfvUuRCNB3fcEWp8G9oH13PQQte0OTjLyyOYg==}
@@ -2369,12 +2378,6 @@ packages:
   '@typescript-eslint/visitor-keys@5.62.0':
     resolution: {integrity: sha512-07ny+LHRzQXepkGg6w0mFY41fVUNBrL2Roj/++7V1txKugfjm/Ci/qSND03r2RhlJhJYMcTn9AhhSSqQp0Ysyw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@vitejs/plugin-react@2.2.0':
-    resolution: {integrity: sha512-FFpefhvExd1toVRlokZgxgy2JtnBOdp4ZDsq7ldCWaqGSGn9UhWMAVm/1lxPL14JfNS5yGz+s9yFrQY6shoStA==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      vite: ^3.0.0
 
   '@vitejs/plugin-react@4.3.4':
     resolution: {integrity: sha512-SCCPBJtYLdE8PX/7ZQAs1QAZ8Jqwih+0VBLum1EGqmCCQal+MIUqLCzj3ZUy8ufbC0cAM4LRlSTm7IQJwWT4ug==}
@@ -5601,6 +5604,10 @@ packages:
 
   magic-string@0.26.7:
     resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
+    engines: {node: '>=12'}
+
+  magic-string@0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
 
   magic-string@0.30.17:
@@ -9718,15 +9725,15 @@ snapshots:
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.0.5(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.2.1(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
     dependencies:
-      '@rollup/pluginutils': 4.2.1
       glob: 7.2.3
       glob-promise: 4.2.2(glob@7.2.3)
-      magic-string: 0.26.7
+      magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@4.9.5)
-      typescript: 4.9.5
       vite: 6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0)
+    optionalDependencies:
+      typescript: 4.9.5
 
   '@jridgewell/gen-mapping@0.3.8':
     dependencies:
@@ -10176,15 +10183,14 @@ snapshots:
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
 
-  '@storybook/builder-vite@0.2.7(@babel/core@7.26.0)(eslint@7.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
+  '@storybook/builder-vite@0.4.2(@vitejs/plugin-react@4.3.4(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0)))(eslint@7.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.5(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.2.1(typescript@4.9.5)(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
       '@storybook/core-common': 6.5.16(eslint@7.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
-      '@storybook/mdx1-csf': 0.0.4(@babel/core@7.26.0)(react@18.3.1)
+      '@storybook/mdx1-csf': 1.0.0-next.0(react@18.3.1)
       '@storybook/node-logger': 6.5.16
       '@storybook/semver': 7.3.2
       '@storybook/source-loader': 6.5.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@vitejs/plugin-react': 2.2.0(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
       ast-types: 0.14.2
       es-module-lexer: 0.9.3
       glob: 7.2.3
@@ -10194,8 +10200,9 @@ snapshots:
       slash: 3.0.0
       sveltedoc-parser: 4.2.1
       vite: 6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0)
+    optionalDependencies:
+      '@vitejs/plugin-react': 4.3.4(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))
     transitivePeerDependencies:
-      - '@babel/core'
       - eslint
       - react
       - react-dom
@@ -10231,7 +10238,7 @@ snapshots:
       case-sensitive-paths-webpack-plugin: 2.4.0
       core-js: 3.39.0
       css-loader: 3.6.0(webpack@4.47.0)
-      file-loader: 6.2.0(webpack@4.47.0)
+      file-loader: 6.2.0(webpack@5.97.1(@swc/core@1.10.4(@swc/helpers@0.4.37)))
       find-up: 5.0.0
       fork-ts-checker-webpack-plugin: 4.1.6(eslint@7.32.0)(typescript@4.9.5)(webpack@4.47.0)
       glob: 7.2.3
@@ -10596,7 +10603,7 @@ snapshots:
       core-js: 3.39.0
       css-loader: 3.6.0(webpack@4.47.0)
       express: 4.21.2
-      file-loader: 6.2.0(webpack@5.97.1(@swc/core@1.10.4(@swc/helpers@0.4.37)))
+      file-loader: 6.2.0(webpack@4.47.0)
       find-up: 5.0.0
       fs-extra: 9.1.0
       html-webpack-plugin: 4.5.2(webpack@4.47.0)
@@ -10644,22 +10651,11 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@storybook/mdx1-csf@0.0.4(@babel/core@7.26.0)(react@18.3.1)':
+  '@storybook/mdx1-csf@1.0.0-next.0(react@18.3.1)':
     dependencies:
-      '@babel/generator': 7.26.3
-      '@babel/parser': 7.26.3
-      '@babel/preset-env': 7.26.0(@babel/core@7.26.0)
-      '@babel/types': 7.26.3
       '@mdx-js/mdx': 1.6.22
       '@mdx-js/react': 1.6.22(react@18.3.1)
-      '@types/lodash': 4.17.13
-      js-string-escape: 1.0.1
-      loader-utils: 2.0.4
-      lodash: 4.17.21
-      prettier: 2.3.0
-      ts-dedent: 2.2.0
     transitivePeerDependencies:
-      - '@babel/core'
       - react
       - supports-color
 
@@ -11272,19 +11268,6 @@ snapshots:
       '@typescript-eslint/types': 5.62.0
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react@2.2.0(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
-    dependencies:
-      '@babel/core': 7.26.0
-      '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.0)
-      '@babel/plugin-transform-react-jsx-development': 7.25.9(@babel/core@7.26.0)
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
-      magic-string: 0.26.7
-      react-refresh: 0.14.2
-      vite: 6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0)
-    transitivePeerDependencies:
-      - supports-color
-
   '@vitejs/plugin-react@4.3.4(vite@6.0.6(@types/node@18.19.68)(jiti@2.4.2)(terser@5.37.0))':
     dependencies:
       '@babel/core': 7.26.0
@@ -11561,7 +11544,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.3.4
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -13647,7 +13630,7 @@ snapshots:
       eslint-scope: 7.2.2
       eslint-utils: 3.0.0(eslint@8.4.1)
       eslint-visitor-keys: 3.4.3
-      espree: 9.2.0
+      espree: 9.6.1
       esquery: 1.6.0
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
@@ -15360,6 +15343,10 @@ snapshots:
   magic-string@0.26.7:
     dependencies:
       sourcemap-codec: 1.4.8
+
+  magic-string@0.27.0:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   magic-string@0.30.17:
     dependencies:

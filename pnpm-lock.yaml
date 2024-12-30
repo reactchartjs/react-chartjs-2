@@ -102,8 +102,8 @@ importers:
         specifier: ^2.0.0
         version: 2.2.0(chart.js@4.4.7)
       clean-publish:
-        specifier: ^4.0.0
-        version: 4.4.0
+        specifier: ^5.0.0
+        version: 5.1.0
       commitizen:
         specifier: ^4.2.4
         version: 4.3.1(@types/node@18.19.68)(typescript@4.9.5)
@@ -3210,9 +3210,9 @@ packages:
     resolution: {integrity: sha512-EJUDT7nDVFDvaQgAo2G/PJvxmp1o/c6iXLbswsBbUFXi1Nr+AjA2cKmfbKDMjMvzEe75g3P6JkaDDAKk96A85A==}
     engines: {node: '>= 4.0'}
 
-  clean-publish@4.4.0:
-    resolution: {integrity: sha512-wAJxoegQKPN/BhAp1cOb7XID5Q3LBMpMUOmLjr1zWUwOOR7QDM+3zN3ViJQVAy4WbCXLI8bTJrFglIO1ldkE0g==}
-    engines: {node: '>= 16.0.0'}
+  clean-publish@5.1.0:
+    resolution: {integrity: sha512-Gbz8x7sL/sn0j+2B+yYEumD17WmPT6pHLN+A5nhcd0Sdh86EYblQleU+dUIICXVFalFMFBdW2aGynrVJ6k1u4Q==}
+    engines: {node: '>= 18.0.0'}
     hasBin: true
 
   clean-stack@2.2.0:
@@ -12373,7 +12373,7 @@ snapshots:
     dependencies:
       source-map: 0.6.1
 
-  clean-publish@4.4.0:
+  clean-publish@5.1.0:
     dependencies:
       cross-spawn: 7.0.6
       fast-glob: 3.3.2

@@ -113,7 +113,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-test-renderer": "^18.0.0",
-    "rollup": "^3.3.0",
+    "rollup": "^4.0.0",
     "rollup-plugin-swc3": "^0.12.0",
     "simple-git-hooks": "^2.6.1",
     "simple-github-release": "^1.0.0",

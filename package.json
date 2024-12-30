@@ -71,7 +71,7 @@
     "@storybook/addon-controls": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
     "@storybook/addons": "^6.3.12",
-    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/builder-vite": "^0.4.0",
     "@storybook/client-api": "^6.5.13",
     "@storybook/client-logger": "^6.5.13",
     "@storybook/react": "^6.3.12",

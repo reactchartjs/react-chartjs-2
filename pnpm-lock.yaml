@@ -180,8 +180,8 @@ importers:
         specifier: ^9.3.1
         version: 9.5.0
       tsd:
-        specifier: ^0.25.0
-        version: 0.25.0
+        specifier: ^0.31.0
+        version: 0.31.2
       typescript:
         specifier: ^4.9.4
         version: 4.9.5
@@ -2139,8 +2139,9 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@tsd/typescript@4.9.5':
-    resolution: {integrity: sha512-+UgxOvJUl5rQdPFSSOOwhmSmpThm8DJ3HwHxAOq5XYe7CcmG1LcM2QeqWwILzUIT5tbeMqY8qABiCsRtIjk/2g==}
+  '@tsd/typescript@5.4.5':
+    resolution: {integrity: sha512-saiCxzHRhUrRxQV2JhH580aQUZiKQUXI38FcAcikcfOomAil4G4lxT0RfrrKywoAYP/rqAdYXYmNRLppcd+hQQ==}
+    engines: {node: '>=14.17'}
 
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
@@ -7555,8 +7556,8 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tsd@0.25.0:
-    resolution: {integrity: sha512-liUlvKtsdr+70XEZP/kkF6U8+Q9URZi4Pw58ih7a9x3kjJblG8rdVgvG62xcvkgRva1q3yWX5qAxfYZuYiC5CA==}
+  tsd@0.31.2:
+    resolution: {integrity: sha512-VplBAQwvYrHzVihtzXiUVXu5bGcr7uH1juQZ1lmKgkuGNGT+FechUCqmx9/zk7wibcqR2xaNEwCkDyKh+VVZnQ==}
     engines: {node: '>=14.16'}
     hasBin: true
 
@@ -10934,7 +10935,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsd/typescript@4.9.5': {}
+  '@tsd/typescript@5.4.5': {}
 
   '@types/aria-query@5.0.4': {}
 
@@ -17595,11 +17596,12 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tsd@0.25.0:
+  tsd@0.31.2:
     dependencies:
-      '@tsd/typescript': 4.9.5
+      '@tsd/typescript': 5.4.5
       eslint-formatter-pretty: 4.1.0
       globby: 11.1.0
+      jest-diff: 29.7.0
       meow: 9.0.0
       path-exists: 4.0.0
       read-pkg-up: 7.0.1

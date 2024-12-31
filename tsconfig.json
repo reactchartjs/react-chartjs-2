@@ -28,6 +28,7 @@
       "esnext"
     ],
     "target": "ESNext",
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     /* Completeness */
     "skipLibCheck": true
   },

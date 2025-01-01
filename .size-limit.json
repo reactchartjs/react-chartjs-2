@@ -1,13 +1,13 @@
 [
   {
     "path": "dist/index.js",
-    "limit": "1.6 KB",
+    "limit": "1.4 KB",
     "webpack": false,
     "running": false
   },
   {
     "path": "dist/index.js",
-    "limit": "800 B",
+    "limit": "590 B",
     "import": "{ Chart }"
   }
 ]

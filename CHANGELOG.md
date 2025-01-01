@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.2.0...v5.3.0) (2025-01-01)
+
+
+### Features
+
+* support react 19 ([#1236](https://github.com/reactchartjs/react-chartjs-2/issues/1236)) ([055b601](https://github.com/reactchartjs/react-chartjs-2/commit/055b601f22da8aac8c04a37cba16d48d8e4914ee))
+
+
+### Bug Fixes
+
+* docs typo ([#1202](https://github.com/reactchartjs/react-chartjs-2/issues/1202)) ([65b68c6](https://github.com/reactchartjs/react-chartjs-2/commit/65b68c6cf177fb98636876af3b0b96ffcd0ce483))
+
 ## [5.2.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.1.0...v5.2.0) (2023-01-09)
 
 

@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'happy-dom',
-    setupFiles: ['test/setup.js'],
+    setupFiles: ['test/setup.ts'],
     server: {
       deps: {
         inline: ['vitest-canvas-mock'],

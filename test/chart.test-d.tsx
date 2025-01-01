@@ -1,7 +1,7 @@
 import { expectError } from 'tsd';
 import React from 'react';
 import type { Plugin } from 'chart.js';
-import { Chart, Scatter, Doughnut } from '../src';
+import { Chart, Scatter, Doughnut } from '../src/index.js';
 
 const data = {
   datasets: [],

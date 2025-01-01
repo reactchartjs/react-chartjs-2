@@ -2,9 +2,6 @@ const path = require('path');
 const { mergeConfig } = require('vite');
 
 module.exports = {
-  core: {
-    builder: '@storybook/builder-vite',
-  },
   viteFinal(config) {
     return mergeConfig(config, {
       resolve: {
@@ -20,4 +17,9 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-actions',
   ],
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docs: {},
 };

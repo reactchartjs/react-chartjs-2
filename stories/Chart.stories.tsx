@@ -1,5 +1,5 @@
 import React, {
-  MouseEvent,
+  type MouseEvent,
   useRef,
   useState,
   useEffect,

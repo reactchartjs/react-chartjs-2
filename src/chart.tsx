@@ -14,7 +14,7 @@ import {
 function ChartComponent<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(
   props: ChartProps<TType, TData, TLabel>,
   ref: ForwardedRef<ChartJS<TType, TData, TLabel>>

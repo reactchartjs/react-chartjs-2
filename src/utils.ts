@@ -23,7 +23,7 @@ export function reforwardRef<T>(ref: ForwardedRef<T>, value: T) {
 export function setOptions<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(chart: Chart<TType, TData, TLabel>, nextOptions: ChartOptions<TType>) {
   const options = chart.options;
 
@@ -35,7 +35,7 @@ export function setOptions<
 export function setLabels<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(
   currentData: ChartData<TType, TData, TLabel>,
   nextLabels: TLabel[] | undefined
@@ -46,7 +46,7 @@ export function setLabels<
 export function setDatasets<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(
   currentData: ChartData<TType, TData, TLabel>,
   nextDatasets: ChartDataset<TType, TData>[],
@@ -83,7 +83,7 @@ export function setDatasets<
 export function cloneData<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
-  TLabel = unknown
+  TLabel = unknown,
 >(data: ChartData<TType, TData, TLabel>, datasetIdKey = defaultDatasetIdKey) {
   const nextData: ChartData<TType, TData, TLabel> = {
     labels: [],

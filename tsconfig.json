@@ -10,13 +10,12 @@
     "noUnusedParameters": true,
     /* Modules */
     "baseUrl": ".",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     /* Emit */
     "declaration": true,
     "declarationMap": true,
-    "importsNotUsedAsValues": "error",
     "inlineSourceMap": true,
     "outDir": "dist",
     /* Interop Constraints */

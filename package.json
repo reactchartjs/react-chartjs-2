@@ -92,7 +92,7 @@
     "browserslist": "^4.24.2",
     "chart.js": "^4.4.7",
     "chartjs-adapter-date-fns": "^3.0.0",
-    "chartjs-plugin-annotation": "^2.0.1",
+    "chartjs-plugin-annotation": "^3.1.0",
     "chartjs-plugin-zoom": "^2.2.0",
     "clean-publish": "^5.0.0",
     "commitizen": "^4.2.4",

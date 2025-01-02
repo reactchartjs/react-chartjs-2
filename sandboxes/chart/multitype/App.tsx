@@ -12,7 +12,7 @@ import {
   BarController,
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 ChartJS.register(
   LinearScale,

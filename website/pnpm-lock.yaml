@@ -21,8 +21,8 @@ importers:
         specifier: ^2.0.0-beta.9
         version: 2.4.3(@algolia/client-search@4.24.0)(@docusaurus/types@2.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)
       '@mdx-js/react':
-        specifier: ^1.6.21
-        version: 1.6.22(react@18.3.1)
+        specifier: ^3.0.0
+        version: 3.1.1(@types/react@18.3.18)(react@18.3.1)
       '@svgr/webpack':
         specifier: ^6.0.0
         version: 6.5.1
@@ -1083,6 +1083,12 @@ packages:
     peerDependencies:
       react: ^16.13.1 || ^17.0.0
 
+  '@mdx-js/react@3.1.1':
+    resolution: {integrity: sha512-f++rKLQgUVYDAtECQ6fn/is15GkEH9+nZPM3MS0RcxVqoTfawHvDlSCH7JbMhAM6uJ32v3eXLvLmLvjGu7PTQw==}
+    peerDependencies:
+      '@types/react': '>=16'
+      react: '>=16'
+
   '@mdx-js/runtime@1.6.22':
     resolution: {integrity: sha512-p17spaO2+55VLCuxXA3LVHC4phRx60NR2XMdZ+qgVU1lKvEX4y88dmFNOzGDCPLJ03IZyKrJ/rPWWRiBrd9JrQ==}
     engines: {node: '>=8'}
@@ -1278,6 +1284,9 @@ packages:
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
+
+  '@types/mdx@2.0.13':
+    resolution: {integrity: sha512-+OWZQfAYyio6YkJb3HLxDrvnx6SWWDbC0zVPfBRzUk0/nqoDyf6dNxQi3eArPe8rJ473nobTMQ/8Zk+LxJ+Yuw==}
 
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
@@ -7094,6 +7103,12 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  '@mdx-js/react@3.1.1(@types/react@18.3.18)(react@18.3.1)':
+    dependencies:
+      '@types/mdx': 2.0.13
+      '@types/react': 18.3.18
+      react: 18.3.1
+
   '@mdx-js/runtime@1.6.22(react@18.3.1)':
     dependencies:
       '@mdx-js/mdx': 1.6.22
@@ -7318,6 +7333,8 @@ snapshots:
   '@types/mdast@3.0.15':
     dependencies:
       '@types/unist': 2.0.11
+
+  '@types/mdx@2.0.13': {}
 
   '@types/mime@1.3.5': {}
 

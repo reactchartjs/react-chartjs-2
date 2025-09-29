@@ -61,8 +61,8 @@ importers:
         specifier: 2.0.0-beta.14
         version: 2.0.0-beta.14
       '@tsconfig/docusaurus':
-        specifier: ^1.0.4
-        version: 1.0.7
+        specifier: ^2.0.0
+        version: 2.0.3
       '@types/react':
         specifier: ^18.0.0
         version: 18.3.18
@@ -1216,8 +1216,8 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@tsconfig/docusaurus@1.0.7':
-    resolution: {integrity: sha512-ffTXxGIP/IRMCjuzHd6M4/HdIrw1bMfC7Bv8hMkTadnePkpe0lG0oDSdbRpSDZb2rQMAgpbWiR10BvxvNYwYrg==}
+  '@tsconfig/docusaurus@2.0.3':
+    resolution: {integrity: sha512-3l1L5PzWVa7l0691TjnsZ0yOIEwG9DziSqu5IPZPlI5Dowi7z42cEym8Y35GHbgHvPcBfNxfrbxm7Cncn4nByQ==}
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
@@ -7406,7 +7406,7 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@tsconfig/docusaurus@1.0.7': {}
+  '@tsconfig/docusaurus@2.0.3': {}
 
   '@types/body-parser@1.19.5':
     dependencies:

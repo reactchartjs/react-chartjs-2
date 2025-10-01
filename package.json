@@ -82,7 +82,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/faker": "^5.5.8",
-    "@types/node": "^18.0.0",
+    "@types/node": "^22.0.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@typescript-eslint/eslint-plugin": "^8.18.0",

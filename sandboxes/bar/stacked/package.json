@@ -14,7 +14,7 @@
     "@types/faker": "5.5.9",
     "@types/react": "18.3.25",
     "@types/react-dom": "18.3.7",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
     "typescript": "4.9.5",
     "vite": "^7.0.0"
   }

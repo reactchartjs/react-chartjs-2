@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@algolia/client-search':
-        specifier: ^4.11.0
-        version: 4.24.0
+        specifier: ^5.0.0
+        version: 5.18.0
       '@docusaurus/core':
         specifier: 2.0.0-beta.14
         version: 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
       '@docusaurus/preset-classic':
         specifier: 2.0.0-beta.14
-        version: 2.0.0-beta.14(@algolia/client-search@4.24.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)
+        version: 2.0.0-beta.14(@algolia/client-search@5.18.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)
       '@docusaurus/theme-search-algolia':
         specifier: ^2.0.0-beta.9
-        version: 2.4.3(@algolia/client-search@4.24.0)(@docusaurus/types@2.0.0-beta.14)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)
+        version: 2.4.3(@algolia/client-search@5.18.0)(@docusaurus/types@2.0.0-beta.14)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)
       '@mdx-js/react':
         specifier: ^1.6.21
         version: 1.6.22(react@18.3.1)
@@ -5050,32 +5050,32 @@ packages:
 
 snapshots:
 
-  '@algolia/autocomplete-core@1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)(search-insights@2.17.3)':
+  '@algolia/autocomplete-core@1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)(search-insights@2.17.3)':
     dependencies:
-      '@algolia/autocomplete-plugin-algolia-insights': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)(search-insights@2.17.3)
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)
+      '@algolia/autocomplete-plugin-algolia-insights': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)(search-insights@2.17.3)
+      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
       - search-insights
 
-  '@algolia/autocomplete-plugin-algolia-insights@1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)(search-insights@2.17.3)':
+  '@algolia/autocomplete-plugin-algolia-insights@1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)(search-insights@2.17.3)':
     dependencies:
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)
+      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)
       search-insights: 2.17.3
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
 
-  '@algolia/autocomplete-preset-algolia@1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)':
+  '@algolia/autocomplete-preset-algolia@1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)':
     dependencies:
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)
-      '@algolia/client-search': 4.24.0
+      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)
+      '@algolia/client-search': 5.18.0
       algoliasearch: 5.18.0
 
-  '@algolia/autocomplete-shared@1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)':
+  '@algolia/autocomplete-shared@1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)':
     dependencies:
-      '@algolia/client-search': 4.24.0
+      '@algolia/client-search': 5.18.0
       algoliasearch: 5.18.0
 
   '@algolia/cache-browser-local-storage@4.24.0':
@@ -6038,10 +6038,10 @@ snapshots:
 
   '@docsearch/css@3.8.2': {}
 
-  '@docsearch/react@3.8.2(@algolia/client-search@4.24.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)':
+  '@docsearch/react@3.8.2(@algolia/client-search@5.18.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)':
     dependencies:
-      '@algolia/autocomplete-core': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)(search-insights@2.17.3)
-      '@algolia/autocomplete-preset-algolia': 1.17.7(@algolia/client-search@4.24.0)(algoliasearch@5.18.0)
+      '@algolia/autocomplete-core': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)(search-insights@2.17.3)
+      '@algolia/autocomplete-preset-algolia': 1.17.7(@algolia/client-search@5.18.0)(algoliasearch@5.18.0)
       '@docsearch/css': 3.8.2
       algoliasearch: 5.18.0
     optionalDependencies:
@@ -6788,7 +6788,7 @@ snapshots:
       - webpack
       - webpack-cli
 
-  '@docusaurus/preset-classic@2.0.0-beta.14(@algolia/client-search@4.24.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)':
+  '@docusaurus/preset-classic@2.0.0-beta.14(@algolia/client-search@5.18.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)':
     dependencies:
       '@docusaurus/core': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
       '@docusaurus/plugin-content-blog': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
@@ -6799,7 +6799,7 @@ snapshots:
       '@docusaurus/plugin-google-gtag': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(webpack@5.97.1)
       '@docusaurus/plugin-sitemap': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(webpack@5.97.1)
       '@docusaurus/theme-classic': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)(webpack@5.97.1)
-      '@docusaurus/theme-search-algolia': 2.0.0-beta.14(@algolia/client-search@4.24.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)
+      '@docusaurus/theme-search-algolia': 2.0.0-beta.14(@algolia/client-search@5.18.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
@@ -6939,9 +6939,9 @@ snapshots:
       - vue-template-compiler
       - webpack-cli
 
-  '@docusaurus/theme-search-algolia@2.0.0-beta.14(@algolia/client-search@4.24.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)':
+  '@docusaurus/theme-search-algolia@2.0.0-beta.14(@algolia/client-search@5.18.0)(@types/react@18.3.18)(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)(webpack@5.97.1)':
     dependencies:
-      '@docsearch/react': 3.8.2(@algolia/client-search@4.24.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)
+      '@docsearch/react': 3.8.2(@algolia/client-search@5.18.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)
       '@docusaurus/core': 2.0.0-beta.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
       '@docusaurus/logger': 2.0.0-beta.14
       '@docusaurus/theme-common': 2.0.0-beta.14(prism-react-renderer@1.3.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
@@ -6977,9 +6977,9 @@ snapshots:
       - webpack
       - webpack-cli
 
-  '@docusaurus/theme-search-algolia@2.4.3(@algolia/client-search@4.24.0)(@docusaurus/types@2.0.0-beta.14)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)':
+  '@docusaurus/theme-search-algolia@2.4.3(@algolia/client-search@5.18.0)(@docusaurus/types@2.0.0-beta.14)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@4.9.5)':
     dependencies:
-      '@docsearch/react': 3.8.2(@algolia/client-search@4.24.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)
+      '@docsearch/react': 3.8.2(@algolia/client-search@5.18.0)(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)
       '@docusaurus/core': 2.4.3(@docusaurus/types@2.0.0-beta.14)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
       '@docusaurus/logger': 2.4.3
       '@docusaurus/plugin-content-docs': 2.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)

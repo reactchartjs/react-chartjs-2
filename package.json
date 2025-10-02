@@ -97,7 +97,7 @@
     "clean-publish": "^5.0.0",
     "commitizen": "^4.2.4",
     "date-fns": "^2.25.0",
-    "del-cli": "^6.0.0",
+    "del-cli": "^7.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",

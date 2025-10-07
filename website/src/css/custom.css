@@ -44,3 +44,13 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
     max-width: 2440px;
   }
 }
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#eab {
+  margin: calc(var(--ifm-menu-link-padding-horizontal) + 0.5rem) 0 0 -0.5rem;
+}

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import { useColorMode } from '@docusaurus/theme-common';
 
 interface IContext {
   branch: string;
@@ -13,10 +13,10 @@ export default function ContextProvider({
   children(context: IContext): ReactNode;
 }) {
   const ctx = useDocusaurusContext();
-  const { isDarkTheme } = useThemeContext();
+  const { colorMode } = useColorMode();
   const context = {
     branch: ctx.siteConfig.customFields.branch as string,
-    theme: isDarkTheme ? ('dark' as const) : ('light' as const),
+    theme: colorMode === 'dark' ? ('dark' as const) : ('light' as const),
   };
 
   return children(context);

@@ -13,7 +13,11 @@ const config = {
   url: 'https://react-chartjs-2.js.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'img/favicon.ico',
   organizationName: 'reactchartjs',
   projectName: 'react-chartjs-2',

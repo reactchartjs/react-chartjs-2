@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/pkg/dist-src/hooks/useDynamicImport';
+import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/useDynamicImport';
 
 function clean(description: string) {
   return description.replace(/\n@.*/g, '');

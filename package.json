@@ -108,7 +108,7 @@
     "eslint-plugin-promise": "^7.0.0",
     "eslint-plugin-react": "^7.17.0",
     "faker": "^5.5.3",
-    "happy-dom": "^16.1.0",
+    "happy-dom": "^20.0.0",
     "nano-staged": "^0.8.0",
     "prettier": "^3.4.2",
     "react": "^19.0.0",

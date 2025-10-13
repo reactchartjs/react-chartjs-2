@@ -55,6 +55,9 @@ function setColorMode(banner, colorMode) {
 export default function DocSidebar(props) {
   const bannerRef = useRef();
   const { colorMode } = useColorMode();
+  const colorModeRef = useRef(colorMode);
+
+  colorModeRef.current = colorMode;
 
   useEffect(() => {
     if (!document.getElementById('bwndw')) {
@@ -63,7 +66,7 @@ export default function DocSidebar(props) {
           const root = document.querySelector('.theme-doc-sidebar-menu')?.parentElement;
 
           bannerRef.current = useFallback ? createCarbonAdsBlock(root) : createEthicalAdsBlock(root);
-          setColorMode(bannerRef.current, colorMode);
+          setColorMode(bannerRef.current, colorModeRef.current);
         }
       });
     }

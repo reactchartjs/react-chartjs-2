@@ -1,17 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import OriginalDocSidebar from '@theme-original/DocSidebar';
+import Cookies from 'js-cookie';
+
+const COOKIE_NAME = 'bwndw_fallback_cached';
+const COOKIE_DURATION = 28; // days (4 weeks)
 
 async function shouldUseFallback() {
-  return true; // Temporarily disable EthicalAds
+  const cached = Cookies.get(COOKIE_NAME);
+
+  if (cached !== undefined) {
+    return cached === 'true';
+  }
 
   while (typeof ethicalads === 'undefined') {
     await new Promise((resolve) => setTimeout(resolve, 300));
   }
 
   const placements = await ethicalads.wait;
+  const useFallback = !placements.length || placements[0].response.campaign_type !== 'paid';
 
-  return !placements.length || placements[0].response.campaign_type !== 'paid';
+  Cookies.set(COOKIE_NAME, useFallback.toString(), {
+    expires: COOKIE_DURATION,
+    sameSite: 'lax'
+  });
+
+  return useFallback;
 }
 
 function createEthicalAdsBlock(root) {

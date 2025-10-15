@@ -27,6 +27,7 @@
     "docusaurus-plugin-react-docgen-typescript": "^1.3.0",
     "file-loader": "^6.2.0",
     "git-branch": "^2.0.1",
+    "js-cookie": "^3.0.5",
     "prism-react-renderer": "^1.3.5",
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",

@@ -31,12 +31,7 @@ const config = {
     {
       src: 'https://cloud.umami.is/script.js',
       'data-website-id': 'c15ead0d-e003-4fe0-8647-ddf0b560e38c',
-      defer: true,
-    },
-    {
-      src: 'https://media.ethicalads.io/media/client/ethicalads.min.js',
-      async: true,
-      type: 'text/javascript',
+      defer: true
     }
   ],
 

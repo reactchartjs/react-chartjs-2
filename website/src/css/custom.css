@@ -51,6 +51,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   justify-content: space-between;
 }
 
+#bwndw {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+
+  &.bwndw-loading {
+    opacity: 0;
+  }
+}
+
 .eab {
   margin: calc(var(--ifm-menu-link-padding-horizontal) + 0.5rem) 0 0 -0.5rem;
 }

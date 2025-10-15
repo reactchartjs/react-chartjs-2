@@ -6,32 +6,49 @@ import Cookies from 'js-cookie';
 const COOKIE_NAME = 'bwndw_fallback_cached';
 const COOKIE_DURATION = 28; // days (4 weeks)
 
-async function shouldUseFallback() {
-  const cached = Cookies.get(COOKIE_NAME);
-
-  if (cached !== undefined) {
-    return cached === 'true';
-  }
-
-  while (typeof ethicalads === 'undefined') {
-    await new Promise((resolve) => setTimeout(resolve, 300));
-  }
-
-  const placements = await ethicalads.wait;
-  const useFallback = !placements.length || placements[0].response.campaign_type !== 'paid';
-
-  Cookies.set(COOKIE_NAME, useFallback.toString(), {
+function saveUseFallback(value) {
+  Cookies.set(COOKIE_NAME, value.toString(), {
     expires: COOKIE_DURATION,
     sameSite: 'lax'
   });
+}
 
-  return useFallback;
+function readUseFallback() {
+  const cached = Cookies.get(COOKIE_NAME);
+
+  return cached === undefined
+    ? null
+    : cached === 'true';
+}
+
+let scriptPromise = null;
+
+async function loadEthicalAdsScript() {
+  let script = document.getElementById('ethical-script');
+
+  if (!script) {
+    script = document.createElement('script');
+    script.id = 'ethical-script';
+    script.src = 'https://media.ethicalads.io/media/client/ethicalads.min.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    scriptPromise = (async () => {
+      while (typeof ethicalads === 'undefined') {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+
+      return (await ethicalads.wait) || [];
+    })()
+  }
+
+  return scriptPromise
 }
 
 function createEthicalAdsBlock(root) {
   const banner = document.createElement('div');
 
-  banner.className = 'eab flat horizontal'
+  banner.className = 'eab flat horizontal bwndw-loading'
   banner.id = 'bwndw';
   banner.setAttribute('data-ea-publisher', 'react-chartjs-2jsorg');
   banner.setAttribute('data-ea-type', 'image');
@@ -39,7 +56,7 @@ function createEthicalAdsBlock(root) {
   root?.appendChild(banner);
 
   if (typeof ethicalads !== 'undefined') {
-    ethicalads.reload();
+    ethicalads.load();
   }
 
   return banner;
@@ -49,7 +66,7 @@ function createCarbonAdsBlock(root) {
   const banner = document.createElement('div');
   const script = document.createElement('script');
 
-  banner.className = 'crbn';
+  banner.className = 'crbn bwndw-loading';
   banner.id = 'bwndw';
 
   script.src = '//cdn.carbonads.com/carbon.js?serve=CWBDT53N&placement=react-chartjs-2jsorg&format=cover';
@@ -75,14 +92,36 @@ export default function DocSidebar(props) {
 
   useEffect(() => {
     if (!document.getElementById('bwndw')) {
-      shouldUseFallback().then((useFallback) => {
-        if (!document.getElementById('bwndw')) {
-          const root = document.querySelector('.theme-doc-sidebar-menu')?.parentElement;
+      const root = document.querySelector('.theme-doc-sidebar-menu')?.parentElement;
+      let banner
+      const showBanner = () => {
+        setColorMode(banner, colorModeRef.current);
+        bannerRef.current = banner;
+        banner.classList.remove('bwndw-loading');
+      }
+      const cachedUseFallback = readUseFallback();
 
-          bannerRef.current = useFallback ? createCarbonAdsBlock(root) : createEthicalAdsBlock(root);
-          setColorMode(bannerRef.current, colorModeRef.current);
-        }
-      });
+      if (cachedUseFallback === true) {
+        banner = createCarbonAdsBlock(root);
+        showBanner();
+      } else {
+        banner = createEthicalAdsBlock(root);
+
+        loadEthicalAdsScript().then((placements) => {
+          if (cachedUseFallback === null) {
+            const useFallback = !placements.length || placements[0].response.campaign_type !== 'paid';
+
+            if (useFallback) {
+              banner.remove();
+              banner = createCarbonAdsBlock(root);
+            }
+
+            saveUseFallback(useFallback);
+          }
+
+          showBanner();
+        })
+      }
     }
   }, []);
 

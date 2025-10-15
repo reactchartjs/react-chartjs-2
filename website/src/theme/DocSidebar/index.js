@@ -3,7 +3,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 import OriginalDocSidebar from '@theme-original/DocSidebar';
 import Cookies from 'js-cookie';
 
-const COOKIE_NAME = 'bwndw_fallback_cached';
+const COOKIE_NAME = 'bwndw_cached_use_fallback';
 const COOKIE_DURATION = 28; // days (4 weeks)
 
 function saveUseFallback(value) {

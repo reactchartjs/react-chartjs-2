@@ -48,10 +48,16 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+@media (width >= 997px) {
+  .menu {
+    justify-content: space-between;
+  }
 }
 
 #bwndw {
+  order: 2;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 

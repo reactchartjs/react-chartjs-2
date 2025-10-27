@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.1](https://github.com/reactchartjs/react-chartjs-2/compare/v5.3.0...v5.3.1) (2025-10-27)
+
+### Bug Fixes
+
+* **deps:** update dependency @algolia/client-search to v5 ([#1298](https://github.com/reactchartjs/react-chartjs-2/issues/1298)) ([03e88f2](https://github.com/reactchartjs/react-chartjs-2/commit/03e88f2f29eea21cbbaa898cc95cdfc993f4d3f7))
+* **deps:** update dependency @svgr/webpack to v8 ([#1299](https://github.com/reactchartjs/react-chartjs-2/issues/1299)) ([ca87f1f](https://github.com/reactchartjs/react-chartjs-2/commit/ca87f1f4b71b2ca01d63bcf9da29a2a1839eac02))
+* **deps:** update dependency clsx to v2 ([#1300](https://github.com/reactchartjs/react-chartjs-2/issues/1300)) ([0cd985b](https://github.com/reactchartjs/react-chartjs-2/commit/0cd985b0d4f8011d3820716d80dffb96cc2a1441))
+* **deps:** update react monorepo ([#1281](https://github.com/reactchartjs/react-chartjs-2/issues/1281)) ([cb2a0cd](https://github.com/reactchartjs/react-chartjs-2/commit/cb2a0cd3237b7d1631e8f72c4d036629a392864b))
+* **deps:** update react monorepo to v19 ([#1317](https://github.com/reactchartjs/react-chartjs-2/issues/1317)) ([2445433](https://github.com/reactchartjs/react-chartjs-2/commit/2445433d4749a8ff6fad82a73f23693ccd93d783))
+* use jsx-runtime ([#1309](https://github.com/reactchartjs/react-chartjs-2/issues/1309)) ([b3bd707](https://github.com/reactchartjs/react-chartjs-2/commit/b3bd707cdcf7793454775365468973f7ed795beb))
+
 ## [5.3.0](https://github.com/reactchartjs/react-chartjs-2/compare/v5.2.0...v5.3.0) (2025-01-01)
 
 

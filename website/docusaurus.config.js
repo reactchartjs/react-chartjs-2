@@ -56,6 +56,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: 'google-site-verification',
+          content: 'JbpBLn9A_qAr4OqSunPoFWeahyME9dMplBMUsaOK_I4'
+        }
+      ],
       navbar: {
         title: 'react-chartjs-2',
         logo: {

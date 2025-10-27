@@ -1,0 +1,9 @@
+{
+  "project": "@simple-release/pnpm#PnpmProject",
+  "releaser": {
+    "verbose": true
+  },
+  "publish": {
+    "access": "public"
+  }
+}

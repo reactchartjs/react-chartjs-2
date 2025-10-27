@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
 import { useDynamicImport } from 'docusaurus-plugin-react-docgen-typescript/useDynamicImport';
 

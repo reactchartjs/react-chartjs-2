@@ -1,4 +1,3 @@
-import React from 'react';
 import 'chart.js/auto';
 import { Bubble } from '../src';
 import { data, options } from '../sandboxes/bubble/default/App';

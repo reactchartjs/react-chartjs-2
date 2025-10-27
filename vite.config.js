@@ -13,6 +13,7 @@ export default defineConfig({
     },
     coverage: {
       reporter: ['lcovonly', 'text'],
+      include: ['src/**/*'],
     },
   },
 });

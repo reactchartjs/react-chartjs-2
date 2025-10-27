@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'chart.js/auto';
 import { Doughnut } from '../src';
 import { data } from '../sandboxes/doughnut/default/App';

@@ -22,7 +22,7 @@
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     /* Language and Environment */
-    "jsx": "react",
+    "jsx": "preserve",
     "lib": [
       "dom",
       "esnext"

@@ -1,4 +1,3 @@
-import React from 'react';
 import 'chart.js/auto';
 import { Line } from '../src';
 import * as defaultLine from '../sandboxes/line/default/App';

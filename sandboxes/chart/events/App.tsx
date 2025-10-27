@@ -2,8 +2,10 @@ import { type MouseEvent, useRef } from 'react';
 import type { InteractionItem } from 'chart.js';
 import {
   Chart as ChartJS,
+  LineController,
   LinearScale,
   CategoryScale,
+  BarController,
   BarElement,
   PointElement,
   LineElement,
@@ -19,8 +21,10 @@ import {
 import faker from 'faker';
 
 ChartJS.register(
+  LineController,
   LinearScale,
   CategoryScale,
+  BarController,
   BarElement,
   PointElement,
   LineElement,

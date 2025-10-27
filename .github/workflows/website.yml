@@ -36,6 +36,15 @@ jobs:
       - name: Install website dependencies
         run: pnpm install
         working-directory: ./website
+      - name: Install sandbox dependencies
+        run: pnpm install
+        working-directory: ./sandboxes
+      - name: Build sandboxes
+        run: pnpm build
+        working-directory: ./sandboxes
+      - name: Copy sandbox examples to website
+        run: node sandboxes.js
+        working-directory: ./website
       - name: Build website
         run: pnpm build
         working-directory: ./website

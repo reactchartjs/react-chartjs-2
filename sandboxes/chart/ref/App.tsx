@@ -1,8 +1,10 @@
 import { useRef, useEffect } from 'react';
 import {
   Chart as ChartJS,
+  LineController,
   LinearScale,
   CategoryScale,
+  BarController,
   BarElement,
   PointElement,
   LineElement,
@@ -13,8 +15,10 @@ import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 
 ChartJS.register(
+  LineController,
   LinearScale,
   CategoryScale,
+  BarController,
   BarElement,
   PointElement,
   LineElement,

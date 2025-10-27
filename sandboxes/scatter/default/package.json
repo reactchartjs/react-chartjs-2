@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "start": "vite"
+    "start": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "chart.js": "^4.0.0",

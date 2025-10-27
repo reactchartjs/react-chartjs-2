@@ -1,0 +1,8 @@
+{
+  "name": "sandboxes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r --parallel build"
+  }
+}

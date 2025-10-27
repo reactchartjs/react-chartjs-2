@@ -3,6 +3,7 @@ import type { ChartData, ChartArea } from 'chart.js';
 import {
   Chart as ChartJS,
   CategoryScale,
+  LineController,
   LinearScale,
   PointElement,
   LineElement,
@@ -13,6 +14,7 @@ import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 
 ChartJS.register(
+  LineController,
   CategoryScale,
   LinearScale,
   PointElement,

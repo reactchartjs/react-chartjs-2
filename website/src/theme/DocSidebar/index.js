@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import OriginalDocSidebar from '@theme-original/DocSidebar';
 import Cookies from 'js-cookie';

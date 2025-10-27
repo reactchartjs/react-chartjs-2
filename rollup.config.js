@@ -17,6 +17,7 @@ const plugins = targets => [
       },
       transform: {
         react: {
+          runtime: 'automatic',
           useBuiltins: true,
         },
       },

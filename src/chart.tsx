@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartType, DefaultDataPoint } from 'chart.js';
 

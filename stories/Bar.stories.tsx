@@ -1,4 +1,3 @@
-import React from 'react';
 import 'chart.js/auto';
 import { Bar } from '../src';
 import * as verticalBar from '../sandboxes/bar/vertical/App';

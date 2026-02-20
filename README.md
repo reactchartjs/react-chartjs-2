@@ -1,5 +1,7 @@
 # react-chartjs-2
 
+[![Deploy on Hostinger](https://assets.hostinger.com/vps/deploy.svg)](https://www.hostinger.com/web-apps-hosting)
+
 <img align="right" width="150" height="150" alt="Logo" src="website/static/img/logo.svg">
 
 React components for <a href="https://www.chartjs.org">Chart.js</a>, the most popular charting library.

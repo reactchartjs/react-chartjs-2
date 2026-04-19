@@ -36,3 +36,8 @@ import { Line } from 'react-chartjs-2';
   }}
 />
 ```
+<img 
+  src="/mnt/data/a_clean_white_background_plot_chart_scene_a_line.png" 
+  alt="Line chart output" 
+  className="w-full h-auto"
+/>

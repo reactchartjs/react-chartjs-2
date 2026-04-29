@@ -91,7 +91,7 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-annotation": "^3.1.0",
     "chartjs-plugin-zoom": "^2.2.0",
-    "clean-publish": "^5.0.0",
+    "clean-publish": "^6.0.0",
     "commitizen": "^4.2.4",
     "date-fns": "^2.25.0",
     "del-cli": "^7.0.0",

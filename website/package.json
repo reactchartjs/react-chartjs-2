@@ -40,7 +40,7 @@
     "@tsconfig/docusaurus": "^2.0.4",
     "@types/react": "^19.0.0",
     "typescript": "^5.0.0",
-    "webpack": "^5.97.1"
+    "webpack": "^5.104.1"
   },
   "browserslist": {
     "production": [

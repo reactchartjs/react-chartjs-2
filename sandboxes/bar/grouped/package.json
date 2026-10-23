@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "chart.js": "^4.0.0",
-    "faker": "5.5.3",
+    "@faker-js/faker": "5.5.3",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.0.0",
     "react-dom": "^19.0.0"
